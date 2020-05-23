@@ -2,10 +2,10 @@ name: publish
 
 on:
   push:
-    branches: [master]
+    # branches: [master] # @todo: uncomment
+    branches: ['**'] # @todo: remove
     tags-ignore: ['**']
-  # @todo: comment this rule
-  pull_request:
+  pull_request: # @todo: comment this rule
 
 env:
   BASE_URL: 'https://tarampampam.github.io/blog/'
