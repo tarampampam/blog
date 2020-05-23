@@ -46,3 +46,5 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           name: content
 
       - run: ls -la
+      - run: pwd
+      - run: git status
