@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>MikroTik — режем рекламу (ADBlock) с помощью DNS - blog [dot] hook</title>
+  
+  <meta name="description" content=" У данного поста имеется продолжение, позволяющее автоматизировать и значительно упростить весь процесс, описанный в этой записи. Располагается оно по этой ссылке.
+ Прочитав пост тов. 4aba о том, как с помощью dnsmasq на прошитом роутере можно вполне успешно резать рекламные баннеры на всех устройствах, которые подключены к нашей точке доступа возник резонный вопрос - а можно ли реализовать аналогичное на маршрутизаторе Mikrotik hAP lite? Железка довольно таки достойная (650MHz @ RAM 32 Mb), но у нас нет полноценного linux-шелла на ней. Оказывается - можно, и результате было реализовано довольно простое, но эффективное решение.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">MikroTik — режем рекламу (ADBlock) с помощью DNS</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-07-22"
+        itemprop="datePublished">2015.7.22</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 3 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/mikrotik-adblock-wide.jpg" itemprop="image" alt="MikroTik — режем рекламу (ADBlock) с помощью DNS" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-07-22">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <blockquote>
+<p>У данного поста имеется продолжение, позволяющее автоматизировать и значительно упростить весь процесс, описанный в этой записи. Располагается оно по <a href="https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/">этой ссылке</a>.</p>
+</blockquote>
+
+<p>Прочитав <a href="https://habr.com/post/263081/">пост</a> тов. <a href="https://habr.com/users/4aba/">4aba</a> о том, как с помощью <code>dnsmasq</code> на прошитом роутере можно вполне успешно резать рекламные баннеры на всех устройствах, которые подключены к нашей точке доступа возник резонный вопрос - а можно ли реализовать аналогичное на маршрутизаторе <strong>Mikrotik hAP lite</strong>? Железка довольно таки достойная (<em>650MHz @ RAM 32 Mb</em>), но у нас нет полноценного linux-шелла на ней. Оказывается - можно, и результате было реализовано довольно простое, но эффективное решение.</p>
+
+<p>Пришлось пойти немного другим путем, а именно - прописать статичные DNS маршруты, которые при запросе &ldquo;рекламного домена&rdquo; переадресовывали наш запрос на <code>127.0.0.1</code>.</p>
+
+<p>Списки &ldquo;рекламных доменов&rdquo; мы возьмем из открытых источников, таких как <a href="http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&amp;#038;showintro=0&amp;#038;mimetype=plaintext">http://pgl.yoyo.org/adservers/</a> и <a href="https://adaway.org/hosts.txt">https://adaway.org/hosts.txt</a> (<em>с легкостью можно изменить на любые другие</em>), приведем их в подобающий вид и оформим в виде скрипта для нашего Mikrotik-а, чтоб с помощью одной команды все их ему и &ldquo;скормить&rdquo;.</p>
+
+<h3 id="получаем-списки">Получаем списки</h3>
+
+<p>Для выполнения этой задачи мы будем использовать linux-шелл. Скачиваем списки, и аккуратно складываем их под именами <code>./hosts_list.1</code>, <code>./hosts_list.2</code> и т.д.:</p>
+
+<pre><code class="language-bash">$ src=('http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&amp;showintro=0&amp;mimetype=plaintext' 'https://adaway.org/hosts.txt'); i=0; for file in ${src[*]}; do i=$((i+1)); wget --no-check-certificate -O &quot;./hosts_list.$i&quot; &quot;$file&quot;; done;
+</code></pre>
+
+<h3 id="приводим-их-в-корректный-для-импорта-формат">Приводим их в корректный для импорта формат</h3>
+
+<p>Грепаем всё что начинается на <code>127.0.0.1&amp;nbsp;</code>, удаляем комментарии, оставляем только имена доменов, убираем дубликаты, убираем пустые строки, и оформляем каждый домен в виде команды для импорта:</p>
+
+<pre><code class="language-bash">$ in=&quot;./hosts_list.*&quot; &amp;&amp; out=&quot;./adblock_dns.rsc&quot; &amp;&amp; host='127.0.0.1'; echo &quot;/ip dns static&quot; &gt; $out &amp;&amp; grep '127.0.0.1 ' $in | grep -v '^#' | cut -d' ' -f 2 | sort -u | grep . | sed &quot;s/^/add address=$host name=/&quot; &gt;&gt; $out &amp;&amp; rm -f $in; wc -l $out;
+</code></pre>
+
+<p>В итоге мы должны увидеть что то в духе <code>2803 ./adblock_dns.rsc</code>, для достоверности проверим содержимое:</p>
+
+<pre><code class="language-bash">$ head ./adblock_dns.rsc
+/ip dns static
+add address=127.0.0.1 name=101com.com
+add address=127.0.0.1 name=101order.com
+add address=127.0.0.1 name=123found.com
+add address=127.0.0.1 name=123pagerank.com
+add address=127.0.0.1 name=180hits.de
+add address=127.0.0.1 name=180searchassistant.com
+add address=127.0.0.1 name=1x1rank.com
+add address=127.0.0.1 name=207.net
+add address=127.0.0.1 name=247media.com
+</code></pre>
+
+<h3 id="внедряем-маршруты">Внедряем маршруты</h3>
+
+<p>Полученный файл <code>adblock_dns.rsc</code> заливаем по <code>ftp</code> на железку, и в её терминале выполняем:</p>
+
+<pre><code class="language-bash"># грохаем все имеющиеся записи в таблице статических DNS маршрутов
+[admin@router] &gt; /ip dns static remove [/ip dns static find]
+# Импортируем загруженный файл
+[admin@router] &gt; /import adblock_dns.rsc
+# Убираем за собой
+[admin@router] &gt; /file remove adblock_dns.rsc
+</code></pre>
+
+<p>Итого у нас 2802 статических маршрута на <code>loopback</code> в таблице (<em>эмпирически доказано что при импортировании ~5500 записей - железка встает почти колом</em>).</p>
+
+<p>Остается лишь в настройках <code>DHCP</code> (<code>IP</code> &rarr; <code>DHCP Server</code> &rarr; <code>Networks</code> &rarr; <code>%default configuretion%</code> &rarr; <code>DNS Servers</code>) указать первым наш маршрутизатор, и опционально выполнить перезагрузку.</p>
+
+<p>После ребута и тестового прогона на <code>Mikrotik hAP lite</code> спустя пару часов имеем <code>Free Memory 6.0 MiB</code>, <code>CPU Load 0..2%</code> (<em>показатели &ldquo;до&rdquo; замерить забыл, а сейчас уже лень</em>).</p>
+
+<blockquote>
+<p>Как автоматически выполнять аналогичную по смыслу операцию без использования дополнительной машины (только средствами самого микротика) по расписанию - ещё не придумал.</p>
+</blockquote>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ad/">ad</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/mikrotik/">mikrotik</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/script/">script</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

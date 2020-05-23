@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии) - blog [dot] hook</title>
+  
+  <meta name="description" content="После крайних вестей о том, что Windows Update в полу-принудительном порядке поставил пользователям Windows 7/8/8.1 обновления KB3080149 и KB3075249, которые собирают данные телеметрии и отправляют их в M$ - остро почувствовался очередной параноидальный приступ. Передача осуществляется через TCP по порту 443 с использованием SSL.
+&amp;ldquo;Как то не хорошо получается&amp;rdquo; подумал я и накидал небольшой скрипт который несколько автоматизирует:">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии)</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-08-24"
+        itemprop="datePublished">2015.8.24</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 7 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/win7-telemetry-wide.jpg" itemprop="image" alt="Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии)" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-08-24">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>После крайних <a href="https://habr.com/post/265283/">вестей</a> о том, что Windows Update в полу-принудительном порядке поставил пользователям Windows 7/8/8.1 обновления <a href="https://support.microsoft.com/en-us/kb/3080149">KB3080149</a> и <a href="https://support.microsoft.com/en-us/kb/3075249">KB3075249</a>, которые собирают данные телеметрии и отправляют их в M$ - остро почувствовался очередной параноидальный приступ. Передача осуществляется через TCP по порту 443 с использованием SSL.</p>
+
+<p>&ldquo;Как то не хорошо получается&rdquo; подумал я и накидал небольшой скрипт который несколько автоматизирует:</p>
+
+<ul>
+<li>Удаление хреновых апдейтов и их блокирование/сокрытие (_необходим <code>PowerShell</code> с модулем <code>PSWindowsUpdate</code>; ставится <strong>автоматически</strong>; если рядом (_<em>в оной директории</em>) со скриптом находятся файлы <a href="https://www.dropbox.com/s/gxf8d4bg0yyozdh/unzip.exe?dl=1">unzip.exe</a> и <a href="https://www.dropbox.com/s/z61nlkfecmhabil/PSWindowsUpdate.zip?dl=1">PSWindowsUpdate.zip</a> - используются они, иначе же - они скачиваются);</li>
+<li>Блокирует некоторые доменные имена средствами файла хостов (<em>есть мнение, что MS его всё таки игнорирует в данном случае</em>);</li>
+<li>Блокирует запросы к известным на данный момент серверам по IP (<em>как с помощью <code>add route</code>, так и правилом файрвола</em>);</li>
+<li>Отключает задачи планировщика, которые каким-либо образом связаны с передачей &ldquo;аналитической&rdquo; информации (<em>да и не только, полный список смотри в сорце</em>);</li>
+<li>Останавливает и отключает авто-запуск сервисов, которые отвечают за отправку &ldquo;диагностических данных&rdquo;;</li>
+<li>Отключает отправку отчетов об ошибках в M$;</li>
+<li>Настраивает Windows Update на &ldquo;Искать обновления, но решение о скачивании и установки принимается мной&rdquo;.</li>
+</ul>
+
+<p>Его исходник ниже. Возможен запуск с определенными параметрами, их описание в верхней части скрипта. Идея была собрана из самых различных источников, авторы которых остались неизвестны. Необходимо его скачать себе, сохранить с расширением <code>.cmd</code> и запустить с правами администратора:</p>
+
+<script type="application/javascript" src="//gist.github.com/tarampampam/a0db45fb0de5976300b1.js"></script>
+
+<blockquote>
+<p>Внимание! При запуске скрипта в пути до него должны отсутствовать как спецсимволы, так и символ <code>!</code>. Очень желательно запускать просто из корня системного диска.</p>
+</blockquote>
+
+<p>Можно так же (<em>если требуется включенный Windows Update с автоматической установкой обновлений</em>) поставить исполнение скрипта в планировщик заданий с интервалом раз в сутки, например (<em>для запуска в свернутом окне команда запуска может иметь вид <code>cmd /c start /min c:\remove_MS_telemetry.cmd -e</code></em>).</p>
+
+<p>Так же хочу обратить внимание, что со временем данный скрипт будет дорабатываться и дополняться. Самая свежая версия всегда будет доступна как здесь, так и <a href="https://gist.github.com/tarampampam/a0db45fb0de5976300b1">на GitHub</a>.</p>
+
+<h3 id="как-вернуть-всё-как-было-после-запуска-скрипта">Как вернуть всё как было после запуска скрипта?</h3>
+
+<p>Всё предельно просто:</p>
+
+<ul>
+<li><p>Чистим файл хостов:</p>
+
+<pre><code>C:\&gt; notepad %windir%\System32\drivers\etc\hosts
+</code></pre></li>
+
+<li><p>Удаляем правило файрвола:</p>
+
+<pre><code>C:\&gt; netsh advfirewall firewall delete rule name=&quot;Block MS Telemetry&quot;
+</code></pre></li>
+
+<li><p>Восстанавливаем маршруты:</p>
+
+<pre><code>C:\&gt; route -f
+</code></pre></li>
+
+<li><p>После чего отключаем и подключаем обратно сетевое подключение (<code>Панель управления</code> &rarr; <code>Центр управления сетями и общим доступом</code> &rarr; <code>Изменение параметров адаптера</code> &rarr; На нужном подключении <code>Отключить</code> и <code>Подключить</code> обратно)</p></li>
+
+<li><p><code>Панель управления</code> &rarr; <code>Центр обновления Windows</code> &rarr; <code>Восстановить скрытые обновления</code> &rarr; Отметить нужные и жмякнуть <code>Восстановить</code>. После чего <code>Настройка параметров</code> и выставляем необходимые настройки обновлений</p></li>
+</ul>
+
+<blockquote>
+<p>Ахтунг! Иногда сокрытие обновлений длится ну очень долго. Причин тому может быть несколько, как и путей решения. Все они довольно подробно изложены на <a href="https://social.technet.microsoft.com/Forums/windows/en-US/4a782e40-bbd8-40b7-869d-68e3dfd1a5b4/windows-update-scan-high-memory-usage">форме мелкософта</a>. Мне удалось воспроизвести проблему, но решить её на данный момент - нет. Как временное решение - запускать скрипт с флагом <code>-d</code> или <code>-disable</code>, для отключения функционала блокирования/сокрытия обновлений.</p>
+</blockquote>
+
+<h3 id="по-поводу-глюков-скайпа-после-запуска-скрипта">По поводу глюков скайпа после запуска скрипта</h3>
+
+<p>И ещё раз внимание! Если у вас ранее после запуска скрипта &ldquo;глючил скайп&rdquo;, то вам необходимо ручками подчистить файл хостов перед запуском обновленной версии скрипта (в котором эта проблема вроде как решена). Как это сделать? Жмем <code>Windows + R</code>, вводим <code>notepad %windir%\System32\drivers\etc\hosts</code>, и удаляем всё что ниже строки <code>## Block MS telemetry domain names</code>. Автоматизировать этот процесс меня дико ломает :)</p>
+
+<h1 id="скрипт-мной-более-не-поддерживается-обновлений-ждать-нет-смысла-всем-мур">Скрипт мной более не поддерживается. Обновлений ждать нет смысла. Всем мур.</h1>
+
+<h3 id="changelog">Changelog</h3>
+
+<h4 id="версия-0-2-14-от-16-02-2016">Версия <code>0.2.14</code> от <code>16.02.2016</code></h4>
+
+<ul>
+<li>Добавлены обновления <code>3135445</code>, <code>3123862</code></li>
+<li>Убран из блокировки хосты <code>apps.skype.com</code>, <code>ui.skype.com</code>, <code>m.hotmail.com</code>, <code>s.gateway.messenger.live.com</code> (<em>имеются подозрения что &ldquo;скайп глючит&rdquo; именно из-за них; т.к. сам скайпом не пользуюсь - не имею возможности полноценно проверить это</em>)</li>
+</ul>
+
+<h4 id="версия-0-2-13-от-22-01-2016">Версия <code>0.2.13</code> от <code>22.01.2016</code></h4>
+
+<ul>
+<li>Добавлены обновления <code>3112343</code>, <code>3112336</code></li>
+<li>Убран из блокировки хост <code>msftncsi.com</code> (_<a href="https://gist.github.com/tarampampam/a0db45fb0de5976300b1#gistcomment-1641262" target="_blank">почему</a>_)</li>
+</ul>
+
+<h4 id="версия-0-2-12-от-01-11-2015">Версия <code>0.2.12</code> от <code>01.11.2015</code></h4>
+
+<ul>
+<li>Добавлены обновления <code>2882822</code>, <code>3083710</code> и <code>3083711</code></li>
+</ul>
+
+<h4 id="версия-0-2-11-от-19-09-2015">Версия <code>0.2.11</code> от <code>19.09.2015</code></h4>
+
+<ul>
+<li>Из списка блокировки убраны хосты <code>diagnostics.support.microsoft.akadns.net</code> и <code>diagnostics.support.microsoft.com</code>, т.к. есть мнение что именно их использует утилита от MS FixIt</li>
+</ul>
+
+<h4 id="версия-0-2-10-от-19-09-2015">Версия <code>0.2.10</code> от <code>19.09.2015</code></h4>
+
+<ul>
+<li>Наконец-таки нашел способ значительного сокращения времени выполнения скрипта. Как оказалось всё-таки можно передавать список обновлений для сокрытия обновлений, вместо того чтоб обрабатывать каждое по отдельности. Все кто жаловались на данную проблему - в обязательном порядке обновитесь.</li>
+</ul>
+
+<h4 id="версия-0-2-9-от-17-09-2015">Версия <code>0.2.9</code> от <code>17.09.2015</code></h4>
+
+<ul>
+<li>Всё таки добавил обновления &ldquo;Windows Update Client&rdquo; под номерами <code>3065988, 3083325, 3083324, 3075853, 3065987, 3050265, 3050267, 3046480</code>. Ниибическую задержку на стадии сокрытия обновлений решить так и не удалось, а подключать для этого <code>vbs</code> - очень не хочется</li>
+<li>Обновлен список доменов для блокировки, перечислять все смысла не вижу, проще <a href="https://gist.github.com/tarampampam/a0db45fb0de5976300b1/revisions">глянуть diff</a></a></li>
+<li>Добавлено снятие атрибута &ldquo;Только для чтения&rdquo; с файла хостов перед добавлением в него записей</li>
+</ul>
+
+<h4 id="версия-0-2-8-от-01-09-2015">Версия <code>0.2.8</code> от <code>01.09.2015</code></h4>
+
+<ul>
+<li>Добавлен флаг запуска <code>-d</code> или <code>-disable</code> - который отменяет функционал сокрытия обновлений (<em>применимо как временное решение того, что скрипт на моменте сокрытия обновления очень долго &ldquo;отрабатывает&rdquo;</em>)</li>
+</ul>
+
+<h4 id="версия-0-2-7-от-01-09-2015">Версия <code>0.2.7</code> от <code>01.09.2015</code></h4>
+
+<ul>
+<li>Из списка хотфиксов, подлежащих удалению убраны <code>KB3050265 - Windows Update Client for Windows 7: June 2015 // WS 2008 R2 SP1, 7 SP1</code>, <code>KB3075853 - Windows Update Client for Windows 8.1 and Windows Server 2012 R2: August 2015 // WS 2012 R2 / 8.1 / RT 8.1</code> и <code>KB3065987 - Windows Update Client for Windows 7 and Windows Server 2008 R2: July 2015 // WS 2008 R2 SP1 / 7 SP1 / Embedded Standard 7 SP1</code>, так как <em>возможно</em> они являются причиной того, что в исключительных случаях удаление/сокрытие обновлений длятся <em>очень</em> долго. На данный момент такое поведение иногда воспроизводится, причина его до конца не выяснена, а решения <a href="https://social.technet.microsoft.com/Forums/windows/en-US/4a782e40-bbd8-40b7-869d-68e3dfd1a5b4/windows-update-scan-high-memory-usage">предложенные на форме мелкософта</a> - не решают данную проблему.</li>
+</ul>
+
+<h4 id="версия-0-2-6-от-01-09-2015">Версия <code>0.2.6</code> от <code>01.09.2015</code></h4>
+
+<ul>
+<li>Исправлена ещё одна небольшая ошибка с некорректным добавлением правила файрвола</li>
+<li>Добавлена поддержка локальных файлов <code>unzip.exe</code> и самого модуля для <code>PowerShell</code> - <code>PSWindowsUpdate.zip</code>. Теперь если они находятся рядом (<em>в оной директории</em>) со скриптом - используются именно они, а иначе - они скачиваются</li>
+<li>Некоторые другие незначительные изменения и исправления</li>
+</ul>
+
+<h4 id="версия-0-2-5-от-31-08-2015">Версия <code>0.2.5</code> от <code>31.08.2015</code></h4>
+
+<ul>
+<li>Исправлена ошибка с добавлением пустого правила файрвола (<em>из-за этого в исключительных ситуациях после работы скрипта &ldquo;не работал интернет&rdquo;</em>)</li>
+<li>Исправлена ошибка с остановкой работы скрипта после автоматической установки модуля для <code>PowerShell</code></li>
+<li>Некоторые незначительные изменения и исправления</li>
+</ul>
+
+<h4 id="версия-0-2-4-от-30-08-2015">Версия <code>0.2.4</code> от <code>30.08.2015</code></h4>
+
+<ul>
+<li>Добавлено отключение отправки отчетов об ошибках в M$</li>
+</ul>
+
+<h4 id="версия-0-2-3-от-30-08-2015">Версия <code>0.2.3</code> от <code>30.08.2015</code></h4>
+
+<ul>
+<li>Реализована <strong>автоматическая установка</strong> модуля <code>PSWindowsUpdate</code> для <code>PowerShell</code></li>
+<li>Добавлена возможность логирования сообщений скрипта (<em>по умолчанию пишутся в файл <code>%имя_скрипта%.log</code> в директории, откуда скрипт был запущен</em>); для <strong>отключения</strong> этой штуки запускай скрипт с флагом <code>-log</code> или <code>-l</code></li>
+<li>Небольшой рефакторинг кода</li>
+<li>По рекомендации тов. Pavel из блокировки убран адрес <code>68.232.34.200</code></li>
+</ul>
+
+<h4 id="версия-0-2-1-от-26-08-2015">Версия <code>0.2.1</code> от <code>26.08.2015</code></h4>
+
+<ul>
+<li>Ахрененно объемное обновление</li>
+<li>Добавлена поддержка отключения (<em>сокрытия</em>) обновлений средствами <code>PowerShell</code> и модуля к нему <code>PSWindowsUpdate</code></li>
+<li>Добавлена поддержка блокирования IP ещё и на уровне виндового файрвола</li>
+<li>Значительно обновлен список IP адресов для блокировки. Большая часть из них взята из доменных имен, которые блокировали в файле <code>hosts</code> (<em>давай MS, игнорируй файл хостов дальше, успехов</em>).</li>
+<li>Исправлена ошибка с записью в файл хостов - ранее если он не заканчивался пустой строкой - крайняя запись косячилась. Встречалось это крайне редко, но всё же</li>
+<li>Обновлен список доменных имен</li>
+<li>Поправлены мелкие ошибки (<em>и конечно же порождены новые</em>)</li>
+</ul>
+
+<h4 id="версия-0-1-9-от-26-08-2015">Версия <code>0.1.9</code> от <code>26.08.2015</code></h4>
+
+<ul>
+<li>Поправлена ошибка с ошибочным определением отсутствия прав администратора</li>
+</ul>
+
+<h4 id="версия-0-1-9-от-26-08-2015-1">Версия <code>0.1.9</code> от <code>26.08.2015</code></h4>
+
+<ul>
+<li>Поправлена ошибка с ошибочным определением отсутствия прав администратора</li>
+</ul>
+
+<h4 id="версия-0-1-8-от-25-08-2015">Версия <code>0.1.8</code> от <code>25.08.2015</code></h4>
+
+<ul>
+<li>Добавлены некоторые задачи (<code>tasks</code>) подлежащие отключению</li>
+<li>Добавлен ещё один сервис <code>dmwappushservice</code> + дополнительное отключение телеметрии в Windows 10</li>
+</ul>
+
+<h4 id="версия-0-1-6-от-24-08-2015">Версия <code>0.1.6</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Добавлена поддержка альтернативных флагов (<em>более понятных</em>)</li>
+<li>Незначительные поправки в UI (<em>если это вообще можно назвать UI</em>)</li>
+</ul>
+
+<h4 id="версия-0-1-5-от-24-08-2015">Версия <code>0.1.5</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Увеличен таймаут перед выходом до 60 секунд</li>
+</ul>
+
+<h4 id="версия-0-1-4-от-24-08-2015">Версия <code>0.1.4</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Добавлена поддержка остановки&amp;отключения сервисов</li>
+<li>В список сервисов подлежащих отключению внесен <code>Diagtrack</code></li>
+</ul>
+
+<h4 id="версия-0-1-1-от-24-08-2015">Версия <code>0.1.1</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Добавлена поддержка флагов запуска</li>
+</ul>
+
+<h4 id="версия-0-0-9-от-24-08-2015">Версия <code>0.0.9</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Добавлена функция отключения автоматического обновления</li>
+</ul>
+
+<h4 id="версия-0-0-7-от-24-08-2015">Версия <code>0.0.7</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Добавлена хренова куча новых доменных имен для блокировки</li>
+<li>Увеличен таймаут перед выходом до 15 секунд</li>
+</ul>
+
+<h4 id="версия-0-0-4-от-24-08-2015">Версия <code>0.0.4</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Обновлен список хреновых обновлений</li>
+<li>Теперь умеем блокировать запросы к определенным IP средствами <code>add route</code></li>
+<li>Добавлены наиболее известные адреса для блокировки</li>
+<li>Так же умеем отключать задачи (<code>tasks</code>)</li>
+<li>Добавлен список основных задач</li>
+<li>Незначительно наведена красота в коде</li>
+</ul>
+
+<h4 id="версия-0-0-2-от-24-08-2015">Версия <code>0.0.2</code> от <code>24.08.2015</code></h4>
+
+<ul>
+<li>Первый релиз</li>
+<li>Умеем удалять обновления</li>
+<li>Умеем блокировать запросы к доменам средствами правки файла <code>hosts</code></li>
+</ul>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/cmd/">cmd</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/evil/">evil</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/hosts/">hosts</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/script/">script</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/telemetry/">telemetry</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/windows/">windows</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

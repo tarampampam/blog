@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Make Nod32 Mirror Updated - blog [dot] hook</title>
+  
+  <meta name="description" content="Однажды я уже писал об этом, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &amp;ldquo;интересные&amp;rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Make Nod32 Mirror Updated</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-07-11"
+        itemprop="datePublished">2016.7.11</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/nod32mirror-wide.jpg" itemprop="image" alt="Make Nod32 Mirror Updated" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2016-07-11">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Однажды я <a href="https://tarampampam.github.io/blog/dev/make-nod32-mirror/">уже писал об этом</a>, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &ldquo;интересные&rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.</p>
+
+<p>Если подробнее - то она не подходила для версий антивируса старше четвертой. Как оказалось - нод не умеет самостоятельно определять под-директорию из которой ему следует обновиться, и как следствие все пытались обновиться из корня - и как следствие обновлялась только &ldquo;четверка&rdquo;. Далее - старая версия не умела обновлять компоненты антивируса. Далее - в итоговое зеркало не попадали все необходимые &ldquo;модули&rdquo;. Ещё - был чертовски кривой веб-интерфейс.</p>
+
+<blockquote>
+<p>Так же просмотрел значительное количество решений других разработчиков. Забавно то, что 90% из них написаны на php, и состоят из одного файла с лютым хардкодом всего что можно, и чего нельзя. Да и не поддерживаются совсем.</p>
+</blockquote>
+
+<p>А что же теперь? А теперь мне удалось избавиться и от этих проблем, и попутно <em>(с момента публикации этого поста уже произошли какие-то изменения, однозначно)</em> повысить стабильность. Не получилось пока реализовать авто-обновление, но я над этим думаю. Традиционно скрипт умеет сам искать ключи.</p>
+
+<p><img src="https://hsto.org/webt/pf/oh/gl/pfohgltyjy0gsyls1eztbrxv8pq.png" alt="screnshot" /></p>
+
+<p>Расписывать здесь о том как его установить и настроить смысла не вижу, так как это уже <a href="https://github.com/tarampampam/nod32-update-mirror/blob/master/README.md">расписано в ридмишке репозитория</a>. Если у тебя появятся какие-либо проблемы - смело <a href="https://github.com/tarampampam/nod32-update-mirror/issues/new">сообщай об этом здесь</a>. Ссылки на крайнюю версию и, собственно, сам репозиторий:</p>
+
+<ul>
+<li><a href="https://github.com/tarampampam/nod32-update-mirror/archive/master.zip">Скачать исходники в ZIP</a></li>
+</ul>
+
+<p>Но это не всё. Здесь я бы хотел рассказать чуть подробнее о результатах анализа алгоритмов работы и некоторых практиках, к которым в итоге пришел.</p>
+
+<h3 id="общий-подход">Общий подход</h3>
+
+<ul>
+<li><p>Повторное использование кода даже в bash-скриптах - это очень хорошая практика. Разнесение функций по логически разделенным файлам - добро. Если у тебя есть необходимость скачивать файлы из сети - создай отдельный файл, назови его, скажем - <code>network.sh</code>, и всё что связано с работой по сети - пиши в нем. В итоге все вызовы curl/wget у тебя сосредоточены в одном месте, и ты не паришься.</p></li>
+
+<li><p>Именования функций с префиксом имени файла - что-то в роде namespace-ов - добро. Если ты видишь функцию, например, <code>ui_message</code> - то сразу понимаешь что её описание находится в файле <code>ui.sh</code>.</p></li>
+
+<li><p>Используй boostrap-файл. Это отдельный скрипт, подключая который ты инициализируешь все необходимые переменные и подключаешь все требуемые файлы, вынося в него весь общий код инициализации. В последствии если тебе <em>(или другому разработчику)</em> потребуется создать что-то своё - он просто подключает bootstrap-файл и получает в своё распоряжение весь функционал и готовое окружение. Да что я тебе рассказываю..</p></li>
+
+<li><p>Дай пользователю возможность использовать свои собственные конфиги. Суть в том что в процессе работы ты будешь что-то добавлять в общий конфиг, а что то удалять. Ты будешь обновлять скрипт, а вместе с ним и его конфиг. Как следствие переписывание &ldquo;стандартного&rdquo; конфига из раза в раз вызывает дикую боль. А если ты позволяешь подключать пользовательские конфиги сразу после своего основного - можно об этом не беспокоиться.</p></li>
+
+<li><p>Инициализируй критичные переменные принудительно.</p></li>
+
+<li><p>Не стесняйся ставить точки с запятой после операции/метода/языковой конструкции там, где это возможно. Так ты даешь явное указание что это является её завершением, да и код становится читабельнее.</p></li>
+
+<li><p>Пиши комментарии по необходимости, пиши их на английском языке и только, не стесняйся давать полные названия переменным. На счет крайнего - я серьезно. Не описывай переменную &ldquo;tes&rdquo; подразумевая &ldquo;Temporary echo result&rdquo;. Пиши &ldquo;temporary_echo_result&rdquo;. Через день ты забудешь что имел в виду так её называя, а другим разобраться в твоем коде станет ой как не просто.</p></li>
+
+<li><p>И ещё раз - повторное использование кода. Не надо делать 10 вызовов <code>echo</code> - сделай одну функцию <code>ui_message</code>, и всё выводи ей. В итоге если тебе надо будет переформатировать вывод - ты не будешь судорожно искать &ldquo;так, а где у меня выводится этот текст?&rdquo;, ты будешь просто фильтровать вывод в одной функции. Очень удобно.</p></li>
+</ul>
+
+<h3 id="о-том-как-работает-nod32">О том как работает Nod32</h3>
+
+<p>Как уже говорил выше - нод не умеет брать обновления из директорий <code>v1</code>, <code>v2</code>, <code>nod_upd</code> что расположены в корне твоего зеркала. Вот просто не умеет. Для того чтоб он &ldquo;пятерка&rdquo; брала обновления из директории <code>v5</code>, необходимо её туда перенаправить. Как? Смотри, User-Agent&#8217;ы у нода (четверки) такие:</p>
+
+<pre><code>ESS Update (Windows; U; 32bit; VDB 29908; BPC 4.2.71.3; OS: 6.2.9200 SP 0.0 NT; TDB 29908; CH 0.0; LNG 1049; x64c; APP essbe; BEO 1; ASP 0.0; FW 0.4; PX 0; PUA 0; RA 0; PEV 29480)
+ESS Update (Windows; U; 32bit; VDB 21093; BPC 4.2.71.3; OS: 5.1.2600 SP 3.0 NT; TDB 21093; CH 1.1; LNG 1049; x32c; APP eav; BEO 1; ASP 0.10; FW 0.0; PX 0; PUA 1; RA 0)
+&quot;ESS Update (Windows; U; 32bit; VDB 22122; BPC 4.2.71.3; OS: 6.1.7600 SP 0.0 NT; TDB 22122; CH 1.1; LNG 1049; x32c; APP essbe; BEO 1; ASP 0.0; FW 0.0; PX 0; PUA 1; RA 0)
+</code></pre>
+
+<p>Что их объединяет? Правильно: <code>BPC 4.*</code>. А какие у пятерки?</p>
+
+<pre><code>ESS Update (Windows; U; 32bit; PVT F; VDB 30070; BPC 5.0.95.0; OS: 6.1.7601 SP 1.0 NT; TDB 30070; CL 0.0.0; LNG 1049; x64c; APP eav; BEO 1; ASP 0.10; FW 0.0; PX 0; PUA 1; RA 0; PEV 29837)
+ESS Update (Windows; U; 32bit; PVT F; VDB 22122; BPC 5.0.2228.1; OS: 5.2.3790 SP 2.0 NT; TDB 22122; CL 1.1.1; LNG 1049; x32s; APP eea; BEO 3; ASP 0.10; FW 0.0; PX 0; PUA 0; RA 0; HWF: 0100AA70-13A2-F3BB-DEE3-D2ABBCF7E297)
+ESS Update (Windows; U; 32bit; PVT F; VDB 22122; BPC 5.0.95.0; OS: 6.1.7600 SP 0.0 NT; TDB 22122; CL 0.0.0; LNG 1049; x64s; APP eavbe; BEO 1; ASP 0.10; FW 0.0; PX 0; PUA 0; RA 0)
+</code></pre>
+
+<p>Логично предположить, что у &ldquo;шестерки&rdquo; это <code>BPC 6.*</code>. Что мы делаем? Мы регуляркой находим значение версии в user-agent&#8217;е, проверяем наличие нужной под-директории, и если всё хорошо - то 301 редиректом перенаправляем Nod32 в нужную под-директорию. Да, нод понимает редиректы. Пример конфига:</p>
+
+<pre><code>  # Redirect request to correct update.ver file, based on nod32 user-agent version
+  location ~* &quot;^(?/update\.ver)$&quot; {
+    if ($http_user_agent ~* &quot;BPC (?[\d]{1,2})\.&quot;) {
+      set $new_location &quot;v$version$file_url&quot;;
+    }
+    if (-f $document_root/$new_location) {
+      return 301 $scheme://$server_name/$new_location;
+    }
+  }
+</code></pre>
+
+<p>Да, if-зло, но без него здесь ну никак. Если знаешь как реализовать лучше - дай знать в комментариях к этому посту.</p>
+
+<h3 id="как-дебажить-запросы-nod32">Как дебажить запросы Nod32?</h3>
+
+<p>Я дебажил с помощью прозрачного прокси-сервера Charlies. Запускаешь его, вырубаешь всё остальное что ломится в сеть, и нажимаешь &ldquo;Обновить базу данных сигнатур вирусов&rdquo; в Nod32. В итоге можешь наблюдать что и куда отправляется, какие заголовки, какие ответы. Ахуенно, в общем. Всегда его использовал для этого:</p>
+
+<p><img src="https://hsto.org/webt/wl/vp/j6/wlvpj6nq-5ac9wk2yhcqfdedlsy.png" alt="" /></p>
+
+<p>На этом, пожалуй, и всё. Если есть какие-либо вопросы - пиши в комментарии, постараюсь ответить.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nod32/">nod32</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/updates-mirror/">updates mirror</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

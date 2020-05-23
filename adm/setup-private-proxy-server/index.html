@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Поднимаем свой, приватный прокси-сервер - blog [dot] hook</title>
+  
+  <meta name="description" content="Сегодня мы будем поднимать анонимный и действительно шустренький proxy/socks сервер для себя-любимого. Так чтоб настроить его один раз, да и забыть - пускай пыхтит да нам на радость.
+Будем считать что ты уже приобрел себе простенький vps, в качестве ОС выбрал Cent OS 7 и подцепился к нему по SSH, наблюдая девственную чистоту. Первым делом тюним SSH:">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Поднимаем свой, приватный прокси-сервер</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-08-13"
+        itemprop="datePublished">2016.8.13</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/your-proxy-wide.jpg" itemprop="image" alt="Поднимаем свой, приватный прокси-сервер" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2016-08-13">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Сегодня мы будем поднимать анонимный и действительно шустренький proxy/socks сервер для себя-любимого. Так чтоб настроить его один раз, да и забыть - пускай пыхтит да нам на радость.</p>
+
+<p>Будем считать что ты уже приобрел себе простенький vps, в качестве ОС выбрал Cent OS 7 и подцепился к нему по SSH, наблюдая девственную чистоту. Первым делом тюним SSH:</p>
+
+<pre><code class="language-bash"># Первым делом меняем пароль, который мы получили в письме на новый:
+$ passwd
+# Перевешиваем SSH на порт 7788:
+$ sed -i -r &quot;s/#Port 22/Port 7788/&quot; /etc/ssh/sshd_config
+# Требуем вторую версию протокола и ограничиваем количество неудачных попыток входа:
+$ sed -i -r -e &quot;s/#Protocol 2/Protocol 2/&quot; -e &quot;s/#MaxAuthTries 6/MaxAuthTries 1/&quot; /etc/ssh/sshd_config
+# При необходимости отключаем selinux, так как в нашем случае он откровенно лишний
+# Перезапускаем демона:
+$ service sshd restart
+# Проверяем, изменился ли порт:
+$ ss -tnlp | grep ssh
+LISTEN     0      128        *:7788        *:*     users:((&quot;sshd&quot;,pid=1029,fd=3))
+LISTEN     0      128       :::7788       :::*     users:((&quot;sshd&quot;,pid=1029,fd=4))
+# Открываем порт 7788:
+$ firewall-cmd --zone=public --add-port=7788/tcp --permanent
+$ firewall-cmd --reload
+# Выходим и переподключаемся на **новый** порт
+$ logout
+</code></pre>
+
+<p>Займемся отключением излишнего логирования, и чутка наведем красоту:</p>
+
+<pre><code class="language-bash">$ unset HISTFILE
+$ echo 'unset HISTFILE' &gt;&gt; /etc/bashrc
+# Ставим нано и выставляем его как редактор по умолчанию
+$ yum -y install nano
+$ echo 'export VISUAL=nano' &gt;&gt; /etc/bashrc
+$ echo 'export EDITOR=nano' &gt;&gt; /etc/bashrc
+# Опционально:
+# $ service rsyslog stop &amp;&amp; systemctl disable syslog
+# $ service auditd stop &amp;&amp; systemctl disable auditd
+$ unlink /var/log/lastlog &amp;&amp; ln -s /dev/null /var/log/lastlog
+$ unlink /var/log/audit/audit.log &amp;&amp; ln -s /dev/null /var/log/audit/audit.log
+$ unlink /var/log/secure &amp;&amp; ln -s /dev/null /var/log/secure
+$ unlink /var/log/wtmp &amp;&amp; ln -s /dev/null /var/log/wtmp
+$ unlink /var/log/btmp &amp;&amp; ln -s /dev/null /var/log/btmp
+$ rm -f ~/.bash_history
+# Красотульки
+$ echo 'proxy-server' &gt; /etc/hostname
+$ hostname proxy-server
+$ echo 'export PS1=&quot;\[$(tput bold)\]\[$(tput setaf 7)\][\[$(tput setaf 1)\]\u\[$(tput setaf 7)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 2)\]\w\[$(tput setaf 7)\]]\\$ \[$(tput sgr0)\]&quot;' &gt;&gt; /etc/bashrc
+# Ребутим, цепляемся по новой, проверяем логи на чистоту grep -rnw '/var' -e &quot;%your_real_ap_addr%&quot;
+$ reboot
+</code></pre>
+
+<p>Теперь поставим прокси-сервер 3proxy (aka зараза-прокси) из исходников, и настроим его:</p>
+
+<pre><code class="language-bash">$ cd ~
+$ yum -y install gcc
+$ wget https://github.com/z3APA3A/3proxy/archive/3proxy-0.8.6.tar.gz
+$ tar -xvzf 3proxy-*.gz
+$ cd 3proxy-3proxy-*
+$ sed -i '1s/^/#define ANONYMOUS 1\n/' ./src/proxy.h # Делает сервер полностью анонимным
+$ make -f Makefile.Linux
+$ mkdir -p /usr/local/etc/3proxy/bin
+$ touch /usr/local/etc/3proxy/3proxy.pid
+$ cp ./src/3proxy /usr/local/etc/3proxy/bin
+$ cp ./scripts/rc.d/proxy.sh /etc/init.d/3proxy
+$ cp ./cfg/3proxy.cfg.sample /usr/local/etc/3proxy/3proxy.cfg
+$ ln -s /usr/local/etc/3proxy/3proxy.cfg /etc/3proxy.cfg
+$ chmod +x /etc/init.d/3proxy
+# Настраиваем:
+$ nano /etc/3proxy.cfg
+</code></pre>
+
+<pre><code>daemon
+
+pidfile /usr/local/etc/3proxy/3proxy.pid
+
+nserver 8.8.4.4
+nserver 8.8.8.8
+nscache 65536
+
+timeouts 1 5 30 60 180 1800 15 60
+log /dev/null
+
+auth none
+maxconn 64
+proxy -p13231 -n -a
+socks -p14541 -n -a
+</code></pre>
+
+<p>Что означает, что прокси-сервер лог принудительно не пишет; для авторизации никаких паролей не просит; proxy работает на порту <code>13231</code>, socks на <code>14541</code>; сервер запущен с правами root <em>(да и насрать)</em>.</p>
+
+<p>Запускаем его и ставим в автозагрузку:</p>
+
+<pre><code class="language-bash">$ service 3proxy start
+$ systemctl enable 3proxy
+</code></pre>
+
+<p>И если всё хорошо - сносим исходники 3proxy как уже не нужные:</p>
+
+<pre><code class="language-bash">$ rm -Rf ~/3proxy-*
+</code></pre>
+
+<p>Дальше - настраиваем огненную стену:</p>
+
+<pre><code class="language-bash"># Открываем порт для http- и socks- прокси:
+$ firewall-cmd --zone=public --add-port=13231/tcp --permanent
+$ firewall-cmd --zone=public --add-port=14541/tcp --permanent
+$ firewall-cmd --reload
+
+# Блокируем ICMP трафик (echo-запросы) для того, чтоб наш сервер **не отвечал** на пинги:
+# Проверяем состояние:
+$ firewall-cmd --zone=public --query-icmp-block=echo-reply
+$ firewall-cmd --zone=public --query-icmp-block=echo-request
+# Блокируем:
+$ firewall-cmd --zone=public --add-icmp-block=echo-reply --permanent
+$ firewall-cmd --zone=public --add-icmp-block=echo-request --permanent
+# Перечитаем правила:
+$ firewall-cmd --reload
+# И проверим теперь:
+$ firewall-cmd --zone=public --query-icmp-block=echo-reply
+$ firewall-cmd --zone=public --query-icmp-block=echo-request
+</code></pre>
+
+<p>И проверяем - всё должно работать. Шустренький и беспалевный прокси-сервер готов! Для проверки заходим через него, например, на 2ip.ru, и видим:</p>
+
+<pre><code>Откуда вы: Ukraine Украина, Киев
+Ваш провайдер: ВестКолл Домашние сети
+</code></pre>
+
+<blockquote>
+<p>Лучше будет ещё добавить в крон что-то вроде:</p>
+
+<pre><code>30 */3 * * * service 3proxy restart
+0 */12 * * * reboot -f
+</code></pre>
+</blockquote>
+
+<p>Ну разве не профит, учитывая что физически серваки находятся в москве?</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/anonymous/">anonymous</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/proxy/">proxy</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

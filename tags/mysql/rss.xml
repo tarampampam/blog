@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/mysql/</link>
+    <description>Recent content in mysql on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Wed, 01 Apr 2015 17:40:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/mysql/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Поднимаем свой Jabber сервер</title>
+      <link>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</link>
+      <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</guid>
+      <description>&lt;p&gt;Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34; target=&#34;_blank&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34; target=&#34;_blank&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34; target=&#34;_blank&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Создание бэкапа на nic.ru</title>
+      <link>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</link>
+      <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</guid>
+      <description>&lt;p&gt;Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

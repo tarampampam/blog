@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>css on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/css/</link>
+    <description>Recent content in css on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Thu, 17 Sep 2015 07:02:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/css/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Индикатор загрузки страницы (css &#43; pure js)</title>
+      <link>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</guid>
+      <description>&lt;p&gt;Время загрузки страницы - самая унылая часть веб-серфинга :) До того момента, пока страница не загрузилась &lt;strong&gt;до конца&lt;/strong&gt;, велика вероятность что она будет отображаться не так как мы задумывали - блоки могут &amp;ldquo;наезжать&amp;rdquo; друг на друга, текст - не отображаться (&lt;em&gt;пока не загрузились шрифты&lt;/em&gt;), про корректную работу скриптов а анимации тоже зачастую можно забыть.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web-gui для wget (light)</title>
+      <link>https://tarampampam.github.io/blog/dev/wget-gui-light/</link>
+      <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/wget-gui-light/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/234353/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ранее здесь находилось описание возможных ситуаций, когда данное решение могло бы вам понадобиться, но давайте его опустим. Возможность удобного создания удаленных закачек, которые выполняются привычным wget-ом (можно спокойно увидеть их список при помощи &lt;strong&gt;ps&lt;/strong&gt;), с отображением прогресса — идея не новая. И даже есть &lt;a href=&#34;http://exir.ru/wget4web/screen.htm&#34;&gt;некоторые&lt;/a&gt; &lt;a href=&#34;http://sourceforge.net/projects/download-webgui/files/?source=navbar&#34;&gt;решения&lt;/a&gt;, но не актуальные, так как более 5 лет никем не поддерживаются.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

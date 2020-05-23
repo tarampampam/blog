@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wp on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/wp/</link>
+    <description>Recent content in Wp on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sat, 23 Jan 2016 05:35:18 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/wp/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Сниппеты для WordPress (ч. 1)</title>
+      <link>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</link>
+      <pubDate>Sat, 23 Jan 2016 05:35:18 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Кэп, &amp;ldquo;по умолчанию&amp;rdquo; все сниппеты добавляются в &lt;code&gt;./wp-content/%theme%/functions.php&lt;/code&gt; твоей темы&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;изменяем-путь-к-статике-темы&#34;&gt;Изменяем путь к статике темы&lt;/h3&gt;
+
+&lt;p&gt;В ряде случаев полезно вынести всю статику на отдельный субдомен или директорию в корне сайта. Так мы и путь к теме скрываем, и располагаем статический контент &amp;ldquo;поближе&amp;rdquo; да поудобнее:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Тотальная защита WordPress</title>
+      <link>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</link>
+      <pubDate>Sun, 05 Jul 2015 11:30:59 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</guid>
+      <description>&lt;p&gt;В &lt;a href=&#34;https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/&#34;&gt;прошлом посте&lt;/a&gt; мы рассматривали методы повышения безопасности WordPress с помощью &lt;code&gt;nginx&lt;/code&gt;. В данной же записи мы рассмотрим дополнительные меры противодействия сбору информации о работающей CMS (&lt;em&gt;и плагинах&lt;/em&gt;), версии WP и некоторым типам атак на сайт.&lt;/p&gt;
+
+&lt;p&gt;Помогать нам будет уже не только &lt;code&gt;nginx&lt;/code&gt; - но и &lt;code&gt;fail2ban&lt;/code&gt; вкупе с некоторыми дополнениями и настройками самого WP.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Скрываем версию WordPress</title>
+      <link>https://tarampampam.github.io/blog/wp/remove-wp-version/</link>
+      <pubDate>Tue, 26 May 2015 07:10:53 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/remove-wp-version/</guid>
+      <description>&lt;p&gt;Маленький но довольно полезный плагин для повышения безопасности сайта на WordPress, который всё что делает - это скрывает версию CMS, удаляя:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Во-первых теги &lt;code&gt;&amp;lt;meta generator=&amp;quot;...&amp;quot; /&amp;gt;&lt;/code&gt; (и иже с ними), что генерирует сам Wordoress;&lt;/li&gt;
+&lt;li&gt;Во-вторых из запросов к css и js файлам подстроку &lt;code&gt;?ver=%версия%&lt;/code&gt;, которая всё беспощадно палит.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Отключаем RSS в WordPress</title>
+      <link>https://tarampampam.github.io/blog/wp/remove-wp-rss/</link>
+      <pubDate>Mon, 25 May 2015 16:28:30 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/remove-wp-rss/</guid>
+      <description>&lt;p&gt;В ряде случаев для сайта на WordPress совершенно не требуется RSS лента. Отключив эту возможность мы не только освобождаем дополнительные ресурсы системы (&lt;em&gt;нет необходимости формировать фид, т.к. его не запрашивают только ленивые боты&lt;/em&gt;), но и усложним задачу тем, кто уже сейчас (&lt;em&gt;или собирается&lt;/em&gt;) грабит наш контент.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Повышение безопасности WordPress с помощью nginx</title>
+      <link>https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/</link>
+      <pubDate>Tue, 05 May 2015 05:45:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Первая часть доступна по &lt;a href=&#34;https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/&#34;&gt;этой ссылке&lt;/a&gt;. Так же у данного поста имеется &lt;strong&gt;обновленная&lt;/strong&gt; версия &lt;a href=&#34;https://tarampampam.github.io/blog/wp/total-wordpress-secutity/&#34;&gt;этой ссылке&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Проанализировав логи одного блога на WordPress заметил, что присутствует довольно большое количество запросов к страницам, которых не существует. Посмотрев внимательнее стало очевидно, что имеет место как сбор данных как об используемой CMS, так и попытки эксплуатировать различные уязвимости плагинов, тем и самого WP.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Рекомендации по повышению безопасности WordPress (ч. 1)</title>
+      <link>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</link>
+      <pubDate>Mon, 26 Jan 2015 12:15:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</guid>
+      <description>&lt;p&gt;WordPress, сука, популярный. А как следствие — дырочки в нем ищутся и находятся с завидной периодичностью. Исходя из этого - сам по себе напрашивается список рекомендаций по повышению его безопасности.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Собираем и настраиваем msmtp - blog [dot] hook</title>
+  
+  <meta name="description" content="msmtp - это простой консольный клиент для отправки сообщений электронной почты по протоколу SMTP.
+Можно, конечно, пойти сложным путем и поставить полноценный почтовый сервер, но зачем? Нам ведь требуется просто позволить скриптам и демонам отправлять почту, а заморачиваться с DKIM, SPF, заголовками и прочим - крайне лень. Поэтому мы будем отправлять почту с помощью почтового ящика на yandex.ru, и поможет нам в этом приложение под названием msmtp.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Собираем и настраиваем msmtp</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-06-28"
+        itemprop="datePublished">2016.6.28</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 5 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/msmtp-wide.jpg" itemprop="image" alt="Собираем и настраиваем msmtp" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2016-06-28">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p><a href="http://msmtp.sourceforge.net/">msmtp</a> - это простой консольный клиент для отправки сообщений электронной почты по протоколу SMTP.</p>
+
+<p>Можно, конечно, пойти сложным путем и поставить полноценный почтовый сервер, но зачем? Нам ведь требуется просто позволить скриптам и демонам отправлять почту, а заморачиваться с DKIM, SPF, заголовками и прочим - крайне лень. Поэтому мы будем отправлять почту с помощью почтового ящика на yandex.ru, и поможет нам в этом приложение под названием <a href="http://msmtp.sourceforge.net/">msmtp</a>.</p>
+
+<blockquote>
+<p>Важное замечание - в моем случае домен уже делегирован на яндекс, в DNS имеются все необходимые записи, почтовый ящик создан на странице pdd.yandex.ru, к нему прописаны алиасы вида <code>no-reply, noreply, donotreply, do-not-reply</code> для того, что бы была возможность иметь почтовый ящик с именем <code>info@domail.ru</code>, но успешно отправлять письма от имени, например, <code>no-reply@domail.ru</code>.</p>
+</blockquote>
+
+<p>Единственное но - в репозиториях находится старая и бажная версия. Самый критичный для нас баг - это неизменяемое поле Sender, т.е. мы не можем указать имя (<em>или адрес? не помню</em>) отправителя. Смотрим что есть в репозиториях:</p>
+
+<pre><code class="language-bash">$ yum info msmtp
+# ...
+Name        : msmtp
+Version     : 1.4.32
+Release     : 1.el7
+Size        : 120 k
+# ...
+</code></pre>
+
+<p>Смотрим информацию о релизах на <a href="http://msmtp.sourceforge.net/news.html">официальном сайте</a> - на момент написания этих строк это версия 1.6.5 (<em>уже без описанного выше бага</em>).</p>
+
+<blockquote>
+<p>Все манипуляции производились на &ldquo;чистой&rdquo; системе <strong>CentOS 7.2</strong>.</p>
+</blockquote>
+
+<p>Скачаем исходники и соберем приложение ручками.</p>
+
+<pre><code class="language-bash">$ cd ~
+$ yum install git
+$ git clone git://git.code.sf.net/p/msmtp/code msmtp
+$ cd msmtp
+</code></pre>
+
+<p>Ставим все необходимые для сборки пакеты:</p>
+
+<pre><code class="language-bash">$ yum install automake gcc gettext-devel gnutls-devel openssl-devel texinfo
+</code></pre>
+
+<p>Запускаем <code>autoreconf</code>:</p>
+
+<pre><code class="language-bash">$ autoreconf -i
+autoreconf: configure.ac: AM_GNU_GETTEXT is used, but not AM_GNU_GETTEXT_VERSION
+configure.ac:31: installing 'build-aux/config.guess'
+configure.ac:31: installing 'build-aux/config.sub'
+configure.ac:34: installing 'build-aux/install-sh'
+configure.ac:34: installing 'build-aux/missing'
+Makefile.am: installing './INSTALL'
+doc/Makefile.am:3: installing 'build-aux/mdate-sh'
+src/Makefile.am: installing 'build-aux/depcomp'
+</code></pre>
+
+<p>Конфигуряем:</p>
+
+<pre><code class="language-bash">$ ./configure
+# ...
+Install prefix ......... : /usr/local
+TLS/SSL support ........ : yes (Library: GnuTLS) # &lt;-- ВАЖНО
+GNU SASL support ....... : no
+IDN support ............ : no
+NLS support ............ : yes
+Libsecret support (GNOME): no
+MacOS X Keychain support : no
+</code></pre>
+
+<p>И если предыдущая операция завершилась успешно (<em>наличие поддержки TLS/SSL для нас критично</em>), то собираем:</p>
+
+<pre><code class="language-bash">$ make
+</code></pre>
+
+<blockquote>
+<p>Если во время сборки вылезла ошибка вида:</p>
+
+<pre><code>*** error: gettext infrastructure mismatch: using a Makefile.in.in from gettext version 0.19 but the autoconf macros are from gettext version 0.18
+make[2]: *** [stamp-po] Error 1
+make[2]: Leaving directory `/root/msmtp/po'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/root/msmtp'
+make: *** [all] Error 2
+</code></pre>
+
+<p>То правим один файл:</p>
+
+<pre><code class="language-bash">$ nano ./po/Makefile.in.in
+</code></pre>
+
+<p>Где заменяем строку <code>GETTEXT_MACRO_VERSION = 0.19</code> на <code>GETTEXT_MACRO_VERSION = 0.18</code>. После этого повторяем:</p>
+
+<pre><code class="language-bash">$ make
+</code></pre>
+</blockquote>
+
+<p>Выполняем установку <strong>только</strong> при успешной сборке (отсутствии каких-либо ошибок):</p>
+
+<pre><code class="language-bash">$ make install
+</code></pre>
+
+<p>Проверяем:</p>
+
+<pre><code class="language-bash">$ /usr/local/bin/msmtp --version
+msmtp version 1.6.5
+Platform: x86_64-unknown-linux-gnu
+TLS/SSL library: GnuTLS # &lt;-- ВАЖНО
+Authentication library: built-in
+Supported authentication methods:
+plain external cram-md5 login
+IDN support: disabled
+NLS: enabled, LOCALEDIR is /usr/local/share/locale
+Keyring support: none
+System configuration file name: /usr/local/etc/msmtprc
+User configuration file name: /root/.msmtprc
+
+Copyright (C) 2016 Martin Lambers and others.
+This is free software.  You may redistribute copies of it under the terms of
+the GNU General Public License &lt;http: //www.gnu.org/licenses/gpl.html&gt;.
+There is NO WARRANTY, to the extent permitted by law.&lt;/http:&gt;
+</code></pre>
+
+<p>Создаем симлинки и заменяем &ldquo;стандартный&rdquo; sendmail (<em>убедись предварительно что он удален/не установлен</em>):</p>
+
+<pre><code class="language-bash">$ ln -s /usr/local/bin/msmtp /etc/alternatives/mta
+$ ln -s /usr/local/bin/msmtp /usr/bin/msmtp
+$ ln -s /etc/alternatives/mta /usr/lib/mail
+$ ln -s /etc/alternatives/mta /usr/bin/mail
+$ ln -s /etc/alternatives/mta /usr/sbin/mail
+$ ln -s /etc/alternatives/mta /usr/lib/sendmail
+$ ln -s /etc/alternatives/mta /usr/bin/sendmail
+$ ln -s /etc/alternatives/mta /usr/sbin/sendmail
+</code></pre>
+
+<p>Создаем системный конфиг и симлинк на него в /etc:</p>
+
+<pre><code class="language-bash">$ touch /usr/local/etc/msmtprc
+$ ln -s /usr/local/etc/msmtprc /etc/msmtprc
+</code></pre>
+
+<p>Выставляем права на файл и меняем группу файла для того, чтобы php-fpm (<em>и другие члены этой группы</em>) смогли читать его:</p>
+
+<pre><code class="language-bash">$ chmod 640 /usr/local/etc/msmtprc
+$ chown :www-data /usr/local/etc/msmtprc
+</code></pre>
+
+<p>После этого переходим непосредственно к настройке:</p>
+
+<pre><code class="language-bash">$ nano /etc/msmtprc
+</code></pre>
+
+<pre><code>defaults
+tls on
+auth on
+tls_starttls on
+tls_certcheck off
+logfile /var/log/msmtp.log
+timeout 20
+
+account yandex
+host smtp.yandex.ru
+port 587
+maildomain your_domain_name.ru
+from no-reply@your_domain_name.ru
+keepbcc on
+user your_mailbox_name@your_domain_name.ru
+password MAILBOX_PASSWORD
+
+account default : yandex
+</code></pre>
+
+<p>И проверяем работу запуская как из консоли, так и из php-скрипта:</p>
+
+<pre><code class="language-bash">$ echo -e &quot;\nSome test 1&quot; | msmtp -d your_another_email@gmail.com
+$ php -r &quot;mail('your_another_email@gmail.com','Subject','Some test 2');&quot;
+</code></pre>
+
+<p>Письма должны успешно приходить на <code>your_another_email@gmail.com</code>. Так же стоит проверить работу непосредственно из-под php-fpm, например, таким скриптом:</p>
+
+<pre><code class="language-php">&lt;?php
+
+  set_time_limit(15);
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+
+  $result = mail('your_another_email@gmail.com', 'Subject', 'Some test 3');
+  echo '&lt;pre&gt;'; var_dump($result); echo '&lt;/pre&gt;';
+
+  if ($result) {
+    echo 'все путем';
+  } else {
+    echo 'что-то не так';
+  }
+</code></pre>
+
+<p>И обратившись к нему из web. Если необходимо позволить какому-либо локальному пользователю так же из консоли отправлять письма, то необходимо создать новую группу, и добавить в неё необходимых пользователей, не забыв так же добавить в неё и <code>php-fpm</code>.</p>
+
+<h3 id="несколько-почтовых-ящиков-и-nginx">Несколько почтовых ящиков и nginx</h3>
+
+<p>Так как на одном сервере могут располагаться несколько сайтов - наверняка возникнет потребность отправлять письма с разных сайтов от разных отправителей. Поясню - на одном сервере расположены сайты с доменными именами <code>site1.ru</code> и <code>site2.ru</code>. Соответственно, отправитель в исходящих письмах с сайта <code>site1.ru</code> должен быть вида <code>robot@site1.ru</code>, а в исходящих письмах с сайта <code>site2.ru</code> - вида <code>robot@site2.ru</code>. Для того что бы этого добиться нам необходимо прописать требуемые аккаунты в файле настроек msmtp:</p>
+
+<pre><code>defaults
+tls on
+auth on
+tls_starttls on
+tls_certcheck off
+logfile /var/log/msmtp.log
+timeout 20
+
+account site1
+host smtp.yandex.ru
+port 587
+maildomain site1.ru
+from robot@site1.ru
+user robot@site1.ru
+password password_here
+
+account site2
+host smtp.yandex.ru
+port 587
+maildomain site2.ru
+from robot@site2.ru
+user robot@site2.ru
+password password_here
+
+account default : site1
+</code></pre>
+
+<p>Теперь по умолчанию письма будут уходить от имени аккаунта <code>site1</code>, так как он у нас указан как аккаунт по умолчанию. Для того что бы сообщить скриптам на сайте <code>site2.ru</code> использовать аккаунт <code>site2</code> необходимо добавить следующую строку в конфигурацию сервера <code>site2.ru</code> nginx:</p>
+
+<pre><code>location ~ \.php$ {
+    # ...
+    fastcgi_param PHP_VALUE &quot;sendmail_path = /usr/sbin/sendmail -t -i -a site2&quot;;
+    # ...
+  }
+</code></pre>
+
+<p>И после этого всё начнет работать так как надо.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

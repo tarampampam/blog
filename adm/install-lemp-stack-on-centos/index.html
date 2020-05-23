@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>LEMP &#43; CentOS = ❤ - blog [dot] hook</title>
+  
+  <meta name="description" content="Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx &#43; php &#43; php-fpm &#43; mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">LEMP &#43; CentOS = ❤</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-06-29"
+        itemprop="datePublished">2016.6.29</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 12 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/lemp-wide.jpg" itemprop="image" alt="LEMP &#43; CentOS = ❤" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2016-06-29">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.</p>
+
+<p>Итак, коннектимся к нему с win-машины с помощью putty:</p>
+
+<pre><code>putty.exe -ssh -l root -pw %password% -P 22 %ip_address%
+</code></pre>
+
+<h3 id="шаг-0-текстовый-редактор-и-окружение">Шаг #0 - Текстовый редактор и окружение</h3>
+
+<p>Устанавливаем nano:</p>
+
+<pre><code class="language-bash">$ yum install nano
+</code></pre>
+
+<p>Правим его настройки, выставляя их в <code>/etc/nanorc</code>:</p>
+
+<pre><code>set nowrap
+set speller &quot;hunspell&quot;
+set tabsize 2
+set tabstospaces
+include &quot;/usr/share/nano/nanorc.nanorc&quot;
+include &quot;/usr/share/nano/c.nanorc&quot;
+include &quot;/usr/share/nano/css.nanorc&quot;
+include &quot;/usr/share/nano/html.nanorc&quot;
+include &quot;/usr/share/nano/php.nanorc&quot;
+include &quot;/usr/share/nano/mutt.nanorc&quot;
+include &quot;/usr/share/nano/patch.nanorc&quot;
+include &quot;/usr/share/nano/perl.nanorc&quot;
+include &quot;/usr/share/nano/python.nanorc&quot;
+include &quot;/usr/share/nano/objc.nanorc&quot;
+include &quot;/usr/share/nano/awk.nanorc&quot;
+include &quot;/usr/share/nano/sh.nanorc&quot;
+include &quot;/usr/share/nano/xml.nanorc&quot;
+</code></pre>
+
+<blockquote>
+<p>Для получения всех активных настроек из любого конфига можно воспользоваться командой:</p>
+
+<pre><code class="language-bash">$ cat /path/to/file | grep -v -e '^#' -e '^;' -e '^$'
+</code></pre>
+</blockquote>
+
+<p>В <code>/etc/profile</code> добавляем следующее:</p>
+
+<pre><code class="language-bash"># Custom bash prompt via kirsle.net/wizards/ps1.html
+export PS1=&quot;\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]&quot;
+
+export VISUAL=nano
+export EDITOR=nano
+alias nano='nano -w$'
+</code></pre>
+
+<p>А в <code>~/.bashrc</code>:</p>
+
+<pre><code class="language-bash"># Custom bash prompt via kirsle.net/wizards/ps1.html
+export PS1=&quot;\[$(tput bold)\]\[$(tput setaf 7)\][\[$(tput setaf 1)\]\u\[$(tput setaf 7)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 2)\]\w\[$(tput setaf 7)\]]\\$ \[$(tput sgr0)\]&quot;
+</code></pre>
+
+<p>Опционально - изменяем текст приветствия путём правки файла <code>/etc/motd</code> и прописывая в него имя сервера, <a href="http://patorjk.com/software/taag/#p=display&amp;#038;f=Small&amp;#038;t=HelloWorld">написанное ASCII символами</a>.</p>
+
+<h3 id="настраиваем-ssh">Настраиваем SSH</h3>
+
+<blockquote>
+<p>По хорошему следует отключить возможность логина в систему из под рута, и настроить аутентификацию по ключу да и только</p>
+</blockquote>
+
+<p>Правим конфиг демона ssh (<code>/etc/ssh/sshd_config</code>) изменяя следующие значения:</p>
+
+<pre><code>Port 16661
+AddressFamily inet
+Protocol 2
+LoginGraceTime 60
+MaxAuthTries 1
+MaxSessions 3
+PermitEmptyPasswords no
+PasswordAuthentication yes
+KerberosGetAFSToken no
+GSSAPIAuthentication no
+GSSAPIKeyExchange no
+UsePAM no
+UseDNS no
+</code></pre>
+
+<p>После чего его перезапускаем:</p>
+
+<pre><code class="language-bash">$ service sshd restart &amp;&amp; exit
+</code></pre>
+
+<p>И коннектимся по-новой на новый порт (16661).</p>
+
+<h3 id="шаг-1-настраиваем-дату-время-etc">Шаг #1 - Настраиваем дату, время, etc</h3>
+
+<p>Изменяем имя сервера:</p>
+
+<pre><code class="language-bash">$ nano /etc/hostname # прописываем server_name
+$ hostname server_name
+</code></pre>
+
+<p>Выставляем часовой пояс:</p>
+
+<pre><code class="language-bash">$ unlink /etc/localtime
+$ ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+</code></pre>
+
+<p>Настраиваем синхронизацию времени (ntp):</p>
+
+<pre><code class="language-bash">$ chkconfig ntpd on
+$ ntpdate pool.ntp.org
+$ nano /etc/ntp.conf
+</code></pre>
+
+<p>И добавляем в конец файла:</p>
+
+<pre><code>server 0.rhel.pool.ntp.org
+server 1.rhel.pool.ntp.org
+server 2.rhel.pool.ntp.org
+</code></pre>
+
+<p>Изменяем DNS-сервера на от Яндекса, вписав их первыми:</p>
+
+<pre><code class="language-bash">$ nano /etc/resolv.conf
+</code></pre>
+
+<pre><code>nameserver 77.88.8.8
+nameserver 77.88.8.1
+</code></pre>
+
+<p>Добавляем юзера, под которым будем работать, и сразу задаем ему пароль:</p>
+
+<pre><code class="language-bash">$ useradd %username%; passwd %username%
+
+Changing password for user %username%.
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+</code></pre>
+
+<p>Создаем группу для демонов web-стека, и добавим в неё нашего пользователя:</p>
+
+<pre><code class="language-bash">$ groupadd www-data
+$ usermod -a -G www-data %username%
+</code></pre>
+
+<p>А так же разрешим пользователю выполнять команды от имени рута (<em>после ввода <strong>своего</strong> пароля</em>), добавив в конец <code>/etc/sudoers</code> строку вида:</p>
+
+<pre><code>%username%   ALL=(ALL) ALL
+</code></pre>
+
+<p>Ставим &ldquo;базовые&rdquo; пакеты:</p>
+
+<pre><code class="language-bash">$ yum -y install epel-release wget unzip bzip2 openssl mc iptables-services
+</code></pre>
+
+<p>Запускаем обновление установленных пакетов:</p>
+
+<pre><code class="language-bash">$ yum -y update
+</code></pre>
+
+<p>И ставим эту-же процедуру в cron, запуская её раз в три дня, например:</p>
+
+<pre><code class="language-bash">$ crontab -e
+</code></pre>
+
+<pre><code>MAILTO=&quot;&quot;
+# -----------------------------------------------------------------------------------------
+
+ 20     0     */3   *    * nice -n 15 yum -y update
+
+# -     -     -     -    - ----------------------------------------------------------------
+# |     |     |     |    |
+# |     |     |     |    +----- day of week (0 - 6) (Sunday=0)
+# |     |     |     +------- month (1 - 12)
+# |     |     +--------- day of month (1 - 31)
+# |     +----------- hour (0 - 23)
+# +------------- min (0 - 59)
+</code></pre>
+
+<h3 id="шаг-2-nginx">Шаг #2 - nginx</h3>
+
+<p>Смотрим какая его версия доступна в &ldquo;стандартном&rdquo; репозитории:</p>
+
+<pre><code class="language-bash">$ yum info nginx
+# ...
+Name        : nginx
+Arch        : x86_64
+Version     : 1.6.3
+Release     : 9.el7
+# ...
+</code></pre>
+
+<p>Не комильфо. <a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/install/">Подключаем официальный</a> репозиторий nginx:</p>
+
+<pre><code class="language-bash">$ nano /etc/yum.repos.d/nginx.repo
+</code></pre>
+
+<p>Вставляем:</p>
+
+<pre><code class="language-ini">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+</code></pre>
+
+<p>Проверяем:</p>
+
+<pre><code class="language-bash">$ yum info nginx
+# ...
+Name        : nginx
+Arch        : x86_64
+Version     : 1.10.1
+Release     : 1.el7.ngx
+# ...
+</code></pre>
+
+<p>Вот так уже лучше. Ставим:</p>
+
+<pre><code class="language-bash">$ yum install -y nginx
+</code></pre>
+
+<p>Добавим пользователя nginx в группу демонов web-стека:</p>
+
+<pre><code class="language-bash">$ usermod -a -G www-data nginx
+</code></pre>
+
+<p>И сразу же правим его конфиг:</p>
+
+<pre><code class="language-bash">$ nano /etc/nginx/nginx.conf
+</code></pre>
+
+<pre><code>user nginx www-data;
+pid  /var/run/nginx.pid;
+
+worker_processes 4;
+worker_rlimit_nofile 2048;
+
+events {
+  worker_connections  1024;
+  multi_accept on;
+}
+
+error_log  /var/log/nginx/error.log warn;
+
+http {
+  include /etc/nginx/mime.types;
+
+  # Core
+  server_tokens off;
+  chunked_transfer_encoding on;
+  client_body_buffer_size 32k;
+  client_max_body_size 64m;
+  client_body_in_file_only off;
+  large_client_header_buffers 1 8k;
+  default_type application/octet-stream;
+  disable_symlinks off;
+  ignore_invalid_headers on;
+  underscores_in_headers on;
+  sendfile on;
+  access_log off;
+  tcp_nodelay on;
+  tcp_nopush on;
+  keepalive_disable msie6;
+  keepalive_requests 256;
+  keepalive_timeout 30;
+  send_timeout 20s;
+  reset_timedout_connection on;
+  client_body_timeout 20;
+  open_file_cache max=4096 inactive=20s;
+  open_file_cache_valid 40s;
+  open_file_cache_min_uses 2;
+  open_file_cache_errors on;
+
+  # GZip
+  gzip on;
+  gzip_buffers 16 8k;
+  gzip_comp_level 5;
+  gzip_min_length 10;
+  gzip_http_version 1.1;
+  gzip_vary on;
+  gzip_proxied off;
+  gzip_static on;
+  gzip_disable &quot;MSIE [1-6]\.(?!.*SV1)&quot;;
+  gzip_types text/plain application/xml text/css application/x-javascript text/javascript application/javascript image/svg+xml;
+
+  # SSL
+  ssl_session_cache   shared:SSL:2m;
+  ssl_session_timeout 2h;
+  ssl_prefer_server_ciphers on;
+  ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers kEECDH+AES128:kEECDH:kEDH:-3DES:kRSA+AES128:kEDH+3DES:DES-CBC3-SHA:!RC4:!aNULL:!eNULL:!MD5:!EXPORT:!LOW:!SEED:!CAMELLIA:!IDEA:!PSK:!SRP:!SSLv2;
+  resolver 8.8.8.8;
+
+  access_log off;
+  index index.php index.html index.htm;
+
+  upstream php {
+    server unix:/var/run/php5-fpm.sock;
+  }
+
+  include /etc/nginx/conf.d/*.conf;
+}
+</code></pre>
+
+<p>Настраиваем параметры fastcgi:</p>
+
+<pre><code class="language-bash">$ nano /etc/nginx/fastcgi_params
+</code></pre>
+
+<pre><code>fastcgi_param  QUERY_STRING       $query_string;
+fastcgi_param  REQUEST_METHOD     $request_method;
+fastcgi_param  CONTENT_TYPE       $content_type;
+fastcgi_param  CONTENT_LENGTH     $content_length;
+
+fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;
+fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+fastcgi_param  REQUEST_URI        $request_uri;
+fastcgi_param  DOCUMENT_URI       $document_uri;
+fastcgi_param  DOCUMENT_ROOT      $document_root;
+fastcgi_param  SERVER_PROTOCOL    $server_protocol;
+fastcgi_param  REQUEST_SCHEME     $scheme;
+fastcgi_param  HTTPS              $https if_not_empty;
+
+fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;
+fastcgi_param  SERVER_SOFTWARE    nginx/$nginx_version;
+
+fastcgi_param  REMOTE_ADDR        $remote_addr;
+fastcgi_param  REMOTE_PORT        $remote_port;
+fastcgi_param  SERVER_ADDR        $server_addr;
+fastcgi_param  SERVER_PORT        $server_port;
+fastcgi_param  SERVER_NAME        $server_name;
+
+# PHP only, required if PHP was built with --enable-force-cgi-redirect
+fastcgi_param  REDIRECT_STATUS    200;
+fastcgi_index  index.php;
+
+fastcgi_split_path_info ^(.+\.php)(/.+)$;
+</code></pre>
+
+<p>Правим конфиг &ldquo;сайта по умолчанию&rdquo;, который будет открываться если постучаться по http непосредственно на IP сервера:</p>
+
+<pre><code class="language-bash">$ nano /etc/nginx/conf.d/default.conf
+</code></pre>
+
+<pre><code>server {
+  listen      *:80 default_server;
+  root        /var/www/www;
+  access_log  /var/www/log/nginx.access.log;
+  error_log   /var/www/log/nginx.error.log;
+
+  # Uncomment line below after configuration comlete
+  #return 444;
+
+  include include/default.conf;
+
+  location ~ \.php$ {
+    include fastcgi_params;
+    fastcgi_pass php;
+  }
+}
+</code></pre>
+
+<p>И создадим директории для файлов и логов под него соответственно:</p>
+
+<pre><code class="language-bash">$ mkdir -p /var/www/www
+$ mkdir -p /var/www/log
+</code></pre>
+
+<p>Создаем директорию для шаред-конфигов (<em>которые будем подключать при необходимости</em>), и создаем основные:</p>
+
+<pre><code class="language-bash">$ mkdir /etc/nginx/include
+$ nano /etc/nginx/include/default.conf
+</code></pre>
+
+<pre><code>## Setup default error pages
+include include/errorpages.conf;
+
+## Deny direct access for hidden files/directories
+location ~ /\. {
+  return 403;
+}
+</code></pre>
+
+<p>Этот конфиг отвечает за кастомные страницы ошибок сервера (<em>вместо унылых стандартных</em>):</p>
+
+<pre><code class="language-bash">$ nano /etc/nginx/include/errorpages.conf
+</code></pre>
+
+<pre><code>error_page 400 /errorpages/400.html;
+error_page 401 /errorpages/401.html;
+error_page 402 /errorpages/402.html;
+error_page 403 /errorpages/403.html;
+error_page 404 /errorpages/404.html;
+error_page 405 /errorpages/405.html;
+error_page 406 /errorpages/406.html;
+error_page 407 /errorpages/407.html;
+error_page 408 /errorpages/408.html;
+error_page 409 /errorpages/409.html;
+error_page 410 /errorpages/410.html;
+error_page 411 /errorpages/411.html;
+error_page 412 /errorpages/412.html;
+error_page 413 /errorpages/413.html;
+error_page 414 /errorpages/414.html;
+error_page 415 /errorpages/415.html;
+error_page 416 /errorpages/416.html;
+error_page 417 /errorpages/417.html;
+
+error_page 500 /errorpages/500.html;
+error_page 501 /errorpages/501.html;
+error_page 502 /errorpages/502.html;
+error_page 503 /errorpages/503.html;
+error_page 504 /errorpages/504.html;
+error_page 505 /errorpages/505.html;
+error_page 511 /errorpages/511.html;
+
+location ^~ /errorpages/ {
+  internal;
+  root /var/www;
+}
+</code></pre>
+
+<p>Создадим директорию для кастомных страниц ошибок, и наполним её смыслом:</p>
+
+<pre><code class="language-bash">$ mkdir -p /var/www/errorpages &amp;&amp; cd /var/www/errorpages
+$ wget --no-check-certificate https://github.com/TheBlackParrot/error-pages/archive/master.zip
+$ unzip ./master.zip
+$ mv ./*/*/*.html ./ # Move all html files to this directory
+$ rm -Rf -- */ # Remove all directories
+$ find . -type f ! -name '*.html' -delete # Remove all files except *.html pattern
+$ ls -l &amp;&amp; cd ~
+</code></pre>
+
+<p>После чего запускаем nginx, и если всё хорошо, то ставим его в авто-запуск:</p>
+
+<pre><code class="language-bash">$ service nginx start &amp;&amp; service nginx status
+$ chkconfig nginx on
+</code></pre>
+
+<p>После чего пробуем в браузере обратиться к нашему серверу по IP - должны увидеть красивую ошибку 403.</p>
+
+<h3 id="шаг-3-php-5-6-и-php-fpm">Шаг #3 - PHP 5.6 и php-fpm</h3>
+
+<p>Ну что-ж, приступим-с:</p>
+
+<pre><code class="language-bash">$ wget https://centos7.iuscommunity.org/ius-release.rpm
+$ rpm -Uvh ius-release*.rpm # Add repotitory with php56
+$ rm -f ius-release*.rpm
+$ yum -y update
+$ yum -y install php56u-common php56u-cli php56u-fpm php56u-mbstring php56u-mcrypt php56u-mysqlnd php56u-opcache php56u-pdo php56u-pear php56u-pecl-jsonc php56u-process php56u-xml php56u-gd php56u-intl php56u-bcmath
+# ...
+Complete!
+$ yum list installed | grep php
+php56u-bcmath.x86_64                 5.6.22-2.ius.centos7           @ius
+php56u-cli.x86_64                    5.6.22-2.ius.centos7           @ius
+php56u-common.x86_64                 5.6.22-2.ius.centos7           @ius
+php56u-fpm.x86_64                    5.6.22-2.ius.centos7           @ius
+php56u-gd.x86_64                     5.6.22-2.ius.centos7           @ius
+php56u-intl.x86_64                   5.6.22-2.ius.centos7           @ius
+php56u-mbstring.x86_64               5.6.22-2.ius.centos7           @ius
+php56u-mcrypt.x86_64                 5.6.22-2.ius.centos7           @ius
+php56u-mysqlnd.x86_64                5.6.22-2.ius.centos7           @ius
+php56u-opcache.x86_64                5.6.22-2.ius.centos7           @ius
+php56u-pdo.x86_64                    5.6.22-2.ius.centos7           @ius
+php56u-pear.noarch                   1:1.10.1-4.ius.centos7         @ius
+php56u-pecl-jsonc.x86_64             1.3.9-2.ius.centos7            @ius
+php56u-process.x86_64                5.6.22-2.ius.centos7           @ius
+php56u-xml.x86_64                    5.6.22-2.ius.centos7           @ius
+</code></pre>
+
+<p>Настраиваем php-fpm примерно так:</p>
+
+<pre><code class="language-bash">$ nano /etc/php-fpm.conf
+</code></pre>
+
+<pre><code class="language-ini">include=/etc/php-fpm.d/*.conf
+[global]
+pid = /run/php-fpm/php-fpm.pid
+error_log = /var/log/php-fpm/error.log
+daemonize = yes
+</code></pre>
+
+<pre><code class="language-bash">$ nano /etc/php-fpm.d/www.conf
+</code></pre>
+
+<pre><code class="language-ini">[www]
+user = php-fpm
+group = www-data
+listen = /var/run/php5-fpm.sock
+listen.owner = php-fpm
+listen.group = www-data
+listen.mode = 0660
+listen.allowed_clients = 127.0.0.1
+pm = dynamic
+pm.max_children = 50
+pm.start_servers = 5
+pm.min_spare_servers = 5
+pm.max_spare_servers = 35
+slowlog = /var/log/php-fpm/www-slow.log
+env[TMP] = /tmp
+env[TEMP] = /tmp
+php_admin_value[error_log] = /var/log/php-fpm/www-error.log
+php_admin_flag[log_errors] = on
+php_value[session.save_handler] = files
+php_value[session.save_path]    = /tmp
+php_value[soap.wsdl_cache_dir]  = /tmp
+</code></pre>
+
+<p>В конфиге php <strong>меняем</strong> следующие значения:</p>
+
+<pre><code class="language-bash">$ nano /etc/php.ini
+</code></pre>
+
+<pre><code class="language-ini">; ...
+display_errors = On
+disable_functions = popen, exec, system, passthru, proc_open, shell_exec
+expose_php = Off
+post_max_size = 40M
+upload_max_filesize = 40M
+date.timezone = Europe/Moscow
+session.save_path = &quot;/tmp&quot;
+session.gc_maxlifetime = 11440
+; ...
+</code></pre>
+
+<p>Добавим пользователя <code>php-fpm</code> в группу <code>www-data</code>:</p>
+
+<pre><code class="language-bash">$ usermod -a -G www-data php-fpm
+</code></pre>
+
+<p>После чего перезапускаем демонов и ставим php-fpm в автозапуск:</p>
+
+<pre><code class="language-bash">$ service nginx restart &amp;&amp; service php-fpm restart
+$ service php-fpm status
+$ chkconfig php-fpm on
+</code></pre>
+
+<p>Создаем проверочный файл:</p>
+
+<pre><code class="language-bash">$ echo '&lt;?php phpinfo();' &gt; /var/www/www/test.php
+</code></pre>
+
+<p>И открываем в браузере страницу <code>http://%server_ip%/test.php</code>. Мы должны увидеть вывод команды <code>phpinfo()</code>.</p>
+
+<h3 id="шаг-4-mysql-5-7">Шаг #4 - MySQL 5.7</h3>
+
+<p>Не будет откладывать неизбежное:</p>
+
+<pre><code class="language-bash">$ wget http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+$ yum localinstall mysql57-community-release-el7-7.noarch.rpm
+$ yum info mysql-community-server
+# ...
+Name        : mysql-community-server
+Version     : 5.7.13
+Release     : 1.el7
+Size        : 151 M
+# ...
+$ yum -y install mysql-community-common mysql-community-server mysql-community-client
+$ service mysqld start &amp;&amp; service mysqld status
+$ chkconfig mysqld on # Enable autostart
+</code></pre>
+
+<p>Настраиваем следующим образом:</p>
+
+<pre><code class="language-bash">$ nano /etc/my.cnf
+</code></pre>
+
+<pre><code class="language-ini">[mysqld]
+innodb_buffer_pool_size = 256M
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+innodb_flush_neighbors=0
+innodb_flush_log_at_trx_commit=2
+character-set-server=utf8
+collation-server=utf8_general_ci
+symbolic-links=0
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+skip-networking
+skip-federated
+skip-blackhole
+skip-archive
+skip-external-locking
+</code></pre>
+
+<p>И перезапускаем демона:</p>
+
+<pre><code class="language-bash">$ service mysqld restart
+</code></pre>
+
+<p>Получаем значение временного пароля для учетной записи <code>root</code>:</p>
+
+<pre><code class="language-bash">$ grep 'temporary password' /var/log/mysqld.log
+2016-06-28T20:22:46.003656Z 1 [Note] A temporary password is generated for root@localhost: PASSWORD_HERE
+</code></pre>
+
+<p>После чего запускаем mysql_secure_installation:</p>
+
+<pre><code class="language-bash">$ mysql_secure_installation
+# Вводим новый пароль, который должен содержать символы разного регистра, цифры и
+# спец-символы, и быть длинной &gt;12 символов
+# На все остальные вопросы отвечаем положительно
+</code></pre>
+
+<h3 id="шаг-5-настраиваем-сервер-исходящей-почты">Шаг #5 - Настраиваем сервер исходящей почты</h3>
+
+<p>О том как это сделать ты можешь прочитать по <a href="https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/">этой ссылке</a>. Не забудь внести соответствующие изменения в <code>/etc/php.ini</code> при их наличии.</p>
+
+<h3 id="шаг-6-ftp-сервер">Шаг #6 - FTP сервер</h3>
+
+<p>Ставим из репозитория:</p>
+
+<pre><code class="language-bash">$ yum install vsftpd
+</code></pre>
+
+<p>Настраиваем так, что бы демон слушал не стандартный порт, показывал скрытые файлы, не рвал сессию раньше положенного времени и позволял подключаться пользователям за исключением root-а:</p>
+
+<pre><code class="language-bash">$ nano /etc/vsftpd/vsftpd.conf
+</code></pre>
+
+<pre><code class="language-ini">anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=NO
+xferlog_std_format=YES
+idle_session_timeout=3600
+data_connection_timeout=1800
+listen=YES
+listen_ipv6=NO
+pam_service_name=vsftpd
+userlist_enable=YES
+tcp_wrappers=YES
+listen_port=21312
+pasv_min_port=21313
+pasv_max_port=21350
+</code></pre>
+
+<p>Запускаем и ставим а автозапуск:</p>
+
+<pre><code class="language-bash">$ service vsftpd restart
+$ chkconfig vsftpd on
+</code></pre>
+
+<p>После чего пытаемся присоединиться к серверу на порт 21312 под именем пользователя, созданным ранее.</p>
+
+<h3 id="шаг-7-phpmyadmin">Шаг #7 - phpMyAdmin</h3>
+
+<p>Считаем что у нас есть доступ к редактированию DNS зоны домена для сайта, который будет располагаться на сервере, и уже имеется запись типа <code>А</code> с именем хоста <code>pma</code>, которая ведет на IP нашего сервера. Говоря проще - прописан субдомен <code>pma.your_domain.ru</code>. Нам остается сделать так, что бы по обращению к нему у нас открывался phpmyadmin.</p>
+
+<p>Так как на момент написания этого поста мне не удалось найти репозитория содержащего последнюю версию phpmyadmin, мы будем ставить его из исходников. Для чего сперва создадим соответствующие директории:</p>
+
+<pre><code class="language-bash">$ mkdir -p /var/www/pma/www
+$ mkdir -p /var/www/pma/log
+</code></pre>
+
+<p>Переходим в www и скачиваем исходники (актуальную ссылку <a href="https://www.phpmyadmin.net/downloads/">смотри на сайте</a>):</p>
+
+<pre><code class="language-bash">$ cd /var/www/pma/www
+$ wget https://files.phpmyadmin.net/phpMyAdmin/4.6.3/phpMyAdmin-4.6.3-all-languages.tar.gz
+$ tar -zxvf ./phpMyAdmin-*.tar.gz &amp;&amp; rm -f ./phpMyAdmin-*.tar.gz
+</code></pre>
+
+<p>Размещаем их в корне и удаляем пустую директорию:</p>
+
+<pre><code class="language-bash">$ mv ./*/* ./ &amp;&amp; rm -Rf ./phpMyAdmin-*
+</code></pre>
+
+<p>Удаляем не нужные локализации:</p>
+
+<pre><code class="language-bash">$ cd locale/ &amp;&amp; ls -l
+# Ахуительный список. Удаляем все, кроме 'ru'
+$ find . -maxdepth 1 -type d -not -name 'ru' -exec rm -Rf {} +
+$ cd ..
+</code></pre>
+
+<p>Теперь нам необходимо запустить это добро под nginx + php-fpm. Создаем конфиг нашего субдомена:</p>
+
+<pre><code class="language-bash">$ nano /etc/nginx/conf.d/pma.domain_name.ru.conf
+</code></pre>
+
+<pre><code>server {
+  listen      80;
+  server_name pma.domain_name.ru;
+  root        /var/www/pma/www;
+  access_log  /var/www/pma/log/nginx.access.log;
+  error_log   /var/www/pma/log/nginx.error.log;
+
+  include include/default.conf;
+
+  ## Enable client-side cache
+  location ~* ^.+\.(css|js|ogv|svg|svgz|eot|otf|woff|woff2|ttf|jpg|jpeg|gif|png|ico)$ {
+    access_log off;
+    expires 21d;
+  }
+
+  location ~* /(build.xml|composer.json|templates|test|libraries|ChangeLog|README|LICENSE) {
+    return 444;
+  }
+
+  location ~ \.php$ {
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $request_filename;
+    fastcgi_read_timeout 300; # 5 minutes
+    send_timeout         300; # 5 minutes
+    fastcgi_pass php;
+  }
+}
+</code></pre>
+
+<p>Создаем конфиг phpmyadmin из его сэмпла и немного его правим:</p>
+
+<pre><code class="language-bash">$ cp ./config.sample.inc.php ./config.inc.php
+$ nano ./config.inc.php
+</code></pre>
+
+<p>Изменяем значение <code>$cfg['blowfish_secret']</code> произвольной строкой в &gt; 32 символов, и добавляем два значения для активации капчи при авторизации:</p>
+
+<pre><code class="language-php">$cfg['CaptchaLoginPrivateKey'] = 'AABBCCDD_PRIVATE_KEY_00112233';
+$cfg['CaptchaLoginPublicKey'] = 'AABBCCDD_PUBLIC_KEY_00112233';
+</code></pre>
+
+<p>Сами же ключи берем по <a href="https://www.google.com/recaptcha/admin#list">этой ссылке</a>.</p>
+
+<p>После чего говорим nginx перечитать конфиг:</p>
+
+<pre><code class="language-bash">$ nginx -s reload
+</code></pre>
+
+<p>И открываем страницу <a href="http://pma.domain_name.ru/">http://pma.domain_name.ru/</a>, пытаясь войти под рутом (<em>очень важно <strong>отключить возможность входа под рутом</strong> после развертывания всех сайтов</em>).</p>
+
+<h3 id="шаг-8-огненная-стена">Шаг #8 - Огненная стена</h3>
+
+<p>По умолчанию в CentOS работает файрвол <code>firewalld</code>, не смотря на то что так же стоит старый добрый <code>iptables</code>. Отключаем <code>firewalld</code>:</p>
+
+<pre><code class="language-bash">$ chkconfig firewalld off
+$ systemctl disable firewalld
+$ systemctl mask firewalld
+$ systemctl enable iptables
+$ service iptables restart
+</code></pre>
+
+<p>Прописываем все наши не стандартные порты демонов в jail ACCEPT для того чтоб если мы закрылись файрволом по умолчанию, то сервисы работали бы:</p>
+
+<pre><code class="language-bash">$ iptables -I INPUT -p tcp --dport %SERVICE1_PORT_NUM% -j ACCEPT
+$ iptables -I INPUT -p tcp --dport %SERVICE2_PORT_NUM% -j ACCEPT
+# etc
+$ service iptables save
+</code></pre>
+
+<blockquote>
+<p>Заметка для себя - пора бы уже перейти на <code>firewall-cmd</code></p>
+</blockquote>
+
+<h3 id="шаг-9-memcached">Шаг #9 - memcached</h3>
+
+<p>Очень часто нужен, да и тот же wp с ним дружит и показывает неплохие результаты. Ставим и настраиваем:</p>
+
+<pre><code class="language-bash">$ yum -y install memcached php56u-memcache
+$ ln -s /etc/sysconfig/memcached /etc/memcached
+$ nano /etc/memcached
+</code></pre>
+
+<pre><code class="language-ini">PORT=&quot;11211&quot;
+USER=&quot;memcached&quot;
+MAXCONN=&quot;1024&quot;
+CACHESIZE=&quot;256&quot;
+OPTIONS=&quot;&quot;
+</code></pre>
+
+<p>Закрываем его порт извне, ставим в автозапуск и перезапускаем демонов:</p>
+
+<pre><code class="language-bash">$ iptables -A INPUT ! -s 127.0.0.1/8 -p tcp --dport 11211 -j REJECT --reject-with tcp-reset
+$ service iptables save &amp;&amp; service iptables restart
+$ service memcached restart
+$ chkconfig memcached on
+$ service php-fpm restart &amp;&amp; service nginx restart
+</code></pre>
+
+<h3 id="шаг-10-бэкапы">Шаг #10 - Бэкапы</h3>
+
+<p>Не будем изобретать велосипед и писать свои скрипты. Воспользуемся <a href="http://github.com/sukria/Backup-Manager">backup-manager</a>:</p>
+
+<pre><code class="language-bash">$ yum -y install backup-manager
+$ rm -R /var/backup-manager # вместо неё будет /var/backups
+$ nano /etc/backup-manager.conf
+</code></pre>
+
+<pre><code class="language-bash"># ...
+export BM_REPOSITORY_ROOT=&quot;/var/backups&quot;
+export BM_TEMP_DIR=&quot;/tmp&quot;
+export BM_ARCHIVE_CHMOD=&quot;660&quot;
+export BM_ARCHIVE_TTL=&quot;15&quot;
+export BM_ARCHIVE_METHOD=&quot;tarball mysql&quot;
+BM_TARBALL_TARGETS[0]=&quot;/etc&quot;
+BM_TARBALL_TARGETS[1]=&quot;/root&quot;
+BM_TARBALL_TARGETS[2]=&quot;/home/username&quot;
+BM_TARBALL_TARGETS[3]=&quot;/var/www&quot;
+export BM_TARBALL_BLACKLIST=&quot;/dev /sys /proc /tmp /root/tmp /home/username/tmp&quot;
+export BM_MYSQL_DATABASES=&quot;__ALL__&quot;
+export BM_MYSQL_ADMINLOGIN=&quot;root&quot;
+export BM_MYSQL_ADMINPASS=&quot;mysql_root_password_here&quot;
+# ...
+</code></pre>
+
+<p>При необходимости настраивается аплоад на удаленную машину, но это уже частный случай. Ставим в крон:</p>
+
+<pre><code class="language-bash">$ crontab -e
+</code></pre>
+
+<pre><code>0  */2  *  *  *  nice -n 17 /usr/sbin/backup-manager
+</code></pre>
+
+<p>Делаем тестовый запуск и обязательно проверяем содержимое архивов:</p>
+
+<pre><code class="language-bash">$ backup-manager
+$ mc /var/backups/
+</code></pre>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/cron/">cron</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/iptables/">iptables</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssh/">ssh</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

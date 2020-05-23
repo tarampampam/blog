@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/php/</link>
+    <description>Recent content in Php on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 01 Oct 2018 08:29:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/php/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker &#43; Laravel = ❤</title>
+      <link>https://tarampampam.github.io/blog/php/laravel-in-docker/</link>
+      <pubDate>Mon, 01 Oct 2018 08:29:51 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/php/laravel-in-docker/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/425101/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;В данной статье я расскажу о своём опыте &amp;ldquo;заворачивания&amp;rdquo; Laravel-приложения в Docker-контейнер да так, что бы и локально с ним могли работать frontend и backend разработчики, и запуск его на production был максимально прост. Так же CI будет автоматически запускать статические анализаторы кода, &lt;code&gt;phpunit&lt;/code&gt;-тесты, производить сборку образов.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;А в чём, собственно, сложность?&amp;rdquo; - можешь сказать ты, и будешь отчасти прав. Дело в том, что этой теме посвящено довольно много обсуждений в русскоязычных и англоязычных комьюнити, и почти все изученные треды я бы условно разделил на следующие категории:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Использую докер для локальной разработки. Ставлю &lt;a href=&#34;https://laradock.io/&#34;&gt;laradock&lt;/a&gt; и беды не знаю&amp;rdquo;. Круто, но как обстоят дела с автоматизацией и запуском на production?&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Собираю один контейнер &lt;em&gt;(монолит)&lt;/em&gt; на базе &lt;code&gt;fedora:latest&lt;/code&gt; (~230 Mb), ставлю в него все сервисы (nginx, бд, кэш, etc), запускаю всё супервизором внутри&amp;rdquo;. Тоже отлично, прост в запуске, но как на счёт идеологии &amp;ldquo;один контейнер - один процесс&amp;rdquo;? Как обстоят дела с балансировкой и управлением процессами? Как же размер образа?&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Вот вам куски конфигов, приправляем выдержками из sh-скриптов, добавим магических env-значений, пользуйтесь&amp;rdquo;. Спасибо, но как же на счёт хотя бы одного живого примера, который я бы мог форкнуть и полноценно поиграться?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Всё, что ты прочитаешь ниже - является субъективным опытом, который не претендует быть истиной в последней инстанции. Если у тебя будут дополнения или указания на неточности - welcome to comments.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Для нетерпеливых - &lt;a href=&#34;https://gitlab.com/tarampampam/laravel-in-docker&#34;&gt;ссылка на репозиторий&lt;/a&gt;, склонировав который ты сможешь запустить Laravel-приложение одной командой. Так же не составит труда его запустить на том же &lt;a href=&#34;https://rancher.com/&#34;&gt;rancher&lt;/a&gt;, правильно &amp;ldquo;слинковав&amp;rdquo; контейнеры, или использовать продуктовый вариант &lt;code&gt;docker-compose.yml&lt;/code&gt; как отправную точку.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переопределяем расположение .env файла для Laravel</title>
+      <link>https://tarampampam.github.io/blog/php/override-laravel-env-file-location/</link>
+      <pubDate>Thu, 23 Aug 2018 16:43:45 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/php/override-laravel-env-file-location/</guid>
+      <description>&lt;p&gt;Столкнулся с ситуацией, когда необходимо переопределить расположение &lt;code&gt;.env&lt;/code&gt; файла, который используется, к примеру - для запуска &lt;code&gt;phpunit&lt;/code&gt; тестов. Да, если в корне приложения имеется файл &lt;code&gt;.env.testing&lt;/code&gt; - то он автоматически будет прочитан фреймворком при &lt;code&gt;APP_ENV&lt;/code&gt; равным &lt;code&gt;testing&lt;/code&gt;, но вот что делать, если этот файл необходимо разметить в какой-либо другой директории? Давай расположим его в &lt;code&gt;./env.d/&lt;/code&gt; дабы, например, не &amp;ldquo;мусорить&amp;rdquo; в корне приложения.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

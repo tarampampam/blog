@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>routeros on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/routeros/</link>
+    <description>Recent content in routeros on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Tue, 04 Aug 2015 05:19:04 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/routeros/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Чистим интернет от назойливой рекламы (AD Blocker для MikroTik)</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/</link>
+      <pubDate>Tue, 04 Aug 2015 05:19:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/264001/&#34; target=&#34;_blank&#34;&gt;публикации на хабре&lt;/a&gt; (написанной мной же).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Данная статья является логическим завершением &lt;a href=&#34;https://habr.com/post/263081/#comment_8509571&#34;&gt;небольшой дискуссии&lt;/a&gt; с тов. &lt;a href=&#34;https://habr.com/users/vvzvlad/&#34;&gt;vvzvlad&lt;/a&gt;, которая развернулась под топиком &amp;ldquo;&lt;a href=&#34;https://habr.com/post/263081/&#34;&gt;Чистим домашний интернет от очень назойливой рекламы&lt;/a&gt;&amp;rdquo;, где автор с помощью &lt;strong&gt;wget&lt;/strong&gt;, &lt;strong&gt;sed&lt;/strong&gt; и &lt;strong&gt;cron&lt;/strong&gt; на &lt;strong&gt;OpenWRT&lt;/strong&gt; успешно сливает файлы рекламных хостов, парсит и подсовывает dns-серверу &lt;strong&gt;dnsmasq&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MikroTik — Автоматически меняем MAC адрес на рандомный</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</link>
+      <pubDate>Sat, 25 Jul 2015 13:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</guid>
+      <description>&lt;p&gt;Очередной приступ паранойи застал врасплох. Мысль о том что MAC-адрес беспощадно палит привязку твоих сессий в логах провайдера не давала покоя и надо было с этим что то делать.&lt;/p&gt;
+
+&lt;p&gt;Позвонив товарищу, который поинтересовался у инженеров провайдера (&lt;em&gt;одного из представителей &amp;ldquo;Большой тройки&amp;rdquo;&lt;/em&gt;) соображениями о том, просто ли получить информацию о сессиях абонента, имея на руках MAC-адрес. Ответ был очевиден - &amp;ldquo;Да как два пальца..&amp;rdquo;. Нет, часто меняя MAC-и, разумеется, полной анонимности не добьешься, но некоторые затруднения это всё-таки вызовет.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

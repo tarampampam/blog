@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dump on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/dump/</link>
+    <description>Recent content in dump on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Thu, 24 Apr 2014 12:10:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/dump/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Создание бэкапа на nic.ru</title>
+      <link>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</link>
+      <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</guid>
+      <description>&lt;p&gt;Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

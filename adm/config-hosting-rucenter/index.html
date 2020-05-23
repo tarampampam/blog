@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Настройка хостинга на RU-Center (nic.ru) - blog [dot] hook</title>
+  
+  <meta name="description" content="Так уж сложилось, что время от времени приходится поднимать сайты на хостинге руцентра. Как правило это небольшие сайты-визитки или проекты, для которых реализация на дедике характеризуется как &amp;ldquo;жирно будет&amp;rdquo;.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Настройка хостинга на RU-Center (nic.ru)</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-01-22"
+        itemprop="datePublished">2016.1.22</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 11 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/rucenter-cfg-wide.jpg" itemprop="image" alt="Настройка хостинга на RU-Center (nic.ru)" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2016-01-22">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Так уж сложилось, что время от времени приходится поднимать сайты на хостинге руцентра. Как правило это небольшие сайты-визитки или проекты, для которых реализация на дедике характеризуется как &ldquo;жирно будет&rdquo;.</p>
+
+<p>Итак, отбросим причины в сторону. Первым делом - что нам понадобится для того чтоб всё сделать &ldquo;под ключ&rdquo;, т.е. владельцем домена/хостинга был заказчик (как физ.лицо), а ты был лишь лицом, которое выполняет работу? От заказчика тебе потребуется:</p>
+
+<ul>
+<li>Фотографии/сканы разворота паспорта и страницы с пропиской;</li>
+<li>Логин/пароль от почтового ящика, который будет фигурировать при регистрации;</li>
+<li>Необходимая сумма денег для оплаты требуемых услуг.</li>
+</ul>
+
+<blockquote>
+<p><strong>Вопрос</strong>: При регистрации домена может сразу встать вопрос - делегировать домен на руцентр или, например, сразу же на <a href="https://pdd.yandex.ru/">DNS-хостинге от Яндекса</a>?</p>
+
+<p><strong>Ответ</strong>: На руцентр. Так как для делегирования на Яндекс потребуется подтвердить права на владение доменом. И проще всего это сделать с помощью проверки наличия определенного файла с кодом в корне сайта. Поэтому - смело всё делай по дефолту, потом переделегируем, если потребность такая возникнет.</p>
+</blockquote>
+
+<p>Сразу скажу - если &ldquo;с сайта&rdquo; будут отправляться письма и при этом хостить DNS у Яндекса - возникнут проблемы с отправкой писем. <a href="https://ru.wikipedia.org/wiki/DomainKeys_Identified_Mail">DKIM</a> настроить на Яндекс будет невозможно, а у руцентра он принципиально не настраиваемый. Поэтому считай это тонкостью использования руцентра в целом.</p>
+
+<p>Итак, считаем что аккаунт у нас заведен, домен - зарегистрирован, хостинг - заказан. Не забудь а <a href="https://www.nic.ru/manager/contract.cgi?step=contract.edit">Личных данных</a> приложить сканы/фотографии паспорта клиента для верификации личности, так правильнее будет.</p>
+
+<h3 id="настройка-почты">Настройка почты</h3>
+
+<p>Переходим &ldquo;Панель управления&rdquo; &rarr; &ldquo;Почтовый сервер&rdquo;. Выбираем наш почтовый домен (<em>должен быть создан автоматически; в противном случае создаем его с именем основного домена</em>). Первым делом лезем в &ldquo;Почтовые ящики&rdquo; &rarr; &ldquo;postmaster@your_domain.ltd&rdquo;, и добавляем синонимы к ящику вида <code>info@ admin@ webmaster@ abuse@</code>. Таким образом все &ldquo;важные&rdquo; письма будут первым делом попадать именно на этот ящик, а владелец сайта сможет написать на своих визитках &ldquo;клёвый&rdquo; почтовый адрес <code>info@your_domain.ltd</code> :) Так же заходим в интерфейс самого почтового ящика (<em>нажимаем на его адрес вверху страницы</em>) и настраиваем переадресацию всех входящих писем на email-адрес заказчика.</p>
+
+<p>Далее &ldquo;Панель управления&rdquo; &rarr; &ldquo;Почтовый сервер&rdquo; &rarr; &ldquo;Параметры&rdquo;, и в поле &ldquo;Обработка нераспознанной почты&rdquo; вводим <code>postmaster@your_domain.ltd</code>. Таким образом письма, отправленные на несуществующий ящик (_например <strong>blabla</strong>@your<em>domain.ltd</em>) будут уходить на <code>postmaster@your_domain.ltd</code>, а оттуда - нашему заказчику. Если же будут заведены дополнительные адреса (<em>например - для сотрудников нашего заказчика</em>) - ничего перенастраивать не придется.</p>
+
+<h3 id="настройка-субд">Настройка СУБД</h3>
+
+<p>Настройку СУБД производить в соответствии с используемой системой управления контента. Рекомендую &ldquo;выключать&rdquo; все привилегии для пользователя, которые ему критически не важны. В идеале ему должно хватать лишь <code>INSERT</code> <code>UPDATE</code> <code>SELECT</code> и <code>DELETE</code>. Но это лишь в идеале. Ещё раз - тут смотри сам.</p>
+
+<p>Больше особо интересных моментов в настройке для хостинга нет.</p>
+
+<h3 id="настройка-веб-сервера">Настройка Веб-сервера</h3>
+
+<p>Вот тут самое пожалуй интересное. Первым делом мы осуществляем &ldquo;преднастройку&rdquo; в веб-интерфейсе панели управления. Если используешь CMS &ldquo;WordPress&rdquo;, то для тебя подойдут почти все настройки что идут &ldquo;по умолчанию&rdquo;, но не все. Для других CMS - надо смотреть более детально и отдельно.</p>
+
+<h4 id="выключаем-wp-cron-для-wordpress">Выключаем WP_CRON для WordPress</h4>
+
+<p>В WordPress Есть такая штука как WP_CRON, которая позволяет выполнять &ldquo;отложенные&rdquo; действия, такие как отложенная публикация постов, проверка наличия обновлений и прочие весьма полезные штуки. Но это довольно тяжелая задача, надо признать, и выполнять её при каждом посещении пользователя/администратора сайта - иметь лишнюю задержку. Что мы делаем чтоб ситуацию исправить? Мы выключаем WP_CRON в WordPress путем добавления строки:</p>
+
+<pre><code class="language-php">define('DISABLE_WP_CRON', true);
+</code></pre>
+
+<p>В <code>wp-config.php</code>, и добавляем отдельную задачу в &ldquo;Панель управления&rdquo; &rarr; &ldquo;Веб-сервер&rdquo; &rarr; &ldquo;Планировщик заданий&rdquo; с именем, например - &ldquo;wp cron&rdquo; и выполняемой командой:</p>
+
+<pre><code class="language-php">/usr/local/bin/wget -O - -q &quot;http://your_domain.ltd/wp-cron.php&quot;
+</code></pre>
+
+<p>Теперь пользователи не будут ощущать задержку, а все задачи крона WP будут выполняться &ldquo;в фоне&rdquo; с заданным интервалом (<em>выставь &ldquo;Каждые 5 минут&rdquo;</em>).</p>
+
+<h4 id="настраиваем-модули">Настраиваем модули</h4>
+
+<p>Переходим в &ldquo;Управление модулями&rdquo;. Здесь нам необходимо выполнить предварительную настройку как веб-сервера (Apache, а точнее просто указать какие модули ему загружать), выбрать используемую версию php (не знаю почему, но я всё ещё пользуюсь версией <code>5.3</code>), и указать необходимые параметры для php, такие как кодировка (<em>выставляй везде UTF-8</em>), максимальный размер загружаемого файла, и модули php (<em>выставляй их в соответствии с требованиями сайта</em>).</p>
+
+<p>Вырубай всё откровенно лишнее и неиспользуемое. После этого перезапусти веб-сервер путем нажатия на соответствующую ссылку, и ставь свою CMS. На этом шаге у тебя должно всё работать как надо. Проверь всё - отправку писем, работу всех частей как пользовательского интерфейса, так и административной части. Всё должно работать. Только после этого мы переходим к следующей части.</p>
+
+<h4 id="перевод-сервера-в-ручной-режим">Перевод сервера в ручной режим</h4>
+
+<p>Это необходимо для того, чтоб выполнить более тонкую настройку, недоступную из веб-интерфейса. Для перевода работы веб-сервера в ручной режим переходи в &ldquo;Панель управления&rdquo; &rarr; &ldquo;Веб-сервер&rdquo; и в графе &ldquo;Режим настройки&rdquo; жми на &ldquo;Ручной&rdquo;. После этого действия будут созданы конфиги на основе тех настроек, которые мы выполнили ранее.</p>
+
+<p>Теперь цепляемся к хостингу по <code>ssh</code> (реквизиты для соединения указаны в &ldquo;Панель управления&rdquo; &rarr; &ldquo;Помощь&rdquo;), и все дальнейшие настройки будем выполнять только в нем.</p>
+
+<h4 id="настройка-nginx">Настройка nginx</h4>
+
+<p>Первым делом нам необходимо настроить:</p>
+
+<ul>
+<li>Отдачу статического контента с помощью nginx</li>
+<li>Включить его сжатие с помощью gzip</li>
+<li>Настроить его хранение на стороне клиента (<em>вместо того, чтоб каждый раз скачивать его с нашего сервера</em>)</li>
+</ul>
+
+<p>Для этого выполняем в консоли:</p>
+
+<pre><code class="language-bash">$ cat /etc/nginx/your_domain.ltd.site.conf
+</code></pre>
+
+<p>И смотрим как у нас был настроен nginx в автоматическом режиме. Он отдавал статику, но сжатие и хранение статики на стороне клиента - отсутствует. Испраляем-с :) Копируем из этого конфига все <code>location</code>-ы (<em>в моем случае это были <code>location /</code>, <code>location ~* ^.+\.(jpg|jpeg|gif|...</code> и <code>location @fallback</code></em>) в конфиг <code>~/etc/nginx/nginx.conf</code>, вставляя их в секцию <code>server {...}</code>. Сделать по образу и подобию не думаю что составит трудность.</p>
+
+<p>Для <strong>включения gzip-сжатия</strong> статики необходимо в секцию <code>http {...}</code> добавить:</p>
+
+<pre><code>  gzip_static on;
+  gzip on;
+  gzip_buffers 16 8k;
+  gzip_comp_level 2;
+  gzip_min_length 1024;
+  gzip_types text/css text/plain text/json text/x-js text/javascript text/xml application/json application/x-javascript application/xml application/xml+rss application/javascript;
+  gzip_disable &quot;msie6&quot;;
+  gzip_vary on;
+  gzip_http_version 1.0;
+</code></pre>
+
+<p>Добавить можно в принципе в любом месте перед началом секции <code>server {...}</code>. Теперь статика будет отдаваться значительно быстрее :)</p>
+
+<p>Для того чтоб она <strong>лишний раз не загружалась с сервера</strong>, а хранилась на стороне клиента мы немного подправил <code>location</code> который отвечает за отдачу статики, а точнее добавим в него строку <code>expires 30d;</code>, чтоб получилось примерно следующее:</p>
+
+<pre><code>location ~* ^.+\.(jpg|jpeg|gif|swf|png|ico|mp3|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|dat|avi|ppt|txt|tar|mid|midi|wav|bmp|rtf|wmv|mpeg|mpg|mp4|m4a|spx|ogx|ogv|oga|webm|weba|ogg|tbz|js|7z)$ {
+    expires 30d;
+    root   /home/domain-tld/your_domain.ltd/docs;
+    access_log  /var/log/your_domain.ltd.access_log  combined;
+    error_page 404 = @fallback;
+    log_not_found off;
+    accel_htaccess_switch on;
+  }
+</code></pre>
+
+<p>Так же приведу для сравнения полный листинг получившегося у меня конфига:</p>
+
+<pre><code>worker_processes  2;
+error_log  /dev/null;
+pid        /var/run/nginx.pid;
+events {
+    worker_connections  2048;
+}
+http {
+  set_real_ip_from 10.1.0.0/16;      # MSK
+  set_real_ip_from 10.3.0.0/16;      # MSK
+  set_real_ip_from 195.208.0.0/23;   # MSK
+  set_real_ip_from 212.192.194.0/24; # NSK
+  set_real_ip_from 10.12.0.0/16;     # NSK
+  set_real_ip_from 212.192.193.0/24; # NSK
+  set_real_ip_from 10.15.0.0/16;     # AMS
+  set_real_ip_from 178.210.94.0/24;  # AMS
+  real_ip_header X-Real-IP;
+
+  gzip_static on;
+  gzip on;
+  gzip_buffers 16 8k;
+  gzip_comp_level 2;
+  gzip_min_length 1024;
+  gzip_types text/css text/plain text/json text/x-js text/javascript text/xml application/json application/x-javascript application/xml application/xml+rss application/javascript;
+  gzip_disable &quot;msie6&quot;;
+  gzip_vary on;
+  gzip_http_version 1.0;
+
+  include       /usr/local/etc/nginx/mime.types;
+  default_type  application/octet-stream;
+  server_names_hash_bucket_size 128;
+  access_log      off;
+  sendfile        on;
+  keepalive_timeout  65;
+
+  #include /etc/nginx/virts_list;
+  server {
+    listen       10.3.138.12:80;
+    server_name  your_domain.ltd your_domain.nichost.ru www.your_domain.ltd your_domain.nichost.ru;
+    location / {
+      proxy_pass         http://10.3.138.12:8080;
+      proxy_redirect     http://your_domain.ltd:8080/ /;
+      proxy_redirect     http://your_domain.nichost.ru:8080/ /;
+      proxy_redirect     http://www.your_domain.ltd:8080/ /;
+      proxy_redirect     http://www.your_domain.nichost.ru:8080/ /;
+      proxy_set_header   Host             $host;
+      proxy_set_header   X-Real-IP        $remote_addr;
+      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+      client_max_body_size       192m;
+      client_body_buffer_size    128k;
+      proxy_connect_timeout      90;
+      proxy_send_timeout         900;
+      proxy_read_timeout         900;
+      proxy_buffer_size          64k;
+      proxy_buffers              8 32k;
+      proxy_busy_buffers_size    64k;
+      proxy_temp_file_write_size 64k;
+    }
+    include /home/your_domain/etc/nginx/secure_wordpress.inc;
+
+    # Set error pages
+    set $errordocs /home/your_domain/your_domain.ltd/errordocs;
+    error_page 400 /400.html; location = /400.html {root $errordocs;}
+    error_page 401 /401.html; location = /401.html {root $errordocs;}
+    error_page 403 /403.html; location = /403.html {root $errordocs;}
+    error_page 404 /404.html; location = /404.html {root $errordocs;}
+    error_page 408 /408.html; location = /408.html {root $errordocs;}
+    error_page 500 /500.html; location = /500.html {root $errordocs;}
+    error_page 501 /501.html; location = /501.html {root $errordocs;}
+    error_page 502 /502.html; location = /502.html {root $errordocs;}
+    error_page 503 /503.html; location = /503.html {root $errordocs;}
+    error_page 504 /504.html; location = /504.html {root $errordocs;}
+
+    # Static files location
+    location ~*
+  ^.+\.(jpg|jpeg|gif|swf|png|ico|mp3|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|dat|avi|ppt|txt|tar|mid|midi|wav|bmp|rtf|wmv|mpeg|mpg|mp4|m4a|spx|ogx|ogv|oga|webm|weba|ogg|tbz|js|7z)$ {
+      expires 30d;
+      root   /home/your_domain/your_domain.ltd/docs;
+      access_log  /var/log/your_domain.ltd.access_log  combined;
+      # original nic.ru line below:
+      #error_page 404 = @fallback;
+      log_not_found off;
+      accel_htaccess_switch on;
+    }
+    location @fallback {
+      proxy_pass http://10.3.138.12:8080;
+      proxy_set_header   Host             $host;
+      proxy_set_header   X-Real-IP        $remote_addr;
+      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+      client_max_body_size       192m;
+      client_body_buffer_size    128k;
+      proxy_connect_timeout      90;
+      proxy_send_timeout         900;
+      proxy_read_timeout         900;
+      proxy_buffer_size          64k;
+      proxy_buffers              8 32k;
+      proxy_busy_buffers_size    64k;
+      proxy_temp_file_write_size 64k;
+    }
+  }
+}
+</code></pre>
+
+<p>Содержимое файла &ldquo;~/etc/nginx/secure_wordpress.inc&rdquo;:</p>
+
+<pre><code>if ($http_user_agent ~* ((perl|php|python|wpscan)|^(|-|_)$)) {return 403;}
+if ($http_user_agent ~* (nmap|nikto|wikto|sf|sqlmap|bsqlbf|w3af|acunetix|havij|appscan|nic.ru|monitoring|semalt|virusdie|indy)) {return 444;}
+if ($http_referer ~* (semalt.com|virusdie|mskshops.ru|apishops.ru)) {return 444;}
+location ~* /(magmi.(php|ini)|uploadTester.asp|.*server.ca.pem|(x|humans).txt|(flashgallery|thumb_editor|html|phpinfo|xxx|bad).php|filezilla.xml)$ {return 444;}
+if ($query_string ~* &quot;^(.*)(/(.*my.cnf|self/environ|etc/passwd)|cmd=|curl+|bad.php)(.*)$&quot;) {return 444;}
+location ~* .*/(fckeditor|kcfinder|ckfinder)/.*\.(php|asp(|x))$ {return 444;}
+location ~ /\.ht {return 444;}
+
+add_header X-Frame-Options DENY;
+add_header X-Content-Type-Options nosniff;
+add_header X-XSS-Protection &quot;1; mode=block;&quot;;
+
+location ~* /((wp-config|plugin_upload|xmlrpc|wp-xmlrpc).php|(readme|license|changelog).(html|txt|md)|(debug|access|error)(.|_)log)$ {access_log off; log_not_found off;
+return 404;}
+location ~* /((dl-skin|nyemnyem|searchreplacedb2|wp-content|bogel|myluph|parser|routing).php|local.xml)$ {access_log off; log_not_found off; return 404;}
+location ~* /.*((|.|%23)(wp-config|xmlrpc).*(php(_bak|~|#|%23)|txt|old|bak|save|orig(|inal)|swp|swo)).*$ {access_log off; log_not_found off; return 404;}
+if ($query_string ~* &quot;^(.*)(wp-config.php|dl-skin.php|xmlrpc.php|uploadify.php|admin-ajax.php|local.xml)(.*)$&quot;) {return 404;}
+if ($query_string ~* &quot;(concat.*\(|union.*select.*\(|union.*all.*select)&quot;) {return 404;}
+
+if ($query_string ~* &quot;author=[0-9]&quot;) {return 301 $scheme://$host/;}
+
+location ~* /(?:uploads|files)/.*\.(php|cgi|py|pl)$ {return 404;}
+location ~* /(wp|page)/.*wp-.*/.*$ {access_log off; log_not_found off; return 404;}
+
+location = /wp-content/ {return 404;}            location = /wp-content {return 404;}
+location = /wp-includes/ {return 404;}           location = /wp-includes {return 404;}
+location = /wp-content/plugins/ {return 404;}    location = /wp-content/plugins {return 404;}
+location = /wp-content/mu-plugins/ {return 404;} location = /wp-content/mu-plugins {return 404;}
+location = /wp-content/uploads/ {return 404;}    location = /wp-content/uploads {return 404;}
+location = /wp-content/themes/ {return 404;}     location = /wp-content/themes {return 404;}
+location = /wp-content/languages/ {return 404;}         location = /wp-content/languages {return 404;}
+location = /wp-content/languages/plugins/ {return 404;} location = /wp-content/languages/plugins {return 404;}
+location = /wp-content/languages/themes/ {return 404;}  location = /wp-content/languages/themes {return 404;}
+location ~ /wp-content/languages/(.+)\.(po|mo)$ {return 404;}
+</code></pre>
+
+<p>Теперь перезапускаем nginx и проверяем чтоб всё работало как надо с помощью, например, <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>:</p>
+
+<pre><code class="language-bash">$ /etc/rc.d/nginx restart
+</code></pre>
+
+<h4 id="настройка-apache">Настройка apache</h4>
+
+<p>Конфиг Apache теперь храниться по пути <code>~/etc/apache_2.4/httpd.conf</code>, и для его перезапуска необходимо будет выполнить команду:</p>
+
+<pre><code class="language-bash">$ /etc/rc.d/httpd restart
+</code></pre>
+
+<p>Всё что нам необходимо сделать здесь - это добавить 2 строки перед секцией <code>&lt;VirtualHost *:8080&gt;</code>: <code>ServerTokens Prod</code> и <code>ServerSignature Off</code>, которые запрещают вывод сигнатур сервера. Если тебе потребуется ещё что-то настраивать у Apache - то делай это в этом файле.</p>
+
+<h4 id="настройка-php">Настройка php</h4>
+
+<p>Для того, чтоб веб-сервер Apache начал читать именно наш конфиг, а не тот что лежит в директории <code>~/etc/</code> - нам необходимо скопировать соответствующий в домашнюю директорию. Поясню - например, мы используем <code>php</code> версии <code>5.3</code>. Смотрим в <code>~/etc/</code>:</p>
+
+<pre><code class="language-bash">$ ls -l ~/etc/php*
+lrwxr-xr-x  1 root  wheel    22 Jan 18 16:55 /home/your_domain/etc/php -&gt; ../../../usr/opt/php53
+lrwxr-xr-x  1 root  wheel     9 Jan 18 16:55 /home/your_domain/etc/php.ini -&gt; php53.ini
+-rw-r--r--  1 root  wheel  1106 Jan 18 16:59 /home/your_domain/etc/php53.ini
+-rw-r--r--  1 root  wheel  1156 Jan 18 08:26 /home/your_domain/etc/php56.ini
+</code></pre>
+
+<p>Конфиг есть, но писать в него мы соответственно не можем. Копируем его в домашнюю директорию под именем <code>php.ini</code>:</p>
+
+<pre><code class="language-bash">$ cp ~/etc/php53.ini ~/php.ini
+</code></pre>
+
+<p>И добавляем в него строку <code>expose_php=Off</code>, которая скроет версию используемого <code>php</code> и заголовках ответов веб-сервера. Перезапускаем Apache:</p>
+
+<pre><code class="language-bash">$ /etc/rc.d/httpd restart
+</code></pre>
+
+<p>И проверяем чтоб всё работало, но ничего лишнего наружу &ldquo;не светилось&rdquo;.</p>
+
+<h4 id="настраиваем-резервное-копирование">Настраиваем резервное копирование</h4>
+
+<p>Хоть администраторы хостинга и выполняют резервное копирование - но лишней копия всё же не будет. Хранить мы будем бэкапы 31 день (<em>все настройки указываются в начале скрипта</em>), не забудь указать настройки ID хостинга (<em>т.е. названия твоей домашней директории</em>) и реквизиты для подключения к mysql базе примерно в 84 строке скрипта (<em>+ там же проверка на наличие итогового бэкапа бд</em>):</p>
+
+<pre><code class="language-bash">#!/bin/bash
+## @author    Paramtamtam
+## @project   Nic.ru backup script
+## @copyright 2014 &lt;https: //github.com/tarampampam&gt;
+## @github    https://github.com/tarampampam/nic.ru-bascup-script/
+## @version   0.1.3
+##
+## @depends   mysqldump, tar
+
+# *****************************************************************************
+# ***                               Config                                   **
+# *****************************************************************************
+
+## nic.ru hosting id, look in 'cd ~ &amp;&amp; pwd', ex.:
+## [%YourID%@web2006 ~]$ cd ~ &amp;&amp; pwd
+## /home/%YourID%
+HostingID=&quot;your_domain&quot;;
+## Path to home dir, not need in change
+PathToHomeDir=/home/$HostingID
+## Path to directory, where backups will stored
+PathToBackupsDir=$PathToHomeDir/backups
+## Path to directory, where store DataBase dumps (add to backup file, and
+##   remove from file system), not need in change
+PathToDatabaseDumps=$PathToHomeDir/database-backup
+##
+## !!! IMPORTANT !!!
+## Add your login, password and db_name to 'mysqldump' (line ~84)
+## !!! IMPORTANT !!!
+##
+## Days count for backup files store, not need in change
+StoreBackupsDaysCount=31
+
+# *****************************************************************************
+# ***                            END Config                                  **
+# *****************************************************************************
+
+## Found here - http://goo.gl/4Oi5ZK
+cRed='e[1;31m'; cGreen='e[0;32m'; cNone='e[0m'; cYel='e[1;33m';
+cBlue='e[1;34m'; cGray='e[1;30m'; cWhite='e[1;37m';
+
+## Helpers Functions ###############################################
+
+logmessage() {
+  ## $1 = (not required) '-n' flag for echo output
+  ## $2 = message to output
+
+  flag=''; outtext='';
+  if [ &quot;$1&quot; == &quot;-n&quot; ]; then
+    flag=&quot;-n &quot;; outtext=$2;
+  else
+    outtext=$1;
+  fi
+
+  echo -e $flag[$(date +%H:%M:%S)] &quot;$outtext&quot;;
+}
+
+## Begin work ####################################################
+
+# Create directory for backups (if not exists)
+if [ ! -d $PathToBackupsDir ]; then
+  logmessage -n &quot;Create $PathToBackupsDir.. &quot;;
+  mkdir -p $PathToBackupsDir;
+  if [ -d $PathToBackupsDir ]; then
+    echo -e &quot;Ok&quot;;
+  else
+    echo -e &quot;Error&quot;;
+    exit 1;
+  fi
+fi
+
+# Clean temp dumps $PathToDatabaseDumps + create it (ex: broken last run)
+logmessage -n &quot;Clean and prepare $PathToDatabaseDumps.. &quot;;
+rm -R -f $PathToDatabaseDumps;
+mkdir -p $PathToDatabaseDumps;
+if [ -d $PathToBackupsDir ]; then
+  echo -e &quot;Ok&quot;;
+else
+  echo -e &quot;Error&quot;;
+fi
+
+logmessage -n &quot;Backup DataBase(s) to $PathToDatabaseDumps.. &quot;
+mysqldump --force --opt --add-locks --user=your_domain_mysql -pXXXXXXX --databases your_domain_db &gt; $PathToDatabaseDumps/your_domain_db.sql
+# Write here all files to check exists
+if [ -f $PathToDatabaseDumps/your_domain_db.sql ]; then
+  echo -e &quot;Complete&quot;;
+else
+  echo -e &quot;Error&quot;;
+fi
+
+
+cd $PathToBackupsDir
+thisBackupFileName=backup-$(date +%y-%m-%d--%H-%M)-$HostingID.tar.bz2
+
+logmessage -n &quot;Pack files to $PathToBackupsDir/$thisBackupFileName.. &quot;
+tar -cpPjf $PathToBackupsDir/$thisBackupFileName \
+    --exclude=$PathToBackupsDir* \
+    --exclude=$PathToHomeDir/tmp/* \
+    --exclude=*httpd.core \
+    $PathToHomeDir;
+echo -e &quot;Complete&quot;;
+
+# Make some clean
+logmessage -n &quot;Make some clean.. &quot;;
+rm -R -f $PathToDatabaseDumps;
+echo -e &quot;Complete&quot;;
+
+sleep 2;
+
+## Finish work ####################################################
+
+logmessage -n &quot;Deleting old backups from $PathToBackupsDir.. &quot;
+find $PathToBackupsDir -type f -mtime +$StoreBackupsDaysCount -exec rm '{}' \;
+for FILE in $(find $PathToBackupsDir -mtime +$StoreBackupsDaysCount -type f); do
+  logmessage &quot;Delete $FILE as Old&quot;;
+  rm -f $FILE;
+done;
+echo -e &quot;Complete&quot;;
+</code></pre>
+
+<p>По итогу его выполнения у нас должна появиться директория <code>~/backups</code> с текущим бэкапом всех данных. Для автоматизации в &ldquo;Планировщик заданий&rdquo; добавь задание вида <code>/home/your_domain/scripts/backup.sh</code> с запуском 1 раз в полночь, например.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/apache/">apache</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/backup/">backup</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nic.ru/">nic.ru</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

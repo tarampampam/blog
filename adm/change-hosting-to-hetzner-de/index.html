@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Установка LAMP на CentOS 7 - blog [dot] hook</title>
+  
+  <meta name="description" content="Так уж получилось, что хостер, где ранее размещались все сайты и некоторые сервисы, оказался жлоб и пидарас. Жлоб, потому как на самом дорогом тарифе выделял лишь сраные 256Mb под всё, а пидарас — потому как и с поддержкой — не очень хорошо, и хосты частенько лежали, и отношение к клиентам — далеко не лучшее. Да, речь о Nic.ru.
+Было решено переезжать. Но куда? В России достойное по соотношению цена/качества — не находилось, а “за бугром”, по рекомендациям хабра — был выбран hetzner.de.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Установка LAMP на CentOS 7</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-01-26"
+        itemprop="datePublished">2015.1.26</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 5 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/lamp-wide.jpg" itemprop="image" alt="Установка LAMP на CentOS 7" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-01-26">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Так уж получилось, что хостер, где ранее размещались все сайты и некоторые сервисы, оказался жлоб и пидарас. Жлоб, потому как на самом дорогом тарифе выделял лишь сраные 256Mb под всё, а пидарас — потому как и с поддержкой — не очень хорошо, и хосты частенько лежали, и отношение к клиентам — далеко не лучшее. Да, речь о Nic.ru.</p>
+
+<p>Было решено переезжать. Но куда? В России достойное по соотношению цена/качества — не находилось, а “за бугром”, по рекомендациям хабра — был выбран <a href="http://www.hetzner.de/">hetzner.de</a>.</p>
+
+<p>Сказано — сделано. Только куплен не хостинг, а виртуальный выделенный сервер, с характеристиками:</p>
+
+<ul>
+<li>Камень: <strong>Intel&reg; Core&trade;2 Duo CPU T7700 @ 2.40GHz</strong></li>
+<li>Кэш камня: <strong>4096 KB</strong></li>
+<li>Память: <strong>994.1 MB</strong></li>
+<li>Сеть: добрые <strong>50 МБит</strong></li>
+<li>ОС: на выбор, но я ставил <strong>CentOS Linux 7.0.1406 (x64)</strong></li>
+</ul>
+
+<p>После того что было - есть где разгуляться. А самое главное - почти за те же деньги. Остается всё поставить и настроить.</p>
+
+<p>Ставить мы будем вот что:</p>
+
+<ul>
+<li><strong>nginx</strong> в качестве фронтэнда;</li>
+<li><strong>httpd</strong> (Apache 2) + <strong>php</strong> в качестве бэкэнда;</li>
+<li><strong>vsftpd</strong> - ftp сервер;</li>
+<li><strong>mariadb</strong> (mysql) в качестве сервера БД с мордой phpMyAdmin.</li>
+</ul>
+
+<p>Этот пост — скорее как шпаргалка для самого себя, т.к. уже успел сервер положить на лопатки, и пришлось всё делать заново (к слову — бэкап, разумеется, был; а настройки удалось выдернуть, загрузившись с рековери-образа в режиме восстановления). Но, как говорит мой товарищ “Хорош пиздеть, поехали”:</p>
+
+<p>Ставим стартовый набор и обновляемся:</p>
+
+<pre><code class="language-bash">$ yum update; yum install nano mc
+</code></pre>
+
+<p>Правим имя хоста:</p>
+
+<pre><code class="language-bash">$ nano /etc/hostname
+</code></pre>
+
+<p>Изменяем DNS-сервера на российские (от Яндекса - <code>77.88.8.8</code> и <code>77.88.8.1</code>):</p>
+
+<pre><code class="language-bash">$ nano /etc/resolv.conf
+</code></pre>
+
+<p>Правим вид консоли, придаем ей человеческий образ, и ставим в качестве редактора по умолчанию - nano:</p>
+
+<pre><code class="language-bash">$ nano ~/.bashrc
+</code></pre>
+
+<pre><code class="language-bash">export VISUAL=nano
+export EDITOR=nano
+# Custom bash prompt via kirsle.net/wizards/ps1.html
+export PS1=&quot;[$(tput bold)][$(tput setaf 7)][[$(tput setaf 1)]u[$(tput setaf 7)]@[$(tput setaf 5)]h [$(tput setaf 2)]w[$(tput setaf 7)]]\$ [$(tput sgr0)]&quot;
+</code></pre>
+
+<p>Изменяем порт ssh на нетипичный, например - 23432:</p>
+
+<pre><code class="language-bash">$ nano /etc/ssh/sshd_config
+</code></pre>
+
+<pre><code>Port 23432
+Protocol 2
+</code></pre>
+
+<p>И перезапускаем ssh сервер (после коннектимся на новый порт):</p>
+
+<pre><code class="language-bash">$ service sshd restart
+</code></pre>
+
+<p>Создаем swap и монтируем его:</p>
+
+<pre><code class="language-bash">$ dd if=/dev/zero of=/swap bs=1M count=1024
+$ mkswap /swap
+$ swapon /swap
+</code></pre>
+
+<p>И чтоб swap монтировался при запуске системы (сам он этого делать не будет) добавляем <code>swapon /swap</code> в <code>/etc/rc.local</code>.</p>
+
+<p>Добавляем юзера, под которым будем работать, и сразу задаем ему пароль:</p>
+
+<pre><code class="language-bash">$ useradd kot
+$ passwd kot
+</code></pre>
+
+<p>Меняем рабочую директория (т.к. у меня всего один пользователь и планировался, то я его переместил сходу в /home/):</p>
+
+<pre><code class="language-bash">$ usermod -m -d /home/ kot; chown kot:kot /home/
+</code></pre>
+
+<p>Ставим FTP:</p>
+
+<pre><code class="language-bash">$ yum install vsftpd
+</code></pre>
+
+<p>Настраиваем:</p>
+
+<pre><code class="language-bash">$ nano /etc/vsftpd/vsftpd.conf
+</code></pre>
+
+<p>И (пере)запускаем:</p>
+
+<pre><code class="language-bash">$ service vsftpd restart
+</code></pre>
+
+<p>Примерный конфиг у меня такой:</p>
+
+<pre><code class="language-ini">anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+listen_port=12312
+xferlog_std_format=YES
+idle_session_timeout=3600
+data_connection_timeout=3600
+listen=NO
+listen_ipv6=YES
+force_dot_files=YES
+pam_service_name=vsftpd
+userlist_enable=YES
+tcp_wrappers=YES
+</code></pre>
+
+<p>Демон висит на порту 12312, соединение по таймауту с ходу не обрывает, скрытые директории и файлы - показывает.</p>
+
+<p>Потом меня забесил темно-синий цвет в выводе ls - ну не видно нихера. Изменил его (на <code>DIR 01;36</code>):</p>
+
+<pre><code class="language-bash">$ nano /etc/DIR_COLORS
+</code></pre>
+
+<p>Продолжаем установку пакетов:</p>
+
+<pre><code class="language-bash">$ yum install zip unzip bzip bzip2
+</code></pre>
+
+<p>Ставим поддержку распаковки из rar-архивов (надо для одного сервиса):</p>
+
+<pre><code class="language-bash">$ wget http://pkgs.repoforge.org/unrar/unrar-4.0.7-1.el6.rf.x86_64.rpm
+$ rpm -Uvh unrar-4.0.7-1.el6.rf.x86_64.rpm
+$ rm unrar-4.0.7-1.el6.rf.x86_64.rpm
+</code></pre>
+
+<p>Ставим web-сервисы и иже с ними:</p>
+
+<pre><code class="language-bash">$ yum install httpd nginx mariadb-server php phpMyAdmin crontabs htop iptables-services
+</code></pre>
+
+<p>Настраиваем httpd (Apache 2):</p>
+
+<pre><code class="language-bash">$ nano /etc/httpd/conf/httpd.conf
+</code></pre>
+
+<p>Для апача также ставим <code>mod_realip2</code> (<a href="http://moonback.ru/page/apache2-realip-nginx">по этой инструкции</a>, в комментарии к посту по ссылке одно важное замечание), иначе в логах будет 127.0.0.1 вместо реального адреса пользователя. Настраиваем его на работу на <strong>8080</strong> порту.</p>
+
+<p>Ставим так же и <code>mod_geoip</code> для определения - откуда пользователь (настройку его производите самостоятельно, и не забудьте - .dat файлы необходимы в периодическом обновлении):</p>
+
+<pre><code class="language-bash">$ yum install geoip geoip-devel
+</code></pre>
+
+<p>После всех настроек выполняем (пере)запуск httpd демона, материмся, анализируем причину “почему не заработало”, правим, и снова (пере)запускаем:</p>
+
+<pre><code class="language-bash">$ service httpd restart
+</code></pre>
+
+<p>Т.к. phpMyAdmin у нас уже стоит, он по умолчанию доступен отовсюду по ссылке %виртуалхост%/phpmyadmin. Это мы исправляем, и разрешаем лишь на “главном хосте”, для чего конфиг “главного хоста” у нас может быть таким:</p>
+
+<pre><code>&lt;VirtualHost *:8080&gt;
+  ServerName localhost.local
+  DocumentRoot /home/main.host/docs
+  &lt;Directory &quot;/home/main.host/docs&quot;&gt;
+    AllowOverride All
+    Require all granted
+    Satisfy all
+  &lt;/Directory&gt;
+  Alias /phpMyAdmin/ /usr/share/phpMyAdmin/
+  &lt;Directory /usr/share/phpMyAdmin/&gt;
+    AddDefaultCharset UTF-8
+    Require all granted
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>А сам конфиг <code>%phpmyadmin%.conf</code> из <code>/etc/httpd/conf.d/</code> (или <code>/etc/httpd/conf.modules.d/</code>) сносим к ебеням.</p>
+
+<p>Так же выполняем первоначальную настройку:</p>
+
+<pre><code class="language-bash">$ mysql
+mysql&gt; DROP DATABASE test;
+mysql&gt; USE mysql;
+mysql&gt; UPDATE user SET Password=PASSWORD('MyMysqlPassword') WHERE user='root';
+mysql&gt; FLUSH PRIVILEGES;
+mysql&gt; quit
+</code></pre>
+
+<p>Далее - настраиваем nginx:</p>
+
+<pre><code class="language-bash">$ nano /etc/nginx/nginx.conf
+</code></pre>
+
+<p>И настраиваем его на работу на <strong>80</strong> порту, и что можно отдавать им - отдаем им, остальное - пропускаем на апач - <code>proxy_pass http://127.0.0.1:8080/;</code>.</p>
+
+<p>Далее - БД, Машка (MariaDB, она же MySQL). Правим конфиг:</p>
+
+<pre><code class="language-bash">$ nano /etc/my.cnf
+</code></pre>
+
+<p>И доводим его примерно до такого вида:</p>
+
+<pre><code class="language-ini">[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+symbolic-links=0
+key_buffer = 16M
+max_allowed_packet = 4M
+table_cache = 32
+sort_buffer_size = 2M
+read_buffer_size = 4M
+read_rnd_buffer_size = 2M
+net_buffer_length = 20K
+thread_stack = 640K
+tmp_table_size = 16M
+query_cache_limit = 1M
+query_cache_size = 4M
+skip-networking
+skip-federated
+skip-blackhole
+skip-archive
+skip-external-locking
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+[mysqld_safe]
+log-error=/var/log/mariadb/mariadb.log
+pid-file=/var/run/mariadb/mariadb.pid
+!includedir /etc/my.cnf.d
+</code></pre>
+
+<p>Делая её работу чуть “попроще”, да и запрещая доступ к БД “извне”. И (пере)запускаем:</p>
+
+<pre><code class="language-bash">$ service mariadb restart
+</code></pre>
+
+<p>На данный момент у нас должно уже всё работать. Закрываем извне доступ к апачу, т.к. у нас весь трафик ходит через nginx:</p>
+
+<pre><code class="language-bash">$ iptables -A INPUT -i eth0 -p tcp -m tcp --dport 8080 -j DROP
+$ service iptables save
+</code></pre>
+
+<p>Ещё одна тонкость - давай ограничим количество соединений по SSH до, скажем, четырех в минуту. Тем самым защитившись от перебора паролей ssh (ssh порт у нас 23432):</p>
+
+<pre><code class="language-bash">$ iptables -A INPUT -p tcp --dport 23432 -i eth0 -m state --state NEW -m recent --set
+$ iptables -A INPUT -p tcp --dport 23432 -i eth0 -m state --state NEW -m recent --update --seconds 60 --hitcount 4 -j DROP
+$ service iptables save
+</code></pre>
+
+<p>Так же есть смысл сразу <a href="http://debianworld.ru/articles/rotaciya-logov-s-pomoshyu-logrotate-v-debian-ubuntu/">настроить logrotate</a>.</p>
+
+<p>А после всего запустить <code>htop</code>, откинуться на спинку, и сказать - “А это было совсем не сложно”.</p>
+
+<p><img src="//habrastorage.org/files/81f/6d9/fe4/81f6d9fe4d60492b8641d02283350a28.png" alt="image" /></p>
+
+<p>Ссылки, которые могут быть так же интересны:</p>
+
+<ul>
+<li><a href="https://habr.com/post/132302/">LAMP +Nginx на VPS стабильно и без лишней головной боли</a></li>
+<li><a href="https://habr.com/post/159203/">Настройка Nginx + LAMP сервера в домашних условиях</a></li>
+<li><a href="https://habr.com/post/160647/">Настраиваем свой первый VDS сервер в роли веб-сервера</a></li>
+<li><a href="https://habr.com/company/yandex/blog/104652/">DNS-хостинг Яндекса</a></li>
+<li><a href="https://habr.com/post/196844/">Яндекс.DNS — безопасный домашний интернет</a></li>
+<li><a href="http://www.opennet.ru/docs/RUS/iptables/">Руководство по iptables (Iptables Tutorial 1.1.19)</a></li>
+<li><a href="http://www.askapache.com/security/chmod-stat.html">Chmod, Umask, Stat, Fileperms, and File Permissions</a></li>
+<li><a href="http://www.ezservermonitor.com/">eZ Server Monitor - A lightweight and simple dashboard monitor for Linux</a></li>
+</ul>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/apache/">apache</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ftp/">ftp</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/hetzner/">hetzner</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/hetzner.de/">hetzner.de</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/hosting/">hosting</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/httpd/">httpd</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssh/">ssh</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/vds/">vds</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

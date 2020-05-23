@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nix on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/nix/</link>
+    <description>Recent content in Nix on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Thu, 31 Jan 2019 16:25:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/nix/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Обновляем SSH на Linux mint</title>
+      <link>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</link>
+      <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</guid>
+      <description>&lt;p&gt;Так уж получается, что репозитории с пакетами частенько отстают в версиях ПО, которое предоставляют. Частный случай - нужно подключиться к удаленной системе используя не &amp;ldquo;традиционный&amp;rdquo; туннель, а &lt;a href=&#34;https://wiki.gentoo.org/wiki/SSH_jump_host&#34;&gt;ssh jump&lt;/a&gt;. На борту Linux Mint 18.3 стоит &lt;code&gt;openssh&lt;/code&gt;, который ещё не поддерживает эту фичу:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNU Make - Полная документация</title>
+      <link>https://tarampampam.github.io/blog/nix/makefile-full-doc/</link>
+      <pubDate>Fri, 28 Sep 2018 15:39:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/nix/makefile-full-doc/</guid>
+      <description>&lt;p&gt;На днях появилась необходимость несколько автоматизировать сборку Docker-образов, и решать эту задачу &amp;ldquo;привычними&amp;rdquo; bash-скриптами очень не хотелось. Вспомнил про существование такого зверя как &lt;code&gt;make&lt;/code&gt; и, черт подери - это великая тулза, которая уже считай что почти забыта. В процессе работы был найден перевод документации, и дабы он &amp;ldquo;не потерялся&amp;rdquo; - разместил его здесь.&lt;/p&gt;
+
+&lt;h2 id=&#34;программа-управления-компиляцией&#34;&gt;Программа управления компиляцией&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GNU &lt;code&gt;make&lt;/code&gt; Версия 3.79, апрель 2000&lt;/p&gt;
+
+&lt;p&gt;Richard M. Stallman и Roland McGrath, перевод &amp;copy; Владимир Игнатов, 2000. Версия перевода 0.1&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Английский оригинал этого текста находится &lt;a href=&#34;https://www.gnu.org/software/make/manual/html_node/index.html&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Оригинал перевода был мною взят &lt;a href=&#34;http://linux.yaroslavl.ru/docs/prog/gnu_make_3-79_russian_manual.html&#34;&gt;с этой страницы&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Флаги запуска «PuTTY» - blog [dot] hook</title>
+  
+  <meta name="description" content="Наиболее часто используемые флаги запуска putty:">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Флаги запуска «PuTTY»</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2014-08-01"
+        itemprop="datePublished">2014.8.1</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 1 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/putty-wide.jpg" itemprop="image" alt="Флаги запуска «PuTTY»" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2014-08-01">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Наиболее часто используемые флаги запуска <code>putty</code>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Флаг</th>
+<th>Его описание</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>-load &quot;название сессии&quot;</code></td>
+<td>Загрузить сохраненную сессию. Если в названии сессии есть пробелы, оно заключается в кавычки.</td>
+</tr>
+
+<tr>
+<td><code>-ssh, -telnet, -rlogin, -raw</code></td>
+<td>Выбор протокола соединения</td>
+</tr>
+
+<tr>
+<td><code>-v</code></td>
+<td>Выводить отладочную информацию</td>
+</tr>
+
+<tr>
+<td><code>-l login</code></td>
+<td>Задать логин</td>
+</tr>
+
+<tr>
+<td><code>-pw MyPaSsWoRd</code></td>
+<td>Задать пароль</td>
+</tr>
+
+<tr>
+<td><code>-L, -D, -R</code></td>
+<td>Включить перенаправление портов. <code>-L 5110:popserver.example.com:110</code> - перенаправить локальный порт 5110 на порт 110 удаленного сервера, <code>-R 5023:mytelnetserver.myhouse.org:23</code> - перенаправить удаленный порт 5025 на порт 23 локального сервера</td>
+</tr>
+
+<tr>
+<td><code>-m script.file</code></td>
+<td>Исполнить команду. Параметр &#8212; путь к тектовому файлу со списком команд, которые требуется исполнить</td>
+</tr>
+
+<tr>
+<td><code>-P port</code></td>
+<td>Задать порт для соединения, если он отличается от стандартного порта для заданного протокола</td>
+</tr>
+
+<tr>
+<td><code>-X, -x</code></td>
+<td>Включить <code>(-X)</code> или выключить <code>(-x)</code> перенаправление X в SSH</td>
+</tr>
+
+<tr>
+<td><code>-T, -t</code></td>
+<td>Выделять <code>(-T)</code> или не выделять <code>(-t)</code> псевдо-терминал при SSH соединении</td>
+</tr>
+
+<tr>
+<td><code>-N</code></td>
+<td>Запретить запуск команды или командной оболочки. Актуально для перенаправления портов</td>
+</tr>
+
+<tr>
+<td><code>-C</code></td>
+<td>Включить сжатие данных</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="пример">Пример</h3>
+
+<pre><code class="language-bash">putty.exe -ssh -l root -pw welc0me -C 192.168.1.2
+</code></pre>
+
+<p>По протоколу SSH с логином <code>root</code> и паролем <code>welc0me</code> (+опция сжатия данных) подключиться к серверу с адресом <code>192.168.1.2</code>.</p>
+
+<p>Полный список и ещё примеры можете найти <a href="http://tartarus.org/~simon/putty-snapshots/htmldoc/Chapter3.html#using-cmdline">по этой ссылке</a>.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/putty/">putty</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssh/">ssh</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

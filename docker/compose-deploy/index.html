@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Деплой на Docker Swarm - blog [dot] hook</title>
+  
+  <meta name="description" content=" Данный пост является переводом части документации, посвященной секции deploy в docker-compose
+ deploy  Начиная с версии 3.
+ Группа настроек, посвященная деплою и запуску сервисов. Указанные в данной группе настройки используются только при деплое на swarm используя docker stack deploy, и игнорируется при использовании команд docker-compose up и docker-compose run.
+version: &#39;3&#39; services: redis: image: redis:alpine deploy: replicas: 6 update_config: parallelism: 2 delay: 10s restart_policy: condition: on-failure ">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Деплой на Docker Swarm</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2018-10-15"
+        itemprop="datePublished">2018.10.15</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/docker-in-clouds-wide.png" itemprop="image" alt="Деплой на Docker Swarm" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2018-10-15">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <blockquote>
+<p>Данный пост является переводом <a href="https://docs.docker.com/compose/compose-file/#deploy">части документации</a>, посвященной секции <code>deploy</code> в <code>docker-compose</code></p>
+</blockquote>
+
+<h2 id="deploy"><code>deploy</code></h2>
+
+<blockquote>
+<p>Начиная с <a href="https://docs.docker.com/compose/compose-file/compose-versioning/#version-3">версии <strong>3</strong></a>.</p>
+</blockquote>
+
+<p>Группа настроек, посвященная деплою и запуску сервисов. Указанные в данной группе настройки используются <strong>только</strong> при деплое на <a href="https://docs.docker.com/engine/swarm/">swarm</a> используя <a href="https://docs.docker.com/engine/reference/commandline/stack_deploy/"><code>docker stack deploy</code></a>, и игнорируется при использовании команд <code>docker-compose up</code> и <code>docker-compose run</code>.</p>
+
+<pre><code class="language-yaml">version: '3'
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+</code></pre>
+
+<p>Доступны следующие дополнительные опции:</p>
+
+<h3 id="endpoint-mode"><code>endpoint_mode</code></h3>
+
+<p>Используемый метод обнаружения (&ldquo;service discovery&rdquo;) для внешних запросов от клиентов.</p>
+
+<blockquote>
+<p>Начиная с <a href="https://docs.docker.com/compose/compose-file/compose-versioning/#version-3">версии <strong>3.3</strong></a>.</p>
+</blockquote>
+
+<ul>
+<li><code>endpoint_mode: vip</code> - Докер присваивает сервису виртуальный IP адрес (VIP), который выступает в роли &ldquo;внешнего&rdquo; для получения доступа к сервису. Докер сам занимается маршрутизацией запросов между клиентом и доступным воркером (на котором крутится сервис), при этом клиент ничего не знает ни о количестве нод, ни о их IP и портах (используется по умолчанию).</li>
+
+<li><p><code>endpoint_mode: dnsrr</code> - DNS &ldquo;round-robin&rdquo; (DNSRR) <strong>не</strong> использует одиночный виртуальный IP адрес. Докер устанавливает DNS записи для сервиса таким образом, что когда клиент его запрашивает - ему возвращается список из IP адресов, и клиент сам подключается к одному из них. DNS &ldquo;round-robin&rdquo; полезен в случаях использования своего собственного балансировщика нагрузки, или для гибридных Windows &amp; Linux приложений.</p>
+
+<pre><code class="language-yaml">version: &quot;3.3&quot;
+
+services:
+wordpress:
+image: wordpress
+ports:
+  - &quot;8080:80&quot;
+networks:
+  - overlay
+deploy:
+  mode: replicated
+  replicas: 2
+  endpoint_mode: vip
+
+mysql:
+image: mysql
+volumes:
+   - db-data:/var/lib/mysql/data
+networks:
+   - overlay
+deploy:
+  mode: replicated
+  replicas: 2
+  endpoint_mode: dnsrr
+
+volumes:
+db-data:
+
+networks:
+overlay:
+</code></pre></li>
+</ul>
+
+<p><code>endpoint_mode</code> так же можно использовать как флаг запуска при использовании консоли <a href="https://docs.docker.com/engine/reference/commandline/service_create/"><code>docker service create</code></a>. Список всех связанных swarm-команд <a href="https://docs.docker.com/engine/swarm/#swarm-mode-key-concepts-and-tutorial">доступен по этой ссылке</a>.</p>
+
+<p>Если вы хотите узнать больше о &ldquo;service discovery&rdquo; и сетях в swarm-режиме, перейдите в <a href="https://docs.docker.com/network/overlay/">раздел настройки service discovery</a>.</p>
+
+<h3 id="labels"><code>labels</code></h3>
+
+<p>Установка ярлыков (labels) сервиса. Эти ярлыки присваиваются <em>только самому</em> сервису, а <em>не</em> какому-либо контейнеру этого сервиса.</p>
+
+<pre><code class="language-yaml">version: &quot;3&quot;
+
+services:
+  web:
+    image: web
+    deploy:
+      labels:
+        com.example.description: &quot;This label will appear on the web service&quot;
+</code></pre>
+
+<p>Для установки ярлыков (labels) для <em>контейнеров</em> (а не сервиса), используйте ключ <code>labels</code> вне секции <code>deploy</code>:</p>
+
+<pre><code class="language-yaml">version: &quot;3&quot;
+
+services:
+  web:
+    image: web
+    labels:
+      com.example.description: &quot;This label will appear on all containers for the web service&quot;
+</code></pre>
+
+<h3 id="mode"><code>mode</code></h3>
+
+<p>Может быть <em>глобальным</em> (<code>global</code>, строго один контейнер на swarm-ноде) или <em>реплицированным</em> (<code>replicated</code>, с указанием количества контейнеров). По умолчанию используется <code>replicated</code>. Подробнее можно прочитать в разделе <a href="https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#replicated-and-global-services">Реплицированные и глобальные сервисы</a>.</p>
+
+<pre><code class="language-yaml">version: '3'
+
+services:
+  worker:
+    image: dockersamples/examplevotingapp_worker
+    deploy:
+      mode: global
+</code></pre>
+
+<h3 id="placement"><code>placement</code></h3>
+
+<p>Указание мест размещения контейнеров и их &ldquo;предпочтений&rdquo;. Наиболее полное описание допустимых опций вы сможете найти в разделах &ldquo;<a href="https://docs.docker.com/engine/reference/commandline/service_create/#specify-service-constraints-constraint">constraints</a>&rdquo; и &ldquo;<a href="https://docs.docker.com/engine/reference/commandline/service_create/#specify-service-placement-preferences-placement-pref">preferences</a>&rdquo; соответственно.</p>
+
+<pre><code class="language-yaml">version: '3.3'
+
+services:
+  db:
+    image: postgres
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+          - engine.labels.operatingsystem == ubuntu 14.04
+        preferences:
+          - spread: node.labels.zone
+</code></pre>
+
+<h3 id="replicas"><code>replicas</code></h3>
+
+<p>Если у сервиса выбран режим репликации (<code>replicated</code>, используется по умолчанию) - вы можете указать количество запускаемых контейнеров у данного сервиса.</p>
+
+<pre><code class="language-yaml">version: '3'
+
+services:
+  worker:
+    image: dockersamples/examplevotingapp_worker
+    networks:
+      - frontend
+      - backend
+    deploy:
+      mode: replicated
+      replicas: 6
+</code></pre>
+
+<h3 id="resources"><code>resources</code></h3>
+
+<p>Настройка ограничений используемых ресурсов.</p>
+
+<blockquote>
+<p><strong>Примечание:</strong> Указанные в данной секции опции перекрывают <a href="https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources">более старые ограничения и опции</a>, что указаны в Compose-файле для не-swarm режима до версии 3 (<code>cpu_shares</code>, <code>cpu_quota</code>, <code>cpuset</code>, <code>mem_limit</code>, <code>memswap_limit</code>, <code>mem_swappiness</code>), как описано в разделе <a href="https://docs.docker.com/compose/compose-file/compose-versioning/#upgrading">обновление с версии 2.x до 3.x</a>.</p>
+</blockquote>
+
+<p>Каждое значение, указанное в данной секции, является аналогом опций для <a href="https://docs.docker.com/engine/reference/commandline/service_create/"><code>docker service create</code></a>.</p>
+
+<p>В приведенном ниже примере сервис <code>redis</code> может использовать не более 50 Мб памяти и <code>0.50</code> (50%) доступного процессорного времени (CPU), а так же имеет зарезервированные 20 Мб памяти и <code>0.25</code> CPU (всегда доступные для него).</p>
+
+<pre><code class="language-yaml">version: '3'
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+</code></pre>
+
+<blockquote>
+<p>Настройка ограничений ресурсов для не-swarm режима <a href="https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources">доступна в этом разделе</a>. Если у вас возникнут дополнительные вопросы - обратите внимание на <a href="https://github.com/docker/compose/issues/4513">этот топик на github.com</a>.</p>
+</blockquote>
+
+<h4 id="исключения-класса-out-of-memory-oome">Исключения класса &ldquo;Out Of Memory&rdquo; (OOME)</h4>
+
+<p>Если ваши сервисы или контейнеры попытаются использовать объём памяти больше, чем доступен на используемой системе, вы рискуете &ldquo;поймать&rdquo; исключение класса &ldquo;Out Of Memory Exception&rdquo; (OOME) и контейнер, или сам докер-демон может быть прибит демоном ядра системы (&ldquo;kernel OOM killer&rdquo;). Во избежание этого убедитесь в наличии доступных ресурсов на целевой системе и ознакомтесь с разделом <a href="https://docs.docker.com/engine/admin/resource_constraints/#understand-the-risks-of-running-out-of-memory">понимание рисков недостатка доступной памяти</a>.</p>
+
+<h3 id="restart-policy"><code>restart_policy</code></h3>
+
+<p>Указывает как и в каких случаях необходимо перезапускать контейнеры когда они останавливаются. Замена секции <code>restart</code>.</p>
+
+<ul>
+<li><code>condition</code> (условие): одно из возможных значений - <code>none</code> (никогда), <code>on-failure</code> (при ошибке) или <code>any</code> (всегда) (по умолчанию: <code>any</code>).</li>
+<li><code>delay</code> (задержка): Задержка между попытками перезапуска, указывается в формате &ldquo;<a href="https://docs.docker.com/compose/compose-file/#specifying-durations">продолжительность</a>&rdquo; (по умолчанию: 0).</li>
+<li><code>max_attempts</code>: Количество предпринимаемых попыток перезапуска перед тем, как прекратить пытаться запустить контейнер (по умолчанию: количество попыток не ограничено). Если контейнер не запустился в пределах указанного &ldquo;окна&rdquo; (<code>window</code>), эта попытка не учитывается при расчете значения <code>max_attempts</code>. Например, если <code>max_attempts</code> установлен равным <code>2</code>, и перезапуск завершился ошибкой при первой попытке, может быть предпринято более двух попыток перезапуска.</li>
+<li><code>window</code>: Задержка перед принятием решения о том, что перезапуск успешно завершился. Указывается в формате &ldquo;<a href="https://docs.docker.com/compose/compose-file/#specifying-durations">продолжительность</a>&rdquo; (по умолчанию: задержка отсутствует).</li>
+</ul>
+
+<blockquote>
+<p>Для лучшего понимания лучше прочитать <a href="https://docs.docker.com/compose/compose-file/#restart_policy">первоисточник</a>.</p>
+</blockquote>
+
+<pre><code class="language-yaml">version: '3'
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+</code></pre>
+
+<h3 id="update-config"><code>update_config</code></h3>
+
+<p>Настройка <strong>обновления</strong> сервисов.</p>
+
+<ul>
+<li><code>parallelism</code>: Количество <em>одновременно</em> обновляемых контейнеров. Если установить <code>0</code>, то будет происходить одновременное обновление всех контейнеров.</li>
+<li><code>delay</code>: Задержка между обновлениями группы контейнеров (по умолчанию: <code>0s</code>).</li>
+<li><code>failure_action</code>: Действие при ошибке обновления. Может принимать значения: <code>continue</code>, <code>rollback</code>, или <code>pause</code> (по умолчанию: <code>pause</code>).</li>
+<li><code>monitor</code>: Продолжительность мониторинга на сбой после каждого обновления <code>(ns|us|ms|s|m|h)</code> (по умолчанию: <code>0s</code>).</li>
+<li><code>max_failure_ratio</code>: Допустимая частота сбоев при обновлении (по умолчанию: <code>0</code>).</li>
+<li><code>order</code>: Порядок операций при обновлении. Может принимать значения: <code>stop-first</code> (старая задача останавливается перед тем, как запускать новую), или <code>start-first</code> (сначала запускается новая задача, а выполняемые задачи ненадолго &ldquo;перекрываются&rdquo;) (по умолчанию: <code>stop-first</code>).</li>
+</ul>
+
+<blockquote>
+<p><strong>Заметка:</strong> Порядок операций при обновлении доступен начиная с версии v3.4 и выше.</p>
+</blockquote>
+
+<pre><code class="language-yaml">version: '3.4'
+
+services:
+  vote:
+    image: dockersamples/examplevotingapp_vote:before
+    depends_on:
+      - redis
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+        order: stop-first
+</code></pre>
+
+<h3 id="rollback-config"><code>rollback_config</code></h3>
+
+<blockquote>
+<p><a href="https://docs.docker.com/compose/compose-file/compose-versioning/#version-37">Версия <strong>3.7</strong></a> и выше</p>
+</blockquote>
+
+<p>Настройка <strong>откатов</strong> сервисов в случае ошибки обновления.</p>
+
+<ul>
+<li><code>parallelism</code>: Количество <em>одновременно</em> откатываемых контейнеров. Если установить <code>0</code>, то будет происходить одновременный откат всех контейнеров.</li>
+<li><code>delay</code>: Задержка между откатами группы контейнеров (по умолчанию: <code>0s</code>).</li>
+<li><code>failure_action</code>: Действие при провале отката. Может принимать значения: <code>continue</code> или <code>pause</code> (по умолчанию: <code>pause</code>)</li>
+<li><code>monitor</code>: Продолжительность мониторинга на сбой после каждого обновления <code>(ns|us|ms|s|m|h)</code> (по умолчанию: <code>0s</code>).</li>
+<li><code>max_failure_ratio</code>: Допустимая частота сбоев при откате (по умолчанию: <code>0</code>).</li>
+<li><code>order</code>: Порядок операций при откате. Может принимать значения: <code>stop-first</code> (старая задача останавливается перед тем, как запускать новую), или <code>start-first</code> (сначала запускается новая задача, а выполняемые задачи ненадолго &ldquo;перекрываются&rdquo;) (по умолчанию: <code>stop-first</code>).</li>
+</ul>
+
+<h3 id="не-поддерживается-в-контексте-docker-stack-deploy">Не поддерживается в контексте <code>docker stack deploy</code></h3>
+
+<p>Следующие настройки <em>не поддерживаются</em> командой <code>docker stack deploy</code> или настройками в группе <code>deploy</code>.</p>
+
+<ul>
+<li><code>build</code></li>
+<li><code>cgroup_parent</code></li>
+<li><code>container_name</code></li>
+<li><code>devices</code></li>
+<li><code>tmpfs</code></li>
+<li><code>external_links</code></li>
+<li><code>links</code></li>
+<li><code>network_mode</code></li>
+<li><code>restart</code></li>
+<li><code>security_opt</code></li>
+<li><code>stop_signal</code></li>
+<li><code>sysctls</code></li>
+<li><code>userns_mode</code></li>
+</ul>
+
+<blockquote>
+<p><strong>Заметка:</strong> Смотри раздел <a href="https://docs.docker.com/compose/compose-file/#volumes-for-services-swarms-and-stack-files">как настраивать тома для сервисов, swarm-ов и docker-stack.yml файлов</a>. Использование томов поддерживается, но они должны быть сконфигурированы как как именованные тома или связаны с сервисами, которые в свою очередь предоставляют доступ к необходимым томам.</p>
+</blockquote>
+
+    
+    <blockquote>
+      <strong>Данный пост так же переведен на следующие языки:</strong>
+      <ul>
+        
+        <li>
+          <a href="https://tarampampam.github.io/blog/en/docker/compose-deploy/">Deploy to Docker Swarm (en)</a>
+        </li>
+        
+      </ul>
+      
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/deploy/">deploy</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/docker-compose/">docker-compose</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/docker/">docker</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/devops/">devops</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

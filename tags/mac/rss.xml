@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/mac/</link>
+    <description>Recent content in mac on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sat, 25 Jul 2015 13:23:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/mac/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MikroTik — Автоматически меняем MAC адрес на рандомный</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</link>
+      <pubDate>Sat, 25 Jul 2015 13:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</guid>
+      <description>&lt;p&gt;Очередной приступ паранойи застал врасплох. Мысль о том что MAC-адрес беспощадно палит привязку твоих сессий в логах провайдера не давала покоя и надо было с этим что то делать.&lt;/p&gt;
+
+&lt;p&gt;Позвонив товарищу, который поинтересовался у инженеров провайдера (&lt;em&gt;одного из представителей &amp;ldquo;Большой тройки&amp;rdquo;&lt;/em&gt;) соображениями о том, просто ли получить информацию о сессиях абонента, имея на руках MAC-адрес. Ответ был очевиден - &amp;ldquo;Да как два пальца..&amp;rdquo;. Нет, часто меняя MAC-и, разумеется, полной анонимности не добьешься, но некоторые затруднения это всё-таки вызовет.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

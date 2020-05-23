@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>unban on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/unban/</link>
+    <description>Recent content in unban on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Thu, 19 Feb 2015 07:32:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/unban/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iptables — заблокировать ip</title>
+      <link>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</link>
+      <pubDate>Thu, 19 Feb 2015 07:32:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</guid>
+      <description>&lt;p&gt;Рано или поздно встает задача - нужно для определенного ip закрыть доступ к ресурсу. Так же, если этот ip-адрес &lt;em&gt;серый&lt;/em&gt; (динамический), то лучше подвергнуть блокировке весь его сегмент. Сейчас рассмотрим на примере как это сделать при помощи &lt;strong&gt;iptables&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Etc on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/etc/</link>
+    <description>Recent content in Etc on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sat, 20 Aug 2016 06:27:33 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/etc/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Отзыв о cloud4box.com</title>
+      <link>https://tarampampam.github.io/blog/etc/cloud4box-com-review/</link>
+      <pubDate>Sat, 20 Aug 2016 06:27:33 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/cloud4box-com-review/</guid>
+      <description>Данный пост - предостережение тем, кто решил приобрести у них какие-либо услуги, и услуги VPS - в частности. Тем, кто перед оплатой решил поискать о них отзывы. Ниже будет аргументированное мнение, почему они являются куском говна:
+ Нет информации про юрлицо, лицензии и т.д.; Покупают положительные отзывы. Мне предлагали зачисление на мой баланс месячной стоимости аренды VPS сервера за позитивный пост об их услугах в блоге или соц. сетях. Это сразу насторожило, но сперва не придал этому значения.</description>
+    </item>
+    
+    <item>
+      <title>Автоматическая сборка PHP-проектов с помощью PhiNG</title>
+      <link>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</link>
+      <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</guid>
+      <description>&lt;p&gt;Что я подразумеваю под сборкой? Сборка - это процесс действий, которые выполняются над кодом проекта перед его деплоем. Она может включать в себя создание копии проекта, очистка директории с кэшем, минификация CSS и JS файлов, упаковка результата в один zip-архив. Так же возможно ещё и автоматическое развертывание проекта а удаленном сервере, но сегодня речь об этом идти не будет.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Дружим Kali Linux с VMware</title>
+      <link>https://tarampampam.github.io/blog/etc/kali-linux-and-vmware/</link>
+      <pubDate>Thu, 13 Aug 2015 07:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/kali-linux-and-vmware/</guid>
+      <description>&lt;p&gt;Для комфортной работы в Kali linux запущенной в VMware Workstation потребуется выполнить несколько простых манипуляций:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Небольшая коллекция интересных гифок (часть 1)</title>
+      <link>https://tarampampam.github.io/blog/etc/little-gifs-collection-part1/</link>
+      <pubDate>Mon, 18 May 2015 15:45:35 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/little-gifs-collection-part1/</guid>
+      <description>&lt;p&gt;Где их использовать? Фоновые изображения страниц авторизации, ошибок, анимация. Врубай своё воображение ;) Осторожно - траффик!&lt;/p&gt;
+
+&lt;img src=&#34;https://hsto.org/files/b35/77d/375/b3577d3758dd4eb78001815f05467faf.gif&#34; class=&#34;single-post-image&#34;&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

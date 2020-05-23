@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/en/docker/</link>
+    <description>Recent content in Docker on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 15 Oct 2018 13:35:50 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/en/docker/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy to Docker Swarm</title>
+      <link>https://tarampampam.github.io/blog/en/docker/compose-deploy/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/en/docker/compose-deploy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This post is translation of &lt;a href=&#34;https://docs.docker.com/compose/compose-file/#deploy&#34;&gt;part of documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;deploy&#34;&gt;&lt;code&gt;deploy&lt;/code&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/compose/compose-file/compose-versioning/#version-3&#34;&gt;Version 3&lt;/a&gt; only.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Specify configuration related to the deployment and running of services. This only takes effect when deploying to a &lt;a href=&#34;https://docs.docker.com/engine/swarm/&#34;&gt;swarm&lt;/a&gt; with &lt;a href=&#34;https://docs.docker.com/engine/reference/commandline/stack_deploy/&#34;&gt;docker stack deploy&lt;/a&gt;, and is ignored by &lt;code&gt;docker-compose up&lt;/code&gt; and &lt;code&gt;docker-compose run&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;version: &#39;3&#39;
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

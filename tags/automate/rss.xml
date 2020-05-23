@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>automate on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/automate/</link>
+    <description>Recent content in automate on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Fri, 22 Jan 2016 06:40:48 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/automate/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RSS → Bash → Transmission</title>
+      <link>https://tarampampam.github.io/blog/adm/automate-movies-download/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/automate-movies-download/</guid>
+      <description>&lt;p&gt;Нахрен долгое вступление. Если на вопрос &amp;ldquo;Нравится автоматизировать и любишь посмотреть кино?&amp;rdquo; ты неосознанно ответишь положительно, то то что здесь написано - тебе понравится. Итак, наверняка у тебя есть своя железяка, которая стоит дома/офисе где-то в уголочке и выполняет роль файлошары/торрентокачалки и Джа знает ещё чего.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MikroTik — автоматически выключаем и включаем WiFi в заданное время</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/on-off-wifi-script/</link>
+      <pubDate>Wed, 22 Jul 2015 07:34:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/on-off-wifi-script/</guid>
+      <description>&lt;p&gt;Маршрутизатор от Mikrotik, должен признать - интересный зверь. То, что в &amp;ldquo;домашних роутерах&amp;rdquo; поставляется прямо из коробки - здесь в ряде случаев приходится доделывать ручками. Зато имеется огромный функционал в плане &amp;ldquo;настраивается всё что хочешь&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Допустим, что у нас стоит задача &lt;strong&gt;выключать WiFi на ночной период&lt;/strong&gt;. Так мы и ресурс экономим, и потребление энергии, да и вообще - ночью надо бы спать, а не втыкать в гаджеты :) Для решения этой задачи нам потребуется выполнить несколько простых шагов:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Симлинки на «Рабочий стол» и «Мои документы» в облака</title>
+      <link>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</link>
+      <pubDate>Thu, 31 Jul 2014 08:21:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</guid>
+      <description>&lt;p&gt;Согласись — было бы прикольно, если ты обладатель рабочего десктопа и нескольких мобильных гаджетов, и мог удобно расшаривать между ними файлы. В один момент пользуясь мобильным гаджетом и найдя что-то, что тебе в дальнейшем понадобится (картинка, изображение, документ, etc.) на десктопе — ты не просто делаешь закладку на объект и каким-то образом пересылаешь её, я просто сохраняешь его, и нужный файл появляется у тебя на рабочем столе десктопа.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

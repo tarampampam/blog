@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cmd on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/cmd/</link>
+    <description>Recent content in cmd on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 24 Aug 2015 11:08:11 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/cmd/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии)</title>
+      <link>https://tarampampam.github.io/blog/adm/windows-7-8-disable-telemetry/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/windows-7-8-disable-telemetry/</guid>
+      <description>&lt;p&gt;После крайних &lt;a href=&#34;https://habr.com/post/265283/&#34;&gt;вестей&lt;/a&gt; о том, что Windows Update в полу-принудительном порядке поставил пользователям Windows 7/8/8.1 обновления &lt;a href=&#34;https://support.microsoft.com/en-us/kb/3080149&#34;&gt;KB3080149&lt;/a&gt; и &lt;a href=&#34;https://support.microsoft.com/en-us/kb/3075249&#34;&gt;KB3075249&lt;/a&gt;, которые собирают данные телеметрии и отправляют их в M$ - остро почувствовался очередной параноидальный приступ. Передача осуществляется через TCP по порту 443 с использованием SSL.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Как то не хорошо получается&amp;rdquo; подумал я и накидал небольшой скрипт который несколько автоматизирует:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Отключаем рекламу в Skype</title>
+      <link>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</link>
+      <pubDate>Tue, 10 Feb 2015 17:20:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</guid>
+      <description>&lt;p&gt;Всё предельно просто - необходимо запретить доступ к серверам, выдающим данные о рекламе, поправив файл &lt;code&gt;%SystemRoot%\system32\drivers\etc\hosts&lt;/code&gt;, добавив в него записи вида:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переносим кэш Google Chrome</title>
+      <link>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</link>
+      <pubDate>Wed, 06 Aug 2014 07:05:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</guid>
+      <description>&lt;p&gt;Обладателям SSD + HDD винтов читать в первую очередь. Всем давно известно, что SSD винты чертовски шустрые, но, имеют ограниченный ресурс чтения/записи. В Сети есть херова куча советов, статей и программ по оптимизации работы ОС + ПО с ними, но мало кто пишет про небольшой нюанс касательно кэша хрома.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Симлинки на «Рабочий стол» и «Мои документы» в облака</title>
+      <link>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</link>
+      <pubDate>Thu, 31 Jul 2014 08:21:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</guid>
+      <description>&lt;p&gt;Согласись — было бы прикольно, если ты обладатель рабочего десктопа и нескольких мобильных гаджетов, и мог удобно расшаривать между ними файлы. В один момент пользуясь мобильным гаджетом и найдя что-то, что тебе в дальнейшем понадобится (картинка, изображение, документ, etc.) на десктопе — ты не просто делаешь закладку на объект и каким-то образом пересылаешь её, я просто сохраняешь его, и нужный файл появляется у тебя на рабочем столе десктопа.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

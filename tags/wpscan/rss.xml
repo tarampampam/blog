@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wpscan on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/wpscan/</link>
+    <description>Recent content in wpscan on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sun, 05 Jul 2015 11:30:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/wpscan/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Тотальная защита WordPress</title>
+      <link>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</link>
+      <pubDate>Sun, 05 Jul 2015 11:30:59 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</guid>
+      <description>&lt;p&gt;В &lt;a href=&#34;https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/&#34;&gt;прошлом посте&lt;/a&gt; мы рассматривали методы повышения безопасности WordPress с помощью &lt;code&gt;nginx&lt;/code&gt;. В данной же записи мы рассмотрим дополнительные меры противодействия сбору информации о работающей CMS (&lt;em&gt;и плагинах&lt;/em&gt;), версии WP и некоторым типам атак на сайт.&lt;/p&gt;
+
+&lt;p&gt;Помогать нам будет уже не только &lt;code&gt;nginx&lt;/code&gt; - но и &lt;code&gt;fail2ban&lt;/code&gt; вкупе с некоторыми дополнениями и настройками самого WP.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pptp on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/pptp/</link>
+    <description>Recent content in pptp on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sun, 03 May 2015 13:43:56 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/pptp/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Поднимаем vpn (pptp) сервер</title>
+      <link>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</link>
+      <pubDate>Sun, 03 May 2015 13:43:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</guid>
+      <description>&lt;p&gt;О том что такое VPN и для чего он используется - рассказано неоднократно. Но если вкратце - то &lt;strong&gt;VPN&lt;/strong&gt; это технология, которая позволяет создавать сетевые соединения поверх уже имеющихся с использованием средств защиты передаваемых данных. Её используют для объединения географически разбросанных сетей в одну целую, для соединения рабочего места (сети) с домашней (клиентской), а так же - для обеспечения безопасности передаваемых данных по общественным сетям.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

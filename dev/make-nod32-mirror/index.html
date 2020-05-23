@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Скрипт создания зеркала обновлений для Eset Nod32 на Linux - blog [dot] hook</title>
+  
+  <meta name="description" content=" Данная статья является копией публикации на хабре.
+У этого поста есть продолжение. Пожалуйста, перейдите по этой ссылке.
+ Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Скрипт создания зеркала обновлений для Eset Nod32 на Linux</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2014-04-12"
+        itemprop="datePublished">2014.4.12</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 2 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/nod32upd-wide.jpg" itemprop="image" alt="Скрипт создания зеркала обновлений для Eset Nod32 на Linux" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2014-04-12">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <blockquote>
+<p>Данная статья является копией <a href="https://habr.com/post/232163/">публикации на хабре</a>.</p>
+
+<p>У этого поста есть продолжение. Пожалуйста, перейдите <a href="https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/">по этой ссылке</a>.</p>
+</blockquote>
+
+<p>Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:</p>
+
+<ol>
+<li>«Сервер на Windows, денег достаточно». Тут всё довольно просто — покупаем лицензию, ставим нужный дистрибутив NOD32 на сервер, настраиваем, радуемся. Вариант более мифический, так как крайне редко, когда на IT «денег достаточно».</li>
+<li>«Сервер на Windows, денег <strong>не</strong> достаточно». Тут возможны варианты. Начиная от использования варезных лицензий, до ручного скриптинга и использования Linux-решений (<a href="https://www.cygwin.com/">cygwin</a> в помощь).</li>
+<li>«Сервер на Linux». Деньги в этом случае особого значения просто не имеют. У нас есть руки, есть голова, и есть желание сделать всё довольно качественно и надежно.</li>
+</ol>
+
+<p>Вот третий вариант мы сейчас и рассмотрим.</p>
+
+<h3 id="установка">Установка</h3>
+
+<p>Скачиваем крайнюю версию и распаковываем:</p>
+
+<pre><code class="language-bash">$ cd /tmp
+$ wget https://github.com/tarampampam/nod32-update-mirror/archive/master.zip
+$ unzip master.zip; cd ./nod32-update-mirror-master/
+</code></pre>
+
+<p>Переносим набор скриптов в директорию недоступную “извне”, но доступную для пользователя, который будет его запускать:</p>
+
+<pre><code class="language-bash">$ mv -f ./nod32upd/ /home/
+</code></pre>
+
+<p>Переходим в новое расположение скриптов и выполняем их настройку:</p>
+
+<pre><code class="language-bash">$ cd /home/nod32upd/
+$ nano ./settings.cfg
+</code></pre>
+
+<p>Даем права на запуск скриптов:</p>
+
+<pre><code class="language-bash">$ chmod +x ./*.sh
+</code></pre>
+
+<p>Проверяем наличие unrar, если планируем обновляться с официальных зеркал Eset NOD32:</p>
+
+<pre><code class="language-bash">$ type -P unrar
+</code></pre>
+
+<p>Выполняем пробный запуск:</p>
+
+<pre><code class="language-bash">$ ./update.sh
+</code></pre>
+
+<h3 id="настройка">Настройка</h3>
+
+<p>Актуальные параметры настройки смотрите в <code>README.md</code> файле репозитрия. Обновлять данные в нескольких местах - делл не благодарное, поэтому - просто внимательнее читай readme файл.</p>
+
+<h3 id="особенности">Особенности</h3>
+
+<ul>
+<li>Если произошла ошибка при обновлении с сервера, который указан, например, в <code>updServer0</code> - производится попытка обновиться с сервера, указанного в <code>updServer1</code>, <code>updServer2</code>..<code>updServer10</code>;</li>
+<li>Скачивает только обновленные файлы обновлений (проверка выполняется с помощью <code>wget --timestamping</code>);</li>
+<li>Умеет поддерживать в актуальном состоянии только лишь файл update.ver, не скачивая сами файлы обновлений (при этом зеркало работает, но загрузка происходит не с вашего сервера, а с сервера-источника обновлений);</li>
+<li>В комплекте идет заготовка для веб-интерфейса зеркала обновления (директория <code>./webface</code>).</li>
+</ul>
+
+<h3 id="ссылки">Ссылки</h3>
+
+<ul>
+<li><strong><a href="https://github.com/tarampampam/nod32-update-mirror/archive/master.zip">Скачать</a></strong></li>
+<li><strong><a href="https://github.com/tarampampam/nod32-update-mirror">GitHub</a></strong></li>
+</ul>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/antivirus/">antivirus</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/cron/">cron</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/eset/">eset</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/habr/">habr</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nod32/">nod32</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/updates-mirror/">updates mirror</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

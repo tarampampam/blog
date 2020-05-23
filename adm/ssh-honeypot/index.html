@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>SSH Honeypot — просто и со вкусом - blog [dot] hook</title>
+  
+  <meta name="description" content=" Honeypot («Ловушка») (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (wikipedia.org)
+ Одно из первых средств, которое применяется для аудита целевых систем - это сканирование портов с целью выявления, какие же службы (сервисы) там крутятся. Можете даже сейчас натравить nmap на свой сервер и посмотреть, что же он нам о нем расскажет. Самый простой пример результата его работы:">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">SSH Honeypot — просто и со вкусом</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-07-13"
+        itemprop="datePublished">2015.7.13</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 5 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/ssh-honeypot-wide.jpg" itemprop="image" alt="SSH Honeypot — просто и со вкусом" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-07-13">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <blockquote>
+<p><strong>Honeypot («Ловушка»)</strong> (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (<a href="https://ru.wikipedia.org/wiki/Honeypot">wikipedia.org</a>)</p>
+</blockquote>
+
+<p>Одно из первых средств, которое применяется для аудита целевых систем - это сканирование портов с целью выявления, какие же службы (<em>сервисы</em>) там крутятся. Можете даже сейчас натравить <code>nmap</code> на свой сервер и посмотреть, что же он нам о нем расскажет. Самый простой пример результата его работы:</p>
+
+<pre><code class="language-bash">$ nmap google.com
+
+Starting Nmap 6.47 ( http://nmap.org ) at 2050-01-11 00:00 GMT
+Nmap scan report for google.com (173.194.71.138)
+Host is up (0.010s latency).
+Other addresses for google.com (not scanned): 173.194.71.139 173.194.71.113 173.194.71.101 173.194.71.100 173.194.71.102
+rDNS record for 173.194.71.138: lb-in-f138.1e100.net
+Not shown: 998 filtered ports
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 4.92 seconds
+</code></pre>
+
+<p>Из которого мы видим, что на целевой системе открыты 2 порта (<em>стелс-сканирование и прочее мы пока опустим - не к чему оно сейчас</em>): <strong>80</strong>/tcp и <strong>443</strong>/tcp и это означает, что там наверняка крутится web-сервер, который работает по <strong>http</strong> и <strong>https</strong>.</p>
+
+<p>Теперь подойдем к более интересному моменту.</p>
+
+<p>Довольно часто администраторы используют для доступа к своим серверам <strong>SSH</strong>. Стандартный порт для SSH - <strong>22</strong>/tcp. Если администратор хоть чуть-чуть &ldquo;шарит&rdquo;, то после установки системы он сразу же перевешивает SSH на <strong>не</strong> стандартный порт (<em>например <code>454545</code></em>), запрещает логин от рута и настраивает авторизацию по сертификату вместо пароля. И оно совершенно правильно - держать SSH на стандартном порту, да без какой-либо дополнительной защиты - потенциально огромная брешь в безопасности.</p>
+
+<p>А что если повесить на этот самый <code>22</code> порт ещё один ssh-демон, но при этом все попытки логина по нему сразу отправлять в fail2ban? Обычным нашим пользователям SSH не нужен, мы ходим через порт <code>454545</code>, значит тот, кто будет ломиться на <code>22</code> порт - бот или злоумышленник, которого необходимо забанить по IP на довольно длительное время. Обойти это ограничение можно будет лишь заюзав VPN, прокси или другое средство смены IP, ну или дождаться пока не пройдет время бана которое мы установим.</p>
+
+<p>Данную задачу будем решать в 3 этапа:</p>
+
+<ol>
+<li>Настроим и запустим дополнительный <strong>sshd</strong>-демон, который будет висеть на <code>22</code> порту;</li>
+<li>Настроим <strong>fail2ban</strong>, который будет читать логи на попытку коннекта по ssh на <code>22</code> порту;</li>
+<li>Поставим всё это дело в автозапуск;</li>
+</ol>
+
+<blockquote>
+<p>Все манипуляции буду производить на CentOS 7, разница с другими дистрибутивами - минимальна</p>
+</blockquote>
+
+<h2 id="настройка-и-запуск-дополнительного-sshd-демона">Настройка и запуск дополнительного sshd-демона</h2>
+
+<p>Считаем, что <code>sshd</code> у нас уже сейчас настроен и висит на отличном от <code>22</code> порту. Переходим в директорию с его конфигами и создаем новый конфиг для honeypot:</p>
+
+<pre><code class="language-bash">$ cd /etc/ssh
+$ nano ./sshd_config_honeypot
+</code></pre>
+
+<p>Пишем в него следующее (<em>самые интересные моменты пометил желтым цветом</em>):</p>
+
+<pre><code>Port 22
+AddressFamily inet
+SyslogFacility AUTH
+LogLevel VERBOSE
+
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+IgnoreUserKnownHosts yes
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+X11Forwarding no
+UsePAM yes
+UseDNS no
+AllowUsers nobody
+
+MaxAuthTries 1
+MaxSessions 1
+</code></pre>
+
+<p>И после чего запускаем новый экземпляр <code>sshd</code>, но работающий именно с этим конфигом:</p>
+
+<pre><code class="language-bash">$ /usr/sbin/sshd -f /etc/ssh/sshd_config_honeypot
+$ ps ax | grep sshd
+  803 ?        Ss     0:00 /usr/sbin/sshd -D
+ 2549 ?        Ss     0:00 /usr/sbin/sshd -f /etc/ssh/sshd_config_honeypot
+14627 ?        Ss     0:00 sshd: root@pts/1
+14804 pts/1    R+     0:00 grep --color=auto sshd
+$ iptables -L -n  | grep ':22'
+$
+</code></pre>
+
+<blockquote>
+<p>Для остановки демона можно выполнить (где <code>2549</code> это <code>PID</code> нашего процесса):</p>
+
+<pre><code class="language-bash">$ kill 2549
+</code></pre>
+</blockquote>
+
+<p>Если демон у нас корректно запустился - в STDOUT/STDERR ничего критично не сказал, в процессах успешно завертелся, <code>iptables</code> у нас <code>22</code> порт не блокирует, пробуем подключиться к серваку с нашей машины:</p>
+
+<pre><code class="language-bash">$ ssh -p 22 -l nobody 2.2.2.2
+Permission denied (publickey).
+</code></pre>
+
+<p>И тут де чекаем лог на сервере:</p>
+
+<pre><code class="language-bash">$ tail -n40 /var/log/messages | grep sshd
+Jul 13 12:03:28 zero sshd[14869]: Connection from 1.1.1.1 port 1277 on 2.2.2.2 port 22
+Jul 13 12:03:28 zero sshd[14869]: Connection closed by 1.1.1.1 [preauth]
+</code></pre>
+
+<p>Если у тебя картина выгляди аналогично, значит всё работает как надо :) Попытки авторизации у нас обламываются, лог корректно пишется.</p>
+
+<h2 id="настройка-fail2ban">Настройка fail2ban</h2>
+
+<p>Переходим в директорию с fail2ban и первым делом создаем новый фильтр:</p>
+
+<pre><code class="language-bash">$ cd /etc/fail2ban
+$ nano ./filter.d/sshd-honeypot.conf
+</code></pre>
+
+<pre><code class="language-ini"># Example:
+# Jul 13 09:18:28 zero sshd[8625]: Connection from 1.1.1.1 port 1218 on 2.2.2.2 port 22
+
+[Definition]
+failregex = ^.+ sshd\[\d+\]: (C|c)onnection from &lt;HOST&gt; port \d+ on \d+\.\d+\.\d+\.\d+ port 22$
+ignoreregex =
+</code></pre>
+
+<p>Сохраняем, проверяем работоспособность фильтра (<em>важно, чтобы <code>matched</code> было не равно нулю, но и не было сильно больше количества наших попыток коннектов по ssh</em>):</p>
+
+<pre><code class="language-bash">$ fail2ban-regex /var/log/messages /etc/fail2ban/filter.d/sshd-honeypot.conf | grep matched
+Lines: 2001 lines, 0 ignored, 1 matched, 2000 missed [processed in 0.20 sec]
+</code></pre>
+
+<p>После чего добавляем новый <code>jail</code> (<code>/etc/fail2ban/jail.local</code>):</p>
+
+<pre><code class="language-ini">[ssh-honeypot]
+enabled  = true
+filter   = sshd-honeypot
+action   = iptables-allports[name=&quot;ssh_honeypot&quot;, protocol=&quot;all&quot;]
+maxretry = 1
+findtime = 10
+# 86400 is 1 day, 259200 is 3 days
+bantime  = 259200
+logpath  = /var/log/messages
+</code></pre>
+
+<blockquote>
+<p>Настоятельно рекомендую добавить свой IP адрес в <code>ignoreip</code> (<em>секции <code>[DEFAULT]</code></em>), так как есть риск забанить себя на трое суток :) Формат записи следующий (использую <code>1.1.1.0/8</code> т.к. IP серый):</p>
+
+<pre><code>[DEFAULT]
+ignoreip = 127.0.0.1/8 2.2.2.2 1.1.1.0/8
+</code></pre>
+
+<p>Или как минимум выставить <code>bantime</code> равным, например, <code>30</code> (секундам) - достаточно для того, чтобы проверить и при этом не получить массу неудобств.</p>
+</blockquote>
+
+<p>Перезапускаем fail2ban, проверяем лог:</p>
+
+<pre><code class="language-bash">$ service fail2ban restart
+$ cat /var/log/fail2ban.log | grep ' ERROR '
+</code></pre>
+
+<p>Если лог у нас не содержит никаких критичных ошибок, то остается дело за малым - проверить, будет ли срабатывать правило. Cнова пытаемся приконнектиться к серверу с нашей машины:</p>
+
+<pre><code class="language-bash">$ ssh -p 22 -l nobody 2.2.2.2
+</code></pre>
+
+<p>Смотрим на появление строки похожей на следующую в логе fail2ban:</p>
+
+<pre><code class="language-bash">$ cat /var/log/fail2ban.log | grep ssh-honeypot
+2050-01-11 01:00:00,000 fail2ban.filter [15038]: INFO [ssh-honeypot] Ignore 1.1.1.1 by ip
+</code></pre>
+
+<p>Если так оно и есть - значит всё отлично работает - наш IP не был забанен только потому, что он находится в списке игнорируемых :)</p>
+
+<h2 id="автозапуск">Автозапуск</h2>
+
+<p>В автозапуске нуждается лишь наш дополнительный демон <code>sshd</code>, т.к. fail2ban у тебя и так наверняка уже стартует вместе с системой.</p>
+
+<p>Добавим в файл <code>/etc/rc.local</code> следующую запись:</p>
+
+<pre><code class="language-bash">## sshd honeypot autostart
+ssh_honeypot_config='/etc/ssh/sshd_config_honeypot';
+if [ -f $ssh_honeypot_config ] &amp;&amp; [ -x /usr/sbin/sshd ]; then
+  /usr/sbin/sshd -f $ssh_honeypot_config;
+fi;
+</code></pre>
+
+<p>Которая будет проверять наличие бинарника <code>sshd</code> и наличия нужного конфига. Если два этих условия выполняются, запускаем демона уже знакомым нам методом. Для верности можешь ребутнуть сервер и убедиться, что всё работает.</p>
+
+<p>Теперь пускай все желающие ломятся на наш SSH - результат для них будет лишь один :)</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ban/">ban</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/fail2ban/">fail2ban</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/iptables/">iptables</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/security/">security</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssh/">ssh</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

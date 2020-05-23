@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>access on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/access/</link>
+    <description>Recent content in access on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Wed, 12 Aug 2015 10:05:15 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/access/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Брутим пароли с Гидрой (hydra)</title>
+      <link>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</link>
+      <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Статья носит носит строго познавательный характер, за применение кем либо описанных в статье методик автор ответственности не несет.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;В тот момент, когда пинтест заходит в тупик - одним из крайних аргументов в тесте на проникновение является подбор паролей. Сервисы, к которым можно применить данный метод атаки - самые различные. А как следствие - различны и протоколы, и форматы обращений. Надо бы как то унифицировать инструменты для решения этой задачи - не хорошо под каждый новый случай писать новый брутер своими ручками.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Установка mod_geoip на nic.ru, или как ограничить доступ к сайту «по странам»</title>
+      <link>https://tarampampam.github.io/blog/adm/geoip-for-nic-ru/</link>
+      <pubDate>Sat, 09 Aug 2014 10:51:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/geoip-for-nic-ru/</guid>
+      <description>&lt;p&gt;Есть некоторый ресурс, который хостится на площадке &lt;strong&gt;nic.ru&lt;/strong&gt; с тарифным планом &amp;ldquo;302&amp;rdquo;. Посещаемость у этого ресурса в один прекрасный момент возрасла на столько, что хостинг перестал справляться, и просто умирать. Причиной тому - мизерное количество памяти (&lt;strong&gt;256Мб&lt;/strong&gt;) на самом дорогом тарифе хостинга. Переписка с поддержкой завершилась на их позиции &amp;ldquo;если Вам мало - покупайте что подороже, у нас как рас есть для вас отличное предложение&amp;rdquo; (внимание - ответ перефразирован, из-за повышенной злобы). Но у нас есть временно не решенный вопрос - перегрузки на сайте. Проанализировав логи с помощью &lt;a href=&#34;http://www.apacheviewer.com/&#34;&gt;Apache Logs Viewer&lt;/a&gt; было выяснено - львиная доля запросов поступает из-за границы, а ресурс предназначен изначально только для жителей РФ. Что делать?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

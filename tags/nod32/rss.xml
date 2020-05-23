@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nod32 on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/nod32/</link>
+    <description>Recent content in nod32 on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 11 Jul 2016 17:49:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/nod32/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Make Nod32 Mirror Updated</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</guid>
+      <description>&lt;p&gt;Однажды я &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror/&#34;&gt;уже писал об этом&lt;/a&gt;, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &amp;ldquo;интересные&amp;rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Скрипт создания зеркала обновлений для Eset Nod32 на Linux</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</link>
+      <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/232163/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

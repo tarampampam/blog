@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>MikroTik — автоматически выключаем и включаем WiFi в заданное время - blog [dot] hook</title>
+  
+  <meta name="description" content="Маршрутизатор от Mikrotik, должен признать - интересный зверь. То, что в &amp;ldquo;домашних роутерах&amp;rdquo; поставляется прямо из коробки - здесь в ряде случаев приходится доделывать ручками. Зато имеется огромный функционал в плане &amp;ldquo;настраивается всё что хочешь&amp;rdquo;.
+Допустим, что у нас стоит задача выключать WiFi на ночной период. Так мы и ресурс экономим, и потребление энергии, да и вообще - ночью надо бы спать, а не втыкать в гаджеты :) Для решения этой задачи нам потребуется выполнить несколько простых шагов:">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">MikroTik — автоматически выключаем и включаем WiFi в заданное время</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-07-22"
+        itemprop="datePublished">2015.7.22</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 2 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/mikrotik-wide.jpg" itemprop="image" alt="MikroTik — автоматически выключаем и включаем WiFi в заданное время" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-07-22">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Маршрутизатор от Mikrotik, должен признать - интересный зверь. То, что в &ldquo;домашних роутерах&rdquo; поставляется прямо из коробки - здесь в ряде случаев приходится доделывать ручками. Зато имеется огромный функционал в плане &ldquo;настраивается всё что хочешь&rdquo;.</p>
+
+<p>Допустим, что у нас стоит задача <strong>выключать WiFi на ночной период</strong>. Так мы и ресурс экономим, и потребление энергии, да и вообще - ночью надо бы спать, а не втыкать в гаджеты :) Для решения этой задачи нам потребуется выполнить несколько простых шагов:</p>
+
+<ol>
+<li>Написать скрипт, который будет проверять текущее время, и в соответствии с ним выполнять требуемое действие;</li>
+<li>Убедиться, что он корректно работает;</li>
+<li>Добавить задание, которое будет выполнять этот скрипт с заданным промежутком времени.</li>
+</ol>
+
+<h3 id="написание-скрипта">Написание скрипта</h3>
+
+<p>За основу был взят <a href="http://forum.mikrotik.com/viewtopic.php?p=326189&amp;#038;sid=b0e452d55e134f069f27117f3c3962b9#p326189">скрипт</a> от тов. <a href="http://forum.mikrotik.com/memberlist.php?mode=viewprofile&amp;#038;u=51749&amp;#038;sid=b0e452d55e134f069f27117f3c3962b9">Base122</a>, адаптирован под версию <code>6.30.1</code> и опционально доработан:</p>
+
+<script type="application/javascript" src="//gist.github.com/tarampampam/55475bb84f730400294b.js"></script>
+
+<p>Переходим в секцию <code>System</code> &rarr; <code>Scripts</code> и жмякаем на <code>Add New</code>. Заполняем поля следующим образом:</p>
+
+<ul>
+<li><code>Name</code>: <code>RadioOnOff</code></li>
+<li><code>Policy</code>: <code>[X] read, [X] write, [X] policy</code></li>
+<li><code>Source</code>: <code>[Вставить содержимое скрипта]</code></li>
+<li><code>Comment</code>: <code>Script to ensure wireless lan radio is ON or OFF</code></li>
+</ul>
+
+<p>В верхней секции скрипта выставляем необходимые настройки времени (<em>включения и выключения</em>). Скрипт проверяет синхронизировано ли время с помощью <code>ntp</code> клиента. Если синхронизация времени не доступна - выстави в <code>UseNTPClientStatus</code> значение <code>no</code>.</p>
+
+<h3 id="проверка">Проверка</h3>
+
+<p>Для проверки запускай терминал или подключись к маршрутизатору с помощью SSH, после чего выполни:</p>
+
+<pre><code class="language-bash">[admin@router] &gt; /system script run RadioOnOff
+[admin@router] &gt; /log print
+</code></pre>
+
+<p>И посмотри чтоб в логе всё было хорошо. Если не работает как надо - раскомментируй дополнительное логирование (<code>#:log info &quot;...&quot;;</code>) в скрипте и проанализируй вывод.</p>
+
+<h3 id="добавление-задания">Добавление задания</h3>
+
+<p>Для того чтоб добавить задание на периодический запуск скрипта переходим в <code>System</code> &rarr; <code>Scheduler</code> и так же нажимаем <code>Add New</code>. Настраиваем:</p>
+
+<ul>
+<li><code>Enabled</code>: <code>[X]</code></li>
+<li><code>Name</code>: <code>RadioOnOff</code></li>
+<li><code>Start Date</code>: <code>[Текущая дата, встает автоматически]</code></li>
+<li><code>Start Time</code>: <code>[Текущее время, встает автоматически]</code></li>
+<li><code>Interval</code>: <code>00:05:00</code></li>
+<li><code>On Event</code>: <code>/system script run RadioOnOff</code></li>
+<li><code>Policy</code>: <code>[X] read, [X] write, [X] policy</code></li>
+<li><code>Comment</code>: <code>Script to ensure wireless lan radio is ON or OFF</code></li>
+</ul>
+
+<p>После чего подожди ~6 минут, и посмотри в логе - должны появиться соответствующие записи о том что скрипт успешно выполняется.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/automate/">automate</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/mikrotik/">mikrotik</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/script/">script</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/wifi/">wifi</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

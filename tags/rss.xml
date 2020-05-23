@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/</link>
+    <description>Recent content in Tags on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Thu, 31 Jan 2019 16:25:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>etc</title>
+      <link>https://tarampampam.github.io/blog/tags/etc/</link>
+      <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/etc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://tarampampam.github.io/blog/tags/linux/</link>
+      <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://tarampampam.github.io/blog/tags/ssh/</link>
+      <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>humor</title>
+      <link>https://tarampampam.github.io/blog/tags/humor/</link>
+      <pubDate>Sun, 20 Jan 2019 07:52:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/humor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>text</title>
+      <link>https://tarampampam.github.io/blog/tags/text/</link>
+      <pubDate>Sun, 20 Jan 2019 07:52:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/text/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deploy</title>
+      <link>https://tarampampam.github.io/blog/tags/deploy/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/deploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://tarampampam.github.io/blog/tags/devops/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://tarampampam.github.io/blog/tags/docker/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>https://tarampampam.github.io/blog/tags/docker-compose/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://tarampampam.github.io/blog/tags/php/</link>
+      <pubDate>Mon, 01 Oct 2018 08:29:51 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>make</title>
+      <link>https://tarampampam.github.io/blog/tags/make/</link>
+      <pubDate>Fri, 28 Sep 2018 15:39:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/make/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>laravel</title>
+      <link>https://tarampampam.github.io/blog/tags/laravel/</link>
+      <pubDate>Thu, 23 Aug 2018 16:43:45 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phpunit</title>
+      <link>https://tarampampam.github.io/blog/tags/phpunit/</link>
+      <pubDate>Thu, 23 Aug 2018 16:43:45 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/phpunit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://tarampampam.github.io/blog/tags/javascript/</link>
+      <pubDate>Sun, 19 Feb 2017 19:16:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>requirejs</title>
+      <link>https://tarampampam.github.io/blog/tags/requirejs/</link>
+      <pubDate>Sun, 19 Feb 2017 19:16:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/requirejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oop</title>
+      <link>https://tarampampam.github.io/blog/tags/oop/</link>
+      <pubDate>Sat, 18 Feb 2017 05:19:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/oop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hosting</title>
+      <link>https://tarampampam.github.io/blog/tags/hosting/</link>
+      <pubDate>Sat, 20 Aug 2016 06:27:33 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/hosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>anonymous</title>
+      <link>https://tarampampam.github.io/blog/tags/anonymous/</link>
+      <pubDate>Sat, 13 Aug 2016 10:57:36 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/anonymous/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>centos</title>
+      <link>https://tarampampam.github.io/blog/tags/centos/</link>
+      <pubDate>Sat, 13 Aug 2016 10:57:36 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proxy</title>
+      <link>https://tarampampam.github.io/blog/tags/proxy/</link>
+      <pubDate>Sat, 13 Aug 2016 10:57:36 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/proxy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>backup</title>
+      <link>https://tarampampam.github.io/blog/tags/backup/</link>
+      <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clouds</title>
+      <link>https://tarampampam.github.io/blog/tags/clouds/</link>
+      <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/clouds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>disk</title>
+      <link>https://tarampampam.github.io/blog/tags/disk/</link>
+      <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/disk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>storage</title>
+      <link>https://tarampampam.github.io/blog/tags/storage/</link>
+      <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sync</title>
+      <link>https://tarampampam.github.io/blog/tags/sync/</link>
+      <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/sync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yandex</title>
+      <link>https://tarampampam.github.io/blog/tags/yandex/</link>
+      <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/yandex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://tarampampam.github.io/blog/tags/bash/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://tarampampam.github.io/blog/tags/nginx/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nod32</title>
+      <link>https://tarampampam.github.io/blog/tags/nod32/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/nod32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://tarampampam.github.io/blog/tags/shell/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>updates mirror</title>
+      <link>https://tarampampam.github.io/blog/tags/updates-mirror/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/updates-mirror/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bitbucket</title>
+      <link>https://tarampampam.github.io/blog/tags/bitbucket/</link>
+      <pubDate>Sat, 02 Jul 2016 07:56:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/bitbucket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://tarampampam.github.io/blog/tags/git/</link>
+      <pubDate>Sat, 02 Jul 2016 07:56:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wordpress</title>
+      <link>https://tarampampam.github.io/blog/tags/wordpress/</link>
+      <pubDate>Sat, 02 Jul 2016 07:56:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cron</title>
+      <link>https://tarampampam.github.io/blog/tags/cron/</link>
+      <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/cron/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iptables</title>
+      <link>https://tarampampam.github.io/blog/tags/iptables/</link>
+      <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/iptables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>build</title>
+      <link>https://tarampampam.github.io/blog/tags/build/</link>
+      <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/build/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phing</title>
+      <link>https://tarampampam.github.io/blog/tags/phing/</link>
+      <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/phing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://tarampampam.github.io/blog/tags/windows/</link>
+      <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>https://tarampampam.github.io/blog/tags/code/</link>
+      <pubDate>Sat, 23 Jan 2016 05:35:18 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snippets</title>
+      <link>https://tarampampam.github.io/blog/tags/snippets/</link>
+      <pubDate>Sat, 23 Jan 2016 05:35:18 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/snippets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apache</title>
+      <link>https://tarampampam.github.io/blog/tags/apache/</link>
+      <pubDate>Fri, 22 Jan 2016 10:14:01 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nic.ru</title>
+      <link>https://tarampampam.github.io/blog/tags/nic.ru/</link>
+      <pubDate>Fri, 22 Jan 2016 10:14:01 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/nic.ru/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>automate</title>
+      <link>https://tarampampam.github.io/blog/tags/automate/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/automate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mbl</title>
+      <link>https://tarampampam.github.io/blog/tags/mbl/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/mbl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rss</title>
+      <link>https://tarampampam.github.io/blog/tags/rss/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/rss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>torrent</title>
+      <link>https://tarampampam.github.io/blog/tags/torrent/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/torrent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>transmission</title>
+      <link>https://tarampampam.github.io/blog/tags/transmission/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/transmission/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>https://tarampampam.github.io/blog/tags/css/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css3</title>
+      <link>https://tarampampam.github.io/blog/tags/css3/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/css3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://tarampampam.github.io/blog/tags/html/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>loading</title>
+      <link>https://tarampampam.github.io/blog/tags/loading/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/loading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>usability</title>
+      <link>https://tarampampam.github.io/blog/tags/usability/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/usability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cmd</title>
+      <link>https://tarampampam.github.io/blog/tags/cmd/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/cmd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>evil</title>
+      <link>https://tarampampam.github.io/blog/tags/evil/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/evil/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hosts</title>
+      <link>https://tarampampam.github.io/blog/tags/hosts/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/hosts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>script</title>
+      <link>https://tarampampam.github.io/blog/tags/script/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>telemetry</title>
+      <link>https://tarampampam.github.io/blog/tags/telemetry/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/telemetry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kali linux</title>
+      <link>https://tarampampam.github.io/blog/tags/kali-linux/</link>
+      <pubDate>Thu, 13 Aug 2015 07:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/kali-linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware</title>
+      <link>https://tarampampam.github.io/blog/tags/vmware/</link>
+      <pubDate>Thu, 13 Aug 2015 07:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/vmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>access</title>
+      <link>https://tarampampam.github.io/blog/tags/access/</link>
+      <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/access/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bruteforce</title>
+      <link>https://tarampampam.github.io/blog/tags/bruteforce/</link>
+      <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/bruteforce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hack</title>
+      <link>https://tarampampam.github.io/blog/tags/hack/</link>
+      <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/hack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://tarampampam.github.io/blog/tags/security/</link>
+      <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>samba</title>
+      <link>https://tarampampam.github.io/blog/tags/samba/</link>
+      <pubDate>Mon, 10 Aug 2015 06:57:07 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/samba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ad</title>
+      <link>https://tarampampam.github.io/blog/tags/ad/</link>
+      <pubDate>Tue, 04 Aug 2015 05:19:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>habr</title>
+      <link>https://tarampampam.github.io/blog/tags/habr/</link>
+      <pubDate>Tue, 04 Aug 2015 05:19:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/habr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mikrotik</title>
+      <link>https://tarampampam.github.io/blog/tags/mikrotik/</link>
+      <pubDate>Tue, 04 Aug 2015 05:19:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/mikrotik/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>routeros</title>
+      <link>https://tarampampam.github.io/blog/tags/routeros/</link>
+      <pubDate>Tue, 04 Aug 2015 05:19:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/routeros/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://tarampampam.github.io/blog/tags/mac/</link>
+      <pubDate>Sat, 25 Jul 2015 13:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wifi</title>
+      <link>https://tarampampam.github.io/blog/tags/wifi/</link>
+      <pubDate>Wed, 22 Jul 2015 07:34:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/wifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asus</title>
+      <link>https://tarampampam.github.io/blog/tags/asus/</link>
+      <pubDate>Sat, 18 Jul 2015 10:10:13 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/asus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>frimware</title>
+      <link>https://tarampampam.github.io/blog/tags/frimware/</link>
+      <pubDate>Sat, 18 Jul 2015 10:10:13 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/frimware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nmap</title>
+      <link>https://tarampampam.github.io/blog/tags/nmap/</link>
+      <pubDate>Tue, 14 Jul 2015 08:59:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/nmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ban</title>
+      <link>https://tarampampam.github.io/blog/tags/ban/</link>
+      <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ban/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fail2ban</title>
+      <link>https://tarampampam.github.io/blog/tags/fail2ban/</link>
+      <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/fail2ban/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wpscan</title>
+      <link>https://tarampampam.github.io/blog/tags/wpscan/</link>
+      <pubDate>Sun, 05 Jul 2015 11:30:59 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/wpscan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOS</title>
+      <link>https://tarampampam.github.io/blog/tags/ios/</link>
+      <pubDate>Fri, 26 Jun 2015 11:44:42 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>instagram</title>
+      <link>https://tarampampam.github.io/blog/tags/instagram/</link>
+      <pubDate>Fri, 26 Jun 2015 11:44:42 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/instagram/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>like</title>
+      <link>https://tarampampam.github.io/blog/tags/like/</link>
+      <pubDate>Fri, 26 Jun 2015 11:44:42 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/like/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plugin</title>
+      <link>https://tarampampam.github.io/blog/tags/plugin/</link>
+      <pubDate>Tue, 26 May 2015 07:10:53 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/plugin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>animation</title>
+      <link>https://tarampampam.github.io/blog/tags/animation/</link>
+      <pubDate>Mon, 18 May 2015 15:45:35 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boobs</title>
+      <link>https://tarampampam.github.io/blog/tags/boobs/</link>
+      <pubDate>Mon, 18 May 2015 15:45:35 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/boobs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design</title>
+      <link>https://tarampampam.github.io/blog/tags/design/</link>
+      <pubDate>Mon, 18 May 2015 15:45:35 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gif</title>
+      <link>https://tarampampam.github.io/blog/tags/gif/</link>
+      <pubDate>Mon, 18 May 2015 15:45:35 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/gif/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>printer</title>
+      <link>https://tarampampam.github.io/blog/tags/printer/</link>
+      <pubDate>Mon, 18 May 2015 15:20:41 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/printer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>samsung</title>
+      <link>https://tarampampam.github.io/blog/tags/samsung/</link>
+      <pubDate>Mon, 18 May 2015 15:20:41 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/samsung/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VPN</title>
+      <link>https://tarampampam.github.io/blog/tags/vpn/</link>
+      <pubDate>Sun, 03 May 2015 13:43:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pptp</title>
+      <link>https://tarampampam.github.io/blog/tags/pptp/</link>
+      <pubDate>Sun, 03 May 2015 13:43:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/pptp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pptpd</title>
+      <link>https://tarampampam.github.io/blog/tags/pptpd/</link>
+      <pubDate>Sun, 03 May 2015 13:43:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/pptpd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ajax</title>
+      <link>https://tarampampam.github.io/blog/tags/ajax/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ajax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jabber</title>
+      <link>https://tarampampam.github.io/blog/tags/jabber/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/jabber/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jquery</title>
+      <link>https://tarampampam.github.io/blog/tags/jquery/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>json</title>
+      <link>https://tarampampam.github.io/blog/tags/json/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/json/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>skype</title>
+      <link>https://tarampampam.github.io/blog/tags/skype/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/skype/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>status</title>
+      <link>https://tarampampam.github.io/blog/tags/status/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/status/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vk</title>
+      <link>https://tarampampam.github.io/blog/tags/vk/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/vk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://tarampampam.github.io/blog/tags/mysql/</link>
+      <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openssl</title>
+      <link>https://tarampampam.github.io/blog/tags/openssl/</link>
+      <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/openssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssl</title>
+      <link>https://tarampampam.github.io/blog/tags/ssl/</link>
+      <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xmpp</title>
+      <link>https://tarampampam.github.io/blog/tags/xmpp/</link>
+      <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/xmpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chromebook</title>
+      <link>https://tarampampam.github.io/blog/tags/chromebook/</link>
+      <pubDate>Mon, 30 Mar 2015 13:27:24 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/chromebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chromeos</title>
+      <link>https://tarampampam.github.io/blog/tags/chromeos/</link>
+      <pubDate>Mon, 30 Mar 2015 13:27:24 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/chromeos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xubuntu</title>
+      <link>https://tarampampam.github.io/blog/tags/xubuntu/</link>
+      <pubDate>Mon, 30 Mar 2015 13:27:24 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/xubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://tarampampam.github.io/blog/tags/http/</link>
+      <pubDate>Tue, 10 Mar 2015 11:31:19 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>https</title>
+      <link>https://tarampampam.github.io/blog/tags/https/</link>
+      <pubDate>Tue, 10 Mar 2015 11:31:19 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/https/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>service</title>
+      <link>https://tarampampam.github.io/blog/tags/service/</link>
+      <pubDate>Tue, 03 Mar 2015 06:41:38 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gcc</title>
+      <link>https://tarampampam.github.io/blog/tags/gcc/</link>
+      <pubDate>Sun, 22 Feb 2015 07:41:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/gcc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>source</title>
+      <link>https://tarampampam.github.io/blog/tags/source/</link>
+      <pubDate>Sun, 22 Feb 2015 07:41:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unban</title>
+      <link>https://tarampampam.github.io/blog/tags/unban/</link>
+      <pubDate>Thu, 19 Feb 2015 07:32:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/unban/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>system</title>
+      <link>https://tarampampam.github.io/blog/tags/system/</link>
+      <pubDate>Sat, 07 Feb 2015 13:40:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tar</title>
+      <link>https://tarampampam.github.io/blog/tags/tar/</link>
+      <pubDate>Sat, 07 Feb 2015 13:40:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/tar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>htaccess</title>
+      <link>https://tarampampam.github.io/blog/tags/htaccess/</link>
+      <pubDate>Mon, 26 Jan 2015 12:15:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/htaccess/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ftp</title>
+      <link>https://tarampampam.github.io/blog/tags/ftp/</link>
+      <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ftp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hetzner</title>
+      <link>https://tarampampam.github.io/blog/tags/hetzner/</link>
+      <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/hetzner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hetzner.de</title>
+      <link>https://tarampampam.github.io/blog/tags/hetzner.de/</link>
+      <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/hetzner.de/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>httpd</title>
+      <link>https://tarampampam.github.io/blog/tags/httpd/</link>
+      <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/httpd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vds</title>
+      <link>https://tarampampam.github.io/blog/tags/vds/</link>
+      <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/vds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gui</title>
+      <link>https://tarampampam.github.io/blog/tags/gui/</link>
+      <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wget</title>
+      <link>https://tarampampam.github.io/blog/tags/wget/</link>
+      <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/wget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt-get</title>
+      <link>https://tarampampam.github.io/blog/tags/apt-get/</link>
+      <pubDate>Tue, 19 Aug 2014 08:32:29 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/apt-get/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>block</title>
+      <link>https://tarampampam.github.io/blog/tags/block/</link>
+      <pubDate>Sat, 09 Aug 2014 10:51:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/block/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geoip</title>
+      <link>https://tarampampam.github.io/blog/tags/geoip/</link>
+      <pubDate>Sat, 09 Aug 2014 10:51:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/geoip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache</title>
+      <link>https://tarampampam.github.io/blog/tags/cache/</link>
+      <pubDate>Wed, 06 Aug 2014 07:05:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google</title>
+      <link>https://tarampampam.github.io/blog/tags/google/</link>
+      <pubDate>Wed, 06 Aug 2014 07:05:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google chrome</title>
+      <link>https://tarampampam.github.io/blog/tags/google-chrome/</link>
+      <pubDate>Wed, 06 Aug 2014 07:05:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/google-chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>extension</title>
+      <link>https://tarampampam.github.io/blog/tags/extension/</link>
+      <pubDate>Tue, 05 Aug 2014 03:03:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/extension/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hide</title>
+      <link>https://tarampampam.github.io/blog/tags/hide/</link>
+      <pubDate>Tue, 05 Aug 2014 03:03:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/hide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>useragent</title>
+      <link>https://tarampampam.github.io/blog/tags/useragent/</link>
+      <pubDate>Tue, 05 Aug 2014 03:03:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/useragent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>putty</title>
+      <link>https://tarampampam.github.io/blog/tags/putty/</link>
+      <pubDate>Fri, 01 Aug 2014 15:48:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/putty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google drive</title>
+      <link>https://tarampampam.github.io/blog/tags/google-drive/</link>
+      <pubDate>Thu, 31 Jul 2014 08:21:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/google-drive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>symlink</title>
+      <link>https://tarampampam.github.io/blog/tags/symlink/</link>
+      <pubDate>Thu, 31 Jul 2014 08:21:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/symlink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WD My Book Live</title>
+      <link>https://tarampampam.github.io/blog/tags/wd-my-book-live/</link>
+      <pubDate>Sat, 19 Jul 2014 18:58:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/wd-my-book-live/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debian</title>
+      <link>https://tarampampam.github.io/blog/tags/debian/</link>
+      <pubDate>Sat, 19 Jul 2014 18:58:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>green</title>
+      <link>https://tarampampam.github.io/blog/tags/green/</link>
+      <pubDate>Sat, 19 Jul 2014 18:58:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/green/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wd</title>
+      <link>https://tarampampam.github.io/blog/tags/wd/</link>
+      <pubDate>Sat, 19 Jul 2014 18:58:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/wd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>western digital</title>
+      <link>https://tarampampam.github.io/blog/tags/western-digital/</link>
+      <pubDate>Sat, 19 Jul 2014 18:58:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/western-digital/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macos</title>
+      <link>https://tarampampam.github.io/blog/tags/macos/</link>
+      <pubDate>Thu, 17 Jul 2014 15:31:29 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://tarampampam.github.io/blog/tags/python/</link>
+      <pubDate>Sun, 13 Jul 2014 07:25:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>torren</title>
+      <link>https://tarampampam.github.io/blog/tags/torren/</link>
+      <pubDate>Sun, 13 Jul 2014 07:25:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/torren/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tumblr</title>
+      <link>https://tarampampam.github.io/blog/tags/tumblr/</link>
+      <pubDate>Fri, 11 Jul 2014 14:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/tumblr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ui</title>
+      <link>https://tarampampam.github.io/blog/tags/ui/</link>
+      <pubDate>Fri, 11 Jul 2014 14:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/ui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dump</title>
+      <link>https://tarampampam.github.io/blog/tags/dump/</link>
+      <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/dump/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>antivirus</title>
+      <link>https://tarampampam.github.io/blog/tags/antivirus/</link>
+      <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/antivirus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eset</title>
+      <link>https://tarampampam.github.io/blog/tags/eset/</link>
+      <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/eset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mybooklive</title>
+      <link>https://tarampampam.github.io/blog/tags/mybooklive/</link>
+      <pubDate>Sat, 12 Apr 2014 13:13:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/mybooklive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wakeonlan</title>
+      <link>https://tarampampam.github.io/blog/tags/wakeonlan/</link>
+      <pubDate>Sat, 12 Apr 2014 13:13:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tags/wakeonlan/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1413 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/nix/</loc>
+    <lastmod>2019-01-31T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/</loc>
+    <lastmod>2019-01-31T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/</loc>
+    <lastmod>2019-01-31T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/etc/</loc>
+    <lastmod>2019-01-31T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/linux/</loc>
+    <lastmod>2019-01-31T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/tags/linux/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ssh/</loc>
+    <lastmod>2019-01-31T16:25:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</loc>
+    <lastmod>2019-01-31T16:25:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/text/</loc>
+    <lastmod>2019-01-20T07:52:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/humor/</loc>
+    <lastmod>2019-01-20T07:52:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/text/</loc>
+    <lastmod>2019-01-20T07:52:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/text/adrian-karton-di-viart/</loc>
+    <lastmod>2019-01-20T07:52:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/docker/</loc>
+    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/docker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/deploy/</loc>
+    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/tags/deploy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/tags/deploy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/devops/</loc>
+    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/tags/devops/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/tags/devops/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/docker/</loc>
+    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/tags/docker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/docker-compose/</loc>
+    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/tags/docker-compose/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/tags/docker-compose/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/docker/compose-deploy/</loc>
+    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/docker/compose-deploy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/docker/compose-deploy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/php/laravel-in-docker/</loc>
+    <lastmod>2018-10-01T08:29:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/php/</loc>
+    <lastmod>2018-10-01T08:29:51+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/php/</loc>
+    <lastmod>2018-10-01T08:29:51+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/nix/makefile-full-doc/</loc>
+    <lastmod>2018-09-28T15:39:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/make/</loc>
+    <lastmod>2018-09-28T15:39:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/laravel/</loc>
+    <lastmod>2018-08-23T16:43:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/phpunit/</loc>
+    <lastmod>2018-08-23T16:43:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/php/override-laravel-env-file-location/</loc>
+    <lastmod>2018-08-23T16:43:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/</loc>
+    <lastmod>2017-02-19T19:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/javascript/</loc>
+    <lastmod>2017-02-19T19:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/requirejs/</loc>
+    <lastmod>2017-02-19T19:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/disable-cacheing-requirejs-files-while-develop/</loc>
+    <lastmod>2017-02-19T19:16:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/oop/</loc>
+    <lastmod>2017-02-18T05:19:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/requirejs-singletone/</loc>
+    <lastmod>2017-02-18T05:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/etc/</loc>
+    <lastmod>2016-08-20T06:27:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/hosting/</loc>
+    <lastmod>2016-08-20T06:27:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/etc/cloud4box-com-review/</loc>
+    <lastmod>2016-08-20T06:27:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/</loc>
+    <lastmod>2016-08-13T10:57:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/anonymous/</loc>
+    <lastmod>2016-08-13T10:57:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/centos/</loc>
+    <lastmod>2016-08-13T10:57:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/proxy/</loc>
+    <lastmod>2016-08-13T10:57:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/setup-private-proxy-server/</loc>
+    <lastmod>2016-08-13T10:57:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/software/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/backup/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/clouds/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/disk/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/storage/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/sync/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/yandex/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/software/rclone-work-with-yandex-disk/</loc>
+    <lastmod>2016-07-13T17:24:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</loc>
+    <lastmod>2016-07-11T17:49:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/bash/</loc>
+    <lastmod>2016-07-11T17:49:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/nginx/</loc>
+    <lastmod>2016-07-11T17:49:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/nod32/</loc>
+    <lastmod>2016-07-11T17:49:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/shell/</loc>
+    <lastmod>2016-07-11T17:49:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/updates-mirror/</loc>
+    <lastmod>2016-07-11T17:49:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/bitbucket/</loc>
+    <lastmod>2016-07-02T07:56:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/git/</loc>
+    <lastmod>2016-07-02T07:56:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/wordpress/</loc>
+    <lastmod>2016-07-02T07:56:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</loc>
+    <lastmod>2016-07-02T07:56:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</loc>
+    <lastmod>2016-06-29T12:03:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/cron/</loc>
+    <lastmod>2016-06-29T12:03:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/iptables/</loc>
+    <lastmod>2016-06-29T12:03:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/</loc>
+    <lastmod>2016-06-28T22:24:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/centos-update-php-upto-56/</loc>
+    <lastmod>2016-03-25T06:37:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/build/</loc>
+    <lastmod>2016-02-16T15:36:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/phing/</loc>
+    <lastmod>2016-02-16T15:36:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/windows/</loc>
+    <lastmod>2016-02-16T15:36:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</loc>
+    <lastmod>2016-02-16T15:36:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/wp/</loc>
+    <lastmod>2016-01-23T05:35:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/code/</loc>
+    <lastmod>2016-01-23T05:35:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/snippets/</loc>
+    <lastmod>2016-01-23T05:35:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</loc>
+    <lastmod>2016-01-23T05:35:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/apache/</loc>
+    <lastmod>2016-01-22T10:14:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/nic.ru/</loc>
+    <lastmod>2016-01-22T10:14:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/config-hosting-rucenter/</loc>
+    <lastmod>2016-01-22T10:14:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/automate-movies-download/</loc>
+    <lastmod>2016-01-22T06:40:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/automate/</loc>
+    <lastmod>2016-01-22T06:40:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/mbl/</loc>
+    <lastmod>2016-01-22T06:40:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/rss/</loc>
+    <lastmod>2016-01-22T06:40:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/torrent/</loc>
+    <lastmod>2016-01-22T06:40:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/transmission/</loc>
+    <lastmod>2016-01-22T06:40:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/css/</loc>
+    <lastmod>2015-09-17T07:02:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/css3/</loc>
+    <lastmod>2015-09-17T07:02:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/html/</loc>
+    <lastmod>2015-09-17T07:02:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/loading/</loc>
+    <lastmod>2015-09-17T07:02:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/usability/</loc>
+    <lastmod>2015-09-17T07:02:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</loc>
+    <lastmod>2015-09-17T07:02:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/windows-7-8-disable-telemetry/</loc>
+    <lastmod>2015-08-24T11:08:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/cmd/</loc>
+    <lastmod>2015-08-24T11:08:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/evil/</loc>
+    <lastmod>2015-08-24T11:08:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/hosts/</loc>
+    <lastmod>2015-08-24T11:08:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/script/</loc>
+    <lastmod>2015-08-24T11:08:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/telemetry/</loc>
+    <lastmod>2015-08-24T11:08:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/kali-linux/</loc>
+    <lastmod>2015-08-13T07:17:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/vmware/</loc>
+    <lastmod>2015-08-13T07:17:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/etc/kali-linux-and-vmware/</loc>
+    <lastmod>2015-08-13T07:17:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/hack/</loc>
+    <lastmod>2015-08-12T10:05:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/access/</loc>
+    <lastmod>2015-08-12T10:05:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/bruteforce/</loc>
+    <lastmod>2015-08-12T10:05:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/hack/</loc>
+    <lastmod>2015-08-12T10:05:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/security/</loc>
+    <lastmod>2015-08-12T10:05:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</loc>
+    <lastmod>2015-08-12T10:05:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/samba-4-shares-anonymouse-access/</loc>
+    <lastmod>2015-08-10T06:57:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/samba/</loc>
+    <lastmod>2015-08-10T06:57:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/mikrotik/</loc>
+    <lastmod>2015-08-04T05:19:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ad/</loc>
+    <lastmod>2015-08-04T05:19:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/habr/</loc>
+    <lastmod>2015-08-04T05:19:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/mikrotik/</loc>
+    <lastmod>2015-08-04T05:19:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/routeros/</loc>
+    <lastmod>2015-08-04T05:19:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/</loc>
+    <lastmod>2015-08-04T05:19:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</loc>
+    <lastmod>2015-07-25T13:23:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/mac/</loc>
+    <lastmod>2015-07-25T13:23:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/mikrotik/adblock-with-dns/</loc>
+    <lastmod>2015-07-22T08:19:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/mikrotik/on-off-wifi-script/</loc>
+    <lastmod>2015-07-22T07:34:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/wifi/</loc>
+    <lastmod>2015-07-22T07:34:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/hard/</loc>
+    <lastmod>2015-07-18T10:10:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/asus/</loc>
+    <lastmod>2015-07-18T10:10:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/frimware/</loc>
+    <lastmod>2015-07-18T10:10:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/hard/firmware-rt-g32/</loc>
+    <lastmod>2015-07-18T10:10:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/nmap/</loc>
+    <lastmod>2015-07-14T08:59:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/little-iptables-tips/</loc>
+    <lastmod>2015-07-14T08:59:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/ssh-honeypot/</loc>
+    <lastmod>2015-07-13T11:13:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ban/</loc>
+    <lastmod>2015-07-13T11:13:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/fail2ban/</loc>
+    <lastmod>2015-07-13T11:13:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/wpscan/</loc>
+    <lastmod>2015-07-05T11:30:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</loc>
+    <lastmod>2015-07-05T11:30:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ios/</loc>
+    <lastmod>2015-06-26T11:44:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/instagram/</loc>
+    <lastmod>2015-06-26T11:44:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/like/</loc>
+    <lastmod>2015-06-26T11:44:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</loc>
+    <lastmod>2015-06-26T11:44:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/plugin/</loc>
+    <lastmod>2015-05-26T07:10:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/wp/remove-wp-version/</loc>
+    <lastmod>2015-05-26T07:10:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/wp/remove-wp-rss/</loc>
+    <lastmod>2015-05-25T16:28:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/animation/</loc>
+    <lastmod>2015-05-18T15:45:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/boobs/</loc>
+    <lastmod>2015-05-18T15:45:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/design/</loc>
+    <lastmod>2015-05-18T15:45:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/gif/</loc>
+    <lastmod>2015-05-18T15:45:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/etc/little-gifs-collection-part1/</loc>
+    <lastmod>2015-05-18T15:45:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/printer/</loc>
+    <lastmod>2015-05-18T15:20:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/samsung/</loc>
+    <lastmod>2015-05-18T15:20:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/hard/hack-printer-samsung-ml-1860/</loc>
+    <lastmod>2015-05-18T15:20:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/</loc>
+    <lastmod>2015-05-05T05:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/vpn/</loc>
+    <lastmod>2015-05-03T13:43:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/pptp/</loc>
+    <lastmod>2015-05-03T13:43:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/pptpd/</loc>
+    <lastmod>2015-05-03T13:43:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</loc>
+    <lastmod>2015-05-03T13:43:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ajax/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/jabber/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/jquery/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/json/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/skype/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/status/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/vk/</loc>
+    <lastmod>2015-04-28T15:15:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/mysql/</loc>
+    <lastmod>2015-04-01T17:40:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/openssl/</loc>
+    <lastmod>2015-04-01T17:40:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ssl/</loc>
+    <lastmod>2015-04-01T17:40:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/xmpp/</loc>
+    <lastmod>2015-04-01T17:40:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</loc>
+    <lastmod>2015-04-01T17:40:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/chromebook/</loc>
+    <lastmod>2015-03-30T13:27:24+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/chromeos/</loc>
+    <lastmod>2015-03-30T13:27:24+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/xubuntu/</loc>
+    <lastmod>2015-03-30T13:27:24+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/hard/install-linux-on-chromebook/</loc>
+    <lastmod>2015-03-30T13:27:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/http/</loc>
+    <lastmod>2015-03-10T11:31:19+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/https/</loc>
+    <lastmod>2015-03-10T11:31:19+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/how-enable-https-on-website/</loc>
+    <lastmod>2015-03-10T11:31:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/service/</loc>
+    <lastmod>2015-03-03T06:41:38+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/customize-nginx-error-pages/</loc>
+    <lastmod>2015-03-03T06:41:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/gcc/</loc>
+    <lastmod>2015-02-22T07:41:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/source/</loc>
+    <lastmod>2015-02-22T07:41:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</loc>
+    <lastmod>2015-02-22T07:41:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</loc>
+    <lastmod>2015-02-19T07:32:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/unban/</loc>
+    <lastmod>2015-02-19T07:32:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tnt/</loc>
+    <lastmod>2015-02-10T17:20:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</loc>
+    <lastmod>2015-02-10T17:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/backup-system-config-linux/</loc>
+    <lastmod>2015-02-07T13:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/system/</loc>
+    <lastmod>2015-02-07T13:40:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/tar/</loc>
+    <lastmod>2015-02-07T13:40:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/htaccess/</loc>
+    <lastmod>2015-01-26T12:15:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</loc>
+    <lastmod>2015-01-26T12:15:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ftp/</loc>
+    <lastmod>2015-01-26T08:43:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/hetzner/</loc>
+    <lastmod>2015-01-26T08:43:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/hetzner.de/</loc>
+    <lastmod>2015-01-26T08:43:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/httpd/</loc>
+    <lastmod>2015-01-26T08:43:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/vds/</loc>
+    <lastmod>2015-01-26T08:43:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</loc>
+    <lastmod>2015-01-26T08:43:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/wget-gui-light/</loc>
+    <lastmod>2014-08-25T16:23:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/gui/</loc>
+    <lastmod>2014-08-25T16:23:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/wget/</loc>
+    <lastmod>2014-08-25T16:23:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/my-book-live/</loc>
+    <lastmod>2014-08-19T08:32:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/apt-get/</loc>
+    <lastmod>2014-08-19T08:32:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/my-book-live/apt-get-update-error-fix/</loc>
+    <lastmod>2014-08-19T08:32:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/block/</loc>
+    <lastmod>2014-08-09T10:51:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/geoip/</loc>
+    <lastmod>2014-08-09T10:51:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/geoip-for-nic-ru/</loc>
+    <lastmod>2014-08-09T10:51:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/cache/</loc>
+    <lastmod>2014-08-06T07:05:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/google/</loc>
+    <lastmod>2014-08-06T07:05:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/google-chrome/</loc>
+    <lastmod>2014-08-06T07:05:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</loc>
+    <lastmod>2014-08-06T07:05:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/extension/</loc>
+    <lastmod>2014-08-05T03:03:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/hide/</loc>
+    <lastmod>2014-08-05T03:03:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/useragent/</loc>
+    <lastmod>2014-08-05T03:03:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/random-hide-user-agent-for-google-cgrome/</loc>
+    <lastmod>2014-08-05T03:03:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/putty/</loc>
+    <lastmod>2014-08-01T15:48:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tnt/putty-flags/</loc>
+    <lastmod>2014-08-01T15:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/google-drive/</loc>
+    <lastmod>2014-07-31T08:21:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/symlink/</loc>
+    <lastmod>2014-07-31T08:21:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</loc>
+    <lastmod>2014-07-31T08:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/my-book-live/wd-green-disable-head-parking/</loc>
+    <lastmod>2014-07-19T18:58:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/wd-my-book-live/</loc>
+    <lastmod>2014-07-19T18:58:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/debian/</loc>
+    <lastmod>2014-07-19T18:58:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/green/</loc>
+    <lastmod>2014-07-19T18:58:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/wd/</loc>
+    <lastmod>2014-07-19T18:58:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/western-digital/</loc>
+    <lastmod>2014-07-19T18:58:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/macos/</loc>
+    <lastmod>2014-07-17T15:31:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</loc>
+    <lastmod>2014-07-17T15:31:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/python/</loc>
+    <lastmod>2014-07-13T07:25:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/torren/</loc>
+    <lastmod>2014-07-13T07:25:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/my-book-live/automate-torrents-downloads/</loc>
+    <lastmod>2014-07-13T07:25:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/tumblr/</loc>
+    <lastmod>2014-07-11T14:17:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/ui/</loc>
+    <lastmod>2014-07-11T14:17:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</loc>
+    <lastmod>2014-07-11T14:17:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/dump/</loc>
+    <lastmod>2014-04-24T12:10:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</loc>
+    <lastmod>2014-04-24T12:10:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/antivirus/</loc>
+    <lastmod>2014-04-12T18:02:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/eset/</loc>
+    <lastmod>2014-04-12T18:02:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</loc>
+    <lastmod>2014-04-12T18:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/my-book-live/wol-for-wdmybooklive/</loc>
+    <lastmod>2014-04-12T13:13:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/mybooklive/</loc>
+    <lastmod>2014-04-12T13:13:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/tags/wakeonlan/</loc>
+    <lastmod>2014-04-12T13:13:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tarampampam.github.io/blog/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tarampampam.github.io/blog/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://tarampampam.github.io/blog/categories/"
+                />
+  </url>
+  
+</urlset>

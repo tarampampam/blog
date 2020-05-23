@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iptables on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/iptables/</link>
+    <description>Recent content in iptables on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Wed, 29 Jun 2016 12:03:09 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/iptables/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LEMP &#43; CentOS = ❤</title>
+      <link>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</link>
+      <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</guid>
+      <description>&lt;p&gt;Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Маленькая хитрость iptables</title>
+      <link>https://tarampampam.github.io/blog/adm/little-iptables-tips/</link>
+      <pubDate>Tue, 14 Jul 2015 08:59:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/little-iptables-tips/</guid>
+      <description>При сканировании портов целевой системы можно довольно часто наблюдать результат вида:
+... 8080/tcp filtered http-proxy ...  Что говорит нам о том что порт наверняка используется системой, но &amp;ldquo;прикрыт&amp;rdquo; извне. Не смотря на то что работать с ним врятли будет возможно - он всё же дает исследуемому дополнительную информацию о исследуемой системе.
+Как проще всего прикрыть порт извне используя iptables?
+$ iptables -A INPUT -p tcp --dport %номер_порта% -j DROP  А как можно прикрыть его так, чтоб он был недоступен только лишь извне, да ещё и не отображался в результатах nmap как filtered?</description>
+    </item>
+    
+    <item>
+      <title>SSH Honeypot — просто и со вкусом</title>
+      <link>https://tarampampam.github.io/blog/adm/ssh-honeypot/</link>
+      <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/ssh-honeypot/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Honeypot («Ловушка»)&lt;/strong&gt; (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (&lt;a href=&#34;https://ru.wikipedia.org/wiki/Honeypot&#34;&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Одно из первых средств, которое применяется для аудита целевых систем - это сканирование портов с целью выявления, какие же службы (&lt;em&gt;сервисы&lt;/em&gt;) там крутятся. Можете даже сейчас натравить &lt;code&gt;nmap&lt;/code&gt; на свой сервер и посмотреть, что же он нам о нем расскажет. Самый простой пример результата его работы:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Поднимаем vpn (pptp) сервер</title>
+      <link>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</link>
+      <pubDate>Sun, 03 May 2015 13:43:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</guid>
+      <description>&lt;p&gt;О том что такое VPN и для чего он используется - рассказано неоднократно. Но если вкратце - то &lt;strong&gt;VPN&lt;/strong&gt; это технология, которая позволяет создавать сетевые соединения поверх уже имеющихся с использованием средств защиты передаваемых данных. Её используют для объединения географически разбросанных сетей в одну целую, для соединения рабочего места (сети) с домашней (клиентской), а так же - для обеспечения безопасности передаваемых данных по общественным сетям.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iptables — заблокировать ip</title>
+      <link>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</link>
+      <pubDate>Thu, 19 Feb 2015 07:32:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</guid>
+      <description>&lt;p&gt;Рано или поздно встает задача - нужно для определенного ip закрыть доступ к ресурсу. Так же, если этот ip-адрес &lt;em&gt;серый&lt;/em&gt; (динамический), то лучше подвергнуть блокировке весь его сегмент. Сейчас рассмотрим на примере как это сделать при помощи &lt;strong&gt;iptables&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

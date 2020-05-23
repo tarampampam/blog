@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mybooklive on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/mybooklive/</link>
+    <description>Recent content in mybooklive on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sat, 12 Apr 2014 13:13:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/mybooklive/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WakeOnLan на MBL</title>
+      <link>https://tarampampam.github.io/blog/my-book-live/wol-for-wdmybooklive/</link>
+      <pubDate>Sat, 12 Apr 2014 13:13:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/my-book-live/wol-for-wdmybooklive/</guid>
+      <description>&lt;p&gt;Иногда может потребоваться удаленно включить домашний компьютер. Например, вы находитесь на работе, и надо забрать кое-какие документы с домашнего компьютера - а домашних, кто мог бы тыкнуть на кнопку включения, как на зло, нет дома.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

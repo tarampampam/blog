@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Рекомендации по повышению безопасности WordPress (ч. 1) - blog [dot] hook</title>
+  
+  <meta name="description" content="WordPress, сука, популярный. А как следствие — дырочки в нем ищутся и находятся с завидной периодичностью. Исходя из этого - сам по себе напрашивается список рекомендаций по повышению его безопасности.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Рекомендации по повышению безопасности WordPress (ч. 1)</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-01-26"
+        itemprop="datePublished">2015.1.26</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 3 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/wp-secure-wide.jpg" itemprop="image" alt="Рекомендации по повышению безопасности WordPress (ч. 1)" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-01-26">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>WordPress, сука, популярный. А как следствие — дырочки в нем ищутся и находятся с завидной периодичностью. Исходя из этого - сам по себе напрашивается список рекомендаций по повышению его безопасности.</p>
+
+<p>Итак, поехали:</p>
+
+<ol>
+<li><p>Всегда <strong>обновляйся</strong> на крайнюю версию. Всегда, когда только есть такая возможность. Правильные хак-группы давно уже используют ботнеты для вскрытия наибольшего количества сайтов за минимальное время.</p></li>
+
+<li><p><strong>Вырубай всё лишнее</strong>, удаляй всё не нужное. Избавляйся от всего, что потенциально может раскрыть версию ПО или дать хоть какую-то информацию взломщику.</p></li>
+
+<li><p>Проверяйся после обновлений и/или изменений темы <a href="http://hackertarget.com/wordpress-security-scan/">онлайн-сканером</a> на наличие широко известных проблем безопасности (сделай это и <strong>сейчас</strong>, всё что требуется — указать ссылку на испытуемый wp).</p></li>
+
+<li><p><strong>Делай бэкапы</strong>. Вне зависимости от того, делает ли их за тебя хостер. Самостоятельно — делай бэкапы.</p></li>
+
+<li><p><strong>Не используй стандартный префикс</strong> для таблиц в БД WP. Вместо &ldquo;wp<em>&rdquo; измени его на &ldquo;w0rdpre55</em>&rdquo; или &ldquo;W<em>P</em>&rdquo; — смысл ты понял. Делается это для того, чтоб если твой сайт стал уязвим к SQL инъекции, то взломщикам стало бы сложнее (в ряде случаев — невозможно) её использовать. Как изменить префикс — поставить <a href="https://wordpress.org/plugins/db-prefix-change/">этот плагин</a>, изменить префикс, снести плагин.</p></li>
+
+<li><p><strong>Включи авто-обновление WP</strong>. Добавь в <strong>wp-config.php</strong> строчку:</p>
+
+<pre><code class="language-php">define('WP_AUTO_UPDATE_CORE', true);
+</code></pre></li>
+
+<li><p><strong>Выруби редактор тем и плагинов</strong>. Если злоумышленник получит доступ к панели управления WP — в ряде случаев ничего не помешает ему комфортно поднять себе полноценный шелл. Добавь в wp-config.php строчку:</p>
+
+<pre><code class="language-php">define('DISALLOW_FILE_EDIT', true);
+</code></pre></li>
+
+<li><p>Аналогично <strong>выруби возможность загружать плагины</strong> — добавь в wp-config.php строчку:</p>
+
+<pre><code class="language-php">define('DISALLOW_FILE_MODS', true);
+</code></pre></li>
+
+<li><p><strong>Отключи вывод информации об ошибках</strong>, если таковые вылазят. В самое начало <strong>wp-config.php</strong> смело добавляй:</p>
+
+<pre><code class="language-php">error_reporting(0);
+@ini_set('display_errors', 0);
+</code></pre></li>
+
+<li><p><strong>Правильно расставь права доступа</strong>. Директории - <strong>755</strong> или <strong>750</strong>, файлы - <strong>644</strong> или <strong>640</strong>, на wp-config.php - <strong>600</strong>.</p></li>
+
+<li><p>Не лишним будет повысить секьюрность, добавив в <strong>корневой .htaccess</strong> код, который <strong>закрывает доступ к wp-config.php</strong> (хотя в нем и так только константы и ничего не выводится — нехер) и закрывает доступ к <strong>xmlrpc.php</strong>, который крайнее время активно используется для DDoS:</p>
+
+<pre><code>Options -Indexes
+&lt;files ~ &quot;(wp-config|xmlrpc).php$&quot;&gt;
+order allow,deny
+deny from all
+&lt;/files&gt;
+</code></pre></li>
+
+<li><p>Более того, не лишним будет в <strong>/wp-admin/</strong> создать <strong>.htaccess</strong> со следующим кодом (файл .htpasswd можно сделать и при помощи <a href="http://www.htaccesstools.com/htpasswd-generator/">этого онлайн-сервиса</a>. Просто пропиши в нем полученную пару логин:хэш_пароля и путь к нему укажи в примере что выше. Используй разные пароли для WP и BasicAuth):</p>
+
+<pre><code>AuthUserFile /path/to/.htpasswd
+AuthType Basic
+AuthName &quot;restricted&quot;
+Order Deny,Allow
+Deny from all
+&lt;limit GET POST&gt;
+Require valid-user
+&lt;/limit&gt;
+Satisfy any
+</code></pre></li>
+
+<li><p>В <strong>/wp-includes/</strong> создаем <strong>.htaccess</strong> вот с таким содержимым (тем самым <strong>закрывая извне доступ</strong> ко всему, <strong>кроме</strong> перечисленных выше типов файлов):</p>
+
+<pre><code>order deny,allow
+deny from all
+&lt;files ~ &quot;(.(xml|css|jp?g|png|gif|js)|wp-tinymce.php)$&quot;&gt;
+allow from all
+&lt;/files&gt;
+</code></pre></li>
+
+<li><p><strong>Не используй стандартное имя</strong> для учетной записи администратора, сделай жизнь брутеров и киддистов значительно сложнее. Сделать это просто - достаточно изменить поле <code>user_login</code> в таблице <code>%wp%_users</code> для пользователя с ID равным 1.</p></li>
+
+<li><p><strong>Поставь защиту от перебора пароля</strong>. Например, поставь <a href="https://wordpress.org/plugins/login-lockdown/">плагин Login LockDown</a>.</p></li>
+
+<li><p>Поставь плагин <a href="https://wordpress.org/plugins/disable-author-pages/">Disable Author Pages</a> - <strong>скрой имена авторов</strong> постов (которые зачастую совпадают с логинами для входа, осложни жизнь брутфорсерам).</p></li>
+
+<li><p><strong>Удали из темы всё</strong>, то выводит информацию о том что это wp, и не дай джа — <strong>палит его версию</strong>.</p></li>
+
+<li><p>Размести в директориях <strong>/wp-content</strong>, <strong>/wp-content/plugins</strong>, <strong>/wp-content/themes</strong> и <strong>/wp-content/uploads</strong> пустой файл &ldquo;<strong>index.php</strong>&rdquo;.</p></li>
+
+<li><p><strong>Удали</strong> из <strong>/wp-admin</strong> файлы <strong>install.php</strong> и <strong>upgrade.php</strong>.</p></li>
+
+<li><p><strong>Удали</strong> файлы <strong>readme.html</strong> и пр. из корневой директории.</p></li>
+
+<li><p>Поставь плагин <a href="https://wordpress.org/plugins/wp-security-scan/">Acunetix WP Security</a>, как минимум для проверки и блокировки ещё кое-каких моментов.</p></li>
+
+<li><p>Можешь поставить плагин снапшотов, проверяющий изменения в коде файлов wp. Народ рекомендует этот — <a href="https://wordpress.org/plugins/wp-changes-tracker/">WP Changes Tracker</a>.</p></li>
+</ol>
+
+<p>Не ленись, уделяй время вопросам безопасности. Это как с бэкапами — администраторы wp делятся на два типа — тех, кто уделяет этому внимание, и тех — кто <strong>уже</strong> уделяет.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/apache/">apache</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/htaccess/">htaccess</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/security/">security</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/wordpress/">wordpress</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Samba 4 — доступ к публичным шарам без логина/пароля - blog [dot] hook</title>
+  
+  <meta name="description" content="Наткнулся на одну интересную особенность Samba 4, связанную с анонимным доступом к публичным шарам. Делается это для того, чтоб пользователи могли спокойно заходить на файл-сервер и не запариваться с вводом, например, пользователя guest и пустого пароля (и в то же время существовали шары, доступ к которым возможен только после ввода пары логин:пароль).">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Samba 4 — доступ к публичным шарам без логина/пароля</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-08-10"
+        itemprop="datePublished">2015.8.10</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 3 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/samba-wide.jpg" itemprop="image" alt="Samba 4 — доступ к публичным шарам без логина/пароля" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-08-10">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Наткнулся на одну интересную особенность Samba 4, связанную с анонимным доступом к публичным шарам. Делается это для того, чтоб пользователи могли спокойно заходить на файл-сервер и не запариваться с вводом, например, пользователя <code>guest</code> и пустого пароля (<em>и в то же время существовали шары, доступ к которым возможен только после ввода пары <code>логин:пароль</code></em>).</p>
+
+<p>Ранее (<em>до третьей версии включительно</em>) для реализации данной задачи мы пользовались указанием в секции <code>[global]</code> директивы <code>security = share</code>, а в секции самой шары - просто <code>guest ok = yes</code> и всё работало как надо. Теперь же надо делать чуть-чуть иначе, а именно:</p>
+
+<p><strong>Необходимо использовать</strong> директивы <code>security = user</code> и <code>map to guest = Bad Password</code> в секции <code>[global]</code>, а так-же указывать <code>guest ok = yes</code> в секции шары.</p>
+
+<p>Дело в том, что директивы <code>security = share|server</code> считаются устаревшими, именно поэтому нам и остается пользоваться <code>security = user</code>. Для <strong>отделения</strong> же пользователя от гостя применяется новая директива <code>map to guest = Bad Password</code> (<em>смысл которой заключается в том, что если пользователь Samba существует в системе и введен неверный пароль, то вход этого пользователя отклоняется, если пользователя не существует, тогда ему присваивается статус гость</em>). Ну а для того чтобы открыть доступ к общему ресурсу для гостей осталась старая добрая директива <code>guest ok = yes</code> которую необходимо указывать непосредственно в секции шары.</p>
+
+<p>Ниже полный пример настройки моей самбы:</p>
+
+<pre><code class="language-ini">[global]
+  realm = WORKGROUP
+  server string = Your server description
+
+  # Setup charsets
+  dos charset = cp1251
+  unix charset = utf8
+
+  # Disable printers
+  load printers = No
+  show add printer wizard = no
+  printcap name = /dev/null
+  disable spoolss = yes
+
+  # Setup logging
+  log file = /var/log/samba/smbd.log
+  max log size = 50
+  max xmit = 65536
+  debug level = 1
+
+  # Setup daemon settings
+  domain master = No
+  domain master = No
+  preferred master = Yes
+  socket options = IPTOS_LOWDELAY TCP_NODELAY SO_SNDBUF=65536 SO_RCVBUF=65536 SO_KEEPALIVE
+  os level = 65
+  use sendfile = Yes
+  dns proxy = No
+  dont descend = /proc,/dev,/etc
+  deadtime = 15
+
+  # Enable synlinks
+  unix extensions = No
+  wide links = yes
+  follow symlinks = yes
+
+  # Securtity settings
+  security = user
+  map to guest = Bad Password
+  guest account = nobody
+  auth methods = guest, sam_ignoredomain
+  create mask = 0664
+  directory mask = 0775
+  hide dot files = yes
+
+[public]
+  comment = Public share
+  path = /shares/public
+  create mask = 0666
+  directory mask = 0775
+  read only = No
+  guest ok = Yes
+
+[user1]
+  path = /shares/user1
+  valid users = user1
+  write list = user1
+
+[user2]
+  path = /shares/user2
+  valid users = user2
+  write list = user2
+</code></pre>
+
+<p>Для того, чтоб добавить в самбу пользователей можно воспользоваться <code>smbpasswd</code>:</p>
+
+<pre><code class="language-bash">$ smbpasswd -a user1
+</code></pre>
+
+<p>А для проверки корректности конфигов самбы:</p>
+
+<pre><code class="language-bash">$ testparm -s
+</code></pre>
+
+<blockquote>
+<p>Все манипуляции проверялись на:</p>
+
+<pre><code class="language-bash">$ yum list samba | grep samba
+samba.x86_64                      4.1.12-23.el7_1                       @updates
+</code></pre>
+</blockquote>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/samba/">samba</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

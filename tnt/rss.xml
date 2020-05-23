@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tnt on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tnt/</link>
+    <description>Recent content in Tnt on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Tue, 10 Feb 2015 17:20:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tnt/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Отключаем рекламу в Skype</title>
+      <link>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</link>
+      <pubDate>Tue, 10 Feb 2015 17:20:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</guid>
+      <description>&lt;p&gt;Всё предельно просто - необходимо запретить доступ к серверам, выдающим данные о рекламе, поправив файл &lt;code&gt;%SystemRoot%\system32\drivers\etc\hosts&lt;/code&gt;, добавив в него записи вида:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переносим кэш Google Chrome</title>
+      <link>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</link>
+      <pubDate>Wed, 06 Aug 2014 07:05:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</guid>
+      <description>&lt;p&gt;Обладателям SSD + HDD винтов читать в первую очередь. Всем давно известно, что SSD винты чертовски шустрые, но, имеют ограниченный ресурс чтения/записи. В Сети есть херова куча советов, статей и программ по оптимизации работы ОС + ПО с ними, но мало кто пишет про небольшой нюанс касательно кэша хрома.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Флаги запуска «PuTTY»</title>
+      <link>https://tarampampam.github.io/blog/tnt/putty-flags/</link>
+      <pubDate>Fri, 01 Aug 2014 15:48:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/putty-flags/</guid>
+      <description>&lt;p&gt;Наиболее часто используемые флаги запуска &lt;code&gt;putty&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Симлинки на «Рабочий стол» и «Мои документы» в облака</title>
+      <link>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</link>
+      <pubDate>Thu, 31 Jul 2014 08:21:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</guid>
+      <description>&lt;p&gt;Согласись — было бы прикольно, если ты обладатель рабочего десктопа и нескольких мобильных гаджетов, и мог удобно расшаривать между ними файлы. В один момент пользуясь мобильным гаджетом и найдя что-то, что тебе в дальнейшем понадобится (картинка, изображение, документ, etc.) на десктопе — ты не просто делаешь закладку на объект и каким-то образом пересылаешь её, я просто сохраняешь его, и нужный файл появляется у тебя на рабочем столе десктопа.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как удалить &#34;мусор&#34; от MacOS из файлошары</title>
+      <link>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</link>
+      <pubDate>Thu, 17 Jul 2014 15:31:29 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</guid>
+      <description>&lt;p&gt;Пользователям этой ос должно быть хорошо известно, что во время работы мак-ось оставляет за собой довольно много различного “мусора”, в большей части являющегося просто кэшем изображений и прочего. В том числе весь этот хлам создается, когда владелец этой самой макоси заходит на файлошару, доступную для записи. Если вам необходимо от него избавиться, то вы можете смело создать небольшой скрипт и поставить его в cron. Ниже рассмотрим как это сделать в два простых шага.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

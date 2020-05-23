@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Прошивка принтера Samsung ML-1860 - blog [dot] hook</title>
+  
+  <meta name="description" content="В самом аппарате есть программное обеспечение (ПО), которое отвечает за все действия. При помощи этого ПО производится отсчет распечатанных страниц с чипа картриджа. Когда допустимое количество листов будет отпечатано, устройство блокируется. И заправкой картриджа, как вы понимаете здесь не обойтись.
+Решением сложившейся ситуации служит прошивка новым программным обеспечением ваш принтер. В обновленном ПО отсутствует счетчик страниц и уровень тонера всегда 100%.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Прошивка принтера Samsung ML-1860</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-05-18"
+        itemprop="datePublished">2015.5.18</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 2 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/ml1860-wide.jpg" itemprop="image" alt="Прошивка принтера Samsung ML-1860" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-05-18">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>В самом аппарате есть программное обеспечение (ПО), которое отвечает за все действия. При помощи этого ПО производится отсчет распечатанных страниц с чипа картриджа. Когда допустимое количество листов будет отпечатано, устройство блокируется. И заправкой картриджа, как вы понимаете здесь не обойтись.</p>
+
+<p>Решением сложившейся ситуации служит прошивка новым программным обеспечением ваш принтер. В обновленном ПО отсутствует счетчик страниц и уровень тонера всегда 100%.</p>
+
+<p>В сети можно обнаружить великое множество ресурсов, на которых предлагают бесплатные и якобы рабочие прошивки. Может где-то оно и так, но тут публикую действительно рабочий способ и проверенный на себе способ.</p>
+
+<ol>
+<li><p>Произведем печать <strong>отчета о конфигурации</strong> - вставляем в лоток 1 лист бумаги, зажимаем и удерживаем клавишу <strong>стоп</strong> (находится <strong>над</strong> кнопкой включения принтера) на 5..10 секунд - когда диод начинает медленно мигать зеленым цветом - отпускаем, после чего и распечатывается лист с отчетом. В отчете должны обнаружить версию прошивки <code>v1.01.00.18</code> или <code>v1.01.00.19</code>. Если версия в отчете о конфигурации вашего принтера выше, то к сожалению этот способ не для вас;</p></li>
+
+<li><p>Далее нужно скачать архив с генератором (<a href="https://yadi.sk/d/pyybeSD33aLuAG">ML1860GEN.zip</a>, пароль на архив <code>ML1860GEN</code>) и извлечь из него файлы в удобное для вас место на компьютере. Данный офф-лайн генератор работает без подключения к сети интернет;</p></li>
+
+<li><p>Приступаем к генерации файла прошивки для данного принтера. Для этого нужно найти в папке с распакованным архивом файл с именем <code>ml-1860_19nu_gen.exe</code> и делаем его запуск. В окне программа предложит вам ввести серийный номер;</p></li>
+
+<li><p>Производим ввод серийного номера принтера, он как и версия прошивки находится в отчете о конфигурации. Состоит серийник из пятнадцати (15) знаков, например: <code>Z5MBBKDB803345L</code>, делаем запуск нажав на кнопку <code>Generate</code>. Далее вас проинформируют что генерация успешно завершилась - можно закрывать приложение. В папке, где расположен генератор, обнаружиться новый файл <code>FIX_Z5MBBKDB803345L_ML1860_19NU.hd</code>;</p></li>
+
+<li><p><strong>Мышью перетаскиваем</strong> полученный в предыдущем шаге файл (например, <code>FIX_Z5MBBKDB803345L_ML1860_19NU.hd</code>) на приложение <code>usbprns2.exe</code>. Затем откроется окно консоли Windows, которое по завершению процесса (3..10 секунд) закроется само. Принтер при этом немного пошумит механикой и произведет перезагрузку;</p></li>
+
+<li><p>Выключаем принтер, достаем картридж, заклеиваем его контакты (например изолентой):
+<img src="https://hsto.org/files/de9/6a0/705/de96a0705f3d4d53ae0f61c08674475f.jpg" alt="" /></p></li>
+
+<li><p>Вставляем картридж обратно, включаем принтер. Наблюдаем как диод теперь не мигает красным, а горит дружелюбным зеленым цветом :)</p></li>
+</ol>
+
+<p>Так же распечатываем отчет (как в первом пункте). Проверяем чтоб после цифры версии появилась буква <code>F</code> (было <code>V1.01.00.19 12-03-2010</code>, стало <code>V1.01.00.19F12-03-2010</code>). Теперь для того чтоб картридж виделся как полный достаточно просто выключить и включить питание.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/hack/">hack</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/printer/">printer</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/samsung/">samsung</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>symlink on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/symlink/</link>
+    <description>Recent content in symlink on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Thu, 31 Jul 2014 08:21:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/symlink/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Симлинки на «Рабочий стол» и «Мои документы» в облака</title>
+      <link>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</link>
+      <pubDate>Thu, 31 Jul 2014 08:21:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</guid>
+      <description>&lt;p&gt;Согласись — было бы прикольно, если ты обладатель рабочего десктопа и нескольких мобильных гаджетов, и мог удобно расшаривать между ними файлы. В один момент пользуясь мобильным гаджетом и найдя что-то, что тебе в дальнейшем понадобится (картинка, изображение, документ, etc.) на десктопе — ты не просто делаешь закладку на объект и каким-то образом пересылаешь её, я просто сохраняешь его, и нужный файл появляется у тебя на рабочем столе десктопа.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

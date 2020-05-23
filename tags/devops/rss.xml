@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/devops/</link>
+    <description>Recent content in devops on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 15 Oct 2018 13:35:50 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/devops/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Деплой на Docker Swarm</title>
+      <link>https://tarampampam.github.io/blog/docker/compose-deploy/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/docker/compose-deploy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данный пост является переводом &lt;a href=&#34;https://docs.docker.com/compose/compose-file/#deploy&#34;&gt;части документации&lt;/a&gt;, посвященной секции &lt;code&gt;deploy&lt;/code&gt; в &lt;code&gt;docker-compose&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;deploy&#34;&gt;&lt;code&gt;deploy&lt;/code&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Начиная с &lt;a href=&#34;https://docs.docker.com/compose/compose-file/compose-versioning/#version-3&#34;&gt;версии &lt;strong&gt;3&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Группа настроек, посвященная деплою и запуску сервисов. Указанные в данной группе настройки используются &lt;strong&gt;только&lt;/strong&gt; при деплое на &lt;a href=&#34;https://docs.docker.com/engine/swarm/&#34;&gt;swarm&lt;/a&gt; используя &lt;a href=&#34;https://docs.docker.com/engine/reference/commandline/stack_deploy/&#34;&gt;&lt;code&gt;docker stack deploy&lt;/code&gt;&lt;/a&gt;, и игнорируется при использовании команд &lt;code&gt;docker-compose up&lt;/code&gt; и &lt;code&gt;docker-compose run&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;version: &#39;3&#39;
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker &#43; Laravel = ❤</title>
+      <link>https://tarampampam.github.io/blog/php/laravel-in-docker/</link>
+      <pubDate>Mon, 01 Oct 2018 08:29:51 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/php/laravel-in-docker/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/425101/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;В данной статье я расскажу о своём опыте &amp;ldquo;заворачивания&amp;rdquo; Laravel-приложения в Docker-контейнер да так, что бы и локально с ним могли работать frontend и backend разработчики, и запуск его на production был максимально прост. Так же CI будет автоматически запускать статические анализаторы кода, &lt;code&gt;phpunit&lt;/code&gt;-тесты, производить сборку образов.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;А в чём, собственно, сложность?&amp;rdquo; - можешь сказать ты, и будешь отчасти прав. Дело в том, что этой теме посвящено довольно много обсуждений в русскоязычных и англоязычных комьюнити, и почти все изученные треды я бы условно разделил на следующие категории:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Использую докер для локальной разработки. Ставлю &lt;a href=&#34;https://laradock.io/&#34;&gt;laradock&lt;/a&gt; и беды не знаю&amp;rdquo;. Круто, но как обстоят дела с автоматизацией и запуском на production?&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Собираю один контейнер &lt;em&gt;(монолит)&lt;/em&gt; на базе &lt;code&gt;fedora:latest&lt;/code&gt; (~230 Mb), ставлю в него все сервисы (nginx, бд, кэш, etc), запускаю всё супервизором внутри&amp;rdquo;. Тоже отлично, прост в запуске, но как на счёт идеологии &amp;ldquo;один контейнер - один процесс&amp;rdquo;? Как обстоят дела с балансировкой и управлением процессами? Как же размер образа?&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Вот вам куски конфигов, приправляем выдержками из sh-скриптов, добавим магических env-значений, пользуйтесь&amp;rdquo;. Спасибо, но как же на счёт хотя бы одного живого примера, который я бы мог форкнуть и полноценно поиграться?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Всё, что ты прочитаешь ниже - является субъективным опытом, который не претендует быть истиной в последней инстанции. Если у тебя будут дополнения или указания на неточности - welcome to comments.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Для нетерпеливых - &lt;a href=&#34;https://gitlab.com/tarampampam/laravel-in-docker&#34;&gt;ссылка на репозиторий&lt;/a&gt;, склонировав который ты сможешь запустить Laravel-приложение одной командой. Так же не составит труда его запустить на том же &lt;a href=&#34;https://rancher.com/&#34;&gt;rancher&lt;/a&gt;, правильно &amp;ldquo;слинковав&amp;rdquo; контейнеры, или использовать продуктовый вариант &lt;code&gt;docker-compose.yml&lt;/code&gt; как отправную точку.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNU Make - Полная документация</title>
+      <link>https://tarampampam.github.io/blog/nix/makefile-full-doc/</link>
+      <pubDate>Fri, 28 Sep 2018 15:39:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/nix/makefile-full-doc/</guid>
+      <description>&lt;p&gt;На днях появилась необходимость несколько автоматизировать сборку Docker-образов, и решать эту задачу &amp;ldquo;привычними&amp;rdquo; bash-скриптами очень не хотелось. Вспомнил про существование такого зверя как &lt;code&gt;make&lt;/code&gt; и, черт подери - это великая тулза, которая уже считай что почти забыта. В процессе работы был найден перевод документации, и дабы он &amp;ldquo;не потерялся&amp;rdquo; - разместил его здесь.&lt;/p&gt;
+
+&lt;h2 id=&#34;программа-управления-компиляцией&#34;&gt;Программа управления компиляцией&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GNU &lt;code&gt;make&lt;/code&gt; Версия 3.79, апрель 2000&lt;/p&gt;
+
+&lt;p&gt;Richard M. Stallman и Roland McGrath, перевод &amp;copy; Владимир Игнатов, 2000. Версия перевода 0.1&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Английский оригинал этого текста находится &lt;a href=&#34;https://www.gnu.org/software/make/manual/html_node/index.html&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Оригинал перевода был мною взят &lt;a href=&#34;http://linux.yaroslavl.ru/docs/prog/gnu_make_3-79_russian_manual.html&#34;&gt;с этой страницы&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

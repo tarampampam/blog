@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/javascript/</link>
+    <description>Recent content in javascript on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sun, 19 Feb 2017 19:16:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/javascript/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Отключаем кэширование загружаемых RequireJS файлов при разработке</title>
+      <link>https://tarampampam.github.io/blog/dev/disable-cacheing-requirejs-files-while-develop/</link>
+      <pubDate>Sun, 19 Feb 2017 19:16:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/disable-cacheing-requirejs-files-while-develop/</guid>
+      <description>&lt;p&gt;Мне нравится &lt;a href=&#34;http://requirejs.org/&#34;&gt;RequireJS&lt;/a&gt;. Нравятся принцип построения приложения с его использованием, то как он работает с зависимостями, его гибкость и настраиваемость. Но часто может возникать проблема при разработке на локале - кэширование ресурсов браузером &lt;em&gt;(файл подправил, а изменения не отображаются, так как файл берется из кэша)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Можно, конечно, открыть консоль и поставить флаг запрещающий кэширование, можно подправить конфиг web-демона так, чтоб он запрещал кэширование, а можно пойти другим путем - заставить requirejs добавлять рандомный параметр к своим запросам, таким образом заставляя браузер не брать файл из кэша.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Синглтон для RequireJS</title>
+      <link>https://tarampampam.github.io/blog/dev/requirejs-singletone/</link>
+      <pubDate>Sat, 18 Feb 2017 05:19:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/requirejs-singletone/</guid>
+      <description>&lt;p&gt;Частенько при разработке приложения с использованием &lt;a href=&#34;http://requirejs.org/&#34;&gt;requirejs&lt;/a&gt; возникает необходимость в реализации &lt;a href=&#34;https://ru.wikipedia.org/wiki/%D0%9E%D0%B4%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)&#34;&gt;паттерна синглтона&lt;/a&gt;. И вот, испробовав пример его реализации что описан ниже заявляю - он имеет право на жизнь. Не без своих недостатков, разумеется, но в целом вполне применибельно:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Индикатор загрузки страницы (css &#43; pure js)</title>
+      <link>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</guid>
+      <description>&lt;p&gt;Время загрузки страницы - самая унылая часть веб-серфинга :) До того момента, пока страница не загрузилась &lt;strong&gt;до конца&lt;/strong&gt;, велика вероятность что она будет отображаться не так как мы задумывали - блоки могут &amp;ldquo;наезжать&amp;rdquo; друг на друга, текст - не отображаться (&lt;em&gt;пока не загрузились шрифты&lt;/em&gt;), про корректную работу скриптов а анимации тоже зачастую можно забыть.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript — получаем статус Skype, VK и Jabber аккаунтов</title>
+      <link>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</guid>
+      <description>&lt;p&gt;Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Псевдо-случайное изображение (на примере страницы 404-й ошибки)</title>
+      <link>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</link>
+      <pubDate>Fri, 11 Jul 2014 14:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/229449/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Однажды автор этого поста работал над одним заказом по разработке простенько сайта и тогда появилась идея — придать всем страницам некой уникальности и запоминаемости — использовать уникальные фоновые текстуры или элементы дизайна (активно использовался parallax-scrolling). Так как в тот момент дедлайн был довольно близок, а идея — в зачаточном состоянии, было реализовано намного проще — простыми заготовками, но идея выброшена не была.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

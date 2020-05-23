@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>build on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/build/</link>
+    <description>Recent content in build on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Tue, 16 Feb 2016 15:36:49 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/build/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Автоматическая сборка PHP-проектов с помощью PhiNG</title>
+      <link>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</link>
+      <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</guid>
+      <description>&lt;p&gt;Что я подразумеваю под сборкой? Сборка - это процесс действий, которые выполняются над кодом проекта перед его деплоем. Она может включать в себя создание копии проекта, очистка директории с кэшем, минификация CSS и JS файлов, упаковка результата в один zip-архив. Так же возможно ещё и автоматическое развертывание проекта а удаленном сервере, но сегодня речь об этом идти не будет.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

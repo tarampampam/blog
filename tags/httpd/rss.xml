@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>httpd on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/httpd/</link>
+    <description>Recent content in httpd on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 26 Jan 2015 08:43:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/httpd/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Установка LAMP на CentOS 7</title>
+      <link>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</link>
+      <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</guid>
+      <description>&lt;p&gt;Так уж получилось, что хостер, где ранее размещались все сайты и некоторые сервисы, оказался жлоб и пидарас. Жлоб, потому как на самом дорогом тарифе выделял лишь сраные 256Mb под всё, а пидарас — потому как и с поддержкой — не очень хорошо, и хосты частенько лежали, и отношение к клиентам — далеко не лучшее. Да, речь о Nic.ru.&lt;/p&gt;
+
+&lt;p&gt;Было решено переезжать. Но куда? В России достойное по соотношению цена/качества — не находилось, а “за бугром”, по рекомендациям хабра — был выбран &lt;a href=&#34;http://www.hetzner.de/&#34;&gt;hetzner.de&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

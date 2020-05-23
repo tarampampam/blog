@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bash on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/bash/</link>
+    <description>Recent content in bash on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 11 Jul 2016 17:49:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/bash/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Make Nod32 Mirror Updated</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</guid>
+      <description>&lt;p&gt;Однажды я &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror/&#34;&gt;уже писал об этом&lt;/a&gt;, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &amp;ldquo;интересные&amp;rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LEMP &#43; CentOS = ❤</title>
+      <link>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</link>
+      <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</guid>
+      <description>&lt;p&gt;Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentOS — обновляем php до 5.6</title>
+      <link>https://tarampampam.github.io/blog/adm/centos-update-php-upto-56/</link>
+      <pubDate>Fri, 25 Mar 2016 06:37:53 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/centos-update-php-upto-56/</guid>
+      <description>&lt;p&gt;Задался вопросом - при разработке web-приложений под какую версию &lt;code&gt;php&lt;/code&gt; их &amp;ldquo;затачивать&amp;rdquo;? Ответ оказался проще некуда - достаточно посмотреть на &lt;a href=&#34;http://php.net/supported-versions.php&#34;&gt;календарь релизов&lt;/a&gt; и понять, что на данный момент поддерживаемой является версия &lt;code&gt;5.6.19&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка хостинга на RU-Center (nic.ru)</title>
+      <link>https://tarampampam.github.io/blog/adm/config-hosting-rucenter/</link>
+      <pubDate>Fri, 22 Jan 2016 10:14:01 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/config-hosting-rucenter/</guid>
+      <description>&lt;p&gt;Так уж сложилось, что время от времени приходится поднимать сайты на хостинге руцентра. Как правило это небольшие сайты-визитки или проекты, для которых реализация на дедике характеризуется как &amp;ldquo;жирно будет&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RSS → Bash → Transmission</title>
+      <link>https://tarampampam.github.io/blog/adm/automate-movies-download/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/automate-movies-download/</guid>
+      <description>&lt;p&gt;Нахрен долгое вступление. Если на вопрос &amp;ldquo;Нравится автоматизировать и любишь посмотреть кино?&amp;rdquo; ты неосознанно ответишь положительно, то то что здесь написано - тебе понравится. Итак, наверняка у тебя есть своя железяка, которая стоит дома/офисе где-то в уголочке и выполняет роль файлошары/торрентокачалки и Джа знает ещё чего.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MikroTik — режем рекламу (ADBlock) с помощью DNS</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/adblock-with-dns/</link>
+      <pubDate>Wed, 22 Jul 2015 08:19:59 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/adblock-with-dns/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;У данного поста имеется продолжение, позволяющее автоматизировать и значительно упростить весь процесс, описанный в этой записи. Располагается оно по &lt;a href=&#34;https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/&#34;&gt;этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Прочитав &lt;a href=&#34;https://habr.com/post/263081/&#34;&gt;пост&lt;/a&gt; тов. &lt;a href=&#34;https://habr.com/users/4aba/&#34;&gt;4aba&lt;/a&gt; о том, как с помощью &lt;code&gt;dnsmasq&lt;/code&gt; на прошитом роутере можно вполне успешно резать рекламные баннеры на всех устройствах, которые подключены к нашей точке доступа возник резонный вопрос - а можно ли реализовать аналогичное на маршрутизаторе &lt;strong&gt;Mikrotik hAP lite&lt;/strong&gt;? Железка довольно таки достойная (&lt;em&gt;650MHz @ RAM 32 Mb&lt;/em&gt;), но у нас нет полноценного linux-шелла на ней. Оказывается - можно, и результате было реализовано довольно простое, но эффективное решение.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Маленькая хитрость iptables</title>
+      <link>https://tarampampam.github.io/blog/adm/little-iptables-tips/</link>
+      <pubDate>Tue, 14 Jul 2015 08:59:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/little-iptables-tips/</guid>
+      <description>При сканировании портов целевой системы можно довольно часто наблюдать результат вида:
+... 8080/tcp filtered http-proxy ...  Что говорит нам о том что порт наверняка используется системой, но &amp;ldquo;прикрыт&amp;rdquo; извне. Не смотря на то что работать с ним врятли будет возможно - он всё же дает исследуемому дополнительную информацию о исследуемой системе.
+Как проще всего прикрыть порт извне используя iptables?
+$ iptables -A INPUT -p tcp --dport %номер_порта% -j DROP  А как можно прикрыть его так, чтоб он был недоступен только лишь извне, да ещё и не отображался в результатах nmap как filtered?</description>
+    </item>
+    
+    <item>
+      <title>SSH Honeypot — просто и со вкусом</title>
+      <link>https://tarampampam.github.io/blog/adm/ssh-honeypot/</link>
+      <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/ssh-honeypot/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Honeypot («Ловушка»)&lt;/strong&gt; (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (&lt;a href=&#34;https://ru.wikipedia.org/wiki/Honeypot&#34;&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Одно из первых средств, которое применяется для аудита целевых систем - это сканирование портов с целью выявления, какие же службы (&lt;em&gt;сервисы&lt;/em&gt;) там крутятся. Можете даже сейчас натравить &lt;code&gt;nmap&lt;/code&gt; на свой сервер и посмотреть, что же он нам о нем расскажет. Самый простой пример результата его работы:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Поднимаем свой Jabber сервер</title>
+      <link>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</link>
+      <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</guid>
+      <description>&lt;p&gt;Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34; target=&#34;_blank&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34; target=&#34;_blank&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34; target=&#34;_blank&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Собираем nginx из исходников</title>
+      <link>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</link>
+      <pubDate>Sun, 22 Feb 2015 07:41:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</guid>
+      <description>&lt;p&gt;Постепенно переводя часть ресурсов с Apache на &lt;strong&gt;nginx&lt;/strong&gt; возникла необходимость вывода листинга файлов (&lt;code&gt;autoindex on&lt;/code&gt;, аналог &lt;code&gt;Options +Indexes&lt;/code&gt; у Apache), но с возможностью некоторой его настройки (как минимум, это использование аналогов Apache &lt;code&gt;HeaderName&lt;/code&gt; и &lt;code&gt;ReadmeName&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;В nginx этим занимается отдельный модуль под именем &lt;code&gt;fancyindex&lt;/code&gt;, для запуска которого необходимо пересобрать весь nginx из исходников, добавив его в момент сборки.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Отключаем рекламу в Skype</title>
+      <link>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</link>
+      <pubDate>Tue, 10 Feb 2015 17:20:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</guid>
+      <description>&lt;p&gt;Всё предельно просто - необходимо запретить доступ к серверам, выдающим данные о рекламе, поправив файл &lt;code&gt;%SystemRoot%\system32\drivers\etc\hosts&lt;/code&gt;, добавив в него записи вида:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web-gui для wget (light)</title>
+      <link>https://tarampampam.github.io/blog/dev/wget-gui-light/</link>
+      <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/wget-gui-light/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/234353/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ранее здесь находилось описание возможных ситуаций, когда данное решение могло бы вам понадобиться, но давайте его опустим. Возможность удобного создания удаленных закачек, которые выполняются привычным wget-ом (можно спокойно увидеть их список при помощи &lt;strong&gt;ps&lt;/strong&gt;), с отображением прогресса — идея не новая. И даже есть &lt;a href=&#34;http://exir.ru/wget4web/screen.htm&#34;&gt;некоторые&lt;/a&gt; &lt;a href=&#34;http://sourceforge.net/projects/download-webgui/files/?source=navbar&#34;&gt;решения&lt;/a&gt;, но не актуальные, так как более 5 лет никем не поддерживаются.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как удалить &#34;мусор&#34; от MacOS из файлошары</title>
+      <link>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</link>
+      <pubDate>Thu, 17 Jul 2014 15:31:29 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</guid>
+      <description>&lt;p&gt;Пользователям этой ос должно быть хорошо известно, что во время работы мак-ось оставляет за собой довольно много различного “мусора”, в большей части являющегося просто кэшем изображений и прочего. В том числе весь этот хлам создается, когда владелец этой самой макоси заходит на файлошару, доступную для записи. Если вам необходимо от него избавиться, то вы можете смело создать небольшой скрипт и поставить его в cron. Ниже рассмотрим как это сделать в два простых шага.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Создание бэкапа на nic.ru</title>
+      <link>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</link>
+      <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</guid>
+      <description>&lt;p&gt;Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Скрипт создания зеркала обновлений для Eset Nod32 на Linux</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</link>
+      <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/232163/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hosts on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/hosts/</link>
+    <description>Recent content in hosts on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 24 Aug 2015 11:08:11 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/hosts/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии)</title>
+      <link>https://tarampampam.github.io/blog/adm/windows-7-8-disable-telemetry/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/windows-7-8-disable-telemetry/</guid>
+      <description>&lt;p&gt;После крайних &lt;a href=&#34;https://habr.com/post/265283/&#34;&gt;вестей&lt;/a&gt; о том, что Windows Update в полу-принудительном порядке поставил пользователям Windows 7/8/8.1 обновления &lt;a href=&#34;https://support.microsoft.com/en-us/kb/3080149&#34;&gt;KB3080149&lt;/a&gt; и &lt;a href=&#34;https://support.microsoft.com/en-us/kb/3075249&#34;&gt;KB3075249&lt;/a&gt;, которые собирают данные телеметрии и отправляют их в M$ - остро почувствовался очередной параноидальный приступ. Передача осуществляется через TCP по порту 443 с использованием SSL.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Как то не хорошо получается&amp;rdquo; подумал я и накидал небольшой скрипт который несколько автоматизирует:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

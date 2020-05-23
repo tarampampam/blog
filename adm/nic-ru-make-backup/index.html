@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Создание бэкапа на nic.ru - blog [dot] hook</title>
+  
+  <meta name="description" content="Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов &#43; БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Создание бэкапа на nic.ru</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2014-04-24"
+        itemprop="datePublished">2014.4.24</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 3 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/backup-wide.jpg" itemprop="image" alt="Создание бэкапа на nic.ru" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2014-04-24">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:</p>
+
+<pre><code class="language-bash">#!/bin/bash
+## @project   Nic.ru backup script
+## @copyright 2014 &lt;https://github.com/tarampampam&gt;
+## @github    [https://github.com/tarampampam/nic.ru-bascup-script/](https://github.com/tarampampam/nic.ru-bascup-script/)
+## @version   0.1.3
+##
+## @depends   mysqldump, tar
+
+# *****************************************************************************
+# ***                               Config                                   **
+# *****************************************************************************
+
+## nic.ru hosting id, look in 'cd ~ &amp;&amp; pwd', ex.:
+## \[%YourID%@web2006 ~\]$ cd ~ &amp;&amp; pwd
+## /home/%YourID%
+HostingID=YourID
+## Path to home dir, not need in change
+PathToHomeDir=/home/$HostingID
+## Path to directory, where backups will stored
+PathToBackupsDir=$PathToHomeDir/backups
+## Path to directory, where store DataBase dumps (add to backup file, and
+##   remove from file system), not need in change
+PathToDatabaseDumps=$PathToHomeDir/database-backup
+##
+## !!! IMPORTANT !!!
+## Add your login, password and db_name to 'mysqldump' (line ~84)
+## !!! IMPORTANT !!!
+##
+## Days count for backup files store, not need in change
+StoreBackupsDaysCount=20
+# Path to link file, set empty value (&quot;&quot;) for disable this
+linkfile=$PathToHomeDir/yoursite.com/docs/dir-with-password/backup-latest.tar.bz2
+
+# *****************************************************************************
+# ***                            END Config                                  **
+# *****************************************************************************
+
+## Found here - [http://goo.gl/4Oi5ZK](http://goo.gl/4Oi5ZK)
+cRed='e\[1;31m'; cGreen='e\[0;32m'; cNone='e\[0m'; cYel='e\[1;33m';
+cBlue='e\[1;34m'; cGray='e\[1;30m'; cWhite='e\[1;37m';
+
+## Helpers Functions ##########################################################
+
+logmessage() {
+  ## $1 = (not required) '-n' flag for echo output
+  ## $2 = message to output
+
+  flag=''; outtext='';
+  if \[ &quot;$1&quot; == &quot;-n&quot; \]; then
+    flag=&quot;-n &quot;; outtext=$2;
+  else
+    outtext=$1;
+  fi
+
+  echo -e $flag\[$(date +%H:%M:%S)\] &quot;$outtext&quot;;
+}
+
+## Begin work #################################################################
+
+# Create directory for backups (if not exists)
+if \[ ! -d $PathToBackupsDir \]; then
+  logmessage -n &quot;Create $PathToBackupsDir.. &quot;;
+  mkdir -p $PathToBackupsDir;
+  if \[ -d $PathToBackupsDir \]; then
+    echo -e &quot;${cGreen}Ok${cNone}&quot;;
+  else
+    echo -e &quot;${cRed}Error${cNone}&quot;;
+    exit 1;
+  fi
+fi
+
+# Clean temp dumps $PathToDatabaseDumps + create it (ex: broken last run)
+logmessage -n &quot;Clean and prepare $PathToDatabaseDumps.. &quot;;
+rm -R -f $PathToDatabaseDumps;
+mkdir -p $PathToDatabaseDumps;
+if \[ -d $PathToBackupsDir \]; then
+  echo -e &quot;${cGreen}Ok${cNone}&quot;;
+else
+  echo -e &quot;${cRed}Error${cNone}&quot;;
+fi
+
+logmessage -n &quot;Backup DataBase(s) to $PathToDatabaseDumps.. &quot;
+mysqldump --force --opt --add-locks --user=UserName1 -pPassword1 --databases DatabaseName1 \&gt; $PathToDatabaseDumps/DatabaseName1.sql
+mysqldump --force --opt --add-locks --user=UserName2 -pPassword2 --databases DatabaseName2 \&gt; $PathToDatabaseDumps/DatabaseName2.sql
+# Write here all files to check exists
+if \[ -f $PathToDatabaseDumps/DatabaseName1.sql \] &amp;&amp; \[ -f $PathToDatabaseDumps/DatabaseName2.sql \]; then
+  echo -e &quot;${cGreen}Complete${cNone}&quot;;
+else
+  echo -e &quot;${cRed}Error${cNone}&quot;;
+fi
+
+
+cd $PathToBackupsDir
+thisBackupFileName=backup-$(date +%y-%m-%d--%H-%M)-$HostingID.tar.bz2
+
+logmessage -n &quot;Pack files to $PathToBackupsDir/${cYel}$thisBackupFileName${cNone}.. &quot;
+tar -cpPjf $PathToBackupsDir/$thisBackupFileName 
+    --exclude=$PathToBackupsDir* 
+    --exclude=$PathToHomeDir/dir1/\* 
+    --exclude=$PathToHomeDir/dir2/\* 
+    --exclude=$PathToHomeDir/tmp/* 
+    --exclude=*httpd.core 
+    --exclude=$linkfile 
+    $PathToHomeDir;
+echo -e &quot;${cGreen}Complete${cNone}&quot;;
+
+# Make some clean
+logmessage -n &quot;Make some clean.. &quot;;
+rm -R -f $PathToDatabaseDumps;
+echo -e &quot;${cGreen}Complete${cNone}&quot;;
+
+# Make link to latest PathToBackupsDir file
+if \[ ! &quot;linkfile&quot; == &quot;&quot; \]; then
+  logmessage -n &quot;Make link $PathToBackupsDir/$thisBackupFileName ${cYel}&lt;===&gt;${cNone} $linkfile.. &quot;;
+  rm -f $linkfile;
+  ln $PathToBackupsDir/$thisBackupFileName $linkfile;
+  echo -e &quot;${cGreen}Complete${cNone}&quot;;
+fi
+
+sleep 2s;
+
+## Finish work ################################################################
+
+logmessage -n &quot;Deleting old backups from $PathToBackupsDir.. &quot;
+find $PathToBackupsDir -type f -mtime +$StoreBackupsDaysCount -exec rm '{}' ;
+for FILE in $(find $PathToBackupsDir -mtime +$StoreBackupsDaysCount -type f); do
+  logmessage &quot;${cRed}Deliting${cNone} $FILE as Old&quot;;
+  rm -f $FILE;
+done
+echo -e &quot;${cGreen}Complete${cNone}&quot;;
+</code></pre>
+
+<p>И небольшие комментарии к скрипту:</p>
+
+<ul>
+<li>Всё, что тебе необходимо подправить под себя - я подчеркнул</li>
+<li>Формат даты подсмотри <a href="http://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/">хоть тут</a></li>
+<li><code>PathToBackupsDir</code> - это та папка, куда бэкапы будут складываться;</li>
+<li>Вызовы <code>mysqldump</code> - создание дампов баз (по одному дампу за вызов);</li>
+<li>Те пути и типы файлов, которые необходимо <strong>исключить</strong> из бэкапа - прописаны в строках, начинающихся со слова <code>--exclude=</code></li>
+</ul>
+
+<h3 id="ссылки">Ссылки</h3>
+
+<ul>
+<li><strong><a href="https://raw.githubusercontent.com/tarampampam/scripts/master/nix/nic.ru-backup-script/make-backup.sh">Скачать</a></strong></li>
+<li><strong><a href="https://github.com/tarampampam/scripts/tree/master/nix/nic.ru-backup-script">GitHub</a></strong></li>
+</ul>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/backup/">backup</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/dump/">dump</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/hosting/">hosting</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/mysql/">mysql</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nic.ru/">nic.ru</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssh/">ssh</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/tar/">tar</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

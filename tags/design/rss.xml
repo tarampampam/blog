@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/design/</link>
+    <description>Recent content in design on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 18 May 2015 15:45:35 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/design/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Небольшая коллекция интересных гифок (часть 1)</title>
+      <link>https://tarampampam.github.io/blog/etc/little-gifs-collection-part1/</link>
+      <pubDate>Mon, 18 May 2015 15:45:35 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/little-gifs-collection-part1/</guid>
+      <description>&lt;p&gt;Где их использовать? Фоновые изображения страниц авторизации, ошибок, анимация. Врубай своё воображение ;) Осторожно - траффик!&lt;/p&gt;
+
+&lt;img src=&#34;https://hsto.org/files/b35/77d/375/b3577d3758dd4eb78001815f05467faf.gif&#34; class=&#34;single-post-image&#34;&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

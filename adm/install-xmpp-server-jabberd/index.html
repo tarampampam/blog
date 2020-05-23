@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Поднимаем свой Jabber сервер - blog [dot] hook</title>
+  
+  <meta name="description" content="Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:
+ OpenFire (Apache License 2.0) - написан на Java и большинство функций на нём делаются в бесплатной версии; EJabberd (GNU GPL) - написан на Erlang, модульный, есть веб-морда в комплекте, поддерживает кластеризацию; jabberd2 (GNU GPL) - написан на C, тоже модульный, более компактный; ">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Поднимаем свой Jabber сервер</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-04-01"
+        itemprop="datePublished">2015.4.1</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 12 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/xmpp-wide.jpg" itemprop="image" alt="Поднимаем свой Jabber сервер" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-04-01">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:</p>
+
+<ul>
+<li><a href="https://ru.wikipedia.org/wiki/Openfire" target="_blank">OpenFire</a> (Apache License 2.0) - написан на <code>Java</code> и большинство функций на нём делаются в бесплатной версии;</li>
+<li><a href="https://ru.wikipedia.org/wiki/Ejabberd" target="_blank">EJabberd</a> (GNU GPL) - написан на <code>Erlang</code>, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;</li>
+<li><a href="https://ru.wikipedia.org/wiki/Jabberd2" target="_blank">jabberd2</a> (GNU GPL) - написан на <code>C</code>, тоже модульный, более компактный;</li>
+</ul>
+
+<p>Решено было разворачивать на.. <strong>jabberd2</strong> потому что:</p>
+
+<ol>
+<li>Он написан на C и отличается малым потреблением ресурсов (два других кандидата в ней относятся в частности к памяти очень расточительно) плюс высокой производительностью (среднее потребление памяти v2.3.2 (x86_64) - sm/<strong>6</strong>Mb + c2s/<strong>7</strong>Mb);</li>
+<li>Лишен лишних свистелок - он просто модульный xmpp сервер;</li>
+<li>Он до сих пор поддерживается, да и сам по себе просто няшка.</li>
+</ol>
+
+<h3 id="установка">Установка</h3>
+
+<blockquote>
+<p>Всю работу выполняем под рутом. Будьте внимательны и осторожны!</p>
+</blockquote>
+
+<p>Цепляемся к нашему серверу на <strong>CentOS 7</strong> (установка на других дистрибутивах отличается, но в большинстве своем менеджером пакетов и некоторыми другими тонкостями), и <a href="http://www.rackspace.com/knowledge_center/article/install-epel-and-additional-repositories-on-centos-and-red-hat">подключаем первым делом EPEL-репозиторий</a>:</p>
+
+<pre><code class="language-bash">$ yum install epel-release
+</code></pre>
+
+<p>После чего ставим сам jabberd:</p>
+
+<pre><code class="language-bash">$ yum install jabberd
+</code></pre>
+
+<p>Вместе с собой он притащит в систему (только что поставленную, в нашем случае) ещё ~65 пакетов, для чего потребуется ~28Мб.</p>
+
+<p>Отлично, теперь просто проверяем - запускается ли он у нас:</p>
+
+<pre><code class="language-bash">$ service jabberd start
+$ cat /var/log/messages | grep jabberd
+</code></pre>
+
+<p>И если вывод (крайние строки) похож на:</p>
+
+<pre><code>Apr  1 11:22:33 localhost jabberd/sm[11987]: sm ready for sessions
+Apr  1 11:22:33 localhost jabberd/s2s[11990]: [0.0.0.0, port=5269] listening for connections
+Apr  1 11:22:33 localhost jabberd/s2s[11990]: ready for connections
+Apr  1 11:22:33 localhost jabberd/c2s[11989]: [0.0.0.0, port=5222] listening for connections
+Apr  1 11:22:33 localhost jabberd/c2s[11989]: ready for connections
+</code></pre>
+
+<p>Без каких-либо летально/фатальных сообщений - значит всё у нас хорошо.</p>
+
+<h3 id="настройка">Настройка</h3>
+
+<p>Остается дело за малым - настроить его. Давай теперь определимся с тем, какой он в итоге должен иметь вид, тезисно:</p>
+
+<ul>
+<li>Имя сервера должно иметь вид <code>xmpp.domain.ltd</code>;</li>
+<li>Хранение информации о пользователях в mysql базе (это и удобное администрирование, и при необходимости - легко делается веб-морда для регистрации пользователей, к примеру);</li>
+<li>Открытая регистрация для пользователей (при заходе на наш сервер человек указывает желаемый ник, нажимает в своем же клиенте &ldquo;Зарегистрироваться&rdquo;, профит);</li>
+<li>Логи переписки юзверей не ведем (по умолчанию), логи работы демонов - пишем в отдельный файл;</li>
+<li>Работа как без указания шифрования в настройках (SSL/TSL), так и с шифрованием;</li>
+<li>Транспорты и всё что с ними связано - оставим на потом.</li>
+</ul>
+
+<h4 id="настройка-dns">Настройка DNS</h4>
+
+<p>Для того, чтоб при запросе <code>xmpp.domain.ltd</code> запросы попадали на наш сервер, где стоит jabberd - необходимо в DNS зоне <code>domain.ltd</code> добавить запись типа <code>A</code> со значениями хост - <code>xmpp</code>, значение - <code>Ip.Адреса.Нашего.Сервера</code>. Для сервиса <code>pdd.yandex.ru</code> это может выглядеть так:</p>
+
+<p><img src="https://hsto.org/files/ad0/573/f8d/ad0573f8d6404910b87c11e96cc0ea08.png" alt="" /></p>
+
+<p>Более того, так же есть смысл добавить следующие записи:</p>
+
+<ul>
+<li><code>_xmpp-client._tcp.xmpp</code> типа <code>SRV</code> с весом `<code>и портом</code>5222<code>со значением</code>xmpp.domain.ltd.<code>и приоритетом</code>20`</li>
+<li><code>_xmpp-server._tcp.xmpp</code> типа <code>SRV</code> с весом `<code>и портом</code>5347<code>со значением</code>xmpp.domain.ltd.<code>и приоритетом</code>20`</li>
+</ul>
+
+<p><img src="https://hsto.org/files/4bd/dd3/41b/4bddd341be264e8a9dd0f2b9bc03fe21.png" alt="" /></p>
+
+<p>Проверить работоспособность DNS очень просто - достаточно запустить <code>ping</code> домена <code>xmpp.domain.ltd</code> и убедиться что ответы приходят, и приходят с ip <code>11.22.33.44</code>.</p>
+
+<h4 id="ставим-mysql-maria-db">Ставим MySQL (maria-db)</h4>
+
+<p>Машка ставится легко и не принужденно:</p>
+
+<pre><code class="language-bash">$ yum install mariadb-server
+$ service mariadb start
+</code></pre>
+
+<p>Если всё запустилось без ошибок - ставим Машку в автозагрузку:</p>
+
+<pre><code class="language-bash">$ chkconfig mariadb on
+</code></pre>
+
+<p>После чего мы заходим в БД и выполняем предварительную настройку:</p>
+
+<pre><code class="language-bash">$ mysql
+mysql&gt; DROP DATABASE test;
+mysql&gt; USE mysql;
+mysql&gt; UPDATE user SET Password=PASSWORD('MyMysqlPassword') WHERE user='root';
+mysql&gt; FLUSH PRIVILEGES;
+mysql&gt; quit
+</code></pre>
+
+<p>Теперь у нас для mysql юзера под именем <code>root</code> установлен пароль <code>MyMysqlPassword</code>.</p>
+
+<p>Так же есть смысл немного поправить настройки (<code>/etc/my.cnf</code>) доведя их, например, до следующего вида:</p>
+
+<pre><code class="language-ini">[mysqld]
+user = mysql
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+symbolic-links=0
+key_buffer = 16M
+max_allowed_packet = 4M
+table_cache = 32
+sort_buffer_size = 2M
+read_buffer_size = 4M
+read_rnd_buffer_size = 2M
+net_buffer_length = 20K
+thread_stack = 640K
+tmp_table_size = 16M
+query_cache_limit = 2M
+query_cache_size = 16M
+max_connections = 64
+max_user_connections = 8
+max_delayed_threads = 6
+skip-networking
+skip-federated
+skip-blackhole
+skip-archive
+skip-external-locking
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+[mysqld_safe]
+log-error=/var/log/mariadb/mariadb.log
+pid-file=/var/run/mariadb/mariadb.pid
+!includedir /etc/my.cnf.d
+</code></pre>
+
+<p>И перезапустить демона:</p>
+
+<pre><code class="language-bash">$ service mariadb restart
+</code></pre>
+
+<p>Теперь она будет потреблять памяти поменьше, но эти настройки актуальны лишь для мало нагруженных ресурсов.</p>
+
+<h4 id="готовим-mysql-к-подключению-jabberd">Готовим MySQL к подключению jabberd</h4>
+
+<p>Чтоб jabberd смог работать с БД, необходимо её подготовить. Сперва необходимо зайти в консоль mysql:</p>
+
+<pre><code class="language-bash">$ mysql -u root -p
+Enter password: [MyMysqlPassword]
+</code></pre>
+
+<p>И запустить скрипт создания таблицы (если что, он ещё <a href="https://github.com/jabberd2/jabberd2/blob/master/tools/db-setup.mysql">есть на GitHub</a>):</p>
+
+<pre><code>MariaDB [(none)]&gt; &lt;strong&gt;\. /usr/share/jabberd/db-setup.mysql&lt;/strong&gt;
+...
+Query OK, 1 row affected (0.00 sec)
+Database changed
+...
+Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [jabberd2]&gt; &lt;strong&gt;show tables;&lt;/strong&gt;
++--------------------+
+| Tables_in_jabberd2 |
++--------------------+
+| active             |
+| authreg            |
+| logout             |
+| motd-message       |
+| motd-times         |
+| privacy-default    |
+| privacy-items      |
+| private            |
+| queue              |
+| roster-groups      |
+| roster-items       |
+| status             |
+| vacation-settings  |
+| vcard              |
++--------------------+
+14 rows in set (0.00 sec)
+</code></pre>
+
+<p>И создаем mysql-пользователя с именем <code>jabberd2</code> и паролем <code>MyJabberdPassword</code>, предоставляя ему права на чуть ранее созданную бд:</p>
+
+<pre><code>MariaDB [jabberd2]&gt; &lt;strong&gt;GRANT select,insert,delete,update ON jabberd2.* to jabberd2@localhost IDENTIFIED by '&lt;u&gt;MyJabberdPassword&lt;/u&gt;';&lt;/strong&gt;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [jabberd2]&gt; &lt;strong&gt;select host, user, password from mysql.user;&lt;/strong&gt;
++-----------------------+----------+-------------------------------------------+
+| host                  | user     | password                                  |
++-----------------------+----------+-------------------------------------------+
+| ...                   | ...      | *...                                      |
+| localhost             | jabberd2 | *C40AAB2BB6AD68D6732CEF7F121C0C38FFFB870F |
++-----------------------+----------+-------------------------------------------+
+N rows in set (0.00 sec)
+
+MariaDB [jabberd2]&gt; &lt;strong&gt;quit&lt;/strong&gt;
+</code></pre>
+
+<p>На этом моменте считаем что mysql у нас готов к тому, чтоб начать работу с jabberd. Переходим к его настройке.</p>
+
+<h4 id="настраиваем-jabberd">Настраиваем jabberd</h4>
+
+<p>Конфигурационные файлы jabberd находятся по пути <code>/etc/jabberd/</code>, и имеют формат <code>xml</code>. Первым делом - сделаем резервную копию конфигов, которые будем изменять:</p>
+
+<pre><code class="language-bash">$ mkdir -p /etc/jabberd/dist.cfg/
+$ cp /etc/jabberd/*.xml /etc/jabberd/dist.cfg/
+</code></pre>
+
+<p>А так же создаем лог-файл (в который мы будем писать лог, вместо <code>syslog</code>) и ставим на него права:</p>
+
+<pre><code class="language-bash">$ touch /var/log/jabberd.log
+$ chown jabber:jabber /var/log/jabberd.log
+$ chmod 640 /var/log/jabberd.log
+</code></pre>
+
+<blockquote>
+<p><strong>Внимание!</strong> Если у вас активна SELinux - то демон jabberd не сможет писать в лог файл. Необходимо или корректно настроить права доступа, или выключить SELinux, изменив в файле <code>/etc/sysconfig/selinux</code> строку <code>SELINUX=permissive</code>, <code>permissive</code> на <code>disabled</code>, после чего перезагрузить ОС.</p>
+</blockquote>
+
+<p>И начнем с файла <code>sm.xml</code>, приведя следующие его части к виду:</p>
+
+<pre><code class="language-xml">&lt;sm&gt;
+  &lt;!-- ... --&gt;
+  &lt;router&gt;
+    &lt;!-- ... --&gt;
+    &lt;pemfile&gt;/etc/jabberd/server.pem&lt;/pemfile&gt;
+  &lt;/router&gt;
+
+  &lt;log type='file'&gt;
+    &lt;ident&gt;jabberd/sm&lt;/ident&gt;
+    &lt;file&gt;/var/log/jabberd.log&lt;/file&gt;
+  &lt;/log&gt;
+
+  &lt;local&gt;
+    &lt;id&gt;xmpp.domain.ltd&lt;/id&gt;
+  &lt;/local&gt;
+
+  &lt;storage&gt;
+    &lt;driver&gt;mysql&lt;/driver&gt;
+    &lt;mysql&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;3306&lt;/port&gt;
+      &lt;dbname&gt;jabberd2&lt;/dbname&gt;
+      &lt;user&gt;jabberd2&lt;/user&gt;
+      &lt;pass&gt;MyJabberdPassword&lt;/pass&gt;
+      &lt;transactions/&gt;
+    &lt;/mysql&gt;
+  &lt;/storage&gt;
+
+  &lt;aci&gt;
+    &lt;acl type='all'&gt;
+      &lt;jid&gt;admin@xmpp.domain.ltd&lt;/jid&gt;
+    &lt;/acl&gt;
+  &lt;/aci&gt;
+
+  &lt;!-- ... --&gt;
+
+  &lt;user&gt;
+    &lt;auto-create/&gt;
+    &lt;template&gt;
+      &lt;publish&gt;
+        &lt;active-cache-ttl&gt;60&lt;/active-cache-ttl&gt;
+        &lt;override-names/&gt;
+      &lt;/publish&gt;
+      &lt;roster&gt;/etc/jabberd/templates/roster.xml&lt;/roster&gt;
+    &lt;/template&gt;
+  &lt;/user&gt;
+  &lt;!-- ... --&gt;
+&lt;/sm&gt;
+</code></pre>
+
+<blockquote>
+<p>Согласно этому конфигу, jabber сервер в качестве ключа аутентификации использует файл <code>/etc/jabberd/server.pem</code>. Логи пишутся в файл <code>/var/log/jabberd.log</code>. Имя сервера <code>xmpp.domain.ltd</code>. Для хранения данных используем локальный mysql, имя БД <code>jabberd2</code>, пользователь <code>jabberd2</code> с паролем <code>MyJabberdPassword</code>. Аккаунт (JID) администратора <code>admin@xmpp.domain.ltd</code>. Пользователям разрешена регистрация (<code>&lt;auto-create/&gt;</code>), и вновь зарегистрированным пользователям в контакт-лист мы добавляем пользователей (JID-ы) описанных в файле <code>/etc/jabberd/templates/roster.xml</code>.</p>
+
+<p><strong>Внимание!</strong> В приведенном примере отображены лишь те параметры, которые есть смысл изменить или добавить. Так как исходный конфиг отлично документирован - разобраться в нем не должно составить большого труда.</p>
+</blockquote>
+
+<p>После внесения изменений мы можем проверить его, перезапустив демона и посмотрев логи на наличие ошибок, и <code>netstat</code> на наличие открытых портов <code>2843</code>, <code>2844</code> и <code>2845</code>:</p>
+
+<pre><code class="language-bash">$ service jabberd stop; echo&gt; /var/log/jabberd.log; service jabberd start
+$ cat /var/log/jabberd.log
+...
+Wed Apr  1 11:22:33 2015 [notice] sm ready for sessions
+...
+
+$ netstat -lptu
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+...
+tcp        0      0 0.0.0.0:5347            0.0.0.0:*               LISTEN      2885/router
+tcp        0      0 0.0.0.0:xmpp-client     0.0.0.0:*               LISTEN      2886/c2s
+tcp        0      0 0.0.0.0:xmpp-server     0.0.0.0:*               LISTEN      2887/s2s.
+...
+</code></pre>
+
+<blockquote>
+<p>Данную процедуру есть смысл повторять после изменения каждого файла, дабы вовремя предпринять меры по исправлению возможных ошибок при конфигурации.</p>
+</blockquote>
+
+<p>Приступаем к правке файла <code>c2s.xml</code>, который отвечает за настройки соединения client-2-server:</p>
+
+<pre><code class="language-xml">&lt;c2s&gt;
+  &lt;!-- ... --&gt;
+  &lt;router&gt;
+    &lt;!-- ... --&gt;
+    &lt;pemfile&gt;/etc/jabberd/server.pem&lt;/pemfile&gt;
+  &lt;/router&gt;
+
+  &lt;log type='file'&gt;
+    &lt;ident&gt;jabberd/c2s&lt;/ident&gt;
+    &lt;file&gt;/var/log/jabberd.log&lt;/file&gt;
+  &lt;/log&gt;
+
+  &lt;local&gt;
+    &lt;id register-enable='true'
+        realm='xmpp.domain.ltd'
+        instructions='Welcome to jabber server! Enter your fucking username and password'
+        pemfile='/etc/jabberd/server.pem'&gt;xmpp.domain.ltd&lt;/id&gt;
+    &lt;pemfile&gt;/etc/jabberd/server.pem&lt;/pemfile&gt;
+  &lt;/local&gt;
+
+  &lt;!-- ... --&gt;
+  
+  &lt;authreg&gt;
+    &lt;!-- ... --&gt;
+    &lt;module&gt;mysql&lt;/module&gt;
+
+    &lt;mechanisms&gt;
+      &lt;traditional&gt;
+        &lt;plain/&gt;
+        &lt;!--
+        &lt;digest/&gt;
+        --&gt;
+      &lt;/traditional&gt;
+      &lt;sasl&gt;
+        &lt;plain/&gt;
+        &lt;!--
+        &lt;digest-md5/&gt;
+        &lt;anonymous/&gt;
+        &lt;gssapi/&gt;
+        --&gt;
+      &lt;/sasl&gt;
+    &lt;/mechanisms&gt;
+    
+    &lt;ssl-mechanisms&gt;
+      &lt;traditional&gt;
+        &lt;plain/&gt;
+      &lt;/traditional&gt;
+      &lt;sasl&gt;
+        &lt;plain/&gt;
+        &lt;external/&gt;
+      &lt;/sasl&gt;
+    &lt;/ssl-mechanisms&gt;
+
+    &lt;mysql&gt;
+      &lt;host&gt;localhost&lt;/host&gt;
+      &lt;port&gt;3306&lt;/port&gt;
+      &lt;dbname&gt;jabberd2&lt;/dbname&gt;
+      &lt;user&gt;jabberd2&lt;/user&gt;
+      &lt;pass&gt;MyJabberdPassword&lt;/pass&gt;
+      &lt;password_type&gt;
+        &lt;plaintext/&gt;
+        &lt;!--
+        &lt;crypt/&gt;
+        &lt;a1hash/&gt;
+        --&gt;
+      &lt;/password_type&gt;
+    &lt;/mysql&gt;
+    &lt;!-- ... --&gt;
+  &lt;/authreg&gt;
+  &lt;!-- ... --&gt;
+&lt;/c2s&gt;
+</code></pre>
+
+<blockquote>
+<p>Согласно этому конфигу, jabberd в качестве ключа аутентификации использует всё тот же файл <code>/etc/jabberd/server.pem</code>. Логи этого модуля (c2s) тоже пишутся в файл <code>/var/log/jabberd.log</code>. В секции <code>&lt;local&gt;</code> разрешаем регистрацию пользователей, дважды указываем доменное имя сервера, приветственное при регистрации сообщение и путь к ключу.<br /> Остальные параметры в большинстве своем можно оставить в таком виде, в котором они есть по умолчанию. Пароли в базе храним на период запуска - в открытом виде <em>(Внимание - не безопасно! После запуска - перевести на решим шифрования)</em>. Для остальных значений в <code>&lt;authreg&gt;</code> указываем интуитивно-понятные параметры</p>
+
+<p><strong>Внимание!</strong> Как и в предыдущем примере - отображены лишь те параметры, которые есть смысл изменить или добавить.</p>
+</blockquote>
+
+<p>Настал черед файла <code>s2s.xml</code>, который отвечает за настройки соединения <code>server-2-server</code> (в данный момент использовать данный функционал не будем, но у нас он будет уже преднастроен):</p>
+
+<pre><code class="language-xml">&lt;s2s&gt;
+  &lt;router&gt;
+    &lt;!-- ... --&gt;
+    &lt;pemfile&gt;/etc/jabberd/server.pem&lt;/pemfile&gt;
+  &lt;/router&gt;
+
+  &lt;log type='file'&gt;
+    &lt;ident&gt;jabberd/s2s&lt;/ident&gt;
+    &lt;file&gt;/var/log/jabberd.log&lt;/file&gt;
+  &lt;/log&gt;
+
+  &lt;!-- ... --&gt;
+  
+  &lt;check&gt;
+    &lt;interval&gt;60&lt;/interval&gt;
+    &lt;queue&gt;60&lt;/queue&gt;
+    &lt;retry&gt;300&lt;/retry&gt;
+    &lt;idle&gt;86400&lt;/idle&gt;
+    &lt;keepalive&gt;0&lt;/keepalive&gt;
+    &lt;dnscache&gt;300&lt;/dnscache&gt;
+  &lt;/check&gt;
+  &lt;stats&gt;
+  &lt;/stats&gt;
+
+  &lt;!-- ... --&gt;
+&lt;/s2s&gt;
+</code></pre>
+
+<blockquote>
+<p><strong>Внимание!</strong> Ну, ты уже понял - отображены лишь те параметры, которые есть смысл изменить или добавить</p>
+</blockquote>
+
+<p>И укажем ростер JID-ов, которых необходимо добавлять ко всем пользователям, которые только зарегистрировались (именно его мы указывали в <code>/etc/jabberd/sm.xml</code>):</p>
+
+<pre><code class="language-xml">&lt;query xmlns='jabber:iq:roster'&gt;
+  &lt;item name='Administrator' jid='admin@xmpp.domain.ltd' subscription='none'&gt;&lt;group&gt;Admins&lt;/group&gt;&lt;/item&gt;
+&lt;/query&gt;
+</code></pre>
+
+<blockquote>
+<p>Здесь пояснять ничего, думаю, нет смысла. Подробнее можно почитать <a href="http://www.umgum.com/jabberd2-public-roster">по этой ссылке</a>.</p>
+</blockquote>
+
+<p>Если после перезапуска демона у нас ничего критичного в логах нет, и необходимые порты открыты - считаем что на этом шаге jabberd у нас корректно настроен и работает.</p>
+
+<p>Можем попробовать зарегистрировать учетную запись на нашем сервере в любимом jabber-клиенте. Всё должно работать, включая TLS/SSL шифрование (но с сообщением что сертификат самоподписанный).</p>
+
+<h4 id="автозапуск-при-старте-системы">Автозапуск при старте системы</h4>
+
+<p>В нашей связке jabberd+mysql имеется одно слабое место - а именно запуск jabberd <strong>перед</strong> тем, как запустится mariadb. Я решил эту задачу довольно примитивно - созданием политкорректного скрипта <code>/etc/rc.d/init.d/jabberd</code> (взят оригинальный, и пути поправлены под CentOS), и запуск его с задержкой в 15 секунд из <code>/etc/rc.local</code> после старта системы.</p>
+
+<pre><code class="language-bash">#!/bin/bash
+#
+# Raymond 25DEC2003 support@bigriverinfotech.com
+# /etc/rc.d/init.d/jabberd2
+# init script for jabberd2 processes
+# Tested under jabberd-2.0rc2 and Fedora 1.0 only
+#
+# processname: jabberd2
+# description: jabberd2 is the next generation of the jabberd server
+# chkconfig: 2345 85 15
+#
+if [ -f /etc/init.d/functions ]; then
+        . /etc/init.d/functions
+elif [ -f /etc/rc.d/init.d/functions ]; then
+        . /etc/rc.d/init.d/functions
+else
+        echo -e &quot;\ajabberd2: unable to locate functions lib. Cannot continue.&quot;
+        exit -1
+fi
+#
+progs=&quot;router sm c2s s2s&quot;
+progsPath=&quot;/usr/bin&quot;
+confPath=&quot;/etc/jabberd&quot;
+pidPath=&quot;/var/lib/jabberd/pid&quot;
+statusCol=&quot;echo -ne \\033[60G&quot;
+statusColorOK=&quot;echo -ne \\033[1;32m&quot;
+statusColorFailed=&quot;echo -ne \\033[1;31m&quot;
+statusColorNormal=&quot;echo -ne \\033[0;39m&quot;
+retval=0
+#
+StatusOK ( ) {
+        ${statusCol}
+        echo -n &quot;[  &quot;
+        ${statusColorOK}
+        echo -n &quot;OK&quot;
+        ${statusColorNormal}
+        echo &quot;  ]&quot;
+        return 0
+}
+#
+StatusFailed ( ) {
+        echo -ne &quot;\a&quot;
+        ${statusCol}
+        echo -n &quot;[&quot;
+        ${statusColorFailed}
+        echo -n &quot;FAILED&quot;
+        ${statusColorNormal}
+        echo &quot;]&quot;
+        return 0
+}
+#
+ReqBins ( ) {
+        for prog in ${progs}; do
+                if [ ! -x ${progsPath}/${prog} ]; then
+                        echo -n &quot;jabberd2 binary [${prog}] not found.&quot;
+                        StatusFailed
+                        echo &quot;Cannot continue.&quot;
+                        return -1
+                fi
+        done
+        return 0
+}
+#
+ReqConfs ( ) {
+        for prog in ${progs}; do
+                if [ ! -f ${confPath}/${prog}.xml ]; then
+                        echo -n &quot;jabberd2 configuration [${prog}.xml] not found.&quot;
+                        StatusFailed
+                        echo &quot;Cannot continue.&quot;
+                        return -1
+                fi
+        done
+        return 0
+}
+#
+ReqDirs ( ) {
+        if [ ! -d ${pidPath} ]; then
+                echo -n &quot;jabberd2 PID directory not found. Cannot continue.&quot;
+                StatusFailed
+                return -1
+        fi
+        return 0
+}
+#
+Start ( ) {
+        for req in ReqBins ReqConfs ReqDirs; do
+                ${req}
+                retval=$?
+                [ ${retval} == 0 ] || return ${retval}
+        done
+        echo &quot;Initializing jabberd2 processes ...&quot;
+        for prog in ${progs}; do
+                if [ $( pidof -s ${prog} ) ]; then
+                        echo -ne &quot;\tprocess [${prog}] already running&quot;
+                        StatusFailed
+                        sleep 1
+                        continue
+                fi
+                echo -ne &quot;\tStarting ${prog}: &quot;
+                if [ ${prog} == &quot;router&quot; ]; then
+                        ports=&quot;5347&quot;
+                elif [ ${prog} == &quot;c2s&quot; ]; then
+                        ports=&quot;5222 5223&quot;
+                elif [ ${prog} == &quot;s2s&quot; ]; then
+                        ports=&quot;5269&quot;
+                else
+                        ports=&quot;&quot;
+                fi
+                for port in ${ports}; do
+                        if [ $( netstat --numeric-ports --listening --protocol=inet |
+                                        gawk '{ print $4 }' |
+                                                gawk -F : '{ print $NF }' |
+                                                        grep -c ${port}$ ) -ne &quot;0&quot; ]; then
+                                StatusFailed
+                                echo -e &quot;\tPort ${port} is currently in use. Cannot continue&quot;
+                                echo -e &quot;\tIs a Jabber 1.x server running?&quot;
+                                Stop
+                                let retval=-1
+                                break 2
+                        fi
+                done
+                rm -f /var/lock/subsys/${prog}
+                rm -f ${pidPath}/${prog}.pid
+                args=&quot;-c ${confPath}/${prog}.xml&quot;
+                ${progsPath}/${prog} ${args} &gt;/dev/null 2&gt;&amp;1 &lt;&amp;1 &amp;
+                retval=$?
+                if [ ${retval} == 0 ]; then
+                        StatusOK
+                        touch /var/lock/subsys/${prog}
+                else
+                        StatusFailed
+                        Stop
+                        let retval=-1
+                        break
+                fi
+                sleep 1
+        done
+        return ${retval}
+}
+#
+Stop ( ) {
+        echo &quot;Terminating jabberd2 processes ...&quot;
+        for prog in ${progs}; do
+                echo -ne &quot;\tStopping ${prog}: &quot;
+                killproc ${prog}
+                retval=$?
+                if [ ${retval} == 0 ]; then
+                        rm -f /var/lock/subsys/${prog}
+                        rm -f ${pidPath}/${prog}.pid
+                fi
+                echo
+                sleep 1
+        done
+        return ${retval}
+}
+#
+case &quot;$1&quot; in
+        start)
+                Start
+                ;;
+        stop)
+                Stop
+                ;;
+        restart)
+                Stop
+                Start
+                ;;
+        condrestart)
+                if [ -f /var/lock/subsys/${prog} ]; then
+                        Stop
+                        sleep 3
+                        Start
+                fi
+                ;;
+        *)
+                echo &quot;Usage: $0 {start|stop|restart|condrestart}&quot;
+                let retval=-1
+esac
+exit ${retval}
+#
+# eof
+</code></pre>
+
+<pre><code class="language-bash">$ chkconfig jabberd off
+$ wget -O /etc/rc.d/init.d/jabberd http://goo.gl/VJo3uF
+$ chmod +x /etc/rc.d/init.d/jabberd
+$ /etc/rc.d/init.d/jabberd restart
+Restarting jabberd (via systemctl):                        [  OK  ]
+</code></pre>
+
+<p>И добавляем следующую запись в <code>/etc/rc.d/rc.local</code>:</p>
+
+<pre><code class="language-bash">## jabberd DOES NOT STARTS at autorun while mysql is NOT started!
+## sleep must be executed!
+if [ -x /etc/rc.d/init.d/jabberd ]; then
+  (sleep 15; /etc/rc.d/init.d/jabberd restart);
+fi;
+</code></pre>
+
+<p>И так же для &ldquo;активации&rdquo; обработки этого файла сделаем его исполняемым:</p>
+
+<pre><code class="language-bash">$ chmod +x /etc/rc.d/rc.local
+</code></pre>
+
+<p>После чего перезапускаем сервер целиком, и повторяем проверку на отсутствие ошибок в <code>/var/log/jabberd.log</code>, <code>/var/log/messages</code> и наличие открытых портов.</p>
+
+<h4 id="получаем-доверенный-сертификат">Получаем доверенный сертификат</h4>
+
+<p>Всё хорошо - клиенты у нас подсоединяются, TSL/SSL работает, SRV записи в DNS имеются, пользователи успешно регистрируются, системные логи - пишутся, и после перезапуска сервера - демоны поднимаются и работают как и задумывалось.</p>
+
+<p>Но у нас постоянно появляется окно о самоподписанном сертификате в клиенте при первом подключении. Для того чтоб этого избежать мы можем получить бесплатный SSL сертификат на <a href="https://www.startssl.com/">startssl.com</a> и использовать именно его.</p>
+
+<ul>
+<li><p>Регистрируемся на <a href="https://www.startssl.com/?app=11">startssl.com </a>
+<img src="https://hsto.org/files/434/bec/97f/434bec97fd7c418092cde0ab01ceaaa9.png" alt="" /></p></li>
+
+<li><p>Подтверждаем <a href="https://www.startssl.com/?app=12">право владения доменом</a>
+<img src="https://hsto.org/files/51e/bfe/2e7/51ebfe2e7b8e4be792a8822e420a863e.png" alt="" /></p></li>
+
+<li><p>Запрашиваем &ldquo;XMPP (Jabber) SSL/TSL Certificate&rdquo;
+<img src="https://hsto.org/files/d04/840/705/d0484070505a4d20b96e33dfb74cfb20.png" alt="" /></p></li>
+
+<li><p>Генерируем приватный ключ (введенный пароль обязательно сохранить)
+<img src="https://hsto.org/files/ed4/b87/492/ed4b87492c264fd1aae9f6e314b61aad.png" alt="" /></p></li>
+
+<li><p>Сохраняем полученный ключ как <code>ssl.key</code>
+<img src="https://hsto.org/files/bcb/aec/c05/bcbaecc05d0a45cbbe345ad408da619c.png" alt="" /></p></li>
+
+<li><p>Выбираем наш домен
+<img src="https://hsto.org/files/c66/412/1e8/c664121e8fb64c849ab0ea8480901b7b.png" alt="" /></p></li>
+
+<li><p>Указываем субдомен, на котором работает jabber сервер:
+<img src="https://hsto.org/files/368/af0/332/368af03324564d5d80780500a375c618.png" alt="" /></p></li>
+
+<li><p>Проверяем и подтверждаем:
+<img src="https://hsto.org/files/0c1/a9a/85d/0c1a9a85d91f47388f4a780666d47a6a.png" alt="" /></p></li>
+
+<li><p>Сохраняем полученный сертификат как <code>ssl.crt</code>
+<img src="https://hsto.org/files/ee7/4c4/57a/ee74c457ab354b278235eb315a2d032b.png" alt="" /></p></li>
+
+<li><p>Скачиваем ещё и корневой сертификат <a href="https://www.startssl.com/certs/sub.class1.server.ca.pem">sub.class1.server.ca.pem</a></p></li>
+</ul>
+
+<p>После процедуры получения сертификата у нас будет 3 файла:</p>
+
+<ol>
+<li><code>ssl.key</code> - приватный ключ;</li>
+<li><code>ssl.crt</code> - сертификат;</li>
+<li><code>sub.class1.server.ca.pem</code> - корневой сертификат startssl.com;</li>
+</ol>
+
+<p>Эти три файла переносим на сервер, переходим в директорию с ними и выполняем:</p>
+
+<pre><code class="language-bash">$ openssl rsa -in ssl.key -out ssl.key
+$ cat ./ssl.crt ./ssl.key ./sub.class1.server.ca.pem &gt;server.pem
+$ chown jabber:jabber server.pem
+$ chmod 640 server.pem
+</code></pre>
+
+<p>Не забываем о некоторых юансах:</p>
+
+<ul>
+<li>Лучше открыть итоговый сертификат любимым текстовым редактором и проверить чтоб секции не были нарушены;</li>
+<li>Итоговый сертификат должен заканчиваться одной пустой строкой;</li>
+</ul>
+
+<p>Т.е. вид его должен быть в результате следующий:</p>
+
+<pre><code>-----BEGIN CERTIFICATE-----
+ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ01
+...
+LMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNO
+-----END CERTIFICATE-----
+-----BEGIN RSA PRIVATE KEY-----
+ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ01
+...
+GHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXY
+-----END RSA PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+MIIF2TCCA8GgAwIBAgIHFxU9nqs/vzANBgkqhkiG9w0BAQsFADB9MQswCQYDVQQG
+...
+gGpWAZ5J6dvtf0s+bA==
+-----END CERTIFICATE-----
+</code></pre>
+
+<p>После этого делаем резервную копию файла <code>/etc/jabberd/server.pem</code>, и заменяем его получившимся новым сертификатом. Перезапускаем сервер, проверяем. Всё должно успешно заработать.</p>
+
+<h6 id="полезные-ссылки">Полезные ссылки:</h6>
+
+<ul>
+<li><a href="https://github.com/jabberd2/jabberd2/wiki">jabberd wiki</a></li>
+<li><a href="http://www.opennet.ru/base/sys/jabber_openbsd.txt.html">Установка jabberd (icq jabber openbsd ssl)</a></li>
+</ul>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/jabber/">jabber</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/mysql/">mysql</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/openssl/">openssl</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssl/">ssl</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/xmpp/">xmpp</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

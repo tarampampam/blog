@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Автоматический деплой WordPress темы/плагина с Bitbucket - blog [dot] hook</title>
+  
+  <meta name="description" content="Времена, когда приходилось ручками заливать изменения файлов на prod-сервер - стремительно проходят, и на смену им приходят системы контроля версий и автоматизированный деплой. Ведь это чертовски удобно, когда ты один или с командой можешь работать над проектом, обкатывать изменения на локальном/тестовом сервере, и уже протестированный код отправлять на &amp;ldquo;боевой&amp;rdquo; сервер простым коммитом или слиянием. Ничего более не запуская, Карл!
+Временами так же приходиться работать над проектами, построенными на (пускай и по дизайну очень убогому) WordPress, у которого очень низкий порог вхождения как у разработчиков, так и у конечных заказчиков (с первого раза правильно прочитал &amp;ldquo;конечных заказчиков&amp;rdquo;?).">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Автоматический деплой WordPress темы/плагина с Bitbucket</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-07-02"
+        itemprop="datePublished">2016.7.2</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/auto-wp-theme-plugin-deploy-from-bitbucket-wide.jpg" itemprop="image" alt="Автоматический деплой WordPress темы/плагина с Bitbucket" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2016-07-02">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Времена, когда приходилось ручками заливать изменения файлов на prod-сервер - стремительно проходят, и на смену им приходят системы контроля версий и автоматизированный деплой. Ведь это чертовски удобно, когда ты один или с командой можешь работать над проектом, обкатывать изменения на локальном/тестовом сервере, и уже протестированный код отправлять на &ldquo;боевой&rdquo; сервер простым коммитом или слиянием. Ничего более не запуская, Карл!</p>
+
+<p>Временами так же приходиться работать над проектами, построенными на (<em>пускай и по дизайну очень убогому</em>) WordPress, у которого очень низкий порог вхождения как у разработчиков, так и у конечных заказчиков (<em>с первого раза правильно прочитал &ldquo;конечных заказчиков&rdquo;?</em>).</p>
+
+<p>Почему бы не настроить автоматический деплой кода из приватного репозитория на Bitbucket.org (<em>или GitHub - не принципиально, но на нем нет халявных бесплатных репозиториев</em>) на &ldquo;боевой&rdquo; сервер под управлением этой CMS?</p>
+
+<p>Давай сперва определимся с некоторыми моментами:</p>
+
+<ul>
+<li>В репозитории будет храниться только тема. Хранить в репозитории код самого WP и плагинов с wordpress.org смысла не имеет, так как авто-обновление (<em>надеюсь, включенное и настроенное по умолчанию</em>) делает это совершенно бессмысленным. Можно аналогичным способом деплоить и кастомные плагины;</li>
+<li>Конфиги для nginx так же в репозиторий не попадают. Да, можно было бы подключать их директивой <code>include /path/to/theme/config/*nginx*.conf</code>, но это и потенциальная возможность править от имени пользователя php конфиги nginx, и необходимость ему же дать право перезапускать его. Нельзя так делать;</li>
+<li>Использовать мы будем webhooks, а это ещё тот костыль по большому счету, так как не дает гарантии корректного выполнения кода на prod-сервере по причине отсутствия контроля состояния запроса;</li>
+<li>Синхронизацию БД придется делать любыми другими средствами, если они необходимы. О миграциях и прочих &ldquo;вкусных&rdquo; штучках задумываться есть смысл при разработке именно плагина, и реализовывать их придется самостоятельно;</li>
+<li>Придется разрешить php выполнять функцию <code>exec()</code>.</li>
+</ul>
+
+<p>Но не смотря на озвученные выше очевидные минусы - это в дохрена раз удобнее, чем ничего. Работать будем под CentOS 7.</p>
+
+<h3 id="шаг-0-создание-репозитория">Шаг #0 - Создание репозитория</h3>
+
+<p>Самостоятельно дерни актуальное состояние кода, создай репозиторий на Bitbucket.org, залей в его корень код темы (<em>плагина</em>).</p>
+
+<h3 id="шаг-1-настройка-сервера">Шаг #1 - Настройка сервера</h3>
+
+<p>Всё делается из-под рута. Поставим пакеты:</p>
+
+<pre><code class="language-bash">$ yum -y install git
+</code></pre>
+
+<p>Посмотрим куда встал бинарник гита (<em>может понадобиться при настройке плагина для wp</em>):</p>
+
+<pre><code class="language-bash">$ whereis git
+git: /usr/bin/git /usr/share/man/man1/git.1.gz
+</code></pre>
+
+<p>Проверим не запрещена ли php функция <code>exec</code> в <code>php.ini</code>:</p>
+
+<pre><code class="language-bash">$ cat /etc/php.ini | grep -e 'disable_functions' | grep -v -e '^;'
+disable_functions = popen, exec, system, passthru, proc_open, shell_exec
+</code></pre>
+
+<p>И если как в моем случае запрещена, то разрешаем её удалением из этого списка (<em>да, это понижает безопасность, но без этого - никак</em>). Перезапускаем php-fpm (<em>или apache - что там у тебя?</em>):</p>
+
+<pre><code class="language-bash">$ service php-fpm restart
+</code></pre>
+
+<p>Посмотрим под чьим именем работает бэкэнд (<em>в моем случае в роли бэкэнда php-fpm, в твоем может стоять и apache - смотри его конфиг</em>):</p>
+
+<pre><code class="language-bash">$ cat /etc/php-fpm.d/* /etc/php-fpm.conf | grep -e 'user' | grep -v -e '^;'
+user = php-fpm
+</code></pre>
+
+<p>Так же посмотрим где его домашний каталог:</p>
+
+<pre><code class="language-bash">$ getent passwd php-fpm | cut -f6 -d:
+/var/lib/php-fpm
+</code></pre>
+
+<p>Создаем директорию для ssh-ключей и генерируем их для пользователя бэкэнда:</p>
+
+<pre><code class="language-bash">$ cd /var/lib/php-fpm
+$ mkdir ./.ssh
+$ chown php-fpm:php-fpm ./.ssh
+$ sudo -u php-fpm ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/var/lib/php-fpm/.ssh/id_rsa): /var/lib/php-fpm/.ssh/id_rsa-bitbucket # Вводим
+Enter passphrase (empty for no passphrase): # Ставим пустой пароль
+Enter same passphrase again: # И снова просто нажимаем enter
+Your identification has been saved in /var/lib/php-fpm/.ssh/id_rsa-bitbucket.
+Your public key has been saved in /var/lib/php-fpm/.ssh/id_rsa-bitbucket.pub.
+The key fingerprint is:
+00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff php-fpm@server-name
+The key randomart image is:
++--[ RSA 2048]----+
+|         .       |
+|      F + .      |
+|     o.* * o     |
+|      +oB + .    |
+|     . oSo .     |
+|    . .o*.       |
+|     .+.+        |
+|      .o         |
+|      *o         |
++-----------------+
+</code></pre>
+
+<p>Выводим публичный ключ:</p>
+
+<pre><code class="language-bash">$ cat ./.ssh/id_rsa-bitbucket.pub
+ssh-rsa AAAAB3Nza...keyishere...TmgDM3/7j1 php-fpm@server-name
+</code></pre>
+
+<p>И именно его добавляем в ключи развертывания репозитория на Bitbucket. Для этого переходим в браузере в репозиторий нашей темы &rarr; Настройки &rarr; Ключи развертывания &rarr; Добавить ключ. Добавляем именно как ключ развертывания (<em>а не ключ профиля</em>) для того, что бы избежать потенциальной вероятности его утечки и как следствия произвольного добавления кода в него.</p>
+
+<p>Указываем использование сгенерированного ключа для хоста bitbucket.org:</p>
+
+<pre><code class="language-bash">$ nano /var/lib/php-fpm/.ssh/config
+</code></pre>
+
+<pre><code>Host bitbucket.org
+IdentityFile ~/.ssh/id_rsa-bitbucket
+</code></pre>
+
+<p>Выставляем права доступа:</p>
+
+<pre><code class="language-bash">$ chmod 0700 ./.ssh
+$ chown -R php-fpm:php-fpm ./.ssh
+$ chmod 0600 ./.ssh/id_rsa-bitbucket
+</code></pre>
+
+<p>После чего создаем тестовую директорию и пробуем в неё склонировать ветку &ldquo;master&rdquo; из репозитория:</p>
+
+<pre><code class="language-bash">$ mkdir /tmp/deploy-test
+$ chmod 777 /tmp/deploy-test
+$ sudo -u php-fpm git clone &quot;git@bitbucket.org:%username%/%repo_name%.git&quot; -b &quot;master&quot; &quot;/tmp/deploy-test&quot;
+Cloning into '/tmp/deploy-test'...
+The authenticity of host 'bitbucket.org (104.192.143.2)' cant be established.
+RSA key fingerprint is 00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff.
+Are you sure you want to continue connecting (yes/no)? yes # вводим ручками
+Warning: Permanently added 'bitbucket.org,104.192.143.2' (RSA) to the list of known hosts.
+remote: Counting objects: 305, done.
+remote: Compressing objects: 100% (249/249), done.
+remote: Total 305 (delta 49), reused 305 (delta 49)
+Receiving objects: 100% (305/305), 836.84 KiB | 1.52 MiB/s, done.
+Resolving deltas: 100% (49/49), done.
+</code></pre>
+
+<p>И проверяем содержимое клона, после чего удаляем тестовую директорию:</p>
+
+<pre><code class="language-bash">$ ls -l /tmp/deploy-test/
+# ...
+-rw-r--r-- 1 php-fpm php-fpm  1016 Jul  2 09:05 404.php
+-rw-r--r-- 1 php-fpm php-fpm  1139 Jul  2 09:05 index.php
+-rw-r--r-- 1 php-fpm php-fpm    42 Jul  2 09:05 style.css
+# ...
+$ rm -Rf /tmp/deploy-test/
+</code></pre>
+
+<p>На данном этапе мы можем считать что пользователь php-fpm у нас имеет как права для запуска git, так и авторизации на нашем приватном репозитории.</p>
+
+<h3 id="шаг-2-настройка-wordpress">Шаг #2 - Настройка WordPress</h3>
+
+<p>Будем использовать готовый плагин под названием <strong><a href="https://wordpress.org/plugins/revisr/">Revisr</a></strong>, который вяло, но поддерживается. Можно, конечно, написать свой скрипт на любом удобном языке (<em>lua, perl для nginx, bash слушающий сокет или php</em>), но зачем?</p>
+
+<p>Админка &rarr; Плагины &rarr; Добавить новый &rarr; Поиск плагинов &rarr; &ldquo;Revisr&rdquo; &rarr; установить и активировать. В главном меню появляется его &ldquo;иконка&rdquo; - жмякаем на неё, после чего начинается процесс установки. Выбираем &ldquo;Yes, create a new repository&rdquo;:</p>
+
+<p><img src="https://hsto.org/webt/ek/x6/sm/ekx6smmih1b3o2suwhbhbuybjge.png" alt="" /></p>
+
+<p>Указываем что нам необходимо создать репозиторий только для одной конкретной темы (<em>с кастомным плагином действия аналогичные</em>):</p>
+
+<p><img src="https://hsto.org/webt/uy/hc/au/uyhcauoqwfgr1yuzxzid2qncmae.png" alt="" /></p>
+
+<p>И если всё хорошо, то видим:</p>
+
+<p><img src="https://hsto.org/webt/y1/lp/en/y1lpenw-1ptwi3gqr1j0yvxpw_q.png" alt="" /></p>
+
+<p>Делаем коммит всех изменений, и переходим в настройки &ldquo;Revisr&rdquo; &rarr; &ldquo;Settings&rdquo;. Выставляем имя своего профиля на Bitbucket, почту, и отмечаем галочку о получении уведомлений по email.</p>
+
+<p>Переходим в &ldquo;Remote&rdquo;, и указываем имя ветки из которой брать код, ссылку на репозиторий вида <code>git@bitbucket.org:%username%/%repo_name%.git</code>, и отмечаем галочку &ldquo;Automatically pull new commits?&rdquo;, после чего жмем на &ldquo;Сохранить изменения&rdquo;.</p>
+
+<p>URI адрес который появился после отметки крайней галочки вставляем на Bitbucket - переходим в браузере в репозиторий нашей темы &rarr; Настройки &rarr; Webhooks &rarr; Add webhook, выбираем триггер &ldquo;Repository push&rdquo;, сохраняем.</p>
+
+<h3 id="шаг-3-проверяем">Шаг #3 - Проверяем</h3>
+
+<p>Не будем далеко ходить - создадим (<em>или изменим существующий</em>) файл <code>README.md</code> для нашей темы в корне репозитория, хоть средствами самого браузера, и запушим изменения. Откроем страницу &ldquo;Webhooks&rdquo; на Bitbucket и нажмем на &ldquo;View requests&rdquo; - запрос должен быть успешно обработан нашем веб-сервером (<em>вернуть код 200</em>), и после чего посмотрим любым способом на наличие изменений в файле <code>README.md</code> уже на самом prod-сервере.</p>
+
+<p>Коммитим все изменения по новой (<em>что бы не раздражало уведомление об этом</em>), хотя нам плевать на состояние локального репозитория. Все изменения у нас односторонние - мы можем только забирать их, не забывай. Если есть необходимость (<em>очень не рекомендую</em>) править файлы на prod-сервере и обновлять их после этого в репозитории - перенеси ключ из ключей развертывания в ключи профиля - тогда будет работать в обе стороны.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bitbucket/">bitbucket</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/deploy/">deploy</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/git/">git</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssh/">ssh</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/wordpress/">wordpress</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

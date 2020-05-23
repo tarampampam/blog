@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/</link>
+    <description>Recent content on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Thu, 31 Jan 2019 16:25:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Обновляем SSH на Linux mint</title>
+      <link>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</link>
+      <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</guid>
+      <description>&lt;p&gt;Так уж получается, что репозитории с пакетами частенько отстают в версиях ПО, которое предоставляют. Частный случай - нужно подключиться к удаленной системе используя не &amp;ldquo;традиционный&amp;rdquo; туннель, а &lt;a href=&#34;https://wiki.gentoo.org/wiki/SSH_jump_host&#34;&gt;ssh jump&lt;/a&gt;. На борту Linux Mint 18.3 стоит &lt;code&gt;openssh&lt;/code&gt;, который ещё не поддерживает эту фичу:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Пули свищут, народ мрет — красота!</title>
+      <link>https://tarampampam.github.io/blog/text/adrian-karton-di-viart/</link>
+      <pubDate>Sun, 20 Jan 2019 07:52:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/text/adrian-karton-di-viart/</guid>
+      <description>&lt;p&gt;Хочу рассказать про мужика-медоеда. Этот отморозок вызывает во мне искреннее восхищение.&lt;/p&gt;
+
+&lt;p&gt;Жил-был Адриан Картон ди Виарт. Родился он в 1880 году в Бельгии, в аристократической семье. Чуть ли не с самого рождения он проявил хуевый характер: был вспыльчивым до бешенства, несдержанным, и все споры предпочитал разрешать, уебав противника без предупреждения.&lt;/p&gt;
+
+&lt;p&gt;Когда Адриану исполнилось 17 лет, аристократический папа спихнул его в Оксфорд, и вздохнул с облегчением. Но в университете блистательный отпрыск не успевал по всем предметам. Кроме спорта. Там он был первым. Ну и еще бухать умел.&lt;/p&gt;
+
+&lt;p&gt;— Хуйня какая-то эти ваши науки, — решил Адриан. — Вам не сделать из меня офисного хомячка.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Деплой на Docker Swarm</title>
+      <link>https://tarampampam.github.io/blog/docker/compose-deploy/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/docker/compose-deploy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данный пост является переводом &lt;a href=&#34;https://docs.docker.com/compose/compose-file/#deploy&#34;&gt;части документации&lt;/a&gt;, посвященной секции &lt;code&gt;deploy&lt;/code&gt; в &lt;code&gt;docker-compose&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;deploy&#34;&gt;&lt;code&gt;deploy&lt;/code&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Начиная с &lt;a href=&#34;https://docs.docker.com/compose/compose-file/compose-versioning/#version-3&#34;&gt;версии &lt;strong&gt;3&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Группа настроек, посвященная деплою и запуску сервисов. Указанные в данной группе настройки используются &lt;strong&gt;только&lt;/strong&gt; при деплое на &lt;a href=&#34;https://docs.docker.com/engine/swarm/&#34;&gt;swarm&lt;/a&gt; используя &lt;a href=&#34;https://docs.docker.com/engine/reference/commandline/stack_deploy/&#34;&gt;&lt;code&gt;docker stack deploy&lt;/code&gt;&lt;/a&gt;, и игнорируется при использовании команд &lt;code&gt;docker-compose up&lt;/code&gt; и &lt;code&gt;docker-compose run&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;version: &#39;3&#39;
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker &#43; Laravel = ❤</title>
+      <link>https://tarampampam.github.io/blog/php/laravel-in-docker/</link>
+      <pubDate>Mon, 01 Oct 2018 08:29:51 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/php/laravel-in-docker/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/425101/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;В данной статье я расскажу о своём опыте &amp;ldquo;заворачивания&amp;rdquo; Laravel-приложения в Docker-контейнер да так, что бы и локально с ним могли работать frontend и backend разработчики, и запуск его на production был максимально прост. Так же CI будет автоматически запускать статические анализаторы кода, &lt;code&gt;phpunit&lt;/code&gt;-тесты, производить сборку образов.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;А в чём, собственно, сложность?&amp;rdquo; - можешь сказать ты, и будешь отчасти прав. Дело в том, что этой теме посвящено довольно много обсуждений в русскоязычных и англоязычных комьюнити, и почти все изученные треды я бы условно разделил на следующие категории:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Использую докер для локальной разработки. Ставлю &lt;a href=&#34;https://laradock.io/&#34;&gt;laradock&lt;/a&gt; и беды не знаю&amp;rdquo;. Круто, но как обстоят дела с автоматизацией и запуском на production?&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Собираю один контейнер &lt;em&gt;(монолит)&lt;/em&gt; на базе &lt;code&gt;fedora:latest&lt;/code&gt; (~230 Mb), ставлю в него все сервисы (nginx, бд, кэш, etc), запускаю всё супервизором внутри&amp;rdquo;. Тоже отлично, прост в запуске, но как на счёт идеологии &amp;ldquo;один контейнер - один процесс&amp;rdquo;? Как обстоят дела с балансировкой и управлением процессами? Как же размер образа?&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Вот вам куски конфигов, приправляем выдержками из sh-скриптов, добавим магических env-значений, пользуйтесь&amp;rdquo;. Спасибо, но как же на счёт хотя бы одного живого примера, который я бы мог форкнуть и полноценно поиграться?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Всё, что ты прочитаешь ниже - является субъективным опытом, который не претендует быть истиной в последней инстанции. Если у тебя будут дополнения или указания на неточности - welcome to comments.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Для нетерпеливых - &lt;a href=&#34;https://gitlab.com/tarampampam/laravel-in-docker&#34;&gt;ссылка на репозиторий&lt;/a&gt;, склонировав который ты сможешь запустить Laravel-приложение одной командой. Так же не составит труда его запустить на том же &lt;a href=&#34;https://rancher.com/&#34;&gt;rancher&lt;/a&gt;, правильно &amp;ldquo;слинковав&amp;rdquo; контейнеры, или использовать продуктовый вариант &lt;code&gt;docker-compose.yml&lt;/code&gt; как отправную точку.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNU Make - Полная документация</title>
+      <link>https://tarampampam.github.io/blog/nix/makefile-full-doc/</link>
+      <pubDate>Fri, 28 Sep 2018 15:39:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/nix/makefile-full-doc/</guid>
+      <description>&lt;p&gt;На днях появилась необходимость несколько автоматизировать сборку Docker-образов, и решать эту задачу &amp;ldquo;привычними&amp;rdquo; bash-скриптами очень не хотелось. Вспомнил про существование такого зверя как &lt;code&gt;make&lt;/code&gt; и, черт подери - это великая тулза, которая уже считай что почти забыта. В процессе работы был найден перевод документации, и дабы он &amp;ldquo;не потерялся&amp;rdquo; - разместил его здесь.&lt;/p&gt;
+
+&lt;h2 id=&#34;программа-управления-компиляцией&#34;&gt;Программа управления компиляцией&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GNU &lt;code&gt;make&lt;/code&gt; Версия 3.79, апрель 2000&lt;/p&gt;
+
+&lt;p&gt;Richard M. Stallman и Roland McGrath, перевод &amp;copy; Владимир Игнатов, 2000. Версия перевода 0.1&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Английский оригинал этого текста находится &lt;a href=&#34;https://www.gnu.org/software/make/manual/html_node/index.html&#34;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Оригинал перевода был мною взят &lt;a href=&#34;http://linux.yaroslavl.ru/docs/prog/gnu_make_3-79_russian_manual.html&#34;&gt;с этой страницы&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переопределяем расположение .env файла для Laravel</title>
+      <link>https://tarampampam.github.io/blog/php/override-laravel-env-file-location/</link>
+      <pubDate>Thu, 23 Aug 2018 16:43:45 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/php/override-laravel-env-file-location/</guid>
+      <description>&lt;p&gt;Столкнулся с ситуацией, когда необходимо переопределить расположение &lt;code&gt;.env&lt;/code&gt; файла, который используется, к примеру - для запуска &lt;code&gt;phpunit&lt;/code&gt; тестов. Да, если в корне приложения имеется файл &lt;code&gt;.env.testing&lt;/code&gt; - то он автоматически будет прочитан фреймворком при &lt;code&gt;APP_ENV&lt;/code&gt; равным &lt;code&gt;testing&lt;/code&gt;, но вот что делать, если этот файл необходимо разметить в какой-либо другой директории? Давай расположим его в &lt;code&gt;./env.d/&lt;/code&gt; дабы, например, не &amp;ldquo;мусорить&amp;rdquo; в корне приложения.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Отключаем кэширование загружаемых RequireJS файлов при разработке</title>
+      <link>https://tarampampam.github.io/blog/dev/disable-cacheing-requirejs-files-while-develop/</link>
+      <pubDate>Sun, 19 Feb 2017 19:16:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/disable-cacheing-requirejs-files-while-develop/</guid>
+      <description>&lt;p&gt;Мне нравится &lt;a href=&#34;http://requirejs.org/&#34;&gt;RequireJS&lt;/a&gt;. Нравятся принцип построения приложения с его использованием, то как он работает с зависимостями, его гибкость и настраиваемость. Но часто может возникать проблема при разработке на локале - кэширование ресурсов браузером &lt;em&gt;(файл подправил, а изменения не отображаются, так как файл берется из кэша)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Можно, конечно, открыть консоль и поставить флаг запрещающий кэширование, можно подправить конфиг web-демона так, чтоб он запрещал кэширование, а можно пойти другим путем - заставить requirejs добавлять рандомный параметр к своим запросам, таким образом заставляя браузер не брать файл из кэша.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Синглтон для RequireJS</title>
+      <link>https://tarampampam.github.io/blog/dev/requirejs-singletone/</link>
+      <pubDate>Sat, 18 Feb 2017 05:19:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/requirejs-singletone/</guid>
+      <description>&lt;p&gt;Частенько при разработке приложения с использованием &lt;a href=&#34;http://requirejs.org/&#34;&gt;requirejs&lt;/a&gt; возникает необходимость в реализации &lt;a href=&#34;https://ru.wikipedia.org/wiki/%D0%9E%D0%B4%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)&#34;&gt;паттерна синглтона&lt;/a&gt;. И вот, испробовав пример его реализации что описан ниже заявляю - он имеет право на жизнь. Не без своих недостатков, разумеется, но в целом вполне применибельно:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Отзыв о cloud4box.com</title>
+      <link>https://tarampampam.github.io/blog/etc/cloud4box-com-review/</link>
+      <pubDate>Sat, 20 Aug 2016 06:27:33 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/cloud4box-com-review/</guid>
+      <description>Данный пост - предостережение тем, кто решил приобрести у них какие-либо услуги, и услуги VPS - в частности. Тем, кто перед оплатой решил поискать о них отзывы. Ниже будет аргументированное мнение, почему они являются куском говна:
+ Нет информации про юрлицо, лицензии и т.д.; Покупают положительные отзывы. Мне предлагали зачисление на мой баланс месячной стоимости аренды VPS сервера за позитивный пост об их услугах в блоге или соц. сетях. Это сразу насторожило, но сперва не придал этому значения.</description>
+    </item>
+    
+    <item>
+      <title>Поднимаем свой, приватный прокси-сервер</title>
+      <link>https://tarampampam.github.io/blog/adm/setup-private-proxy-server/</link>
+      <pubDate>Sat, 13 Aug 2016 10:57:36 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/setup-private-proxy-server/</guid>
+      <description>&lt;p&gt;Сегодня мы будем поднимать анонимный и действительно шустренький proxy/socks сервер для себя-любимого. Так чтоб настроить его один раз, да и забыть - пускай пыхтит да нам на радость.&lt;/p&gt;
+
+&lt;p&gt;Будем считать что ты уже приобрел себе простенький vps, в качестве ОС выбрал Cent OS 7 и подцепился к нему по SSH, наблюдая девственную чистоту. Первым делом тюним SSH:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Дружим rclone с Яндекс.Диском</title>
+      <link>https://tarampampam.github.io/blog/software/rclone-work-with-yandex-disk/</link>
+      <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/software/rclone-work-with-yandex-disk/</guid>
+      <description>&lt;p&gt;Сегодня мы поговорим об одном интересном, простом в обращении и в какой-то мере уникальном инструменте. Знакомьтесь: &lt;a href=&#34;http://rclone.org/&#34;&gt;rclone&lt;/a&gt;. Разработчики описывают его краткой и ёмкой фразой - &amp;ldquo;rsync для облачных хранилищ&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Make Nod32 Mirror Updated</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</guid>
+      <description>&lt;p&gt;Однажды я &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror/&#34;&gt;уже писал об этом&lt;/a&gt;, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &amp;ldquo;интересные&amp;rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматический деплой WordPress темы/плагина с Bitbucket</title>
+      <link>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</link>
+      <pubDate>Sat, 02 Jul 2016 07:56:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</guid>
+      <description>&lt;p&gt;Времена, когда приходилось ручками заливать изменения файлов на prod-сервер - стремительно проходят, и на смену им приходят системы контроля версий и автоматизированный деплой. Ведь это чертовски удобно, когда ты один или с командой можешь работать над проектом, обкатывать изменения на локальном/тестовом сервере, и уже протестированный код отправлять на &amp;ldquo;боевой&amp;rdquo; сервер простым коммитом или слиянием. Ничего более не запуская, Карл!&lt;/p&gt;
+
+&lt;p&gt;Временами так же приходиться работать над проектами, построенными на (&lt;em&gt;пускай и по дизайну очень убогому&lt;/em&gt;) WordPress, у которого очень низкий порог вхождения как у разработчиков, так и у конечных заказчиков (&lt;em&gt;с первого раза правильно прочитал &amp;ldquo;конечных заказчиков&amp;rdquo;?&lt;/em&gt;).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LEMP &#43; CentOS = ❤</title>
+      <link>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</link>
+      <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</guid>
+      <description>&lt;p&gt;Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Собираем и настраиваем msmtp</title>
+      <link>https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/</link>
+      <pubDate>Tue, 28 Jun 2016 22:24:10 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://msmtp.sourceforge.net/&#34;&gt;msmtp&lt;/a&gt; - это простой консольный клиент для отправки сообщений электронной почты по протоколу SMTP.&lt;/p&gt;
+
+&lt;p&gt;Можно, конечно, пойти сложным путем и поставить полноценный почтовый сервер, но зачем? Нам ведь требуется просто позволить скриптам и демонам отправлять почту, а заморачиваться с DKIM, SPF, заголовками и прочим - крайне лень. Поэтому мы будем отправлять почту с помощью почтового ящика на yandex.ru, и поможет нам в этом приложение под названием &lt;a href=&#34;http://msmtp.sourceforge.net/&#34;&gt;msmtp&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentOS — обновляем php до 5.6</title>
+      <link>https://tarampampam.github.io/blog/adm/centos-update-php-upto-56/</link>
+      <pubDate>Fri, 25 Mar 2016 06:37:53 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/centos-update-php-upto-56/</guid>
+      <description>&lt;p&gt;Задался вопросом - при разработке web-приложений под какую версию &lt;code&gt;php&lt;/code&gt; их &amp;ldquo;затачивать&amp;rdquo;? Ответ оказался проще некуда - достаточно посмотреть на &lt;a href=&#34;http://php.net/supported-versions.php&#34;&gt;календарь релизов&lt;/a&gt; и понять, что на данный момент поддерживаемой является версия &lt;code&gt;5.6.19&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматическая сборка PHP-проектов с помощью PhiNG</title>
+      <link>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</link>
+      <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</guid>
+      <description>&lt;p&gt;Что я подразумеваю под сборкой? Сборка - это процесс действий, которые выполняются над кодом проекта перед его деплоем. Она может включать в себя создание копии проекта, очистка директории с кэшем, минификация CSS и JS файлов, упаковка результата в один zip-архив. Так же возможно ещё и автоматическое развертывание проекта а удаленном сервере, но сегодня речь об этом идти не будет.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Сниппеты для WordPress (ч. 1)</title>
+      <link>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</link>
+      <pubDate>Sat, 23 Jan 2016 05:35:18 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Кэп, &amp;ldquo;по умолчанию&amp;rdquo; все сниппеты добавляются в &lt;code&gt;./wp-content/%theme%/functions.php&lt;/code&gt; твоей темы&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;изменяем-путь-к-статике-темы&#34;&gt;Изменяем путь к статике темы&lt;/h3&gt;
+
+&lt;p&gt;В ряде случаев полезно вынести всю статику на отдельный субдомен или директорию в корне сайта. Так мы и путь к теме скрываем, и располагаем статический контент &amp;ldquo;поближе&amp;rdquo; да поудобнее:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка хостинга на RU-Center (nic.ru)</title>
+      <link>https://tarampampam.github.io/blog/adm/config-hosting-rucenter/</link>
+      <pubDate>Fri, 22 Jan 2016 10:14:01 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/config-hosting-rucenter/</guid>
+      <description>&lt;p&gt;Так уж сложилось, что время от времени приходится поднимать сайты на хостинге руцентра. Как правило это небольшие сайты-визитки или проекты, для которых реализация на дедике характеризуется как &amp;ldquo;жирно будет&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RSS → Bash → Transmission</title>
+      <link>https://tarampampam.github.io/blog/adm/automate-movies-download/</link>
+      <pubDate>Fri, 22 Jan 2016 06:40:48 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/automate-movies-download/</guid>
+      <description>&lt;p&gt;Нахрен долгое вступление. Если на вопрос &amp;ldquo;Нравится автоматизировать и любишь посмотреть кино?&amp;rdquo; ты неосознанно ответишь положительно, то то что здесь написано - тебе понравится. Итак, наверняка у тебя есть своя железяка, которая стоит дома/офисе где-то в уголочке и выполняет роль файлошары/торрентокачалки и Джа знает ещё чего.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Индикатор загрузки страницы (css &#43; pure js)</title>
+      <link>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</guid>
+      <description>&lt;p&gt;Время загрузки страницы - самая унылая часть веб-серфинга :) До того момента, пока страница не загрузилась &lt;strong&gt;до конца&lt;/strong&gt;, велика вероятность что она будет отображаться не так как мы задумывали - блоки могут &amp;ldquo;наезжать&amp;rdquo; друг на друга, текст - не отображаться (&lt;em&gt;пока не загрузились шрифты&lt;/em&gt;), про корректную работу скриптов а анимации тоже зачастую можно забыть.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии)</title>
+      <link>https://tarampampam.github.io/blog/adm/windows-7-8-disable-telemetry/</link>
+      <pubDate>Mon, 24 Aug 2015 11:08:11 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/windows-7-8-disable-telemetry/</guid>
+      <description>&lt;p&gt;После крайних &lt;a href=&#34;https://habr.com/post/265283/&#34;&gt;вестей&lt;/a&gt; о том, что Windows Update в полу-принудительном порядке поставил пользователям Windows 7/8/8.1 обновления &lt;a href=&#34;https://support.microsoft.com/en-us/kb/3080149&#34;&gt;KB3080149&lt;/a&gt; и &lt;a href=&#34;https://support.microsoft.com/en-us/kb/3075249&#34;&gt;KB3075249&lt;/a&gt;, которые собирают данные телеметрии и отправляют их в M$ - остро почувствовался очередной параноидальный приступ. Передача осуществляется через TCP по порту 443 с использованием SSL.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Как то не хорошо получается&amp;rdquo; подумал я и накидал небольшой скрипт который несколько автоматизирует:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Дружим Kali Linux с VMware</title>
+      <link>https://tarampampam.github.io/blog/etc/kali-linux-and-vmware/</link>
+      <pubDate>Thu, 13 Aug 2015 07:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/kali-linux-and-vmware/</guid>
+      <description>&lt;p&gt;Для комфортной работы в Kali linux запущенной в VMware Workstation потребуется выполнить несколько простых манипуляций:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Брутим пароли с Гидрой (hydra)</title>
+      <link>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</link>
+      <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Статья носит носит строго познавательный характер, за применение кем либо описанных в статье методик автор ответственности не несет.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;В тот момент, когда пинтест заходит в тупик - одним из крайних аргументов в тесте на проникновение является подбор паролей. Сервисы, к которым можно применить данный метод атаки - самые различные. А как следствие - различны и протоколы, и форматы обращений. Надо бы как то унифицировать инструменты для решения этой задачи - не хорошо под каждый новый случай писать новый брутер своими ручками.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Samba 4 — доступ к публичным шарам без логина/пароля</title>
+      <link>https://tarampampam.github.io/blog/adm/samba-4-shares-anonymouse-access/</link>
+      <pubDate>Mon, 10 Aug 2015 06:57:07 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/samba-4-shares-anonymouse-access/</guid>
+      <description>&lt;p&gt;Наткнулся на одну интересную особенность Samba 4, связанную с анонимным доступом к публичным шарам. Делается это для того, чтоб пользователи могли спокойно заходить на файл-сервер и не запариваться с вводом, например, пользователя &lt;code&gt;guest&lt;/code&gt; и пустого пароля (&lt;em&gt;и в то же время существовали шары, доступ к которым возможен только после ввода пары &lt;code&gt;логин:пароль&lt;/code&gt;&lt;/em&gt;).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Чистим интернет от назойливой рекламы (AD Blocker для MikroTik)</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/</link>
+      <pubDate>Tue, 04 Aug 2015 05:19:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/264001/&#34; target=&#34;_blank&#34;&gt;публикации на хабре&lt;/a&gt; (написанной мной же).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Данная статья является логическим завершением &lt;a href=&#34;https://habr.com/post/263081/#comment_8509571&#34;&gt;небольшой дискуссии&lt;/a&gt; с тов. &lt;a href=&#34;https://habr.com/users/vvzvlad/&#34;&gt;vvzvlad&lt;/a&gt;, которая развернулась под топиком &amp;ldquo;&lt;a href=&#34;https://habr.com/post/263081/&#34;&gt;Чистим домашний интернет от очень назойливой рекламы&lt;/a&gt;&amp;rdquo;, где автор с помощью &lt;strong&gt;wget&lt;/strong&gt;, &lt;strong&gt;sed&lt;/strong&gt; и &lt;strong&gt;cron&lt;/strong&gt; на &lt;strong&gt;OpenWRT&lt;/strong&gt; успешно сливает файлы рекламных хостов, парсит и подсовывает dns-серверу &lt;strong&gt;dnsmasq&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MikroTik — Автоматически меняем MAC адрес на рандомный</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</link>
+      <pubDate>Sat, 25 Jul 2015 13:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</guid>
+      <description>&lt;p&gt;Очередной приступ паранойи застал врасплох. Мысль о том что MAC-адрес беспощадно палит привязку твоих сессий в логах провайдера не давала покоя и надо было с этим что то делать.&lt;/p&gt;
+
+&lt;p&gt;Позвонив товарищу, который поинтересовался у инженеров провайдера (&lt;em&gt;одного из представителей &amp;ldquo;Большой тройки&amp;rdquo;&lt;/em&gt;) соображениями о том, просто ли получить информацию о сессиях абонента, имея на руках MAC-адрес. Ответ был очевиден - &amp;ldquo;Да как два пальца..&amp;rdquo;. Нет, часто меняя MAC-и, разумеется, полной анонимности не добьешься, но некоторые затруднения это всё-таки вызовет.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MikroTik — режем рекламу (ADBlock) с помощью DNS</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/adblock-with-dns/</link>
+      <pubDate>Wed, 22 Jul 2015 08:19:59 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/adblock-with-dns/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;У данного поста имеется продолжение, позволяющее автоматизировать и значительно упростить весь процесс, описанный в этой записи. Располагается оно по &lt;a href=&#34;https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/&#34;&gt;этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Прочитав &lt;a href=&#34;https://habr.com/post/263081/&#34;&gt;пост&lt;/a&gt; тов. &lt;a href=&#34;https://habr.com/users/4aba/&#34;&gt;4aba&lt;/a&gt; о том, как с помощью &lt;code&gt;dnsmasq&lt;/code&gt; на прошитом роутере можно вполне успешно резать рекламные баннеры на всех устройствах, которые подключены к нашей точке доступа возник резонный вопрос - а можно ли реализовать аналогичное на маршрутизаторе &lt;strong&gt;Mikrotik hAP lite&lt;/strong&gt;? Железка довольно таки достойная (&lt;em&gt;650MHz @ RAM 32 Mb&lt;/em&gt;), но у нас нет полноценного linux-шелла на ней. Оказывается - можно, и результате было реализовано довольно простое, но эффективное решение.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MikroTik — автоматически выключаем и включаем WiFi в заданное время</title>
+      <link>https://tarampampam.github.io/blog/mikrotik/on-off-wifi-script/</link>
+      <pubDate>Wed, 22 Jul 2015 07:34:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/mikrotik/on-off-wifi-script/</guid>
+      <description>&lt;p&gt;Маршрутизатор от Mikrotik, должен признать - интересный зверь. То, что в &amp;ldquo;домашних роутерах&amp;rdquo; поставляется прямо из коробки - здесь в ряде случаев приходится доделывать ручками. Зато имеется огромный функционал в плане &amp;ldquo;настраивается всё что хочешь&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Допустим, что у нас стоит задача &lt;strong&gt;выключать WiFi на ночной период&lt;/strong&gt;. Так мы и ресурс экономим, и потребление энергии, да и вообще - ночью надо бы спать, а не втыкать в гаджеты :) Для решения этой задачи нам потребуется выполнить несколько простых шагов:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Прошивка роутера Asus RT-G32 ver. C1</title>
+      <link>https://tarampampam.github.io/blog/hard/firmware-rt-g32/</link>
+      <pubDate>Sat, 18 Jul 2015 10:10:13 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/hard/firmware-rt-g32/</guid>
+      <description>&lt;p&gt;При прошивки данной железки возникают некоторые вопросы, ответы на которые найти порой не так просто. Сейчас постараюсь ответить на основные:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Можно ли установить на него dd-wrt или open-wrt?&lt;/strong&gt; - Нет, не заведется, к сожалению&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Можно ли установить &lt;a href=&#34;http://sourceforge.net/projects/wive-ng/&#34;&gt;wive-ng&lt;/a&gt;?&lt;/strong&gt; - Да, но &amp;ldquo;глючит&amp;rdquo; на столько, что работать с железкой в итоге не представляется возможным&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Можно ли после экспериментов &amp;ldquo;откатиться&amp;rdquo; на официальную версию?&lt;/strong&gt; - Да, и это делается очень просто&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Маленькая хитрость iptables</title>
+      <link>https://tarampampam.github.io/blog/adm/little-iptables-tips/</link>
+      <pubDate>Tue, 14 Jul 2015 08:59:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/little-iptables-tips/</guid>
+      <description>При сканировании портов целевой системы можно довольно часто наблюдать результат вида:
+... 8080/tcp filtered http-proxy ...  Что говорит нам о том что порт наверняка используется системой, но &amp;ldquo;прикрыт&amp;rdquo; извне. Не смотря на то что работать с ним врятли будет возможно - он всё же дает исследуемому дополнительную информацию о исследуемой системе.
+Как проще всего прикрыть порт извне используя iptables?
+$ iptables -A INPUT -p tcp --dport %номер_порта% -j DROP  А как можно прикрыть его так, чтоб он был недоступен только лишь извне, да ещё и не отображался в результатах nmap как filtered?</description>
+    </item>
+    
+    <item>
+      <title>SSH Honeypot — просто и со вкусом</title>
+      <link>https://tarampampam.github.io/blog/adm/ssh-honeypot/</link>
+      <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/ssh-honeypot/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Honeypot («Ловушка»)&lt;/strong&gt; (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (&lt;a href=&#34;https://ru.wikipedia.org/wiki/Honeypot&#34;&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Одно из первых средств, которое применяется для аудита целевых систем - это сканирование портов с целью выявления, какие же службы (&lt;em&gt;сервисы&lt;/em&gt;) там крутятся. Можете даже сейчас натравить &lt;code&gt;nmap&lt;/code&gt; на свой сервер и посмотреть, что же он нам о нем расскажет. Самый простой пример результата его работы:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Тотальная защита WordPress</title>
+      <link>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</link>
+      <pubDate>Sun, 05 Jul 2015 11:30:59 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</guid>
+      <description>&lt;p&gt;В &lt;a href=&#34;https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/&#34;&gt;прошлом посте&lt;/a&gt; мы рассматривали методы повышения безопасности WordPress с помощью &lt;code&gt;nginx&lt;/code&gt;. В данной же записи мы рассмотрим дополнительные меры противодействия сбору информации о работающей CMS (&lt;em&gt;и плагинах&lt;/em&gt;), версии WP и некоторым типам атак на сайт.&lt;/p&gt;
+
+&lt;p&gt;Помогать нам будет уже не только &lt;code&gt;nginx&lt;/code&gt; - но и &lt;code&gt;fail2ban&lt;/code&gt; вкупе с некоторыми дополнениями и настройками самого WP.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как «накрутить лайки» в Instagram, используя уязвимость приложения «GetLikes» для iOS</title>
+      <link>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</link>
+      <pubDate>Fri, 26 Jun 2015 11:44:42 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данный пост является повторением действий, описанных хабраюзером &lt;a href=&#34;https://habr.com/users/jo1n/&#34;&gt;jo1n&lt;/a&gt; в его &lt;a href=&#34;https://habr.com/post/261153/&#34;&gt;посте&lt;/a&gt; на хабре.&lt;/p&gt;
+
+&lt;p&gt;Disclaimer: Все действия носят сугубо познавательный характер. Более того - &amp;ldquo;накручивать лайки&amp;rdquo; - дело лишенное какого-либо смысла, всё рассмотренное ниже стоит рассматривать только как познавательный материал.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Для того, чтоб &amp;ldquo;накрутить лайки&amp;rdquo; мы будем использовать одну уязвимость, найденную тов. jo1n в приложении &amp;ldquo;&lt;a href=&#34;http://www.multiliker.com&#34;&gt;GetLikes&lt;/a&gt;&amp;rdquo; для iOS, которая позволяет получать &amp;ldquo;монеты&amp;rdquo; в одноименном приложении без выполнения каких-либо действий (таких как установка &amp;ldquo;лайков&amp;rdquo; другим участникам приложения), и в последствии тратить их на то, чтоб нам к нашим фотографиям ставили массово эти самые &amp;ldquo;лайки&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Скрываем версию WordPress</title>
+      <link>https://tarampampam.github.io/blog/wp/remove-wp-version/</link>
+      <pubDate>Tue, 26 May 2015 07:10:53 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/remove-wp-version/</guid>
+      <description>&lt;p&gt;Маленький но довольно полезный плагин для повышения безопасности сайта на WordPress, который всё что делает - это скрывает версию CMS, удаляя:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Во-первых теги &lt;code&gt;&amp;lt;meta generator=&amp;quot;...&amp;quot; /&amp;gt;&lt;/code&gt; (и иже с ними), что генерирует сам Wordoress;&lt;/li&gt;
+&lt;li&gt;Во-вторых из запросов к css и js файлам подстроку &lt;code&gt;?ver=%версия%&lt;/code&gt;, которая всё беспощадно палит.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Отключаем RSS в WordPress</title>
+      <link>https://tarampampam.github.io/blog/wp/remove-wp-rss/</link>
+      <pubDate>Mon, 25 May 2015 16:28:30 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/remove-wp-rss/</guid>
+      <description>&lt;p&gt;В ряде случаев для сайта на WordPress совершенно не требуется RSS лента. Отключив эту возможность мы не только освобождаем дополнительные ресурсы системы (&lt;em&gt;нет необходимости формировать фид, т.к. его не запрашивают только ленивые боты&lt;/em&gt;), но и усложним задачу тем, кто уже сейчас (&lt;em&gt;или собирается&lt;/em&gt;) грабит наш контент.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Небольшая коллекция интересных гифок (часть 1)</title>
+      <link>https://tarampampam.github.io/blog/etc/little-gifs-collection-part1/</link>
+      <pubDate>Mon, 18 May 2015 15:45:35 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/etc/little-gifs-collection-part1/</guid>
+      <description>&lt;p&gt;Где их использовать? Фоновые изображения страниц авторизации, ошибок, анимация. Врубай своё воображение ;) Осторожно - траффик!&lt;/p&gt;
+
+&lt;img src=&#34;https://hsto.org/files/b35/77d/375/b3577d3758dd4eb78001815f05467faf.gif&#34; class=&#34;single-post-image&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>Прошивка принтера Samsung ML-1860</title>
+      <link>https://tarampampam.github.io/blog/hard/hack-printer-samsung-ml-1860/</link>
+      <pubDate>Mon, 18 May 2015 15:20:41 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/hard/hack-printer-samsung-ml-1860/</guid>
+      <description>&lt;p&gt;В самом аппарате есть программное обеспечение (ПО), которое отвечает за все действия. При помощи этого ПО производится отсчет распечатанных страниц с чипа картриджа. Когда допустимое количество листов будет отпечатано, устройство блокируется. И заправкой картриджа, как вы понимаете здесь не обойтись.&lt;/p&gt;
+
+&lt;p&gt;Решением сложившейся ситуации служит прошивка новым программным обеспечением ваш принтер. В обновленном ПО отсутствует счетчик страниц и уровень тонера всегда 100%.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Повышение безопасности WordPress с помощью nginx</title>
+      <link>https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/</link>
+      <pubDate>Tue, 05 May 2015 05:45:15 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Первая часть доступна по &lt;a href=&#34;https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/&#34;&gt;этой ссылке&lt;/a&gt;. Так же у данного поста имеется &lt;strong&gt;обновленная&lt;/strong&gt; версия &lt;a href=&#34;https://tarampampam.github.io/blog/wp/total-wordpress-secutity/&#34;&gt;этой ссылке&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Проанализировав логи одного блога на WordPress заметил, что присутствует довольно большое количество запросов к страницам, которых не существует. Посмотрев внимательнее стало очевидно, что имеет место как сбор данных как об используемой CMS, так и попытки эксплуатировать различные уязвимости плагинов, тем и самого WP.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Поднимаем vpn (pptp) сервер</title>
+      <link>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</link>
+      <pubDate>Sun, 03 May 2015 13:43:56 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</guid>
+      <description>&lt;p&gt;О том что такое VPN и для чего он используется - рассказано неоднократно. Но если вкратце - то &lt;strong&gt;VPN&lt;/strong&gt; это технология, которая позволяет создавать сетевые соединения поверх уже имеющихся с использованием средств защиты передаваемых данных. Её используют для объединения географически разбросанных сетей в одну целую, для соединения рабочего места (сети) с домашней (клиентской), а так же - для обеспечения безопасности передаваемых данных по общественным сетям.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript — получаем статус Skype, VK и Jabber аккаунтов</title>
+      <link>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</guid>
+      <description>&lt;p&gt;Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Поднимаем свой Jabber сервер</title>
+      <link>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</link>
+      <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</guid>
+      <description>&lt;p&gt;Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34; target=&#34;_blank&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34; target=&#34;_blank&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34; target=&#34;_blank&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Установка Linux на Chromebook</title>
+      <link>https://tarampampam.github.io/blog/hard/install-linux-on-chromebook/</link>
+      <pubDate>Mon, 30 Mar 2015 13:27:24 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/hard/install-linux-on-chromebook/</guid>
+      <description>Приведу перечень нескольких простых шагов для выполнения данной задачи, на примере Samsung Chromebook XE303C12:
+ Осознаем, что всё что пользовательского на хромбуке есть - будет успешно утеряно;
+ Переключаемся в режим разработчика, нажимая Ctrl + Refresh + Power;
+ На экране входа подключаемся в WiFi, &amp;ldquo;Далее&amp;rdquo; не нажимаем, а жмем Ctrl + Forward (F2) для перехода в терминальную сессию;
+ Входим под chronos без какого-либо пароля, и вводим:
+$ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
+    </item>
+    
+    <item>
+      <title>Включаем поддержку HTTPS на сайте</title>
+      <link>https://tarampampam.github.io/blog/adm/how-enable-https-on-website/</link>
+      <pubDate>Tue, 10 Mar 2015 11:31:19 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/how-enable-https-on-website/</guid>
+      <description>&lt;p&gt;Крайнее время, в связи с различными факторами - всё чаще встает вопрос безопасности передачи данных между клиентом и сервером. Разные жулики &lt;del&gt;и спец. службы&lt;/del&gt; перехватывают трафик, вытаскивают из него различные данные (включая пароли), некоторые &lt;del&gt;провайдеры&lt;/del&gt; публичные точки доступа в сеть даже встраивают в него рекламные баннеры. Для решения этой задачи уже имеются необходимые механизмы под именем &lt;strong&gt;SSL&lt;/strong&gt;, с которыми мы сейчас довольно плотно и поработаем. Данная технология позволяет дать почти 100% гарантии, что трафик не будет прослушан и видоизменен. Подробнее об этом есть смысл &lt;a href=&#34;https://ru.wikipedia.org/wiki/SSL&#34;&gt;спросить у Вики&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Настройка страниц ошибок для nginx</title>
+      <link>https://tarampampam.github.io/blog/adm/customize-nginx-error-pages/</link>
+      <pubDate>Tue, 03 Mar 2015 06:41:38 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/customize-nginx-error-pages/</guid>
+      <description>&lt;p&gt;При работе с web-ресурсом возникают ошибки, и причина их может быть совершенно различна - от опечатки в URL, до ошибок самого сервера. И если у нас внешним сервером является nginx - мы можем довольно удобно указать свое содержание, которое будет выводиться при той или иной ситуации. Во-первых это позволяет в какой-то мере замаскировать используемое ПО (т.к. определение по сигнатурам ответа становится невозможным); во-вторых - это визуальная кастомизация, которая положительно говорит о ресурсе в целом.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Собираем nginx из исходников</title>
+      <link>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</link>
+      <pubDate>Sun, 22 Feb 2015 07:41:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</guid>
+      <description>&lt;p&gt;Постепенно переводя часть ресурсов с Apache на &lt;strong&gt;nginx&lt;/strong&gt; возникла необходимость вывода листинга файлов (&lt;code&gt;autoindex on&lt;/code&gt;, аналог &lt;code&gt;Options +Indexes&lt;/code&gt; у Apache), но с возможностью некоторой его настройки (как минимум, это использование аналогов Apache &lt;code&gt;HeaderName&lt;/code&gt; и &lt;code&gt;ReadmeName&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;В nginx этим занимается отдельный модуль под именем &lt;code&gt;fancyindex&lt;/code&gt;, для запуска которого необходимо пересобрать весь nginx из исходников, добавив его в момент сборки.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iptables — заблокировать ip</title>
+      <link>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</link>
+      <pubDate>Thu, 19 Feb 2015 07:32:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</guid>
+      <description>&lt;p&gt;Рано или поздно встает задача - нужно для определенного ip закрыть доступ к ресурсу. Так же, если этот ip-адрес &lt;em&gt;серый&lt;/em&gt; (динамический), то лучше подвергнуть блокировке весь его сегмент. Сейчас рассмотрим на примере как это сделать при помощи &lt;strong&gt;iptables&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Отключаем рекламу в Skype</title>
+      <link>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</link>
+      <pubDate>Tue, 10 Feb 2015 17:20:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/disable-skype-ad/</guid>
+      <description>&lt;p&gt;Всё предельно просто - необходимо запретить доступ к серверам, выдающим данные о рекламе, поправив файл &lt;code&gt;%SystemRoot%\system32\drivers\etc\hosts&lt;/code&gt;, добавив в него записи вида:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Backup системных настроек linux</title>
+      <link>https://tarampampam.github.io/blog/adm/backup-system-config-linux/</link>
+      <pubDate>Sat, 07 Feb 2015 13:40:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/backup-system-config-linux/</guid>
+      <description>&lt;p&gt;Итак, у нас есть система, которая работает и выполняет свои задачи. Более того - у нас происходит периодическое копирование всех рабочих данных, настроено оповещение и казалось бы - лучше ничего не трогать, так как всё и так работает.&lt;/p&gt;
+
+&lt;p&gt;Но теперь давай рассмотрим ситуацию, что у нас &amp;ldquo;что то пошло не так&amp;rdquo;. И это &amp;ldquo;что то&amp;rdquo; привело систему в негодность, да такую что проще всё уже заново поднять. Копия рабочих данных у нас имеются, но вот настройки системы - момент довольно тонкий и хлопотливый. Да, лучше всего делать образ системы целиком, но не всегда есть такая возможность.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Рекомендации по повышению безопасности WordPress (ч. 1)</title>
+      <link>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</link>
+      <pubDate>Mon, 26 Jan 2015 12:15:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</guid>
+      <description>&lt;p&gt;WordPress, сука, популярный. А как следствие — дырочки в нем ищутся и находятся с завидной периодичностью. Исходя из этого - сам по себе напрашивается список рекомендаций по повышению его безопасности.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Установка LAMP на CentOS 7</title>
+      <link>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</link>
+      <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</guid>
+      <description>&lt;p&gt;Так уж получилось, что хостер, где ранее размещались все сайты и некоторые сервисы, оказался жлоб и пидарас. Жлоб, потому как на самом дорогом тарифе выделял лишь сраные 256Mb под всё, а пидарас — потому как и с поддержкой — не очень хорошо, и хосты частенько лежали, и отношение к клиентам — далеко не лучшее. Да, речь о Nic.ru.&lt;/p&gt;
+
+&lt;p&gt;Было решено переезжать. Но куда? В России достойное по соотношению цена/качества — не находилось, а “за бугром”, по рекомендациям хабра — был выбран &lt;a href=&#34;http://www.hetzner.de/&#34;&gt;hetzner.de&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web-gui для wget (light)</title>
+      <link>https://tarampampam.github.io/blog/dev/wget-gui-light/</link>
+      <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/wget-gui-light/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/234353/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ранее здесь находилось описание возможных ситуаций, когда данное решение могло бы вам понадобиться, но давайте его опустим. Возможность удобного создания удаленных закачек, которые выполняются привычным wget-ом (можно спокойно увидеть их список при помощи &lt;strong&gt;ps&lt;/strong&gt;), с отображением прогресса — идея не новая. И даже есть &lt;a href=&#34;http://exir.ru/wget4web/screen.htm&#34;&gt;некоторые&lt;/a&gt; &lt;a href=&#34;http://sourceforge.net/projects/download-webgui/files/?source=navbar&#34;&gt;решения&lt;/a&gt;, но не актуальные, так как более 5 лет никем не поддерживаются.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ошибка NO_PUBKEY</title>
+      <link>https://tarampampam.github.io/blog/my-book-live/apt-get-update-error-fix/</link>
+      <pubDate>Tue, 19 Aug 2014 08:32:29 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/my-book-live/apt-get-update-error-fix/</guid>
+      <description>&lt;p&gt;По умолчанию дистрибутив Debian на WD My Book Live - очень старый, и более не поддерживается. Исходя из этого - возникают ошибки apt-get. Как их исправить? Описано по &lt;a href=&#34;http://en.kioskea.net/faq/809-debian-apt-get-no-pubkey-gpg-error&#34;&gt;этой ссылке&lt;/a&gt;, а так же дополнительно опишу решение здесь.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Установка mod_geoip на nic.ru, или как ограничить доступ к сайту «по странам»</title>
+      <link>https://tarampampam.github.io/blog/adm/geoip-for-nic-ru/</link>
+      <pubDate>Sat, 09 Aug 2014 10:51:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/geoip-for-nic-ru/</guid>
+      <description>&lt;p&gt;Есть некоторый ресурс, который хостится на площадке &lt;strong&gt;nic.ru&lt;/strong&gt; с тарифным планом &amp;ldquo;302&amp;rdquo;. Посещаемость у этого ресурса в один прекрасный момент возрасла на столько, что хостинг перестал справляться, и просто умирать. Причиной тому - мизерное количество памяти (&lt;strong&gt;256Мб&lt;/strong&gt;) на самом дорогом тарифе хостинга. Переписка с поддержкой завершилась на их позиции &amp;ldquo;если Вам мало - покупайте что подороже, у нас как рас есть для вас отличное предложение&amp;rdquo; (внимание - ответ перефразирован, из-за повышенной злобы). Но у нас есть временно не решенный вопрос - перегрузки на сайте. Проанализировав логи с помощью &lt;a href=&#34;http://www.apacheviewer.com/&#34;&gt;Apache Logs Viewer&lt;/a&gt; было выяснено - львиная доля запросов поступает из-за границы, а ресурс предназначен изначально только для жителей РФ. Что делать?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Переносим кэш Google Chrome</title>
+      <link>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</link>
+      <pubDate>Wed, 06 Aug 2014 07:05:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</guid>
+      <description>&lt;p&gt;Обладателям SSD + HDD винтов читать в первую очередь. Всем давно известно, что SSD винты чертовски шустрые, но, имеют ограниченный ресурс чтения/записи. В Сети есть херова куча советов, статей и программ по оптимизации работы ОС + ПО с ними, но мало кто пишет про небольшой нюанс касательно кэша хрома.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Много анонимности не бывает — скрываем User-Agent</title>
+      <link>https://tarampampam.github.io/blog/dev/random-hide-user-agent-for-google-cgrome/</link>
+      <pubDate>Tue, 05 Aug 2014 03:03:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/random-hide-user-agent-for-google-cgrome/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/231107/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Очередной приступ паранойи был вполне обоснован — он наступил после прочтения &lt;a href=&#34;https://habr.com/post/203680/&#34;&gt;статьи о методах анонимности в сети&lt;/a&gt;, где автор на примере браузера FireFox рассказывал о потенциальных утечках идентификационной информации. И стало интересно — а на сколько озвученные решения применимы, скажем, к браузеру &lt;strong&gt;Google Chrome&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Флаги запуска «PuTTY»</title>
+      <link>https://tarampampam.github.io/blog/tnt/putty-flags/</link>
+      <pubDate>Fri, 01 Aug 2014 15:48:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/putty-flags/</guid>
+      <description>&lt;p&gt;Наиболее часто используемые флаги запуска &lt;code&gt;putty&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Симлинки на «Рабочий стол» и «Мои документы» в облака</title>
+      <link>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</link>
+      <pubDate>Thu, 31 Jul 2014 08:21:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/add-your-folders-to-google-drive-by-symlinks/</guid>
+      <description>&lt;p&gt;Согласись — было бы прикольно, если ты обладатель рабочего десктопа и нескольких мобильных гаджетов, и мог удобно расшаривать между ними файлы. В один момент пользуясь мобильным гаджетом и найдя что-то, что тебе в дальнейшем понадобится (картинка, изображение, документ, etc.) на десктопе — ты не просто делаешь закладку на объект и каким-то образом пересылаешь её, я просто сохраняешь его, и нужный файл появляется у тебя на рабочем столе десктопа.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>WD Green &#43; Linux = отключение парковки головок диска</title>
+      <link>https://tarampampam.github.io/blog/my-book-live/wd-green-disable-head-parking/</link>
+      <pubDate>Sat, 19 Jul 2014 18:58:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/my-book-live/wd-green-disable-head-parking/</guid>
+      <description>&lt;p&gt;На системе Debian GNU/Linux 5.0, а если точнее — WD My Book Live. Зачем это делать — подробно написано &lt;a href=&#34;https://habr.com/post/106273/&#34;&gt;на хабре&lt;/a&gt;. А если в цифрах моей железки, то за пол-года эксплуатации:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ smartctl -a /dev/sda | grep Load_Cycle_Count
+193 Load_Cycle_Count 0x0032 180 180 000 Old_age Always - **62035**
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Как удалить &#34;мусор&#34; от MacOS из файлошары</title>
+      <link>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</link>
+      <pubDate>Thu, 17 Jul 2014 15:31:29 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</guid>
+      <description>&lt;p&gt;Пользователям этой ос должно быть хорошо известно, что во время работы мак-ось оставляет за собой довольно много различного “мусора”, в большей части являющегося просто кэшем изображений и прочего. В том числе весь этот хлам создается, когда владелец этой самой макоси заходит на файлошару, доступную для записи. Если вам необходимо от него избавиться, то вы можете смело создать небольшой скрипт и поставить его в cron. Ниже рассмотрим как это сделать в два простых шага.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматизируем свои torrent закачки</title>
+      <link>https://tarampampam.github.io/blog/my-book-live/automate-torrents-downloads/</link>
+      <pubDate>Sun, 13 Jul 2014 07:25:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/my-book-live/automate-torrents-downloads/</guid>
+      <description>&lt;p&gt;Однажды мне стало лень. Лень проверять новые серии у сериалов и ставить их на закачку :) Решил автоматизировать этот процесс при помощи rss ленты для свежих torrent-ов и клиента Transmission на &amp;ldquo;WD My Book Live&amp;rdquo;, т.к. &amp;ldquo;железка&amp;rdquo; работает сутками, и файлы с неё доступны всем гаджетам. А теперь по порядку.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Псевдо-случайное изображение (на примере страницы 404-й ошибки)</title>
+      <link>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</link>
+      <pubDate>Fri, 11 Jul 2014 14:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/229449/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Однажды автор этого поста работал над одним заказом по разработке простенько сайта и тогда появилась идея — придать всем страницам некой уникальности и запоминаемости — использовать уникальные фоновые текстуры или элементы дизайна (активно использовался parallax-scrolling). Так как в тот момент дедлайн был довольно близок, а идея — в зачаточном состоянии, было реализовано намного проще — простыми заготовками, но идея выброшена не была.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Создание бэкапа на nic.ru</title>
+      <link>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</link>
+      <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</guid>
+      <description>&lt;p&gt;Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Скрипт создания зеркала обновлений для Eset Nod32 на Linux</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</link>
+      <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/232163/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>WakeOnLan на MBL</title>
+      <link>https://tarampampam.github.io/blog/my-book-live/wol-for-wdmybooklive/</link>
+      <pubDate>Sat, 12 Apr 2014 13:13:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/my-book-live/wol-for-wdmybooklive/</guid>
+      <description>&lt;p&gt;Иногда может потребоваться удаленно включить домашний компьютер. Например, вы находитесь на работе, и надо забрать кое-какие документы с домашнего компьютера - а домашних, кто мог бы тыкнуть на кнопку включения, как на зло, нет дома.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

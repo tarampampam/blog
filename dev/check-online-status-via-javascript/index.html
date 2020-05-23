@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>JavaScript — получаем статус Skype, VK и Jabber аккаунтов - blog [dot] hook</title>
+  
+  <meta name="description" content="Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">JavaScript — получаем статус Skype, VK и Jabber аккаунтов</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-04-28"
+        itemprop="datePublished">2015.4.28</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 2 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/js-wide.jpg" itemprop="image" alt="JavaScript — получаем статус Skype, VK и Jabber аккаунтов" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-04-28">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.</p>
+
+<h3 id="skype">Skype:</h3>
+
+<pre><code class="language-javascript">// Source from: &lt;https://gist.github.com/mattes/5253271&gt;
+// Необходимо чтоб в настройках аккаунта стояла галочка &quot;Показывать мой статус&quot; (или как то так)
+var getSkypeStatus = function(user, callback) { // Функция принимает 2 параметра - логин Skype
+                                                // и функцию, которая выполнится при получении
+                                                // ответа-статуса
+  if(!user) throw new Error(&quot;Missing skype user login&quot;);
+  var query = &quot;select * from skype.user.status where user=&quot; + user + &quot;;&quot;;
+  $.getJSON(&quot;https://query.yahooapis.com/v1/public/yql?q=&quot; + encodeURI(query +
+  &quot;&amp;format=json&amp;env=store://datatables.org/alltableswithkeys&amp;callback=?&quot;), function(data){
+    console.log(data); // Закоментировать после отладки
+    var isOnline = false; // Статус &quot;по умолчанию&quot;
+    if(data.query.count &gt; 0) { // Если ответ сервера не пустой
+      switch (data.query.results.result.status) { // То проверяем его поле &quot;status&quot;
+        // Offline (1), Online (2), Away (3), Do not disturb (3)
+        case &quot;2&quot;: case &quot;3&quot;: isOnline = true; break;
+      }
+    }
+    if(callback) return callback.call(null, isOnline); // Вызываем нашу функцию и передаем
+                                                       // ей статус в качестве параметра
+  });
+};
+</code></pre>
+
+<h3 id="vk-com">VK.com:</h3>
+
+<pre><code class="language-javascript">// Найди свой ID на странице натроек ВК: &lt;https://vk.com/settings&gt;
+var getVKstatus = function(userID, callback) {
+    if(!userID) throw new Error(&quot;Missing vk user id&quot;);
+    
+    $.ajax({
+      url: &quot;https://api.vkontakte.ru/method/getProfiles?uids=&quot; + 
+           parseInt(userID, 10) + &quot;&amp;fields=online&quot;,        
+      type : &quot;GET&quot;, dataType: &quot;jsonp&quot;, crossDomain: true,
+      success: function(data){
+        console.log(data);
+        if(callback) return callback.call(null, data.response[0].online === 1);
+      }
+    });
+  };
+</code></pre>
+
+<h3 id="jabber">Jabber:</h3>
+
+<pre><code class="language-javascript">// Сперва необходимо добавить в свой контакт-лист аккаунт &quot;mystatusbot@gmail.com&quot;, после
+// чего от этого контакта придет сообщение с ссылкой на регистрацию в сервисе. Переходим
+// по ней, вводим свой новый идентификатор, и именно _его_ уже передаем этой функцие
+// для прверки статуса. Подробнее: &lt;http://mystatus.im/&gt;
+var getJabberStatus = function(jabberID, callback) {
+    if(!jabberID) throw new Error(&quot;Missing jabber username (registred in &lt;mystatus.im&gt;)&quot;);
+    $.ajax({
+      url: &quot;http://mystatus.im/&quot; + jabberID + &quot;.json&quot;,
+      type : &quot;GET&quot;, dataType: &quot;jsonp&quot;, crossDomain: true,
+      success: function(data){
+        console.log(data);
+        var isOnline;
+        switch (data.rawState) {
+          case &quot;online&quot;: case &quot;away&quot;: isOnline = true; break;
+          default: isOnline = false;
+        }
+        if(callback) return callback.call(null, isOnline);
+      }
+    });
+  };
+</code></pre>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ajax/">ajax</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/jabber/">jabber</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/javascript/">javascript</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/jquery/">jquery</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/json/">json</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/skype/">skype</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/status/">status</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/vk/">vk</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

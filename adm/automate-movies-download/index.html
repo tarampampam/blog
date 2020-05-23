@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>RSS → Bash → Transmission - blog [dot] hook</title>
+  
+  <meta name="description" content="Нахрен долгое вступление. Если на вопрос &amp;ldquo;Нравится автоматизировать и любишь посмотреть кино?&amp;rdquo; ты неосознанно ответишь положительно, то то что здесь написано - тебе понравится. Итак, наверняка у тебя есть своя железяка, которая стоит дома/офисе где-то в уголочке и выполняет роль файлошары/торрентокачалки и Джа знает ещё чего.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">RSS → Bash → Transmission</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-01-22"
+        itemprop="datePublished">2016.1.22</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/get-torrents-bash-wide.jpg" itemprop="image" alt="RSS → Bash → Transmission" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2016-01-22">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Нахрен долгое вступление. Если на вопрос &ldquo;Нравится автоматизировать и любишь посмотреть кино?&rdquo; ты неосознанно ответишь положительно, то то что здесь написано - тебе понравится. Итак, наверняка у тебя есть своя железяка, которая стоит дома/офисе где-то в уголочке и выполняет роль файлошары/торрентокачалки и Джа знает ещё чего.</p>
+
+<p>Выглядеть железяка может, например, так:</p>
+
+<p><img src="https://hsto.org/webt/jh/6r/op/jh6ropq-xh3wzvjgerxtpi_06t4.jpeg" alt="photo" /></p>
+
+<table>
+<thead>
+<tr>
+<th>Hardware</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Мать</td>
+<td><a href="http://ru.msi.com/product/motherboard/C847ISP33.html#hero-overview">MSI C847IS-P33</a></td>
+</tr>
+
+<tr>
+<td>Камень</td>
+<td>Распаян на плате, Intel&reg; Celeron&reg; CPU 847 @ 1.10GHz / 2 ядра</td>
+</tr>
+
+<tr>
+<td>Память</td>
+<td>DDR3 @ 2 Gb</td>
+</tr>
+
+<tr>
+<td>SDD (система)</td>
+<td>Kingston @ 8 Gb</td>
+</tr>
+
+<tr>
+<td>HDD (данные)</td>
+<td>WG Green @ 2 Tb</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="что-такое-rss-torrent">Что такое RSS torrent?</h2>
+
+<p>Это RSS лента, в которой вместо привычных новостей публикуются ссылки на .torrent файлы выбранной тобой тематики. Придумали это давно, и прогрессивный народ активно этим пользуется. Есть даже сервисы, такие как:</p>
+
+<ul>
+<li><a href="http://torrentrss.net/">torrentrss.net</a></li>
+<li><a href="http://litr.cc/">litr.cc</a></li>
+<li><a href="http://nnm-club.me/forum/viewtopic.php?t=192770">NoNaMe Club</a></li>
+</ul>
+
+<p>Которые этим и живут. Конечный пользователь приходит, выбивает интересный ему контент, получает ссылку на свою ленту, кормит её своему торрент-клиенту (<em>который в свою очередь должен поддерживать torrent rss</em>) - получая в конечном счете новые серии любимых сериалов/фильмов определенной тематики почти без задержки и лишних действий. Пиздец как удобненько.</p>
+
+<h2 id="почему-bash-и-transmission">Почему bash и Transmission?</h2>
+
+<p>Раньше скрипт был <a href="https://tarampampam.github.io/blog/my-book-live/automate-torrents-downloads/">написан на питоне</a>. Но поставить его - задача не из самых тривиальных, особенно на стареньких системах. Зависимости, сторонние библиотеки.. А bash - он считай что везде, да и в конкретной реализации нет никаких экзотичных требований.</p>
+
+<p>Transmission в свою очередь - потому как очень шустрый, имеет адекватную веб-морду, да и с поддержкой у него - всё в порядке. Единственное серьезное &ldquo;но&rdquo; - это отсутствие поддержки RSS, и как раз исправлением этого недочета мы сейчас и займемся. Наш скрипт будет запускаться кроном с заданным интервалом, ссылки на .torrent файлы из RSS будут нежно извлекаться, записываться в файл, и передаваться RPC Transmission.</p>
+
+<p>Его настройки:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>USE_WGET</code></td>
+<td>Использовать <code>wget</code> (<em>принимает значения <code>1</code></td>
+</tr>
+
+<tr>
+<td><code>WGET_PATH</code></td>
+<td>Путь до расположения <code>wget</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>USE_CURL</code></td>
+<td>Использовать <code>curl</code> (<em>принимает значения <code>1</code></td>
+</tr>
+
+<tr>
+<td><code>CURL_PATH</code></td>
+<td>Путь до расположения <code>curl</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>USE_PROXY</code></td>
+<td>Использовать прокси (да/нет) (<em>принимает значения <code>1</code></td>
+</tr>
+
+<tr>
+<td><code>PROXY_SCHEME</code></td>
+<td>Схема прокси (<em>строка, например <code>http</code>, <code>https</code>, <code>socks</code> и т.п.</em>)</td>
+</tr>
+
+<tr>
+<td><code>PROXY_ADDR</code></td>
+<td>Адрес прокси (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>PROXY_PORT</code></td>
+<td>Порт прокси (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>PROXY_USER</code></td>
+<td>Пользователь на прокси (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>PROXY_PASS</code></td>
+<td>Пароль пользователя на прокси (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>FEED_URLS_AND_DIRS</code></td>
+<td>Массив со ссылками на RSS ленты. Что очень важно - указывается URL первой ленты, а следующим элементом массива - директория, куда скачивать из URL торренты. И так далее</td>
+</tr>
+
+<tr>
+<td><code>TRANSMISSION_REMOTE</code></td>
+<td>Путь до <code>transmission-remote</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>TRANSMISSION_RPC_USER</code></td>
+<td>Пользователь <code>transmission-remote</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>TRANSMISSION_RPC_PASS</code></td>
+<td>Пароль пользователя <code>transmission-remote</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>TRANSMISSION_RPC_HOST</code></td>
+<td>Адрес <code>transmission-remote</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>TRANSMISSION_RPC_PORT</code></td>
+<td>Порт <code>transmission-remote</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>REMOVE_TRANSMISSION_COMPLETED_TASKS</code></td>
+<td>Удалять уже завершенные закачки из Transmission (<em>принимает значения <code>1</code></td>
+</tr>
+
+<tr>
+<td><code>HISTORY_FILE</code></td>
+<td>Путь до текстового файла для хранения ссылок, которые были переданы в <code>transmission-remote</code> (<em>строка</em>)</td>
+</tr>
+
+<tr>
+<td><code>COLOR_OUTPUT</code></td>
+<td>Использовать цветную выдачу в <code>STDOUT</code> (<em>принимает значения <code>1</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Пример настройки <code>FEED_URLS_AND_DIRS</code>:</p>
+
+<pre><code class="language-bash">FEED_URLS_AND_DIRS=(\
+  'http://link.to/rss/feed1.xml' '/path/to/dir1/' \
+  'http://link.to/rss/feed2.xml' '/path/to/dir2/' \
+  'http://link.to/rss/feed3.xml' '/path/to/dir3/' \
+);
+</code></pre>
+
+<script type="application/javascript" src="//gist.github.com/tarampampam/6f44cef4ffc8f1def8d2.js"></script>
+
+<h2 id="установка">Установка</h2>
+
+<p>Переходим в нужную директорию и скачиваем исходник скрипта (<em>потребуются <code>wget</code> и <code>unzip</code></em>):</p>
+
+<pre><code class="language-bash">$ wget -O src.zip https://goo.gl/TFfcgU; unzip src.zip; rm -f src.zip
+$ mv ./6f*d2-master/* ./; rm -Rf ./6f*d2-master/
+$ ls -l *.sh
+-rw-r--r-- 1 kot nginx 10598 янв 22 10:21 get_torrents.sh
+</code></pre>
+
+<p>После чего открываем скрипт любимым редактором, и выполняем его настройку. Все настройки находятся в самом начале скрипта. Проверяем, делаем тестовые запуски. После того, как убедимся что всё работает как надо - добавляем запуск скрипта в крон:</p>
+
+<pre><code class="language-bash">$ crontab -e
+# Добавляем примерно следующую строку:
+  5     8-23   *     *    * /usr/bin/nice -n 15 /usr/bin/bash ~/get_torrents.sh
+
+# -     -      -     -    - ----------------------------------------------------------------
+# |     |      |     |    |
+# |     |      |     |    +----- day of week (0 - 6) (Sunday=0)
+# |     |      |     +------- month (1 - 12)
+# |     |      +--------- day of month (1 - 31)
+# |     +----------- hour (0 - 23)
+# +------------- min (0 - 59)
+</code></pre>
+
+<p>Запускать через <code>nice</code> вовсе не обязательно, но как-то правильнее, что-ли. Наслаждайся, мудачина :)</p>
+
+<h3 id="bonus">+ Bonus</h3>
+
+<p>Просто как рекомендация, не более. Есть такое средство для организации и просмотра (<em>в браузере или через DLNA</em>) библиотеки твоих фильмов/сериалов как <strong>Plex</strong>. Очень рекомендую - вещь просто ахрененная. Написана на питоне, не требует установленного веб-сервера и СУБД. Просто ставишь - и пользуешься. Подробнее об этом <a href="https://plex.tv/features">почитай здесь</a>, да и вообще - поищи в сети ссылки и описания. Ещё раз - это простая рекомендация, но проверенная лично.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/automate/">automate</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/cron/">cron</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/mbl/">mbl</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/rss/">rss</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/torrent/">torrent</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/transmission/">transmission</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

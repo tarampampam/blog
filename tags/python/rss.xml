@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/python/</link>
+    <description>Recent content in python on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sun, 13 Jul 2014 07:25:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/python/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Автоматизируем свои torrent закачки</title>
+      <link>https://tarampampam.github.io/blog/my-book-live/automate-torrents-downloads/</link>
+      <pubDate>Sun, 13 Jul 2014 07:25:27 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/my-book-live/automate-torrents-downloads/</guid>
+      <description>&lt;p&gt;Однажды мне стало лень. Лень проверять новые серии у сериалов и ставить их на закачку :) Решил автоматизировать этот процесс при помощи rss ленты для свежих torrent-ов и клиента Transmission на &amp;ldquo;WD My Book Live&amp;rdquo;, т.к. &amp;ldquo;железка&amp;rdquo; работает сутками, и файлы с неё доступны всем гаджетам. А теперь по порядку.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

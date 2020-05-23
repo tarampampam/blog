@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Чистим интернет от назойливой рекламы (AD Blocker для MikroTik) - blog [dot] hook</title>
+  
+  <meta name="description" content=" Данная статья является копией публикации на хабре (написанной мной же).
+ Данная статья является логическим завершением небольшой дискуссии с тов. vvzvlad, которая развернулась под топиком &amp;ldquo;Чистим домашний интернет от очень назойливой рекламы&amp;rdquo;, где автор с помощью wget, sed и cron на OpenWRT успешно сливает файлы рекламных хостов, парсит и подсовывает dns-серверу dnsmasq.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Чистим интернет от назойливой рекламы (AD Blocker для MikroTik)</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-08-04"
+        itemprop="datePublished">2015.8.4</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/mikrotik-adaway-wide.jpg" itemprop="image" alt="Чистим интернет от назойливой рекламы (AD Blocker для MikroTik)" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-08-04">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <blockquote>
+<p>Данная статья является копией <a href="https://habr.com/post/264001/" target="_blank">публикации на хабре</a> (написанной мной же).</p>
+</blockquote>
+
+<p>Данная статья является логическим завершением <a href="https://habr.com/post/263081/#comment_8509571">небольшой дискуссии</a> с тов. <a href="https://habr.com/users/vvzvlad/">vvzvlad</a>, которая развернулась под топиком &ldquo;<a href="https://habr.com/post/263081/">Чистим домашний интернет от очень назойливой рекламы</a>&rdquo;, где автор с помощью <strong>wget</strong>, <strong>sed</strong> и <strong>cron</strong> на <strong>OpenWRT</strong> успешно сливает файлы рекламных хостов, парсит и подсовывает dns-серверу <strong>dnsmasq</strong>.</p>
+
+<p>Переадресовывая клиента при запросе &ldquo;рекламного&rdquo; домена, например, на loopback (<em>127.0.0.1 - 127.255.255.255</em>), вместо котента рекламы клиент получит благодатное &ldquo;ничего&rdquo; (<em>разумеется, при условии, что у нас не работает локальный веб-сервер который слушает локалхост</em>). Механизм фильтрации довольно старый и не лишен недостатков. Например, нельзя указать маски хостов (*.ad-domain.tld) или &ldquo;вырезать&rdquo; рекламу, баннеры которой хостятся на запрашиваемых ресурсах. Но зато не привязан к какому-то либо протоколу и довольно прост в эксплуатации. Более того, если его использовать, например, на домашнем или офисном маршрутизаторе, который используется в качестве DNS сервера, реклама успешно порежется на всех гаджетах, где IP нашей железки прописан первым в качестве DNS сервера.</p>
+
+<p>Но что если у нас вместо роутера с кастомной прошивкой используется.. <strong>MikroTik</strong> (<em>RouterOS</em>), функционал которого накладывает некоторые ограничения? Под катом вы узнаете каким образом удалось успешно &ldquo;<strong>сконвертировать</strong>&rdquo; файл хостов в пригодный для него формат, как <strong>автоматизировать</strong> это дело и что для хабралюдей в качестве <strong>бонуса</strong> был создан небольшой сервис как раз для автоматизации этого процесса (<em>маленький, абсолютно бесплатный и с открытыми исходниками</em>).</p>
+
+<h3 id="настраиваем-mikrotik">Настраиваем MikroTik</h3>
+
+<p>Настройка самой железки вряд ли вызовет какие-либо трудности. Укажем IP маршрутизатора в качестве первого DNS сервера в DHCP - &ldquo;IP&rdquo; &rarr; &ldquo;DHCP Server&rdquo; &rarr; &ldquo;Networks&rdquo; &rarr; %default config%. Первым прописываем IP самого MikroTik-а, нажимаем &ldquo;OK&rdquo;:</p>
+
+<p><img src="https://hsto.org/files/fd9/55d/3d7/fd955d3d7716475ea087718901041939.png" alt="" /></p>
+
+<p>DNS сервер работает &ldquo;из коробки&rdquo;, и можно даже не менять его стоковые настройки:</p>
+
+<p><img src="https://hsto.org/files/7e4/702/d34/7e4702d34fa44d1899eb7d6e1be04a63.png" alt="" /></p>
+
+<p>Единственная интересная для нас кнопка - &ldquo;Static&rdquo; (&ldquo;Статические маршруты&rdquo;), в которых мы должны прописать &ldquo;рекламные&rdquo; домены, указав куда такие запросы перенаправлять.</p>
+
+<h3 id="конвертируем-файл-хостов">Конвертируем файл хостов</h3>
+
+<p>Файл хостов имеет формат:</p>
+
+<pre><code># Any comments
+127.0.0.1 localhost
+127.0.0.1 domain-a.tld
+127.0.0.1 domain-b.tld
+</code></pre>
+
+<p>Формат скрипта для MikroTik, использующий статические DNS маршруты:</p>
+
+<pre><code># Any comments
+/ip dns static
+add address=127.0.0.1 name=localhost
+add address=127.0.0.1 name=domain-a.tld
+add address=127.0.0.1 name=domain-b.tld
+</code></pre>
+
+<p>Для получения актуальных списков первого и преобразования их во второй мы выполним простые команды в шелле на, например, десктопе (<em>bash</em>):</p>
+
+<ol>
+<li><p>Скачиваем списки и аккуратно складываем их под именами <code>./hosts_list.1</code>, <code>./hosts_list.2</code> и т.д.:</p>
+
+<pre><code class="language-bash">$ src=('http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&amp;showintro=0&amp;mimetype=plaintext' 'https://adaway.org/hosts.txt'); i=0; for file in ${src[*]}; do i=$((i+1)); wget --no-check-certificate -O &quot;./hosts_list.$i&quot; &quot;$file&quot;; done;
+</code></pre></li>
+
+<li><p>Грепаем всё что начинается на <code>127.0.0.1</code>, удаляем комменты, оставляем только имена доменов, убираем дубликаты, убираем пустые строки и оформляем каждый домен в виде команды для импорта:</p>
+
+<pre><code class="language-bash">$ in=&quot;./hosts_list.*&quot; &amp;&amp; out=&quot;./adblock_dns.rsc&quot; &amp;&amp; host='127.0.0.1'; echo &quot;/ip dns static&quot; &gt; $out &amp;&amp; grep '127.0.0.1 ' $in | grep -v '^#' | cut -d' ' -f 2 | sort -u | grep . | sed &quot;s/^/add address=$host name=/&quot; &gt;&gt; $out &amp;&amp; rm -f $in; wc -l $out;
+</code></pre></li>
+</ol>
+
+<blockquote>
+<p><em>Да, надо бы использовать регулярку и вообще всё переделать, но самое главное - я передал тебе свою мысль, дальше дело за тобой</em></p>
+</blockquote>
+
+<p>На выходе у нас получится файл <code>adblock_dns.rsc</code>, который не лишним будет дополнительно проверить на корректность содержимого.</p>
+
+<h3 id="импортируем-в-mikrotik">Импортируем в MikroTik</h3>
+
+<p>Для того, чтобы импортировать полученный файл, мы цепляемся к маршрутизатору по ftp, заливаем <code>adblock_dns.rsc</code>, после чего цепляемся по ssh или открываем терминал, в котором выполняем:</p>
+
+<ol>
+<li><p>Делаем резервную копию (<em>полученный бэкап лучше сохранить у себя на машине</em>):</p>
+
+<pre><code>/system backup save
+</code></pre></li>
+
+<li><p>Если у тебя в таблице <strong>нет</strong> важных маршрутов, то можем грохнуть все имеющиеся записи:</p>
+
+<pre><code>/ip dns static remove [/ip dns static find]
+</code></pre></li>
+
+<li><p>Импортируем загруженный файл:</p>
+
+<pre><code>/import adblock_dns.rsc
+</code></pre></li>
+
+<li><p>Убираем за собой:</p>
+
+<pre><code>/file remove adblock_dns.rsc
+</code></pre></li>
+</ol>
+
+<p>Теперь можешь (<em>опционально</em>) перезагрузить MikroTik, проверить корректность получения адресов DNS серверов по DHCP и попытаться открыть какой-либо ресурс, который ранее был наводнен рекламой - её должно стать ощутимо меньше.</p>
+
+<blockquote>
+<p>Эмпирически доказано что при импортировании ~5500 записей Mikrotik hAP lite (650MHz @ RAM 32 Mb) встает почти колом при попытке в GUI открыть таблицу статических маршрутов. Перезагрузка помогает</p>
+</blockquote>
+
+<h3 id="автоматизация">Автоматизация</h3>
+
+<p>Один из простейших вариантов автоматизации - <strong>скрипт на баше</strong>, который по крону поддерживает в актуальном состоянии <code>adblock_dns.rsc</code>, находящийся в открытом доступе по, скажем, ftp. Его основа была уже описана выше, осталось только оформить его по твоему усмотрению (<em>необходима отдельная машина</em>).</p>
+
+<p>Ещё один вариант - это использование <strong>MetaRouter</strong> на самом или соседнем MikroTik-е, на котором установлен тот же OpenWRT (<em>избавляемся от необходимости в отдельной машине; этот вариант не расписан подробно за неимением достойного MikroTik-а под руками</em>).</p>
+
+<p>Второй скрипт (<em>на MikroTik</em>) забирает его (<code>adblock_dns.rsc</code>), делает бэкап и, если и файл скачался успешно, и бэкап сохранился успешно, его импортирует, предварительно (<em>внимание</em>) грохнув все имеющиеся маршруты:</p>
+
+<pre><code>:local hostScriptUrl &amp;#x22;ftp://user:login@ftp_host:21/adblock_dns.rsc&amp;#x22;;
+
+:local scriptName &amp;#x22;adblock_dns.rsc&amp;#x22;;
+:local backupFileName &amp;#x22;before_stopad&amp;#x22;;
+:local logPrefix &amp;#x22;[StopAD]&amp;#x22;;
+
+do {
+ /tool fetch mode=ftp url=$hostScriptUrl dst-path=(&amp;#x22;./&amp;#x22;.$scriptName);
+ :if ([:len [/file find name=$scriptName]] &amp;#x3E; 0) do={
+   /system backup save name=$backupFileName;
+   :delay 1s;
+   :if ([:len [/file find name=($backupFileName.&amp;#x22;.backup&amp;#x22;)]] &amp;#x3E; 0) do={
+     /ip dns static remove [/ip dns static find];
+     /import file-name=$scriptName;
+     /file remove $scriptName;
+     :log info &amp;#x22;$logPrefix AD block script imported, backup file (\&amp;#x22;$backupFileName.backup\&amp;#x22;) created&amp;#x22;;
+   } else={
+     :log warning &amp;#x22;$logPrefix Backup file not created, importing AD block script stopped&amp;#x22;;
+   }
+ } else={
+   :log warning &amp;#x22;$logPrefix Backup file not downloaded, script stopped&amp;#x22;;
+ }
+} on-error={
+ :log warning &amp;#x22;$logPrefix AD block script download FAILED&amp;#x22;;
+};
+</code></pre>
+
+<h3 id="бонус-для-хабралюдей">Бонус для хабралюдей</h3>
+
+<p>А что делать, если у тебя дома/офисе/гараже стоит MikroTik и хочется или просто порезать рекламу, или автоматизировать обновление хостов, не поднимая никакие метароутеры и хосты с файлами по ftp, вот чтоб просто и без заморочек?</p>
+
+<p>Правильно, нужно чтобы это поднял кто то за тебя. И в качестве бонуса - такая штука уже поднята.</p>
+
+<p>Смысл заключается в следующем - тебе достаточно перейти на нужную страницу, указать свои настройки и получить URL, по которому будет доступен скрипт с указанными тобой настройками. Там же будет предоставлен и исходник готового скрипта для тебя. Возможности, которые реализованы на данный момент:</p>
+
+<ul>
+<li>Выбор из списка публичных файлов-хостов (<em>спасибо AdAway для Android</em>);</li>
+<li>Хочется указать свои источники? Без проблем! (<em>можно, например, указать три публичных хост-файла и два своих, расположенных на том-же <a href="https://gist.github.com/">gist.github.com</a>, получив таким образом довольное удобное средство управления статическими маршрутами на подопечных маршрутизаторах</em>);</li>
+<li>Настраиваемый адрес (<em>IP v4</em>) перенаправления;</li>
+<li>Указание ограничения (<em>лимита</em>) количества записей в итоговом скрипте (<em>для того чтоб &ldquo;случайно&rdquo; не положить &ldquo;слабую&rdquo; железку</em>);</li>
+<li>Указание своих маршрутов (<em>будут просто добавлены первыми в генерируемый скрипт</em>);</li>
+<li>Возможность указания исключений - нужные домены никогда не будут &ldquo;заблокированы&rdquo;;</li>
+<li>Довольно удобная генерация готового скрипта для MikroTik;</li>
+</ul>
+
+<p>Парсер написан на PHP (<em>потребует php5-curl</em>), лицензия <a href="https://gist.githubusercontent.com/tarampampam/4d4af291ffd4de29c3a9/raw/cb30514aa511f06b2bfa62f765eb97917c3e4481/.txt">MIT</a>, исходники доступны по ссылке <a href="https://github.com/tarampampam/mikrotik-hosts-parser">mikrotik-hosts-parser</a>. Сколько сервис проживет - не берусь загадывать, но надеюсь что достаточно долго. Стойкую к хабраэффекту площадку любезно предоставил тов. @drakmail, за что спасибо ему и команде <a href="http://generate.club/">Generate.Club</a>.</p>
+
+<ul>
+<li><a href="https://stopad.cgood.ru/">stopad.cgood.ru</a></li>
+<li><a href="https://stopad.hook.sh/">stopad.hook.sh</a></li>
+</ul>
+
+<blockquote>
+<p><strong>ВНИМАНИЕ!</strong> Если вы ранее пользовались скриптом по ссылке выше, и у вас внезапно он перестал работать — знайте, причина в его обновлении. Первым делом попробуйте всё там же просто взять его обновленную редакцию, после этого всё должно успешно заработать. Приношу свои извинения за возможные неудобства!</p>
+
+<p>Если после перехода на обновленную версию скрипта у вас появляются в логе микротика ошибки, содержащие текст: <code>script error: failure: entry already exists</code>, то рекомендую или ручками сперва снести все имеющиеся статические маршруты (оставив необходимые, разумеется), или выполнив в консоли <code>/ip dns static remove [/ip dns static find];</code></p>
+
+<p><em>Диклеймер: 1. Команда Generate.Club не имеет отношения к сервису. 2. Не хорошо допускать кого-либо к исполнению кода на твоих маршрутизаторах. Поэтому призываю пользоваться им исключительно в ознакомительных целях. Если всё нравится, сделай форк, настрой под себя да пользуйся на здоровье. За возможные перебои в работе, хабраэффект или ошибки ответственности никто не несет. 3. Я приложу все усилия, чтобы всё работало &ldquo;как надо&rdquo; максимально продолжительное время, но нужно понимать степень ответственности.</em></p>
+
+<p><em>При обнаружении ошибок в работе сервиса или опечаток в тексте - пожалуйста, сообщайте об этом в личку. Заранее спасибо!</em></p>
+</blockquote>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ad/">ad</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/habr/">habr</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/mikrotik/">mikrotik</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/routeros/">routeros</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

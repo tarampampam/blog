@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>asus on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/asus/</link>
+    <description>Recent content in asus on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sat, 18 Jul 2015 10:10:13 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/asus/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Прошивка роутера Asus RT-G32 ver. C1</title>
+      <link>https://tarampampam.github.io/blog/hard/firmware-rt-g32/</link>
+      <pubDate>Sat, 18 Jul 2015 10:10:13 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/hard/firmware-rt-g32/</guid>
+      <description>&lt;p&gt;При прошивки данной железки возникают некоторые вопросы, ответы на которые найти порой не так просто. Сейчас постараюсь ответить на основные:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Можно ли установить на него dd-wrt или open-wrt?&lt;/strong&gt; - Нет, не заведется, к сожалению&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Можно ли установить &lt;a href=&#34;http://sourceforge.net/projects/wive-ng/&#34;&gt;wive-ng&lt;/a&gt;?&lt;/strong&gt; - Да, но &amp;ldquo;глючит&amp;rdquo; на столько, что работать с железкой в итоге не представляется возможным&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Можно ли после экспериментов &amp;ldquo;откатиться&amp;rdquo; на официальную версию?&lt;/strong&gt; - Да, и это делается очень просто&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

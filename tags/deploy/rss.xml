@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deploy on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/tags/deploy/</link>
+    <description>Recent content in deploy on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Mon, 15 Oct 2018 13:35:50 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/tags/deploy/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Деплой на Docker Swarm</title>
+      <link>https://tarampampam.github.io/blog/docker/compose-deploy/</link>
+      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/docker/compose-deploy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данный пост является переводом &lt;a href=&#34;https://docs.docker.com/compose/compose-file/#deploy&#34;&gt;части документации&lt;/a&gt;, посвященной секции &lt;code&gt;deploy&lt;/code&gt; в &lt;code&gt;docker-compose&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;deploy&#34;&gt;&lt;code&gt;deploy&lt;/code&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Начиная с &lt;a href=&#34;https://docs.docker.com/compose/compose-file/compose-versioning/#version-3&#34;&gt;версии &lt;strong&gt;3&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Группа настроек, посвященная деплою и запуску сервисов. Указанные в данной группе настройки используются &lt;strong&gt;только&lt;/strong&gt; при деплое на &lt;a href=&#34;https://docs.docker.com/engine/swarm/&#34;&gt;swarm&lt;/a&gt; используя &lt;a href=&#34;https://docs.docker.com/engine/reference/commandline/stack_deploy/&#34;&gt;&lt;code&gt;docker stack deploy&lt;/code&gt;&lt;/a&gt;, и игнорируется при использовании команд &lt;code&gt;docker-compose up&lt;/code&gt; и &lt;code&gt;docker-compose run&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;version: &#39;3&#39;
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Автоматический деплой WordPress темы/плагина с Bitbucket</title>
+      <link>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</link>
+      <pubDate>Sat, 02 Jul 2016 07:56:57 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</guid>
+      <description>&lt;p&gt;Времена, когда приходилось ручками заливать изменения файлов на prod-сервер - стремительно проходят, и на смену им приходят системы контроля версий и автоматизированный деплой. Ведь это чертовски удобно, когда ты один или с командой можешь работать над проектом, обкатывать изменения на локальном/тестовом сервере, и уже протестированный код отправлять на &amp;ldquo;боевой&amp;rdquo; сервер простым коммитом или слиянием. Ничего более не запуская, Карл!&lt;/p&gt;
+
+&lt;p&gt;Временами так же приходиться работать над проектами, построенными на (&lt;em&gt;пускай и по дизайну очень убогому&lt;/em&gt;) WordPress, у которого очень низкий порог вхождения как у разработчиков, так и у конечных заказчиков (&lt;em&gt;с первого раза правильно прочитал &amp;ldquo;конечных заказчиков&amp;rdquo;?&lt;/em&gt;).&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

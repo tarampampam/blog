@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Псевдо-случайное изображение (на примере страницы 404-й ошибки) - blog [dot] hook</title>
+  
+  <meta name="description" content=" Данная статья является копией публикации на хабре.
+ Однажды автор этого поста работал над одним заказом по разработке простенько сайта и тогда появилась идея — придать всем страницам некой уникальности и запоминаемости — использовать уникальные фоновые текстуры или элементы дизайна (активно использовался parallax-scrolling). Так как в тот момент дедлайн был довольно близок, а идея — в зачаточном состоянии, было реализовано намного проще — простыми заготовками, но идея выброшена не была.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Псевдо-случайное изображение (на примере страницы 404-й ошибки)</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2014-07-11"
+        itemprop="datePublished">2014.7.11</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/rnd-404-image.jpg" itemprop="image" alt="Псевдо-случайное изображение (на примере страницы 404-й ошибки)" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2014-07-11">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <blockquote>
+<p>Данная статья является копией <a href="https://habr.com/post/229449/">публикации на хабре</a>.</p>
+</blockquote>
+
+<p>Однажды автор этого поста работал над одним заказом по разработке простенько сайта и тогда появилась идея — придать всем страницам некой уникальности и запоминаемости — использовать уникальные фоновые текстуры или элементы дизайна (активно использовался parallax-scrolling). Так как в тот момент дедлайн был довольно близок, а идея — в зачаточном состоянии, было реализовано намного проще — простыми заготовками, но идея выброшена не была.</p>
+
+<p>Спустя некоторое время случайно наткнулся на мертвую ссылку, которая вела на <a href="http://notexistsblog.tumblr.com/">несуществующий</a> Tumblr-блог, и страница ошибки сразу привлекла внимание. Обновив страничку фоновое изображение (в виде gif-анимации) сменилось — внимание ещё более усилилось. Почитав <a href="http://assets.tumblr.com/assets/scripts/tumblr/error_page.js">исходники</a> стало понятно что все изображения «прописаны» статично, но это натолкнуло на другую идею, о которой вы узнаете под катом. Идея заключалась в следующем: «Почему бы нам в случае, когда необходимо оформить какую-либо страницу (в частности сервисную — <em>вход, выход, ошибка</em>), или просто получить тематическое изображение для оформления контента, не использовать псевдо-случайные изображения?» (возможно их использовать как элементы дизайна сайта). Семантически под «псевдо-случайными» я имею в виду изображения определенной тематики (или имеющие между собой какие-либо общие черты), но с течением времени результат «выпадения» был бы в той или иной степени уникальным. Возможные методы решения:</p>
+
+<ul>
+<li>Парсинг результатов поиска (google, yandex) по картинкам;</li>
+<li>Парсинг хостингов картинок, имеющие деление изображений по тегам или критериям;</li>
+<li>Инстаграм и сервисы иже с ним;</li>
+<li>Использовать средства блог-платформ, имеющих акцент на фото-контент.</li>
+</ul>
+
+<p>Парсинг результатов поисковых запросов отпал по причинам встречающейся низкой релевантности, большого количества «мусора», а сами изображения хранятся черт знает где. Хостинг картинок — как-то не сложилось (может быть и зря) сразу. Инстаграм — низкое качество изображений (640х640 точек) и сложность в запросах для получения релевантных ответов. Так и остался крайний вариант — блог-платформы. Не скажу что выбор был мучительный, так как сам на Tumblr веду пару блогов и в курсе относительно статистики. В том числе — статистики постов:</p>
+
+<p><img src="https://31.media.tumblr.com/98cd101ef5a1acd1738a47cf9f6e6b0a/tumblr_inline_n8jw9dTStI1r7zrwq.jpg" alt="image" /> Плюсы данного решения:</p>
+
+<ul>
+<li>Изображения в тематических блогах придерживаются своего концепта в 9 из 10 случаев;</li>
+<li>При наличии корпоративного или личного блога на этом же сервисе изображения можно брать прямо из него, получается довольно прикольно;</li>
+<li>Нет необходимости беспокоиться об актуальности;</li>
+<li>Изображения находятся в открытом доступе;</li>
+<li>Tumblr отлично дружит с <a href="http://ifttt.com/">ifttt</a>.</li>
+</ul>
+
+<p>Минусы:</p>
+
+<ul>
+<li>Если брать контент не у блога с устоявшимся форматом, есть вероятность получить изображение лысого мужика в наколках не соответствующее формату;</li>
+</ul>
+
+<p>Теперь остается дело за малым — получить сами картинки. Хочется отдельно выразить благодарность разработчикам этой платформы, так как апи для получения и выборки контента очень прост и качественно реализован. Работу по получению и разбору данных было решено возложить на клиента (что без каких-либо сложностей переписывается на любой серверный язык). В итоге у меня получился следующий пример:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;404 | Page Not Found&quot; /&gt;
+    &lt;title&gt;404 | Page Not Found&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;./blank-favicon.ico&quot; /&gt;
+    &lt;link href=&quot;//fonts.googleapis.com/css?family=PT+Sans+Narrow&amp;amp;subset=latin,cyrillic&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+      *{margin:0;padding:0}
+      html,body{min-height:100%;height:100%;min-width:100%;background-color:#000;overflow:hidden}
+      body{position:fixed;font-family:'PT Sans Narrow',Helvetica,Arial,Verdana,sans-serif;visibility:visible;top:0;right:0;left:0;-webkit-font-smoothing:antialiased}
+      #bg-fullscreen{position:absolute;-moz-opacity:0;opacity:0;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:50% 50%;-webkit-transition:opacity 2s ease-in-out;-moz-transition:opacity 2s ease-in-out;-ms-transition:opacity 2s ease-in-out;-o-transition:opacity 2s ease-in-out;transition:opacity 2s ease-in-out;-webkit-filter:blur(3px);-moz-filter:blur(3px);-o-filter:blur(3px);-ms-filter:blur(3px);filter:blur(3px)}
+      #bg-fullscreen.show{-moz-opacity:.9;opacity:.9}
+      #content{position:absolute;top:0;left:0;width:100%;height:100%;text-align:center}
+      #content *{color:#fff}
+      #content h1{font-size:20em;text-shadow:0 0 42px rgba(0,0,0,1)}
+      #content h3{font-size:5.4em;position:relative;top:-.9em;text-shadow:0 0 22px rgba(0,0,0,1);-moz-opacity:.9;opacity:.9}
+      #content div.link{position:absolute;bottom:80px;text-align:center;width:100%}
+      #content div a{display:inline-block;font-size:3em;position:relative;padding:0 30px 5px;background-color:#d63a0a;color:#fff;text-decoration:none;-webkit-box-shadow:0 0 30px 0 rgba(0,0,0,0.6);-moz-box-shadow:0 0 30px 0 rgba(0,0,0,0.6);box-shadow:0 0 30px 0 rgba(0,0,0,0.6)}
+      #content a:hover{top:-1px}
+      #content a:active{top:2px!important}
+      @media only screen and (max-width: 1280px) {
+      #content h1{font-size:13em}
+      #content h3{font-size:3.8em}
+      #content div a{font-size:2em}
+      }
+      @media only screen and (max-width: 479px) {
+      #content h1{font-size:10em}
+      #content h3{font-size:2.8em}
+      #content div a{font-size:1.4em}
+      }
+    &lt;/style&gt;
+    &lt;noscript&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+            #bg-fullscreen {
+                -moz-opacity: 0.9;
+                opacity: 0.9;
+                background-image: url('//habrastorage.org/files/7c1/dfc/c33/7c1dfcc3386347d0aa20b4f3cc1a410a.jpg');
+            }
+        &lt;/style&gt;
+    &lt;/noscript&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;//code.jquery.com/jquery-latest.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(document).ready(function () {
+            var imagesArray = [],
+                debug = true;
+
+            function getImagesFromTumblr(blogName, imgArr, imgCount, callback, makeOffset) {
+                var offsetStep = 20,
+                    makeOffset = typeof makeOffset !== 'undefined' ? makeOffset : 0,
+                    imgCount = typeof imgCount !== 'undefined' ? imgCount : 5;
+                $.ajax({
+                    type: 'GET',
+                    // https://www.tumblr.com/docs/en/api/v2
+                    url: '//api.tumblr.com/v2/blog/' + blogName + '.tumblr.com/posts',
+                    dataType: 'jsonp',
+                    data: {
+                        // https://www.tumblr.com/oauth/apps
+                        api_key: 'P1M2xgqzN8Q5V9Oh1eMp2a6V2YceKV5Z7FvlPZlWgDXvPT6AMs',
+                        offset: makeOffset
+
+                    },
+                    success: function (data) {
+                        if (debug) console.log('Makeing request with offset = %d', makeOffset);
+                        if (data.meta.status === 200) { // if answer is 'ok'
+                            $.each(data.response.posts, function () {
+                                if (this.type === 'photo') {
+                                    $.each(this.photos, function () {
+                                        var ext = this.original_size.url.split('.').pop(); // find image extension
+                                        if (
+                                            // check image for:
+                                            (ext === 'jpg') // 1. type - 'jpg'
+                                            &amp;&amp; (this.original_size.width &gt;= 640) // 2. minimal width
+                                            //&amp;&amp; (this.original_size.width &gt; this.original_size.height) // 2. horizontal
+                                        ) {
+                                            if (imgArr.length &lt; imgCount) {
+                                                imgArr.push(this);
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                        // if array not full..
+                        if (imgArr.length &lt; imgCount)
+                        // ..make a recrussive run
+                            getImagesFromTumblr(
+                            blogName,
+                            imgArr,
+                            imgCount,
+                            callback, ((makeOffset === 0) ? offsetStep : makeOffset + offsetStep)
+                        )
+                        else
+                        if ($.isFunction(callback)) callback(true);
+
+                    },
+                    error: function () {
+                        if (debug) console.error('Error try ajax request');
+                        if ($.isFunction(callback)) callback(false);
+                    }
+                });
+            }
+
+            // 'womenexcellence' - girls, +18
+            // 'life'            - black'n'white photos
+            // 'weirdvintage'    - weird vintage
+            // 'awesomepeoplehangingouttogether' - awesome people hanging out together
+            // 'meiguiceserra'   - space planets
+
+            if (debug) console.time('Getting Tumblr Images Data');
+            getImagesFromTumblr('meiguiceserra', imagesArray, 15, function (noerror) {
+                if (debug) console.timeEnd('Getting Tumblr Images Data');
+
+                function getArrayItem(arr) {
+                    return arr[Math.floor(Math.random() * arr.length)];
+                }
+
+                function preloadImg(url, callback) {
+                    var pImg = new Image();
+                    pImg.onload = function () {
+                        if ($.isFunction(callback)) callback(true);
+                    }
+                    pImg.src = url;
+                }
+
+                if (debug) console.log(imagesArray);
+                if (imagesArray.length &gt; 0) {
+
+                    var imageUrl = getArrayItem(imagesArray).original_size.url;
+                    if (debug) console.log('Random image url: %s', imageUrl);
+
+                    if (debug) console.time('Image downloading');
+                    preloadImg(imageUrl, function () {
+                        if (debug) console.timeEnd('Image downloading');
+                        $('#bg-fullscreen').css({
+                            'background-image': 'url(' + imageUrl + ')'
+                        }).addClass('show');
+                    });
+                }
+            });
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;bg-fullscreen&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;content&quot;&gt;
+        &lt;h1&gt;404&lt;/h1&gt;
+        &lt;h3&gt;Not found&lt;/h3&gt;
+        &lt;div class=&quot;link&quot;&gt;
+            &lt;a href=&quot;&quot; class=&quot;home&quot;&gt;&amp;larr; Main page&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>Алгоритм работы функции следующий:</p>
+
+<ol>
+<li>Формируем и отправляем Ajax-запрос к <a href="https://www.tumblr.com/docs/en/api/v2#posts">API Tumblr-a</a>;</li>
+<li>Проверяем статус ответа и проходимся по каждому посту;</li>
+<li>Если это фото-пост, то проходимся по каждому изображению;</li>
+<li>Если изображение нам подходит (например — тип, минимальный размер, соотношение сторон), то добавляем его в итоговый массив;</li>
+<li>Если по завершению прохода нужное количество изображений не собрано — рекурсивно запускаемся снова, но с новым отступом.</li>
+</ol>
+
+<p>Результат работы примера выглядит следующим образом (одно изображение — один показ):</p>
+
+<p><img src="https://hsto.org/getpro/habr/post_images/669/11b/606/66911b606c9207dae96c016b9463a6cd.gif" alt="image" /></p>
+
+<p>И несколько слов о том, в каком виде у нас возвращаемые данные:</p>
+
+<p><img src="https://hsto.org/getpro/habr/post_images/4cb/9a2/924/4cb9a2924c62f4d4f790d5f701d49c46.jpg" alt="image" /></p>
+
+<p>Плюсы данной реализации:</p>
+
+<ul>
+<li>Если захочется использовать gif-изображение — изменяем искомое расширение (строка ~178) и пересматриваем проверку размеров изображений;</li>
+<li>Чтобы изменить источник изображений — необходимо изменить один вызов функции;</li>
+<li>При отключенном JavaScript — выведем изображение из заготовки (см. <code>&lt;noscript&gt;… &lt;/noscript&gt;</code>);</li>
+<li>Доступны различные размеры изображений;</li>
+<li>Работает даже в IE6 (при выключенном <code>debug</code> — режиме, строка ~153);</li>
+<li>Легко «допилить» под себя.</li>
+</ul>
+
+<p>И минусы:</p>
+
+<ul>
+<li>В среднем получение и разбор данных (получалось 1..2 запроса, 10 изображений) во время тестов занимал порядка 0,4..1 секунды, что довольно долго;</li>
+<li>Необходимость таскать JQuery.</li>
+</ul>
+
+<h4 id="эпилог">Эпилог</h4>
+
+<p>Данный метод может замечательно вписаться в небольшие сайты, портфолио, студии, блоги. Не нуждается в поддержке, легко интегрируется в готовые решения, не нагружает сервер. Вполне реально использовать в шаблонах для наполнения тестовым контентом (несколько строк на jQuery по замене ‘src’ у <code>&lt;img /&gt;</code>). Буду рад, если кому-то помог, или навел на другую стоящую мысль.</p>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ajax/">ajax</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/habr/">habr</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/javascript/">javascript</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/jquery/">jquery</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/json/">json</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/tumblr/">tumblr</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ui/">ui</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

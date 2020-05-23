@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Включаем поддержку HTTPS на сайте - blog [dot] hook</title>
+  
+  <meta name="description" content="Крайнее время, в связи с различными факторами - всё чаще встает вопрос безопасности передачи данных между клиентом и сервером. Разные жулики и спец. службы перехватывают трафик, вытаскивают из него различные данные (включая пароли), некоторые провайдеры публичные точки доступа в сеть даже встраивают в него рекламные баннеры. Для решения этой задачи уже имеются необходимые механизмы под именем SSL, с которыми мы сейчас довольно плотно и поработаем. Данная технология позволяет дать почти 100% гарантии, что трафик не будет прослушан и видоизменен. Подробнее об этом есть смысл спросить у Вики.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590232270" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590232270">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590232270">
+  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/blog/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/blog/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Включаем поддержку HTTPS на сайте</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-03-10"
+        itemprop="datePublished">2015.3.10</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://tarampampam.github.io/images/posts/https-wide.jpg" itemprop="image" alt="Включаем поддержку HTTPS на сайте" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2015-03-10">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Крайнее время, в связи с различными факторами - всё чаще встает вопрос безопасности передачи данных между клиентом и сервером. Разные жулики <del>и спец. службы</del> перехватывают трафик, вытаскивают из него различные данные (включая пароли), некоторые <del>провайдеры</del> публичные точки доступа в сеть даже встраивают в него рекламные баннеры. Для решения этой задачи уже имеются необходимые механизмы под именем <strong>SSL</strong>, с которыми мы сейчас довольно плотно и поработаем. Данная технология позволяет дать почти 100% гарантии, что трафик не будет прослушан и видоизменен. Подробнее об этом есть смысл <a href="https://ru.wikipedia.org/wiki/SSL">спросить у Вики</a>.</p>
+
+<h3 id="постановка-задачи">Постановка задачи</h3>
+
+<p>В рассматриваемом примере у нас в качестве &ldquo;внешнего&rdquo; (front-end) веб-сервера используется <strong>nginx</strong> (протокол <code>http</code>, разумеется), &ldquo;слушающий&rdquo; <code>80</code> порт. Исходный конфиг тестового домена <code>domain.ltd</code> для него может быть таким:</p>
+
+<pre><code>server {
+  listen      80;
+  server_name domain.ltd;
+  root        /home/domain.ltd/docs;
+  access_log  /home/domain.ltd/log/nginx.access.log;
+  error_log   /home/domain.ltd/log/nginx.error.log;
+}
+</code></pre>
+
+<p>Какой используется &ldquo;внутренний&rdquo; (back-end) веб-сервер, и имеется ли он вообще - значения не имеет, т.к. нам необходимо шифровать именно внешний трафик, который передается и принимается от клиента.</p>
+
+<p>Для того чтоб передавать данные по защищенному (<em>зашифрованному</em>) соединению - нам необходимо использовать протокол <a href="https://ru.wikipedia.org/wiki/HTTPS">https</a> <em>(расширение протокола <code>http</code>, по умолчанию работающее на <code>443</code> порту</em>), а для этого в свою очередь необходимо получить сертификат от доверенного источника (<em>которым будет производиться подпись передаваемого трафика и при помощи которого будет происходить шифрование</em>), а получив его - настроить работу nginx с ним.</p>
+
+<h3 id="получение-сертификата">Получение сертификата</h3>
+
+<p>Для получения сертификата мы можем дождаться <a href="https://letsencrypt.org/">бесплатной раздачи от Mozilla</a>, а можем получить его уже сейчас и бесплатно, например, <a href="https://buy.wosign.com/free/">у WoSign</a> (<em><a href="https://habr.com/search/?q=%D0%91%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9+SSL">так же существуют аналоги</a></em>).</p>
+
+<p>Рассмотрим вариант с <strong>WoSign</strong> - заполняем необходимые поля и ожидаем готовый сертификат на почте:</p>
+
+<p><img src="https://hsto.org/files/8ec/542/fd9/8ec542fd9903422cad8cfc13d2b22975.png" alt="" /></p>
+
+<blockquote>
+<p>Для подтверждения прав владения доменом необходимо будет ввести код из письма, который будет отправлен на, например, <code>admin@domain.ltd</code>. Если необходимо подключить шифрование ещё и на поддоменах - то все их сразу указываем в поле &ldquo;Domain name&rdquo; - по одному на строчку. Введенный пароль обязательно сохраняем. Ожидание готового сертификата составляет около суток. Письмо придет на адрес, которым подтверждали права владения доменом.</p>
+</blockquote>
+
+<h3 id="настройка-nginx">Настройка nginx</h3>
+
+<p>После того, как письмо с ссылкой на скачивание готового сертификата (<em>пароль на него - это пароль что мы установили на шаге заполнения формы</em>) придет - нас ждет приятный бонус в виде уже подготовленных форматов сертификатов для Apache, IIS, nginx, Tomcat и пр. Мы же берем лишь содержимое архива <code>for Nginx.zip</code> (<em>предварительно приведя имена файлов в порядок, а именно удалив <code>1_</code> и <code>2_</code> из их начала</em>) и заливаем его на наш сервер любым доступным способом.</p>
+
+<p>Далее - создаем директорию <code>/etc/nginx/ssl</code> переносим файлы (<em><code>domain.ltd_bundle.crt</code> и <code>domain.ltd.key</code></em>) в неё, после чего выставляем права и создаем конфигурационный файл:</p>
+
+<pre><code class="language-bash">$ mkdir /etc/nginx/ssl/
+$ mv domain.ltd* /etc/nginx/ssl/; cd /etc/nginx/ssl/
+$ chown root:root ./domain.ltd*; chmod 644 ./domain.ltd*
+$ nano ./domain.ltd_ssl.conf
+</code></pre>
+
+<p>Его содержание (<em><a href="https://habr.com/post/195808/">подробнее об этом</a></em>):</p>
+
+<pre><code>ssl_certificate     /etc/nginx/ssl/domain.ltd_bundle.crt;
+ssl_certificate_key /etc/nginx/ssl/domain.ltd.key;
+ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+ssl_ciphers         &quot;RC4:HIGH:!aNULL:!MD5:!kEDH&quot;;
+add_header          Strict-Transport-Security 'max-age=604800';
+</code></pre>
+
+<p>Именно этот файл (<code>/etc/nginx/ssl/domain.ltd_ssl.conf</code>) мы будем подключать как на самом домене, так и всех поддоменах в секции <code>server {...}</code> для включения поддержки SSL. Теперь добавляем в секцию <code>http {...}</code> (файл <code>/etc/nginx/nginx.conf</code>) следующие строки:</p>
+
+<pre><code>ssl_session_cache   shared:SSL:10m;
+ssl_session_timeout 5m;
+ssl_prefer_server_ciphers on;
+ssl_stapling on;
+resolver 8.8.8.8;
+</code></pre>
+
+<p>И на этом настройку сервера можно считать завершенной. Всё что остается - это &ldquo;активировать&rdquo; SSL на нужном виртуальном сервере. Поправим конфиг, приведенный в самом начале статьи:</p>
+
+<pre><code>server {
+  listen      80;
+  listen      443 ssl;
+  include     /etc/nginx/ssl/domain.ltd_ssl.conf;
+  server_name domain.ltd;
+  root        /home/domain.ltd/docs;
+  access_log  /home/domain.ltd/log/nginx.access.log;
+  error_log   /home/domain.ltd/log/nginx.error.log;
+}
+</code></pre>
+
+<p>И перезапустим nginx:</p>
+
+<pre><code class="language-bash">$ service nginx restart
+</code></pre>
+
+<p>Проверяем всё ли заработало - должен открываться как <code>http://domain.ltd/</code>, так и <code>https://domain.ltd/</code>.</p>
+
+<h3 id="принудительное-перенаправление">Принудительное перенаправление</h3>
+
+<p>Если у тебя стоит задача перевести все запросы с <code>http</code> на <code>https</code> - можешь воспользоваться следующим примером:</p>
+
+<pre><code>server {
+  listen 80;
+  ...
+  server_name domain.ltd;
+  return 301 https://$server_name$request_uri;
+  ## -- or --
+  #rewrite ^(.*) https://$server_name$1 permanent;
+}
+
+server {
+  listen  443 ssl;
+  include /etc/nginx/ssl/domain.ltd_ssl.conf;
+  server_name domain.ltd;
+  ...
+}
+</code></pre>
+
+<blockquote>
+<p><strong>Пояснение</strong>: будут работать 2 виртуальных сервера - один на стандартном 80 порту (только для редиректа), второй - на 443 (основной). Все запросы, которые будут приходить по <code>http</code> (на 80 порт) - будут безжалостно перенаправляться на этот же домен, но на протокол <code>https</code>, сохраняя url строку запроса.</p>
+</blockquote>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/http/">http</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/https/">https</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      
+      <li><a href="https://tarampampam.github.io/blog/tags/ssl/">ssl</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

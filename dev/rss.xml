@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev on blog [dot] hook</title>
+    <link>https://tarampampam.github.io/blog/dev/</link>
+    <description>Recent content in Dev on blog [dot] hook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <copyright>Make love, not war</copyright>
+    <lastBuildDate>Sun, 19 Feb 2017 19:16:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tarampampam.github.io/blog/dev/rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Отключаем кэширование загружаемых RequireJS файлов при разработке</title>
+      <link>https://tarampampam.github.io/blog/dev/disable-cacheing-requirejs-files-while-develop/</link>
+      <pubDate>Sun, 19 Feb 2017 19:16:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/disable-cacheing-requirejs-files-while-develop/</guid>
+      <description>&lt;p&gt;Мне нравится &lt;a href=&#34;http://requirejs.org/&#34;&gt;RequireJS&lt;/a&gt;. Нравятся принцип построения приложения с его использованием, то как он работает с зависимостями, его гибкость и настраиваемость. Но часто может возникать проблема при разработке на локале - кэширование ресурсов браузером &lt;em&gt;(файл подправил, а изменения не отображаются, так как файл берется из кэша)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Можно, конечно, открыть консоль и поставить флаг запрещающий кэширование, можно подправить конфиг web-демона так, чтоб он запрещал кэширование, а можно пойти другим путем - заставить requirejs добавлять рандомный параметр к своим запросам, таким образом заставляя браузер не брать файл из кэша.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Синглтон для RequireJS</title>
+      <link>https://tarampampam.github.io/blog/dev/requirejs-singletone/</link>
+      <pubDate>Sat, 18 Feb 2017 05:19:58 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/requirejs-singletone/</guid>
+      <description>&lt;p&gt;Частенько при разработке приложения с использованием &lt;a href=&#34;http://requirejs.org/&#34;&gt;requirejs&lt;/a&gt; возникает необходимость в реализации &lt;a href=&#34;https://ru.wikipedia.org/wiki/%D0%9E%D0%B4%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)&#34;&gt;паттерна синглтона&lt;/a&gt;. И вот, испробовав пример его реализации что описан ниже заявляю - он имеет право на жизнь. Не без своих недостатков, разумеется, но в целом вполне применибельно:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Make Nod32 Mirror Updated</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</link>
+      <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</guid>
+      <description>&lt;p&gt;Однажды я &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror/&#34;&gt;уже писал об этом&lt;/a&gt;, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &amp;ldquo;интересные&amp;rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Индикатор загрузки страницы (css &#43; pure js)</title>
+      <link>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</link>
+      <pubDate>Thu, 17 Sep 2015 07:02:54 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/page-loading-indicator-pure-js/</guid>
+      <description>&lt;p&gt;Время загрузки страницы - самая унылая часть веб-серфинга :) До того момента, пока страница не загрузилась &lt;strong&gt;до конца&lt;/strong&gt;, велика вероятность что она будет отображаться не так как мы задумывали - блоки могут &amp;ldquo;наезжать&amp;rdquo; друг на друга, текст - не отображаться (&lt;em&gt;пока не загрузились шрифты&lt;/em&gt;), про корректную работу скриптов а анимации тоже зачастую можно забыть.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript — получаем статус Skype, VK и Jabber аккаунтов</title>
+      <link>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</link>
+      <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</guid>
+      <description>&lt;p&gt;Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web-gui для wget (light)</title>
+      <link>https://tarampampam.github.io/blog/dev/wget-gui-light/</link>
+      <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/wget-gui-light/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/234353/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ранее здесь находилось описание возможных ситуаций, когда данное решение могло бы вам понадобиться, но давайте его опустим. Возможность удобного создания удаленных закачек, которые выполняются привычным wget-ом (можно спокойно увидеть их список при помощи &lt;strong&gt;ps&lt;/strong&gt;), с отображением прогресса — идея не новая. И даже есть &lt;a href=&#34;http://exir.ru/wget4web/screen.htm&#34;&gt;некоторые&lt;/a&gt; &lt;a href=&#34;http://sourceforge.net/projects/download-webgui/files/?source=navbar&#34;&gt;решения&lt;/a&gt;, но не актуальные, так как более 5 лет никем не поддерживаются.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Много анонимности не бывает — скрываем User-Agent</title>
+      <link>https://tarampampam.github.io/blog/dev/random-hide-user-agent-for-google-cgrome/</link>
+      <pubDate>Tue, 05 Aug 2014 03:03:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/random-hide-user-agent-for-google-cgrome/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/231107/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Очередной приступ паранойи был вполне обоснован — он наступил после прочтения &lt;a href=&#34;https://habr.com/post/203680/&#34;&gt;статьи о методах анонимности в сети&lt;/a&gt;, где автор на примере браузера FireFox рассказывал о потенциальных утечках идентификационной информации. И стало интересно — а на сколько озвученные решения применимы, скажем, к браузеру &lt;strong&gt;Google Chrome&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Псевдо-случайное изображение (на примере страницы 404-й ошибки)</title>
+      <link>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</link>
+      <pubDate>Fri, 11 Jul 2014 14:17:03 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/229449/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Однажды автор этого поста работал над одним заказом по разработке простенько сайта и тогда появилась идея — придать всем страницам некой уникальности и запоминаемости — использовать уникальные фоновые текстуры или элементы дизайна (активно использовался parallax-scrolling). Так как в тот момент дедлайн был довольно близок, а идея — в зачаточном состоянии, было реализовано намного проще — простыми заготовками, но идея выброшена не была.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Скрипт создания зеркала обновлений для Eset Nod32 на Linux</title>
+      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</link>
+      <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
+      
+      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/232163/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
