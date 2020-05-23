@@ -17,7 +17,10 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           fetch-depth: 1
 
       - name: Execute Spellchecker
-        uses: rojopolis/spellcheck-github-actions@0.2.0
+        uses: reviewdog/action-misspell@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          locale: "US"
 
   build:
     name: Build
