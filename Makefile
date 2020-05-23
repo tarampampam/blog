@@ -7,7 +7,6 @@ SHELL = /bin/bash
 # Image page: <https://hub.docker.com/r/tarampampam/hugo>
 HUGO_IMAGE := tarampampam/hugo:0.56.0
 RUN_ARGS = --rm -v "$(shell pwd):/src:rw" --user "$(shell id -u):$(shell id -g)"
-FRONTEND_PORT := 1313
 
 .PHONY : help pull start new-post clean
 .DEFAULT_GOAL : help
@@ -20,11 +19,11 @@ pull: ## Pull all required Docker images
 	docker pull "$(HUGO_IMAGE)"
 
 start: ## Start local hugo live server
-	docker run $(RUN_ARGS) -p $(FRONTEND_PORT):$(FRONTEND_PORT) -ti "$(HUGO_IMAGE)" server \
+	docker run $(RUN_ARGS) -p 1313:1313 -ti "$(HUGO_IMAGE)" server \
 		--watch \
 		--logFile /dev/stdout \
-		--baseURL 'http://127.0.0.1:$(FRONTEND_PORT)/' \
-		--port $(FRONTEND_PORT) \
+		--baseURL 'http://127.0.0.1:1313/' \
+		--port 1313 \
 		--bind 0.0.0.0
 
 .ONESHELL:
