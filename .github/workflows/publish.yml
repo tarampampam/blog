@@ -23,7 +23,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Build
         run: docker run --rm -v "$(pwd):/src:rw" tarampampam/hugo:0.56.0 --baseURL "$BASE_URL" --noChmod --noTimes
 
-      - name: Upload assets
+      - name: Upload content
         uses: actions/upload-artifact@v2
         with:
           name: content
@@ -40,14 +40,14 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           fetch-depth: 1
           ref: gh-pages
 
-      - name: Download assets
+      - name: Download content
         uses: actions/download-artifact@v2
         with:
           name: content
 
       - name: Setup git
         run: |
-          git config --global user.name 'GitHub Actions'
+          git config --global user.name "$GITHUB_ACTOR"
           git config --global user.email 'actions@users.noreply.github.com'
           git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 
@@ -58,4 +58,4 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         run: git commit -m "Deploying ${GITHUB_SHA} to Github Pages"
 
       - name: Push changes
-        run: git push github HEAD:${GITHUB_REF}
+        run: git push github
