@@ -11,8 +11,8 @@ env:
   BASE_URL: 'https://tarampampam.github.io/blog/'
 
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
-  publish:
-    name: Build and publish
+  build:
+    name: Build content
     runs-on: ubuntu-latest
     steps:
       - name: Check out sources
@@ -23,15 +23,26 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Build
         run: docker run --rm -v "$(pwd):/src:rw" tarampampam/hugo:0.56.0 --baseURL "$BASE_URL" --noChmod --noTimes
 
-      - name: Store assets
+      - name: Upload assets
         uses: actions/upload-artifact@v2
         with:
           name: content
           path: public/
 
-      - name: Check out to github pages branch
+  publish:
+    name: Publish content
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Check out sources
         uses: actions/checkout@v2
         with:
+          fetch-depth: 1
           ref: gh-pages
+
+      - name: Download assets
+        uses: actions/download-artifact@v2
+        with:
+          name: content
 
       - run: ls -la
