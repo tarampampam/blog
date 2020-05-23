@@ -29,7 +29,7 @@ $ cd ~ && nano ./rm_apple_cache.sh
 ## @author    Paramtamtam
 ## @project   Remove most trash and some OSx .hidden cache files from
 ##            folders (recrussive)
-## @copyright 2014 
+## @copyright 2014
 ## @github    https://github.com/tarampampam/scripts/nix/
 ## @version   0.1.2
 ##

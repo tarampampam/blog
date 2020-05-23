@@ -70,7 +70,7 @@ trait CreatesApplication
     }
 
     /**
-     * Make some before application bootstrapped (call "$app->useStoragePath(...)", 
+     * Make some before application bootstrapped (call "$app->useStoragePath(...)",
      * "$app->loadEnvironmentFrom(...)", etc).
      *
      * @return void
@@ -88,5 +88,3 @@ trait CreatesApplication
 ```
 
 Вот теперь он будет корректно прочитан из `./env.d/.env.testing`, и более того - в любом тесте мы можем спокойно переопределить метод `beforeApplicationBootstrapped()` наделив его тем функционалом, который нам необходим.
-
-

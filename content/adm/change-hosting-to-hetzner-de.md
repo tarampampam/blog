@@ -27,20 +27,20 @@ tags:
 
 Сказано — сделано. Только куплен не хостинг, а виртуальный выделенный сервер, с характеристиками:
 
-* Камень: **Intel(R) Core(TM)2 Duo CPU T7700 @ 2.40GHz**
-* Кэш камня: **4096 KB**
-* Память: **994.1 MB**
-* Сеть: добрые **50 МБит**
-* ОС: на выбор, но я ставил **CentOS Linux 7.0.1406 (x64)**
+- Камень: **Intel(R) Core(TM)2 Duo CPU T7700 @ 2.40GHz**
+- Кэш камня: **4096 KB**
+- Память: **994.1 MB**
+- Сеть: добрые **50 МБит**
+- ОС: на выбор, но я ставил **CentOS Linux 7.0.1406 (x64)**
 
 После того что было - есть где разгуляться. А самое главное - почти за те же деньги. Остается всё поставить и настроить.
 
 Ставить мы будем вот что:
 
-* **nginx** в качестве фронтэнда;
-* **httpd** (Apache 2) + **php** в качестве бэкэнда;
-* **vsftpd** - ftp сервер;
-* **mariadb** (mysql) в качестве сервера БД с мордой phpMyAdmin.
+- **nginx** в качестве фронтэнда;
+- **httpd** (Apache 2) + **php** в качестве бэкэнда;
+- **vsftpd** - ftp сервер;
+- **mariadb** (mysql) в качестве сервера БД с мордой phpMyAdmin.
 
 Этот пост — скорее как шпаргалка для самого себя, т.к. уже успел сервер положить на лопатки, и пришлось всё делать заново (к слову — бэкап, разумеется, был; а настройки удалось выдернуть, загрузившись с рековери-образа в режиме восстановления). Но, как говорит мой товарищ “Хорош пиздеть, поехали”:
 
@@ -81,7 +81,7 @@ export PS1="[$(tput bold)][$(tput setaf 7)][[$(tput setaf 1)]u[$(tput setaf 7)]@
 $ nano /etc/ssh/sshd_config
 ```
 
-```
+```ini
 Port 23432
 Protocol 2
 ```
@@ -204,7 +204,7 @@ $ service httpd restart
 
 Т.к. phpMyAdmin у нас уже стоит, он по умолчанию доступен отовсюду по ссылке %виртуалхост%/phpmyadmin. Это мы исправляем, и разрешаем лишь на “главном хосте”, для чего конфиг “главного хоста” у нас может быть таким:
 
-```
+```apache
 <VirtualHost *:8080>
   ServerName localhost.local
   DocumentRoot /home/main.host/docs
@@ -311,24 +311,24 @@ $ service iptables save
 
 Ссылки, которые могут быть так же интересны:
 
-  * [LAMP +Nginx на VPS стабильно и без лишней головной боли][5]
-  * [Настройка Nginx + LAMP сервера в домашних условиях][6]
-  * [Настраиваем свой первый VDS сервер в роли веб-сервера][7]
-  * [DNS-хостинг Яндекса][8]
-  * [Яндекс.DNS — безопасный домашний интернет][9]
-  * [Руководство по iptables (Iptables Tutorial 1.1.19)][10]
-  * [Chmod, Umask, Stat, Fileperms, and File Permissions][11]
-  * [eZ Server Monitor - A lightweight and simple dashboard monitor for Linux][12]
+- [LAMP +Nginx на VPS стабильно и без лишней головной боли][5]
+- [Настройка Nginx + LAMP сервера в домашних условиях][6]
+- [Настраиваем свой первый VDS сервер в роли веб-сервера][7]
+- [DNS-хостинг Яндекса][8]
+- [Яндекс.DNS — безопасный домашний интернет][9]
+- [Руководство по iptables (Iptables Tutorial 1.1.19)][10]
+- [Chmod, Umask, Stat, Fileperms, and File Permissions][11]
+- [eZ Server Monitor - A lightweight and simple dashboard monitor for Linux][12]
 
-[1]: http://www.hetzner.de/
-[2]: http://moonback.ru/page/apache2-realip-nginx
-[3]: http://debianworld.ru/articles/rotaciya-logov-s-pomoshyu-logrotate-v-debian-ubuntu/
-[4]: //habrastorage.org/files/81f/6d9/fe4/81f6d9fe4d60492b8641d02283350a28.png
-[5]: https://habr.com/post/132302/
-[6]: https://habr.com/post/159203/
-[7]: https://habr.com/post/160647/
-[8]: https://habr.com/company/yandex/blog/104652/
-[9]: https://habr.com/post/196844/
-[10]: http://www.opennet.ru/docs/RUS/iptables/
-[11]: http://www.askapache.com/security/chmod-stat.html
-[12]: http://www.ezservermonitor.com/
+[1]:http://www.hetzner.de/
+[2]:http://moonback.ru/page/apache2-realip-nginx
+[3]:http://debianworld.ru/articles/rotaciya-logov-s-pomoshyu-logrotate-v-debian-ubuntu/
+[4]:https://habrastorage.org/files/81f/6d9/fe4/81f6d9fe4d60492b8641d02283350a28.png
+[5]:https://habr.com/post/132302/
+[6]:https://habr.com/post/159203/
+[7]:https://habr.com/post/160647/
+[8]:https://habr.com/company/yandex/blog/104652/
+[9]:https://habr.com/post/196844/
+[10]:http://www.opennet.ru/docs/RUS/iptables/
+[11]:http://www.askapache.com/security/chmod-stat.html
+[12]:http://www.ezservermonitor.com/

@@ -20,7 +20,7 @@ tags:
 
 В рассматриваемом примере у нас в качестве "внешнего" (front-end) веб-сервера используется **nginx** (протокол `http`, разумеется), "слушающий" `80` порт. Исходный конфиг тестового домена `domain.ltd` для него может быть таким:
 
-```
+```nginx
 server {
   listen      80;
   server_name domain.ltd;
@@ -39,8 +39,8 @@ server {
 Для получения сертификата мы можем дождаться [бесплатной раздачи от Mozilla](https://letsencrypt.org/), а можем получить его уже сейчас и бесплатно, например, [у WoSign](https://buy.wosign.com/free/) (_[так же существуют аналоги](https://habr.com/search/?q=%D0%91%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9+SSL)_).
 
 Рассмотрим вариант с **WoSign** - заполняем необходимые поля и ожидаем готовый сертификат на почте:
-  
-![](https://hsto.org/files/8ec/542/fd9/8ec542fd9903422cad8cfc13d2b22975.png)
+
+![screenshot](https://hsto.org/files/8ec/542/fd9/8ec542fd9903422cad8cfc13d2b22975.png)
 
 > Для подтверждения прав владения доменом необходимо будет ввести код из письма, который будет отправлен на, например, `admin@domain.ltd`. Если необходимо подключить шифрование ещё и на поддоменах - то все их сразу указываем в поле "Domain name" - по одному на строчку. Введенный пароль обязательно сохраняем. Ожидание готового сертификата составляет около суток. Письмо придет на адрес, которым подтверждали права владения доменом.
 
@@ -59,7 +59,7 @@ $ nano ./domain.ltd_ssl.conf
 
 Его содержание (_[подробнее об этом](https://habr.com/post/195808/)_):
 
-```
+```nginx
 ssl_certificate     /etc/nginx/ssl/domain.ltd_bundle.crt;
 ssl_certificate_key /etc/nginx/ssl/domain.ltd.key;
 ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;
@@ -69,7 +69,7 @@ add_header          Strict-Transport-Security 'max-age=604800';
 
 Именно этот файл (`/etc/nginx/ssl/domain.ltd_ssl.conf`) мы будем подключать как на самом домене, так и всех поддоменах в секции `server {...}` для включения поддержки SSL. Теперь добавляем в секцию `http {...}` (файл `/etc/nginx/nginx.conf`) следующие строки:
 
-```
+```nginx
 ssl_session_cache   shared:SSL:10m;
 ssl_session_timeout 5m;
 ssl_prefer_server_ciphers on;
@@ -79,7 +79,7 @@ resolver 8.8.8.8;
 
 И на этом настройку сервера можно считать завершенной. Всё что остается - это "активировать" SSL на нужном виртуальном сервере. Поправим конфиг, приведенный в самом начале статьи:
 
-```
+```nginx
 server {
   listen      80;
   listen      443 ssl;
@@ -103,7 +103,7 @@ $ service nginx restart
 
 Если у тебя стоит задача перевести все запросы с `http` на `https` - можешь воспользоваться следующим примером:
 
-```
+```nginx
 server {
   listen 80;
   ...

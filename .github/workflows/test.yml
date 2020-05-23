@@ -4,7 +4,7 @@ on:
   push:
     branches: ['**']
     tags-ignore: ['**']
-  pull_request:
+  #pull_request:
 
 env:
   HUGO_VERSION: '0.56.0'
@@ -50,7 +50,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         with:
           fetch-depth: 1
 
-      - name: Execute linter
+      - name: Execute linter # Docs: <https://github.com/avto-dev/markdown-lint>
         uses: docker://avtodev/markdown-lint:v1
         with:
           args: '**/*.md'

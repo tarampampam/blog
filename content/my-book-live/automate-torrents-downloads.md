@@ -62,10 +62,10 @@ down_path = "/shares/Public/Films/New/"
 # Important - path to DIFF files (path must be writeable)
 logs_path = "/root/.config/gettorrentsbyrss/"
 
-hist = logs_path + "rss-hist.txt"		# Location of history file
-inc  = logs_path + "rss-inc.txt"		# Location of incoming links file
-diff = logs_path + "rss-diff.txt"		# Location of difference file
-evnt = logs_path + "events.log"			# Location of simple events log
+hist = logs_path + "rss-hist.txt"        # Location of history file
+inc  = logs_path + "rss-inc.txt"        # Location of incoming links file
+diff = logs_path + "rss-diff.txt"        # Location of difference file
+evnt = logs_path + "events.log"            # Location of simple events log
 
 # Transmission RPC details
 # Fill in your transmission details below
@@ -145,12 +145,12 @@ print "[i] Parse the feed url.."
 feed = feedparser.parse(feed_url)
 # Strip all the unnecessary data and grab the links
 with open(inc, 'w+') as incoming_file:
-	for post in feed.entries:
-		incoming_file.write(post.link + "\n")
-		#post.title
-		#post.link
-		#post.comments
-		#post.pubDate
+    for post in feed.entries:
+        incoming_file.write(post.link + "\n")
+        #post.title
+        #post.link
+        #post.comments
+        #post.pubDate
 
 print "[i] Check the incoming file against the history.."
 

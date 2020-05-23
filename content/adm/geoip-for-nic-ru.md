@@ -57,7 +57,7 @@ tags:
 
 Итак, мы считаем, что на данный момент у нас есть директория `~/geoip/httpd/`, а в ней есть so и c файлы модуля. Переходим к настройке хостинга. Первым делом - врубаем ручной режим настроек в [панели управления](https://www.nic.ru/hcp/cgi-bin/gen_avd.pl?mItem=web_server&hitem=&page=), после - залезаем обратно в консоль и немного правим файл `~/etc/apache_1.3/httpd.conf`, дописывая в него следующее:
 
-```
+```apache
 #LoadModule ...
 LoadModule geoip_module /home/{YourLogin}/geoip/httpd/mod_geoip.so
 
@@ -81,7 +81,7 @@ AddModule mod_geoip.c
 
 Теперь остается дело за малым - само правило, ограничивающее доступ для запросов из определенных стран. Добавляем в `.htaccess` следующий код:
 
-```
+```apache
 ## Disable access for countries
 ## https://www.maxmind.com/ru/home
 <IfModule mod_geoip.c>

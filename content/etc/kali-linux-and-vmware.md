@@ -14,7 +14,8 @@ tags:
 
 <!--more-->
 
-1. Установка VMware tools:
+- Установка VMware tools:
+
 ```bash
 # В окне VMware Workstation нажимаем "VM -> Install Vmware Tools"
 $ mkdir ~/vmware && cd ~/vmware
@@ -26,25 +27,24 @@ $ ./vmware-tools-distrib/vmware-install.pl
 $ service gdm3 restart
 ```
 
-2. Отключаем запрос логина/пароля при входе в иксы:
+- Отключаем запрос логина/пароля при входе в иксы:
+
 ```bash
 $ nano /etc/gdm3/daemon.conf
 # Раскомментируем строки "AutomaticLoginEnable = true" и "AutomaticLogin = root"
 ```
 
-3. Отключаем блокировку экрана и отключение его при бездействии:
-  - Нажимаем "Show Applications":
-  ![](https://habrastorage.org/files/783/78a/acc/78378aacca724c8ebe273a6be9753b0f)
-  - В поле поиска вводим "Settings":
-  ![](https://habrastorage.org/files/682/a9b/d53/682a9bd530f84067abbbd349c63509dd)
-  - Заходим в управление питанием ("Power"):
-  ![](https://habrastorage.org/files/d57/5ec/145/d575ec14555f4b6eb5702ea78c4bdf34)
-  - Ставим "Blank screen" в "Never":
-  ![](https://habrastorage.org/files/c10/c9f/b9a/c10c9fb9a7c94fc6af20022ec006fb3b)
+- Отключаем блокировку экрана и отключение его при бездействии:
 
-4. Добавляем нормальную поддержку VPN:
+  - Нажимаем "Show Applications": ![screenshot](https://habrastorage.org/files/783/78a/acc/78378aacca724c8ebe273a6be9753b0f)
+  - В поле поиска вводим "Settings": ![screenshot](https://habrastorage.org/files/682/a9b/d53/682a9bd530f84067abbbd349c63509dd)
+  - Заходим в управление питанием ("Power"): ![screenshot](https://habrastorage.org/files/d57/5ec/145/d575ec14555f4b6eb5702ea78c4bdf34)
+  - Ставим "Blank screen" в "Never": ![screenshot](https://habrastorage.org/files/c10/c9f/b9a/c10c9fb9a7c94fc6af20022ec006fb3b)
+
+- Добавляем нормальную поддержку VPN:
+
 ```bash
 $ aptitude -r install network-manager-openvpn-gnome network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome
 ```
 
-Теперь пользоваться будет чуть чуть удобнее :)
+Теперь пользоваться будет чуть-чуть удобнее :)

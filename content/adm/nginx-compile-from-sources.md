@@ -122,32 +122,32 @@ $ yum install gcc gcc-c++ pcre-devel zlib-devel make openssl-devel
 $ yum install rpm-build gd-devel libxslt-devel perl-ExtUtils-Embed gperftools-devel
 ```
 
-> Для Debian систем список пакетов вероятнее всего будет таким:
-> 
+Для Debian систем список пакетов вероятнее всего будет таким:
+
 ```bash
 $ apt-get -y install build-essential zlib1g-dev libpcre3 libpcre3-dev libbz2-dev libssl-dev tar unzip
 ```
->
+
 > Небольшое отступление - в целях безопасности есть смысл скрыть настоящую сигнатуру используемого сервера. При помощи двух следующих шагов мы [заменим стандартный баннер nginx-а](http://stackoverflow.com/a/246294), отсылаемый при каждом запросе, и немного изменим вывод на стандартных страницах ошибок, по которым так же происходит определение используемого ПО на сервере.
-> 
-> Изменяем стандартный баннер ответа сервера (поправь строки 48 и 49):
-> 
+
+Изменяем стандартный баннер ответа сервера (поправь строки 48 и 49):
+
 ```bash
 $ nano ./src/http/ngx_http_header_filter_module.c
 ```
-> 
-```
+
+```с
 static char ngx_http_server_string[] = "Server: SuperSecretServer" CRLF;
 static char ngx_http_server_full_string[] = "Server: SuperSecretServer" CRLF;
 ```
-> 
-> И правим вывод вывод на стандартных страницах ошибок (начиная со строки 21 и далее по тексту):
-> 
+
+И правим вывод на стандартных страницах ошибок (начиная со строки 21 и далее по тексту):
+
 ```bash
 $ nano ./src/http/ngx_http_special_response.c
 ```
-> 
-```
+
+```c
 static u_char ngx_http_error_full_tail[] =
 "<hr><center>" /*NGINX_VER*/ "</center>" CRLF
 "</body>" CRLF
@@ -171,14 +171,16 @@ $ cp -r /etc/nginx/ ~/nginx_conf
 $ make
 ```
 
-> ##### Удали старый nginx!
-> 
-> Если nginx у тебя был установлен из репозитория, то именно сейчас настал момент, когда требуется остановить работающий nginx и удалить его. Для этого выполни:
-> 
+##### Удали старый nginx!
+
+Если nginx у тебя был установлен из репозитория, то именно сейчас настал момент, когда требуется остановить работающий nginx и удалить его. Для этого выполни:
+
 ```bash
 $ service nginx stop
 $ yum erase nginx
 ```
+
+Далее:
 
 ```bash
 $ service nginx stop

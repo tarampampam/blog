@@ -11,9 +11,9 @@ tags:
 ---
 
 По умолчанию дистрибутив Debian на WD My Book Live - очень старый, и более не поддерживается. Исходя из этого - возникают ошибки apt-get. Как их исправить? Описано по [этой ссылке](http://en.kioskea.net/faq/809-debian-apt-get-no-pubkey-gpg-error), а так же дополнительно опишу решение здесь.
-  
+
 <!--more-->
-  
+
 Итак, мы запускаем и видим:
 
 ```bash
@@ -46,7 +46,7 @@ W: You may want to run apt-get update to correct these problems
 
 Первым делом, правим `/etc/apt/sources.list`:
 
-```
+```bash
 deb http://archive.debian.org/debian/ lenny main
 deb-src http://archive.debian.org/debian/ lenny main
 deb http://ftp.us.debian.org/debian/ squeeze main

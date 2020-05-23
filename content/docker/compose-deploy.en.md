@@ -32,7 +32,7 @@ services:
       restart_policy:
         condition: on-failure
 ```
-        
+
 <!--more-->
 
 Several sub-options are available:

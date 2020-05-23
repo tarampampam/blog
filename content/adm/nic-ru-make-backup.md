@@ -117,13 +117,13 @@ cd $PathToBackupsDir
 thisBackupFileName=backup-$(date +%y-%m-%d--%H-%M)-$HostingID.tar.bz2
 
 logmessage -n "Pack files to $PathToBackupsDir/${cYel}$thisBackupFileName${cNone}.. "
-tar -cpPjf $PathToBackupsDir/$thisBackupFileName 
-    --exclude=$PathToBackupsDir* 
-    --exclude=$PathToHomeDir/dir1/\* 
-    --exclude=$PathToHomeDir/dir2/\* 
-    --exclude=$PathToHomeDir/tmp/* 
-    --exclude=*httpd.core 
-    --exclude=$linkfile 
+tar -cpPjf $PathToBackupsDir/$thisBackupFileName
+    --exclude=$PathToBackupsDir*
+    --exclude=$PathToHomeDir/dir1/\*
+    --exclude=$PathToHomeDir/dir2/\*
+    --exclude=$PathToHomeDir/tmp/*
+    --exclude=*httpd.core
+    --exclude=$linkfile
     $PathToHomeDir;
 echo -e "${cGreen}Complete${cNone}";
 
@@ -155,11 +155,11 @@ echo -e "${cGreen}Complete${cNone}";
 
 И небольшие комментарии к скрипту:
 
-* Всё, что тебе необходимо подправить под себя \- я подчеркнул
-* Формат даты подсмотри [хоть тут](http://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/)
-* `PathToBackupsDir` \- это та папка, куда бэкапы будут складываться;
-* Вызовы `mysqldump` \- создание дампов баз (по одному дампу за вызов);
-* Те пути и типы файлов, которые необходимо **исключить** из бэкапа \- прописаны в строках, начинающихся со слова `--exclude=`
+- Всё, что тебе необходимо подправить под себя \- я подчеркнул
+- Формат даты подсмотри [хоть тут](http://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/)
+- `PathToBackupsDir` \- это та папка, куда бэкапы будут складываться;
+- Вызовы `mysqldump` \- создание дампов баз (по одному дампу за вызов);
+- Те пути и типы файлов, которые необходимо **исключить** из бэкапа \- прописаны в строках, начинающихся со слова `--exclude=`
 
 ### Ссылки
 

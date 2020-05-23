@@ -14,7 +14,7 @@ tags:
 
 <!--more-->
 
-![](https://hsto.org/webt/uf/eu/sl/ufeuslvrezgjfdxqcxf5ixs5y2e.png)
+![screenshot](https://hsto.org/webt/uf/eu/sl/ufeuslvrezgjfdxqcxf5ixs5y2e.png)
 
 И ну никак не та (`5.4.16`), что встала из репозитория epel "по умолчанию". Для того чтоб исправить сложившуюся ситуацию выполним совсем не сложные действия, описанные ниже.
 

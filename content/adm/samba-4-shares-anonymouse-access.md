@@ -99,8 +99,8 @@ $ testparm -s
 ```
 
 > Все манипуляции проверялись на:
-> 
-```bash
-$ yum list samba | grep samba
-samba.x86_64                      4.1.12-23.el7_1                       @updates
-```
+>
+> ```bash
+> $ yum list samba | grep samba
+> samba.x86_64                      4.1.12-23.el7_1                       @updates
+> ```

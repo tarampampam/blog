@@ -59,4 +59,4 @@ $ tar -cpjf /home/system-backup/backup-$(date +%y-%m-%d--%H-%M)-systemconfig.tar
 > Более того, для того чтоб он запускался без необходимости активного пользователя в системе проверь наличие в нем строки:
 > `Defaults !requiretty`
 
-[1]: http://unix.stackexchange.com/a/107184
+[1]:http://unix.stackexchange.com/a/107184

@@ -26,19 +26,19 @@ tags:
 
 Настройка самой железки вряд ли вызовет какие-либо трудности. Укажем IP маршрутизатора в качестве первого DNS сервера в DHCP - "IP" &rarr; "DHCP Server" &rarr; "Networks" &rarr; %default config%. Первым прописываем IP самого MikroTik-а, нажимаем "OK":
 
-![](https://hsto.org/files/fd9/55d/3d7/fd955d3d7716475ea087718901041939.png)
+![screenshot](https://hsto.org/files/fd9/55d/3d7/fd955d3d7716475ea087718901041939.png)
 
 DNS сервер работает "из коробки", и можно даже не менять его стоковые настройки:
 
-![](https://hsto.org/files/7e4/702/d34/7e4702d34fa44d1899eb7d6e1be04a63.png)
-  
+![screenshot](https://hsto.org/files/7e4/702/d34/7e4702d34fa44d1899eb7d6e1be04a63.png)
+
 Единственная интересная для нас кнопка - "Static" ("Статические маршруты"), в которых мы должны прописать "рекламные" домены, указав куда такие запросы перенаправлять.
 
 ### Конвертируем файл хостов
 
 Файл хостов имеет формат:
 
-```
+```routeros
 # Any comments
 127.0.0.1 localhost
 127.0.0.1 domain-a.tld
@@ -47,7 +47,7 @@ DNS сервер работает "из коробки", и можно даже 
 
 Формат скрипта для MikroTik, использующий статические DNS маршруты:
 
-```
+```routeros
 # Any comments
 /ip dns static
 add address=127.0.0.1 name=localhost
@@ -58,15 +58,17 @@ add address=127.0.0.1 name=domain-b.tld
 Для получения актуальных списков первого и преобразования их во второй мы выполним простые команды в шелле на, например, десктопе (_bash_):
 
 1. Скачиваем списки и аккуратно складываем их под именами `./hosts_list.1`, `./hosts_list.2` и т.д.:
+
 ```bash
 $ src=('http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext' 'https://adaway.org/hosts.txt'); i=0; for file in ${src[*]}; do i=$((i+1)); wget --no-check-certificate -O "./hosts_list.$i" "$file"; done;
 ```
 
-2. Грепаем всё что начинается на `127.0.0.1`, удаляем комменты, оставляем только имена доменов, убираем дубликаты, убираем пустые строки и оформляем каждый домен в виде команды для импорта:
+1. Грепаем всё что начинается на `127.0.0.1`, удаляем комменты, оставляем только имена доменов, убираем дубликаты, убираем пустые строки и оформляем каждый домен в виде команды для импорта:
+
 ```bash
 $ in="./hosts_list.*" && out="./adblock_dns.rsc" && host='127.0.0.1'; echo "/ip dns static" > $out && grep '127.0.0.1 ' $in | grep -v '^#' | cut -d' ' -f 2 | sort -u | grep . | sed "s/^/add address=$host name=/" >> $out && rm -f $in; wc -l $out;
 ```
-    
+
 > _Да, надо бы использовать регулярку и вообще всё переделать, но самое главное - я передал тебе свою мысль, дальше дело за тобой_
 
 На выходе у нас получится файл `adblock_dns.rsc`, который не лишним будет дополнительно проверить на корректность содержимого.
@@ -75,23 +77,27 @@ $ in="./hosts_list.*" && out="./adblock_dns.rsc" && host='127.0.0.1'; echo "/ip 
 
 Для того, чтобы импортировать полученный файл, мы цепляемся к маршрутизатору по ftp, заливаем `adblock_dns.rsc`, после чего цепляемся по ssh или открываем терминал, в котором выполняем:
 
-1. Делаем резервную копию (_полученный бэкап лучше сохранить у себя на машине_): 
-```
+1. Делаем резервную копию (_полученный бэкап лучше сохранить у себя на машине_):
+
+```routeros
 /system backup save
 ```
 
-2. Если у тебя в таблице **нет** важных маршрутов, то можем грохнуть все имеющиеся записи:
-```
+1. Если у тебя в таблице **нет** важных маршрутов, то можем грохнуть все имеющиеся записи:
+
+```routeros
 /ip dns static remove [/ip dns static find]
 ```
 
-3. Импортируем загруженный файл: 
-```
+1. Импортируем загруженный файл:
+
+```routeros
 /import adblock_dns.rsc
 ```
 
-4. Убираем за собой:
-```
+1. Убираем за собой:
+
+```routeros
 /file remove adblock_dns.rsc
 ```
 
@@ -107,38 +113,38 @@ $ in="./hosts_list.*" && out="./adblock_dns.rsc" && host='127.0.0.1'; echo "/ip 
 
 Второй скрипт (_на MikroTik_) забирает его (`adblock_dns.rsc`), делает бэкап и, если и файл скачался успешно, и бэкап сохранился успешно, его импортирует, предварительно (_внимание_) грохнув все имеющиеся маршруты:
 
-```
-:local hostScriptUrl &#x22;ftp://user:login@ftp_host:21/adblock_dns.rsc&#x22;;
+```routeros
+:local hostScriptUrl "ftp://user:login@ftp_host:21/adblock_dns.rsc";
 
-:local scriptName &#x22;adblock_dns.rsc&#x22;;
-:local backupFileName &#x22;before_stopad&#x22;;
-:local logPrefix &#x22;[StopAD]&#x22;;
+:local scriptName "adblock_dns.rsc";
+:local backupFileName "before_stopad";
+:local logPrefix "[StopAD]";
 
 do {
- /tool fetch mode=ftp url=$hostScriptUrl dst-path=(&#x22;./&#x22;.$scriptName);
+ /tool fetch mode=ftp url=$hostScriptUrl dst-path=("./".$scriptName);
  :if ([:len [/file find name=$scriptName]] &#x3E; 0) do={
    /system backup save name=$backupFileName;
    :delay 1s;
-   :if ([:len [/file find name=($backupFileName.&#x22;.backup&#x22;)]] &#x3E; 0) do={
+   :if ([:len [/file find name=($backupFileName.".backup")]] &#x3E; 0) do={
      /ip dns static remove [/ip dns static find];
      /import file-name=$scriptName;
      /file remove $scriptName;
-     :log info &#x22;$logPrefix AD block script imported, backup file (\&#x22;$backupFileName.backup\&#x22;) created&#x22;;
+     :log info "$logPrefix AD block script imported, backup file (\"$backupFileName.backup\") created";
    } else={
-     :log warning &#x22;$logPrefix Backup file not created, importing AD block script stopped&#x22;;
+     :log warning "$logPrefix Backup file not created, importing AD block script stopped";
    }
  } else={
-   :log warning &#x22;$logPrefix Backup file not downloaded, script stopped&#x22;;
+   :log warning "$logPrefix Backup file not downloaded, script stopped";
  }
 } on-error={
- :log warning &#x22;$logPrefix AD block script download FAILED&#x22;;
+ :log warning "$logPrefix AD block script download FAILED";
 };
 ```
 
 ### Бонус для хабралюдей
 
 А что делать, если у тебя дома/офисе/гараже стоит MikroTik и хочется или просто порезать рекламу, или автоматизировать обновление хостов, не поднимая никакие метароутеры и хосты с файлами по ftp, вот чтоб просто и без заморочек?
-  
+
 Правильно, нужно чтобы это поднял кто то за тебя. И в качестве бонуса - такая штука уже поднята.
 
 Смысл заключается в следующем - тебе достаточно перейти на нужную страницу, указать свои настройки и получить URL, по которому будет доступен скрипт с указанными тобой настройками. Там же будет предоставлен и исходник готового скрипта для тебя. Возможности, которые реализованы на данный момент:
@@ -164,10 +170,9 @@ do {
 
 > _При обнаружении ошибок в работе сервиса или опечаток в тексте - пожалуйста, сообщайте об этом в личку. Заранее спасибо!_
 
-[1]: https://habr.com/post/263081/#comment_8509571
-[2]: https://habr.com/users/vvzvlad/
-[3]: https://habr.com/post/263081/
-[5]: https://gist.githubusercontent.com/tarampampam/4d4af291ffd4de29c3a9/raw/cb30514aa511f06b2bfa62f765eb97917c3e4481/.txt
-[6]: https://github.com/tarampampam/mikrotik-hosts-parser
-[7]: http://generate.club/
- 
+[1]:https://habr.com/post/263081/#comment_8509571
+[2]:https://habr.com/users/vvzvlad/
+[3]:https://habr.com/post/263081/
+[5]:https://gist.githubusercontent.com/tarampampam/4d4af291ffd4de29c3a9/raw/cb30514aa511f06b2bfa62f765eb97917c3e4481/.txt
+[6]:https://github.com/tarampampam/mikrotik-hosts-parser
+[7]:http://generate.club/

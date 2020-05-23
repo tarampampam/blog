@@ -21,7 +21,7 @@ tags:
 
 Итак, мы работаем под Windows. Первым делом определимся с тем, как у нас всё располагается. Имеется директория `%project_name%`, в которой лежит директория `sources` с исходниками проекта (_пролинкована как домашняя директория на тестовом веб-сервере_), там же лежит `README.md` файл, и всё это располагается в Git-е (_всё всегда храним в Git-е_). Визуально это выглядит так:
 
-```
+```bash
 [dir] %project_name%
   |- [dir] .git
   |- [dir] sources (исходники проекта)
@@ -43,7 +43,7 @@ tags:
 
 В файле `build.cmd` (_что уже лежит в корне проекта_) необходимо указать где у нас располагается интерпритатор и PhiNG. Для этого редатируем две строки:
 
-```
+```bash
 ...
 set DEFAULT_PHING_HOME=".\build_tools\phing"
 ...
@@ -62,9 +62,9 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
   <property name="build_dir" value="../build/" override="false" />
 
   <tstamp>
-    <format pattern="%Y_%m_%d__%H-%M-%S" property="build.time" />  
+    <format pattern="%Y_%m_%d__%H-%M-%S" property="build.time" />
   </tstamp>
-  
+
   <target name="make_copy">
     <if>
       <available file="${build_dir}" type="dir" />
@@ -80,7 +80,7 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
       </fileset>
     </copy>
   </target>
-  
+
   <target name="make_clean" depends="make_copy">
     <echo>Clear cache</echo>
     <delete>
@@ -101,7 +101,7 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
       </fileset>
     </delete>
   </target>
-  
+
   <target name="min_js" depends="make_copy">
     <taskdef name="jsminify" classname="phing.tasks.JsMinifyTask" />
     <echo>Minifying JavaScript files</echo>
@@ -112,7 +112,7 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
       </fileset>
     </jsminify>
   </target>
-  
+
   <target name="min_css" depends="make_copy">
     <taskdef name="cssminify" classname="phing.tasks.CssMinifyTask" />
     <echo>Minifying CSS files</echo>
@@ -123,7 +123,7 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
       </fileset>
     </cssminify>
   </target>
-  
+
   <target name="protect_php" depends="make_copy">
     <echo>Protect PHP files</echo>
     <reflexive>
@@ -136,7 +136,7 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
       </filterchain>
     </reflexive>
   </target>
-  
+
   <target name="pack" depends="make_copy">
     <echo>Pack to single archive</echo>
     <zip destfile="../build_${build.time}.zip">
@@ -145,7 +145,7 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
       </fileset>
     </zip>
   </target>
-  
+
   <target name="remove_copy" depends="make_copy">
     <echo>Remove build directory</echo>
     <delete dir="${build_dir}" includeemptydirs="true" verbose="false" failonerror="false" />
@@ -169,9 +169,8 @@ set PHP_COMMAND=".\build_tools\php-5\php.exe"
 
 И остается самый ответственный момент - запустить сборку. Выполняем файл `build.cmd`:
 
-![screen shot](https://hsto.org/webt/vl/pl/cf/vlplcfrqqvzp166enxyrmiftk74.png)
+![screenshot](https://hsto.org/webt/vl/pl/cf/vlplcfrqqvzp166enxyrmiftk74.png)
 
 Как видим - сборка прошла без ошибок, и у нас в директории с проектом появился файл `build_%timestamp%.zip`, в котором все ресурсы нежно упакованы :) Как ты уже догадываешься - возможностей у PhiNG дохрена и больше - можно как делать и автоматическую загрузку итогового архива на удаленный сервер, так и производить массу иных операций. Но сейчас мы просто ознакомились с общим функционалом.
 
- [1]: https://github.com/phingofficial/phing/archive/master.zip
- 
+[1]:https://github.com/phingofficial/phing/archive/master.zip

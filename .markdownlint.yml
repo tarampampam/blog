@@ -13,16 +13,16 @@ MD014: false
 # Multiple headings with the same content <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md024>
 MD024: false
 
+# Trailing punctuation in heading <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md026>
+MD026: false
+
 # Blank line inside blockquote <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md028>
 MD028: false
 
-## Inline HTML <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md033>
-#MD033:
-#  allowed_elements:
-#    - 'a'
-#    - 'div'
-#    - 'img'
-#    - 'br'
-#
+# Inline HTML <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md033>
+MD033:
+  allowed_elements:
+    - 'a'
+
 ## First line in file should be a top level heading <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md041>
 #MD041: false

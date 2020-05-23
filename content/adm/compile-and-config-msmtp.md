@@ -86,8 +86,8 @@ $ make
 ```
 
 > Если во время сборки вылезла ошибка вида:
-> 
-```
+>
+```bash
 *** error: gettext infrastructure mismatch: using a Makefile.in.in from gettext version 0.19 but the autoconf macros are from gettext version 0.18
 make[2]: *** [stamp-po] Error 1
 make[2]: Leaving directory `/root/msmtp/po'
@@ -95,15 +95,15 @@ make[1]: *** [all-recursive] Error 1
 make[1]: Leaving directory `/root/msmtp'
 make: *** [all] Error 2
 ```
-> 
+>
 > То правим один файл:
-> 
+>
 ```bash
 $ nano ./po/Makefile.in.in
 ```
-> 
+>
 > Где заменяем строку `GETTEXT_MACRO_VERSION = 0.19` на `GETTEXT_MACRO_VERSION = 0.18`. После этого повторяем:
-> 
+>
 ```bash
 $ make
 ```
@@ -169,7 +169,7 @@ $ chown :www-data /usr/local/etc/msmtprc
 $ nano /etc/msmtprc
 ```
 
-```
+```ini
 defaults
 tls on
 auth on
@@ -222,7 +222,7 @@ $ php -r "mail('your_another_email@gmail.com','Subject','Some test 2');"
 
 Так как на одном сервере могут располагаться несколько сайтов - наверняка возникнет потребность отправлять письма с разных сайтов от разных отправителей. Поясню - на одном сервере расположены сайты с доменными именами `site1.ru` и `site2.ru`. Соответственно, отправитель в исходящих письмах с сайта `site1.ru` должен быть вида `robot@site1.ru`, а в исходящих письмах с сайта `site2.ru` - вида `robot@site2.ru`. Для того что бы этого добиться нам необходимо прописать требуемые аккаунты в файле настроек msmtp:
 
-```
+```ini
 defaults
 tls on
 auth on
@@ -252,7 +252,7 @@ account default : site1
 
 Теперь по умолчанию письма будут уходить от имени аккаунта `site1`, так как он у нас указан как аккаунт по умолчанию. Для того что бы сообщить скриптам на сайте `site2.ru` использовать аккаунт `site2` необходимо добавить следующую строку в конфигурацию сервера `site2.ru` nginx:
 
-```
+```nginx
 location ~ \.php$ {
     # ...
     fastcgi_param PHP_VALUE "sendmail_path = /usr/sbin/sendmail -t -i -a site2";

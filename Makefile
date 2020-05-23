@@ -8,7 +8,7 @@ SHELL = /bin/bash
 HUGO_IMAGE := tarampampam/hugo:0.56.0
 RUN_ARGS = --rm -v "$(shell pwd):/src:rw" --user "$(shell id -u):$(shell id -g)"
 
-.PHONY : help pull start new-post clean
+.PHONY : help pull start new-post test clean
 .DEFAULT_GOAL : help
 
 help: ## Show this help
@@ -31,6 +31,9 @@ new-post: pull ## Make new post (post name must be passed through ENV value)
 	@read -p "Enter new post name (like 'category/my-first-post', without '.md' extension): " NEW_POST_NAME
 	docker run $(RUN_ARGS) "$(HUGO_IMAGE)" new "$$NEW_POST_NAME.md"
 	-gedit "./content/$$NEW_POST_NAME.md" &
+
+test: ## Execute tests
+	docker run $(RUN_ARGS) -w "/src" avtodev/markdown-lint:v1 '**/*.md'
 
 clean: ## Make some clean
 	-rm -Rf ./public

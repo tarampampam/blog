@@ -16,7 +16,7 @@ tags:
 
 <!--more-->
 
-```
+```bash
 127.0.0.1 devads.skypeassets.net devapps.skype.net
 127.0.0.1 qawww.skypeassets.net qaapi.skype.net
 127.0.0.1 preads.skypeassets.net preapps.skype.net

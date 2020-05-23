@@ -19,7 +19,7 @@ tags:
 
 Для того, чтоб nginx вместо встроенных шаблонов отдавал нужный нам контент - существует следующая конструкция ([документация](http://nginx.org/ru/docs/http/ngx_http_core_module.html#error_page)):
 
-```
+```nginx
 error_page 401 /401.html;
 error_page 404 /404.html;
 ```
@@ -32,7 +32,7 @@ error_page 404 /404.html;
 
 Отлично, но что нам делать, если хотим чтоб страницы ошибок лежали отдельно от корневой директории веб-сервера? Нам на помощь приходит `location` ([документация](http://nginx.org/ru/docs/http/ngx_http_core_module.html#location)):
 
-```
+```nginx
 set $errordocs /some/path/to/nginx-errordocs;
 
 error_page 401 /401.html;
@@ -53,12 +53,12 @@ location = /404.html {
 #### Глобальные страницы ошибок
 
 А теперь ещё один момент - у нас может быть несколько хостов на одном сервере, и прописывать одни и те же настройки для каждого - дело не логичное. Тем более, что если произойдут какие-либо изменения - везде придется их обновлять.
-  
+
 К сожалению, я не нашел способа сделать их глобальными для всех "по умолчанию", но поступил следующим способом:
 
 > Описываем все необходимые коды и страницы им соответствующие
 
-```
+```nginx
 set $errordocs /some/path/to/nginx-errordocs;
 
 error_page 401 /401.html;
@@ -94,7 +94,7 @@ location = /503.html {
 
 Сохраняем в файл `/etc/nginx/errordocs_default.inc`. Во всех хостах, в секции `server {...}` дописываем одну строчку ([документация](http://nginx.org/ru/docs/ngx_core_module.html#include)):
 
-```
+```nginx
 server {
   # ...
   include /etc/nginx/errordocs_default.inc;

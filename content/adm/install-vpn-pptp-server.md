@@ -29,7 +29,7 @@ tags:
 
 iOS | Android
 --- | -------
-![](https://hsto.org/webt/ey/h9/iu/eyh9iumvyikm1-xeqgxejlj32ui.jpeg) | ![](https://hsto.org/webt/sh/r0/d5/shr0d5nnp62fnme2ayoeaisrbxa.jpeg)
+![scr](https://hsto.org/webt/ey/h9/iu/eyh9iumvyikm1-xeqgxejlj32ui.jpeg) | ![scr](https://hsto.org/webt/sh/r0/d5/shr0d5nnp62fnme2ayoeaisrbxa.jpeg)
 
 #### Установка и настройка pptpd
 
@@ -47,7 +47,7 @@ net.ipv4.ip_forward = 1
 
 После этого изменяем файл `/etc/pptpd.conf` поправив в нем 2 опции (указываем адрес сервера и диапазон адресов для vpn-клиентов):
 
-```
+```bash
 # Не нужно прописывать сюда внешний IP сервера, или IP других сетевых интерфейсов сервера
 localip 10.0.0.1
 # Диапазон или через запятую
@@ -56,7 +56,7 @@ remoteip 10.0.0.10-50
 
 Переходим к файлу `/etc/ppp/options.pptpd` (он был указан в `pptpd.conf` в опции `option`):
 
-```
+```bash
 name pptpd
 # Запрещаем откровенно не безопасные
 refuse-pap
@@ -83,7 +83,7 @@ noipx
 
 Теперь создадим учетки для VPN-клиентов, добавив в файл `/etc/ppp/chap-secrets` следующие строки (пароли и логины, разумеется, меняем на свои):
 
-```
+```bash
 # Secrets for authentication using CHAP
 # client / server / password / IP addresses
 client1 pptpd 5R2T0w7r *
@@ -109,11 +109,11 @@ $ service iptables save
 
 На этот моменте необходимо протестировать работу сервера подключением клиента, например, на Windows 7 (в качестве имени сервера указываем его DNS имя или IP адрес):
 
-![](https://hsto.org/webt/iz/3n/29/iz3n29ag56o7_mywgznhxex57z8.jpeg)
+![screenshot](https://hsto.org/webt/iz/3n/29/iz3n29ag56o7_mywgznhxex57z8.jpeg)
 
 Соединение должно успешно установиться, а состояние подключения иметь вид:
 
-![](https://hsto.org/webt/_v/w3/98/_vw398z0-3bnccggmpyzyofnyba.jpeg)
+![screenshot](https://hsto.org/webt/_v/w3/98/_vw398z0-3bnccggmpyzyofnyba.jpeg)
 
 Если всё работает - добавляем `pptpd` в автозапуск:
 
@@ -123,7 +123,7 @@ $ systemctl enable pptpd.service
 
 И прописываем указанные в `/etc/ppp/chap-secrets` на самих гаджетах под управлением iOS и Android. Всё должно успешно заработать и на них.
 
-###### Ссылки по теме:
+##### Ссылки по теме:
 
-  * [Теплый и ламповый VPN](https://habr.com/post/153855/)
-  * [Как настроить VPN с помощью PPTP](https://www.digitalocean.com/community/tutorials/vpn-pptp-ru)
+- [Теплый и ламповый VPN](https://habr.com/post/153855/)
+- [Как настроить VPN с помощью PPTP](https://www.digitalocean.com/community/tutorials/vpn-pptp-ru)

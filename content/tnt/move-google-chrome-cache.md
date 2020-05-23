@@ -31,5 +31,5 @@ rmdir /s /q User_Data_old
 
 А для совсем маленьких написал готовый скрипт, выполняющий всю работу. Скрипт железно работает под Win7 и выше, выводит подробную информацию, имеет настройки:
 
-* [Скачать](https://raw.githubusercontent.com/tarampampam/scripts/master/win/move-google-chrome-cache/move-google-chrome-cache.cmd)
-* [GitHub](https://github.com/tarampampam/scripts/blob/master/win/move-google-chrome-cache/move-google-chrome-cache.cmd)
+- [Скачать](https://raw.githubusercontent.com/tarampampam/scripts/master/win/move-google-chrome-cache/move-google-chrome-cache.cmd)
+- [GitHub](https://github.com/tarampampam/scripts/blob/master/win/move-google-chrome-cache/move-google-chrome-cache.cmd)

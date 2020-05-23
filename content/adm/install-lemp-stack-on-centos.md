@@ -17,12 +17,12 @@ tags:
 ---
 
 Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.
-  
+
 <!--more-->
 
 Итак, коннектимся к нему с win-машины с помощью putty:
 
-```
+```bash
 putty.exe -ssh -l root -pw %password% -P 22 %ip_address%
 ```
 
@@ -36,7 +36,7 @@ $ yum install nano
 
 Правим его настройки, выставляя их в `/etc/nanorc`:
 
-```
+```bash
 set nowrap
 set speller "hunspell"
 set tabsize 2
@@ -57,7 +57,7 @@ include "/usr/share/nano/xml.nanorc"
 ```
 
 > Для получения всех активных настроек из любого конфига можно воспользоваться командой:
-> 
+>
 ```bash
 $ cat /path/to/file | grep -v -e '^#' -e '^;' -e '^$'
 ```
@@ -88,7 +88,7 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 7)\][\[$(tput setaf 1)\]\u\[$(tput se
 
 Правим конфиг демона ssh (`/etc/ssh/sshd_config`) изменяя следующие значения:
 
-```
+```ini
 Port 16661
 AddressFamily inet
 Protocol 2
@@ -138,7 +138,7 @@ $ nano /etc/ntp.conf
 
 И добавляем в конец файла:
 
-```
+```bash
 server 0.rhel.pool.ntp.org
 server 1.rhel.pool.ntp.org
 server 2.rhel.pool.ntp.org
@@ -150,7 +150,7 @@ server 2.rhel.pool.ntp.org
 $ nano /etc/resolv.conf
 ```
 
-```
+```bash
 nameserver 77.88.8.8
 nameserver 77.88.8.1
 ```
@@ -175,7 +175,7 @@ $ usermod -a -G www-data %username%
 
 А так же разрешим пользователю выполнять команды от имени рута (_после ввода **своего** пароля_), добавив в конец `/etc/sudoers` строку вида:
 
-```
+```bash
 %username%   ALL=(ALL) ALL
 ```
 
@@ -197,7 +197,7 @@ $ yum -y update
 $ crontab -e
 ```
 
-```
+```bash
 MAILTO=""
 # -----------------------------------------------------------------------------------------
 
@@ -272,7 +272,7 @@ $ usermod -a -G www-data nginx
 $ nano /etc/nginx/nginx.conf
 ```
 
-```
+```nginx
 user nginx www-data;
 pid  /var/run/nginx.pid;
 
@@ -352,7 +352,7 @@ http {
 $ nano /etc/nginx/fastcgi_params
 ```
 
-```
+```nginx
 fastcgi_param  QUERY_STRING       $query_string;
 fastcgi_param  REQUEST_METHOD     $request_method;
 fastcgi_param  CONTENT_TYPE       $content_type;
@@ -389,7 +389,7 @@ fastcgi_split_path_info ^(.+\.php)(/.+)$;
 $ nano /etc/nginx/conf.d/default.conf
 ```
 
-```
+```nginx
 server {
   listen      *:80 default_server;
   root        /var/www/www;
@@ -422,7 +422,7 @@ $ mkdir /etc/nginx/include
 $ nano /etc/nginx/include/default.conf
 ```
 
-```
+```nginx
 ## Setup default error pages
 include include/errorpages.conf;
 
@@ -438,7 +438,7 @@ location ~ /\. {
 $ nano /etc/nginx/include/errorpages.conf
 ```
 
-```
+```nginx
 error_page 400 /errorpages/400.html;
 error_page 401 /errorpages/401.html;
 error_page 402 /errorpages/402.html;
@@ -493,7 +493,7 @@ $ chkconfig nginx on
 
 После чего пробуем в браузере обратиться к нашему серверу по IP - должны увидеть красивую ошибку 403.
 
-### Шаг #3 - PHP 5.6 и php-fpm 
+### Шаг #3 - PHP 5.6 и php-fpm
 
 Ну что-ж, приступим-с:
 
@@ -760,7 +760,7 @@ $ cd ..
 $ nano /etc/nginx/conf.d/pma.domain_name.ru.conf
 ```
 
-```
+```nginx
 server {
   listen      80;
   server_name pma.domain_name.ru;
@@ -812,7 +812,7 @@ $cfg['CaptchaLoginPublicKey'] = 'AABBCCDD_PUBLIC_KEY_00112233';
 $ nginx -s reload
 ```
 
-И открываем страницу http://pma.domain_name.ru/, пытаясь войти под рутом (_очень важно **отключить возможность входа под рутом** после развертывания всех сайтов_).
+И открываем страницу `http://pma.domain_name.ru/`, пытаясь войти под рутом (_очень важно **отключить возможность входа под рутом** после развертывания всех сайтов_).
 
 ### Шаг #8 - Огненная стена
 
@@ -899,7 +899,7 @@ export BM_MYSQL_ADMINPASS="mysql_root_password_here"
 $ crontab -e
 ```
 
-```
+```bash
 0  */2  *  *  *  nice -n 17 /usr/sbin/backup-manager
 ```
 

@@ -18,7 +18,7 @@ tags:
 
 Запрошенные страницы имели примерно следующий вид:
 
-```
+```bash
 /wp-admin/admin-ajax.php?action=revslider_show_image&img=../wp-config.php
 /wp-admin/admin-ajax.php?action=revolution-slider_show_image&img=../wp-config.php
 /wp-content/themes/infocus/lib/scripts/dl-skin.php
@@ -37,7 +37,7 @@ tags:
 
 Как наиболее очевидное решение - блокировать все URL, которые содержат ключевые слова `/wp-config.php`. Пойдем чуть дальше и расширим этот список названиями некоторых потенциально уязвимых плагинов, важных системных файлов, ридмишкам и файлам лицензионного соглашения _(для предотвращения возможного раскрытия версии)_:
 
-```
+```nginx
 # Запрещаем доступ ко всем ULR-ам, которые содержат следующие вхождения
 location ~* /((wp-config|plugin_upload|dl-skin|uploadify|xmlrpc).php|readme.(html|txt|md)|license.(html|txt|md)|(.*)/(revslider|showbiz|infocus|awake|echelon|elegance|dejavu|persuasion|wp-filemanager|churchope|uploadify)/(.*))$ {
   return 444;
@@ -48,7 +48,7 @@ location ~* /((wp-config|plugin_upload|dl-skin|uploadify|xmlrpc).php|readme.(htm
 
 Далее - блокируем все URL, в параметрах которых присутствуют ключевые слова `wp-config.php`, `xmlrpc.php` и другие ключи, плюс к тому - усложним эксплуатацию наиболее популярных SQL-инъекций:
 
-```
+```nginx
 # Запрещаем все URL-ы, в параметрах (..?a=evil) которых есть следующие вхождения
 if ($query_string ~* "^(.*)(wp-config.php|dl-skin.php|xmlrpc.php|uploadify.php)(.*)$") {
   return 444;
@@ -62,7 +62,7 @@ if ($query_string ~* "(concat.*\(|union.*select.*\(|union.*all.*select)") {
 
 Запрещаем доступ к php файлам, которые были загружены в директорию `uploads` или `files`:
 
-```
+```nginx
 # Запрет для загруженных скриптов
 location ~* /(?:uploads|files)/.*\.php$ {
   return 444;
@@ -71,7 +71,7 @@ location ~* /(?:uploads|files)/.*\.php$ {
 
 Хардкорно закрываем доступ к листингу определенных директорий, которые раскрывают используемую CMS и данные, несколько облегчающие взлом сайта:
 
-```
+```nginx
 # Закрываем доступ к корню следующих директорий
 location = /wp-content/ {return 404;}
 location = /wp-includes/ {return 404;}
@@ -84,7 +84,7 @@ location = /wp-content/languages/themes/ {return 404;}
 
 Закрываем доступ к путям ведущим к корневым директориям плагинов, тем самым усложняя их раскрытие путем перебора:
 
-```
+```nginx
 # Закрываем прямой доступ у содержимому корневых директорий плагинов (для усложнения их раскрытия)
 location ~* /wp-content/plugins/([0-9a-z\-_]+)(/|$) {
   return 404;
@@ -93,7 +93,7 @@ location ~* /wp-content/plugins/([0-9a-z\-_]+)(/|$) {
 
 Закрываем доступ к файлам перевода, которые так же раскрывают версию CMS:
 
-```
+```nginx
 # Закрываем доступ к файлам перевода (для невозможности раскрыть версию WP)
 location ~ /wp-content/languages/(.+)\.(po|mo) {
   return 404;
@@ -102,7 +102,7 @@ location ~ /wp-content/languages/(.+)\.(po|mo) {
 
 И мы пойдем ещё чуть дальше, отсеив значительное количество различных онлайн-сканеров и веб-аналитику:
 
-```
+```nginx
 if ($http_user_agent ~* (nmap|nikto|wikto|sf|sqlmap|bsqlbf|w3af|acunetix|havij|appscan|monoid.nic.ru|Web-Monitoring|semalt|Baiduspider|virusdie|wget|indy|perl)) {
   return 403;
 }

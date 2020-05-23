@@ -16,7 +16,7 @@ tags:
 ---
 
 Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.
-  
+
 <!--more-->
 
 ### Skype:
@@ -51,10 +51,9 @@ var getSkypeStatus = function(user, callback) { // Функция принима
 // Найди свой ID на странице натроек ВК: <https://vk.com/settings>
 var getVKstatus = function(userID, callback) {
     if(!userID) throw new Error("Missing vk user id");
-    
+
     $.ajax({
-      url: "https://api.vkontakte.ru/method/getProfiles?uids=" + 
-           parseInt(userID, 10) + "&fields=online",        
+      url: "https://api.vkontakte.ru/method/getProfiles?uids=" + parseInt(userID, 10) + "&fields=online",
       type : "GET", dataType: "jsonp", crossDomain: true,
       success: function(data){
         console.log(data);
