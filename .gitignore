@@ -1,3 +1,10 @@
 # IDEs
 /nbproject
 /.idea
+
+# Temp dirs & trash
+.DS_Store
+
+/resources
+/data
+/public
