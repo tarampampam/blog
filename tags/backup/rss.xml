@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>backup on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/backup/</link>
+    <link>https://blog.hook.sh/tags/backup/</link>
     <description>Recent content in backup on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Wed, 13 Jul 2016 17:24:26 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/backup/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/backup/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Дружим rclone с Яндекс.Диском</title>
-      <link>https://tarampampam.github.io/blog/software/rclone-work-with-yandex-disk/</link>
+      <link>https://blog.hook.sh/software/rclone-work-with-yandex-disk/</link>
       <pubDate>Wed, 13 Jul 2016 17:24:26 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/software/rclone-work-with-yandex-disk/</guid>
+      <guid>https://blog.hook.sh/software/rclone-work-with-yandex-disk/</guid>
       <description>&lt;p&gt;Сегодня мы поговорим об одном интересном, простом в обращении и в какой-то мере уникальном инструменте. Знакомьтесь: &lt;a href=&#34;http://rclone.org/&#34;&gt;rclone&lt;/a&gt;. Разработчики описывают его краткой и ёмкой фразой - &amp;ldquo;rsync для облачных хранилищ&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Настройка хостинга на RU-Center (nic.ru)</title>
-      <link>https://tarampampam.github.io/blog/adm/config-hosting-rucenter/</link>
+      <link>https://blog.hook.sh/adm/config-hosting-rucenter/</link>
       <pubDate>Fri, 22 Jan 2016 10:14:01 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/config-hosting-rucenter/</guid>
+      <guid>https://blog.hook.sh/adm/config-hosting-rucenter/</guid>
       <description>&lt;p&gt;Так уж сложилось, что время от времени приходится поднимать сайты на хостинге руцентра. Как правило это небольшие сайты-визитки или проекты, для которых реализация на дедике характеризуется как &amp;ldquo;жирно будет&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Backup системных настроек linux</title>
-      <link>https://tarampampam.github.io/blog/adm/backup-system-config-linux/</link>
+      <link>https://blog.hook.sh/adm/backup-system-config-linux/</link>
       <pubDate>Sat, 07 Feb 2015 13:40:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/backup-system-config-linux/</guid>
+      <guid>https://blog.hook.sh/adm/backup-system-config-linux/</guid>
       <description>&lt;p&gt;Итак, у нас есть система, которая работает и выполняет свои задачи. Более того - у нас происходит периодическое копирование всех рабочих данных, настроено оповещение и казалось бы - лучше ничего не трогать, так как всё и так работает.&lt;/p&gt;
 
 &lt;p&gt;Но теперь давай рассмотрим ситуацию, что у нас &amp;ldquo;что то пошло не так&amp;rdquo;. И это &amp;ldquo;что то&amp;rdquo; привело систему в негодность, да такую что проще всё уже заново поднять. Копия рабочих данных у нас имеются, но вот настройки системы - момент довольно тонкий и хлопотливый. Да, лучше всего делать образ системы целиком, но не всегда есть такая возможность.&lt;/p&gt;</description>
@@ -43,10 +43,10 @@
     
     <item>
       <title>Создание бэкапа на nic.ru</title>
-      <link>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</link>
+      <link>https://blog.hook.sh/adm/nic-ru-make-backup/</link>
       <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</guid>
+      <guid>https://blog.hook.sh/adm/nic-ru-make-backup/</guid>
       <description>&lt;p&gt;Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:&lt;/p&gt;</description>
     </item>
     

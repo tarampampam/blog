@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -41,7 +41,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -49,59 +49,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -123,7 +123,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/mikrotik-adaway-wide.jpg" itemprop="image" alt="Чистим интернет от назойливой рекламы (AD Blocker для MikroTik)" />
+        <img src="https://blog.hook.sh//images/posts/mikrotik-adaway-wide.jpg" itemprop="image" alt="Чистим интернет от назойливой рекламы (AD Blocker для MikroTik)" />
       </div>
     
 
@@ -146,11 +146,11 @@
 
 <p>Настройка самой железки вряд ли вызовет какие-либо трудности. Укажем IP маршрутизатора в качестве первого DNS сервера в DHCP - &ldquo;IP&rdquo; &rarr; &ldquo;DHCP Server&rdquo; &rarr; &ldquo;Networks&rdquo; &rarr; %default config%. Первым прописываем IP самого MikroTik-а, нажимаем &ldquo;OK&rdquo;:</p>
 
-<p><img src="https://hsto.org/files/fd9/55d/3d7/fd955d3d7716475ea087718901041939.png" alt="" /></p>
+<p><img src="https://hsto.org/files/fd9/55d/3d7/fd955d3d7716475ea087718901041939.png" alt="screenshot" /></p>
 
 <p>DNS сервер работает &ldquo;из коробки&rdquo;, и можно даже не менять его стоковые настройки:</p>
 
-<p><img src="https://hsto.org/files/7e4/702/d34/7e4702d34fa44d1899eb7d6e1be04a63.png" alt="" /></p>
+<p><img src="https://hsto.org/files/7e4/702/d34/7e4702d34fa44d1899eb7d6e1be04a63.png" alt="screenshot" /></p>
 
 <p>Единственная интересная для нас кнопка - &ldquo;Static&rdquo; (&ldquo;Статические маршруты&rdquo;), в которых мы должны прописать &ldquo;рекламные&rdquo; домены, указав куда такие запросы перенаправлять.</p>
 
@@ -158,7 +158,7 @@
 
 <p>Файл хостов имеет формат:</p>
 
-<pre><code># Any comments
+<pre><code class="language-routeros"># Any comments
 127.0.0.1 localhost
 127.0.0.1 domain-a.tld
 127.0.0.1 domain-b.tld
@@ -166,7 +166,7 @@
 
 <p>Формат скрипта для MikroTik, использующий статические DNS маршруты:</p>
 
-<pre><code># Any comments
+<pre><code class="language-routeros"># Any comments
 /ip dns static
 add address=127.0.0.1 name=localhost
 add address=127.0.0.1 name=domain-a.tld
@@ -200,22 +200,22 @@ add address=127.0.0.1 name=domain-b.tld
 <ol>
 <li><p>Делаем резервную копию (<em>полученный бэкап лучше сохранить у себя на машине</em>):</p>
 
-<pre><code>/system backup save
+<pre><code class="language-routeros">/system backup save
 </code></pre></li>
 
 <li><p>Если у тебя в таблице <strong>нет</strong> важных маршрутов, то можем грохнуть все имеющиеся записи:</p>
 
-<pre><code>/ip dns static remove [/ip dns static find]
+<pre><code class="language-routeros">/ip dns static remove [/ip dns static find]
 </code></pre></li>
 
 <li><p>Импортируем загруженный файл:</p>
 
-<pre><code>/import adblock_dns.rsc
+<pre><code class="language-routeros">/import adblock_dns.rsc
 </code></pre></li>
 
 <li><p>Убираем за собой:</p>
 
-<pre><code>/file remove adblock_dns.rsc
+<pre><code class="language-routeros">/file remove adblock_dns.rsc
 </code></pre></li>
 </ol>
 
@@ -233,30 +233,30 @@ add address=127.0.0.1 name=domain-b.tld
 
 <p>Второй скрипт (<em>на MikroTik</em>) забирает его (<code>adblock_dns.rsc</code>), делает бэкап и, если и файл скачался успешно, и бэкап сохранился успешно, его импортирует, предварительно (<em>внимание</em>) грохнув все имеющиеся маршруты:</p>
 
-<pre><code>:local hostScriptUrl &amp;#x22;ftp://user:login@ftp_host:21/adblock_dns.rsc&amp;#x22;;
+<pre><code class="language-routeros">:local hostScriptUrl &quot;ftp://user:login@ftp_host:21/adblock_dns.rsc&quot;;
 
-:local scriptName &amp;#x22;adblock_dns.rsc&amp;#x22;;
-:local backupFileName &amp;#x22;before_stopad&amp;#x22;;
-:local logPrefix &amp;#x22;[StopAD]&amp;#x22;;
+:local scriptName &quot;adblock_dns.rsc&quot;;
+:local backupFileName &quot;before_stopad&quot;;
+:local logPrefix &quot;[StopAD]&quot;;
 
 do {
- /tool fetch mode=ftp url=$hostScriptUrl dst-path=(&amp;#x22;./&amp;#x22;.$scriptName);
+ /tool fetch mode=ftp url=$hostScriptUrl dst-path=(&quot;./&quot;.$scriptName);
  :if ([:len [/file find name=$scriptName]] &amp;#x3E; 0) do={
    /system backup save name=$backupFileName;
    :delay 1s;
-   :if ([:len [/file find name=($backupFileName.&amp;#x22;.backup&amp;#x22;)]] &amp;#x3E; 0) do={
+   :if ([:len [/file find name=($backupFileName.&quot;.backup&quot;)]] &amp;#x3E; 0) do={
      /ip dns static remove [/ip dns static find];
      /import file-name=$scriptName;
      /file remove $scriptName;
-     :log info &amp;#x22;$logPrefix AD block script imported, backup file (\&amp;#x22;$backupFileName.backup\&amp;#x22;) created&amp;#x22;;
+     :log info &quot;$logPrefix AD block script imported, backup file (\&quot;$backupFileName.backup\&quot;) created&quot;;
    } else={
-     :log warning &amp;#x22;$logPrefix Backup file not created, importing AD block script stopped&amp;#x22;;
+     :log warning &quot;$logPrefix Backup file not created, importing AD block script stopped&quot;;
    }
  } else={
-   :log warning &amp;#x22;$logPrefix Backup file not downloaded, script stopped&amp;#x22;;
+   :log warning &quot;$logPrefix Backup file not downloaded, script stopped&quot;;
  }
 } on-error={
- :log warning &amp;#x22;$logPrefix AD block script download FAILED&amp;#x22;;
+ :log warning &quot;$logPrefix AD block script download FAILED&quot;;
 };
 </code></pre>
 
@@ -302,15 +302,15 @@ do {
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/ad/">ad</a></li>
+      <li><a href="https://blog.hook.sh/tags/ad/">ad</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/habr/">habr</a></li>
+      <li><a href="https://blog.hook.sh/tags/habr/">habr</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/mikrotik/">mikrotik</a></li>
+      <li><a href="https://blog.hook.sh/tags/mikrotik/">mikrotik</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      <li><a href="https://blog.hook.sh/tags/php/">php</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/routeros/">routeros</a></li>
+      <li><a href="https://blog.hook.sh/tags/routeros/">routeros</a></li>
       
     </ul>
     
@@ -351,6 +351,10 @@ do {
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

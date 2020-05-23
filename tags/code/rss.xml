@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>code on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/code/</link>
+    <link>https://blog.hook.sh/tags/code/</link>
     <description>Recent content in code on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Sat, 23 Jan 2016 05:35:18 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/code/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/code/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Сниппеты для WordPress (ч. 1)</title>
-      <link>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</link>
+      <link>https://blog.hook.sh/wp/wp-snippets-part-1/</link>
       <pubDate>Sat, 23 Jan 2016 05:35:18 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</guid>
+      <guid>https://blog.hook.sh/wp/wp-snippets-part-1/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Кэп, &amp;ldquo;по умолчанию&amp;rdquo; все сниппеты добавляются в &lt;code&gt;./wp-content/%theme%/functions.php&lt;/code&gt; твоей темы&lt;/p&gt;
 &lt;/blockquote&gt;

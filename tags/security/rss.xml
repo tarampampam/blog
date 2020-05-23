@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>security on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/security/</link>
+    <link>https://blog.hook.sh/tags/security/</link>
     <description>Recent content in security on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Wed, 12 Aug 2015 10:05:15 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/security/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/security/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Брутим пароли с Гидрой (hydra)</title>
-      <link>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</link>
+      <link>https://blog.hook.sh/hack/hydra-bruteforce-passwd/</link>
       <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</guid>
+      <guid>https://blog.hook.sh/hack/hydra-bruteforce-passwd/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Статья носит носит строго познавательный характер, за применение кем либо описанных в статье методик автор ответственности не несет.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -27,10 +27,10 @@
     
     <item>
       <title>MikroTik — Автоматически меняем MAC адрес на рандомный</title>
-      <link>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</link>
+      <link>https://blog.hook.sh/mikrotik/generate-and-apply-random-mac-address/</link>
       <pubDate>Sat, 25 Jul 2015 13:23:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/mikrotik/generate-and-apply-random-mac-address/</guid>
+      <guid>https://blog.hook.sh/mikrotik/generate-and-apply-random-mac-address/</guid>
       <description>&lt;p&gt;Очередной приступ паранойи застал врасплох. Мысль о том что MAC-адрес беспощадно палит привязку твоих сессий в логах провайдера не давала покоя и надо было с этим что то делать.&lt;/p&gt;
 
 &lt;p&gt;Позвонив товарищу, который поинтересовался у инженеров провайдера (&lt;em&gt;одного из представителей &amp;ldquo;Большой тройки&amp;rdquo;&lt;/em&gt;) соображениями о том, просто ли получить информацию о сессиях абонента, имея на руках MAC-адрес. Ответ был очевиден - &amp;ldquo;Да как два пальца..&amp;rdquo;. Нет, часто меняя MAC-и, разумеется, полной анонимности не добьешься, но некоторые затруднения это всё-таки вызовет.&lt;/p&gt;</description>
@@ -38,10 +38,10 @@
     
     <item>
       <title>Маленькая хитрость iptables</title>
-      <link>https://tarampampam.github.io/blog/adm/little-iptables-tips/</link>
+      <link>https://blog.hook.sh/adm/little-iptables-tips/</link>
       <pubDate>Tue, 14 Jul 2015 08:59:58 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/little-iptables-tips/</guid>
+      <guid>https://blog.hook.sh/adm/little-iptables-tips/</guid>
       <description>При сканировании портов целевой системы можно довольно часто наблюдать результат вида:
 ... 8080/tcp filtered http-proxy ...  Что говорит нам о том что порт наверняка используется системой, но &amp;ldquo;прикрыт&amp;rdquo; извне. Не смотря на то что работать с ним врятли будет возможно - он всё же дает исследуемому дополнительную информацию о исследуемой системе.
 Как проще всего прикрыть порт извне используя iptables?
@@ -50,10 +50,10 @@ $ iptables -A INPUT -p tcp --dport %номер_порта% -j DROP  А как м
     
     <item>
       <title>SSH Honeypot — просто и со вкусом</title>
-      <link>https://tarampampam.github.io/blog/adm/ssh-honeypot/</link>
+      <link>https://blog.hook.sh/adm/ssh-honeypot/</link>
       <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/ssh-honeypot/</guid>
+      <guid>https://blog.hook.sh/adm/ssh-honeypot/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Honeypot («Ловушка»)&lt;/strong&gt; (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (&lt;a href=&#34;https://ru.wikipedia.org/wiki/Honeypot&#34;&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -63,37 +63,37 @@ $ iptables -A INPUT -p tcp --dport %номер_порта% -j DROP  А как м
     
     <item>
       <title>Тотальная защита WordPress</title>
-      <link>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</link>
+      <link>https://blog.hook.sh/wp/total-wordpress-secutity/</link>
       <pubDate>Sun, 05 Jul 2015 11:30:59 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/total-wordpress-secutity/</guid>
-      <description>&lt;p&gt;В &lt;a href=&#34;https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/&#34;&gt;прошлом посте&lt;/a&gt; мы рассматривали методы повышения безопасности WordPress с помощью &lt;code&gt;nginx&lt;/code&gt;. В данной же записи мы рассмотрим дополнительные меры противодействия сбору информации о работающей CMS (&lt;em&gt;и плагинах&lt;/em&gt;), версии WP и некоторым типам атак на сайт.&lt;/p&gt;
+      <guid>https://blog.hook.sh/wp/total-wordpress-secutity/</guid>
+      <description>&lt;p&gt;В &lt;a href=&#34;https://blog.hook.sh/wp/make-wp-more-secure-with-nginx/&#34;&gt;прошлом посте&lt;/a&gt; мы рассматривали методы повышения безопасности WordPress с помощью &lt;code&gt;nginx&lt;/code&gt;. В данной же записи мы рассмотрим дополнительные меры противодействия сбору информации о работающей CMS (&lt;em&gt;и плагинах&lt;/em&gt;), версии WP и некоторым типам атак на сайт.&lt;/p&gt;
 
 &lt;p&gt;Помогать нам будет уже не только &lt;code&gt;nginx&lt;/code&gt; - но и &lt;code&gt;fail2ban&lt;/code&gt; вкупе с некоторыми дополнениями и настройками самого WP.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Скрываем версию WordPress</title>
-      <link>https://tarampampam.github.io/blog/wp/remove-wp-version/</link>
+      <link>https://blog.hook.sh/wp/remove-wp-version/</link>
       <pubDate>Tue, 26 May 2015 07:10:53 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/remove-wp-version/</guid>
+      <guid>https://blog.hook.sh/wp/remove-wp-version/</guid>
       <description>&lt;p&gt;Маленький но довольно полезный плагин для повышения безопасности сайта на WordPress, который всё что делает - это скрывает версию CMS, удаляя:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Во-первых теги &lt;code&gt;&amp;lt;meta generator=&amp;quot;...&amp;quot; /&amp;gt;&lt;/code&gt; (и иже с ними), что генерирует сам Wordoress;&lt;/li&gt;
+&lt;li&gt;Во-первых теги &lt;code&gt;&amp;lt;meta generator=&amp;quot;...&amp;quot; /&amp;gt;&lt;/code&gt; (и иже с ними), что генерирует сам Wordpress;&lt;/li&gt;
 &lt;li&gt;Во-вторых из запросов к css и js файлам подстроку &lt;code&gt;?ver=%версия%&lt;/code&gt;, которая всё беспощадно палит.&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Повышение безопасности WordPress с помощью nginx</title>
-      <link>https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/</link>
+      <link>https://blog.hook.sh/wp/make-wp-more-secure-with-nginx/</link>
       <pubDate>Tue, 05 May 2015 05:45:15 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/make-wp-more-secure-with-nginx/</guid>
+      <guid>https://blog.hook.sh/wp/make-wp-more-secure-with-nginx/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Первая часть доступна по &lt;a href=&#34;https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/&#34;&gt;этой ссылке&lt;/a&gt;. Так же у данного поста имеется &lt;strong&gt;обновленная&lt;/strong&gt; версия &lt;a href=&#34;https://tarampampam.github.io/blog/wp/total-wordpress-secutity/&#34;&gt;этой ссылке&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Первая часть доступна по &lt;a href=&#34;https://blog.hook.sh/wp/make-wp-more-secure-part1/&#34;&gt;этой ссылке&lt;/a&gt;. Так же у данного поста имеется &lt;strong&gt;обновленная&lt;/strong&gt; версия &lt;a href=&#34;https://blog.hook.sh/wp/total-wordpress-secutity/&#34;&gt;этой ссылке&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Проанализировав логи одного блога на WordPress заметил, что присутствует довольно большое количество запросов к страницам, которых не существует. Посмотрев внимательнее стало очевидно, что имеет место как сбор данных как об используемой CMS, так и попытки эксплуатировать различные уязвимости плагинов, тем и самого WP.&lt;/p&gt;</description>
@@ -101,10 +101,10 @@ $ iptables -A INPUT -p tcp --dport %номер_порта% -j DROP  А как м
     
     <item>
       <title>Рекомендации по повышению безопасности WordPress (ч. 1)</title>
-      <link>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</link>
+      <link>https://blog.hook.sh/wp/make-wp-more-secure-part1/</link>
       <pubDate>Mon, 26 Jan 2015 12:15:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</guid>
+      <guid>https://blog.hook.sh/wp/make-wp-more-secure-part1/</guid>
       <description>&lt;p&gt;WordPress, сука, популярный. А как следствие — дырочки в нем ищутся и находятся с завидной периодичностью. Исходя из этого - сам по себе напрашивается список рекомендаций по повышению его безопасности.&lt;/p&gt;</description>
     </item>
     

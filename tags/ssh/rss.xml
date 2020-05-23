@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssh on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/ssh/</link>
+    <link>https://blog.hook.sh/tags/ssh/</link>
     <description>Recent content in ssh on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Thu, 31 Jan 2019 16:25:44 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/ssh/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/ssh/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Обновляем SSH на Linux mint</title>
-      <link>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</link>
+      <link>https://blog.hook.sh/nix/update-ssh-linux-mint/</link>
       <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</guid>
+      <guid>https://blog.hook.sh/nix/update-ssh-linux-mint/</guid>
       <description>&lt;p&gt;Так уж получается, что репозитории с пакетами частенько отстают в версиях ПО, которое предоставляют. Частный случай - нужно подключиться к удаленной системе используя не &amp;ldquo;традиционный&amp;rdquo; туннель, а &lt;a href=&#34;https://wiki.gentoo.org/wiki/SSH_jump_host&#34;&gt;ssh jump&lt;/a&gt;. На борту Linux Mint 18.3 стоит &lt;code&gt;openssh&lt;/code&gt;, который ещё не поддерживает эту фичу:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Автоматический деплой WordPress темы/плагина с Bitbucket</title>
-      <link>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</link>
+      <link>https://blog.hook.sh/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</link>
       <pubDate>Sat, 02 Jul 2016 07:56:57 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</guid>
+      <guid>https://blog.hook.sh/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</guid>
       <description>&lt;p&gt;Времена, когда приходилось ручками заливать изменения файлов на prod-сервер - стремительно проходят, и на смену им приходят системы контроля версий и автоматизированный деплой. Ведь это чертовски удобно, когда ты один или с командой можешь работать над проектом, обкатывать изменения на локальном/тестовом сервере, и уже протестированный код отправлять на &amp;ldquo;боевой&amp;rdquo; сервер простым коммитом или слиянием. Ничего более не запуская, Карл!&lt;/p&gt;
 
 &lt;p&gt;Временами так же приходиться работать над проектами, построенными на (&lt;em&gt;пускай и по дизайну очень убогому&lt;/em&gt;) WordPress, у которого очень низкий порог вхождения как у разработчиков, так и у конечных заказчиков (&lt;em&gt;с первого раза правильно прочитал &amp;ldquo;конечных заказчиков&amp;rdquo;?&lt;/em&gt;).&lt;/p&gt;</description>
@@ -34,19 +34,19 @@
     
     <item>
       <title>LEMP &#43; CentOS = ❤</title>
-      <link>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</link>
+      <link>https://blog.hook.sh/adm/install-lemp-stack-on-centos/</link>
       <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</guid>
+      <guid>https://blog.hook.sh/adm/install-lemp-stack-on-centos/</guid>
       <description>&lt;p&gt;Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SSH Honeypot — просто и со вкусом</title>
-      <link>https://tarampampam.github.io/blog/adm/ssh-honeypot/</link>
+      <link>https://blog.hook.sh/adm/ssh-honeypot/</link>
       <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/ssh-honeypot/</guid>
+      <guid>https://blog.hook.sh/adm/ssh-honeypot/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Honeypot («Ловушка»)&lt;/strong&gt; (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (&lt;a href=&#34;https://ru.wikipedia.org/wiki/Honeypot&#34;&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -56,10 +56,10 @@
     
     <item>
       <title>Установка LAMP на CentOS 7</title>
-      <link>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</link>
+      <link>https://blog.hook.sh/adm/change-hosting-to-hetzner-de/</link>
       <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</guid>
+      <guid>https://blog.hook.sh/adm/change-hosting-to-hetzner-de/</guid>
       <description>&lt;p&gt;Так уж получилось, что хостер, где ранее размещались все сайты и некоторые сервисы, оказался жлоб и пидарас. Жлоб, потому как на самом дорогом тарифе выделял лишь сраные 256Mb под всё, а пидарас — потому как и с поддержкой — не очень хорошо, и хосты частенько лежали, и отношение к клиентам — далеко не лучшее. Да, речь о Nic.ru.&lt;/p&gt;
 
 &lt;p&gt;Было решено переезжать. Но куда? В России достойное по соотношению цена/качества — не находилось, а “за бугром”, по рекомендациям хабра — был выбран &lt;a href=&#34;http://www.hetzner.de/&#34;&gt;hetzner.de&lt;/a&gt;.&lt;/p&gt;</description>
@@ -67,19 +67,19 @@
     
     <item>
       <title>Флаги запуска «PuTTY»</title>
-      <link>https://tarampampam.github.io/blog/tnt/putty-flags/</link>
+      <link>https://blog.hook.sh/tnt/putty-flags/</link>
       <pubDate>Fri, 01 Aug 2014 15:48:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/tnt/putty-flags/</guid>
+      <guid>https://blog.hook.sh/tnt/putty-flags/</guid>
       <description>&lt;p&gt;Наиболее часто используемые флаги запуска &lt;code&gt;putty&lt;/code&gt;:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Создание бэкапа на nic.ru</title>
-      <link>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</link>
+      <link>https://blog.hook.sh/adm/nic-ru-make-backup/</link>
       <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</guid>
+      <guid>https://blog.hook.sh/adm/nic-ru-make-backup/</guid>
       <description>&lt;p&gt;Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:&lt;/p&gt;</description>
     </item>
     

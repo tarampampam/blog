@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -41,7 +41,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -49,59 +49,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -123,7 +123,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/wp-secure-wide.jpg" itemprop="image" alt="Повышение безопасности WordPress с помощью nginx" />
+        <img src="https://blog.hook.sh//images/posts/wp-secure-wide.jpg" itemprop="image" alt="Повышение безопасности WordPress с помощью nginx" />
       </div>
     
 
@@ -133,14 +133,14 @@
     </div>
 
     <blockquote>
-<p>Первая часть доступна по <a href="https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/">этой ссылке</a>. Так же у данного поста имеется <strong>обновленная</strong> версия <a href="https://tarampampam.github.io/blog/wp/total-wordpress-secutity/">этой ссылке</a></p>
+<p>Первая часть доступна по <a href="https://blog.hook.sh/wp/make-wp-more-secure-part1/">этой ссылке</a>. Так же у данного поста имеется <strong>обновленная</strong> версия <a href="https://blog.hook.sh/wp/total-wordpress-secutity/">этой ссылке</a></p>
 </blockquote>
 
 <p>Проанализировав логи одного блога на WordPress заметил, что присутствует довольно большое количество запросов к страницам, которых не существует. Посмотрев внимательнее стало очевидно, что имеет место как сбор данных как об используемой CMS, так и попытки эксплуатировать различные уязвимости плагинов, тем и самого WP.</p>
 
 <p>Запрошенные страницы имели примерно следующий вид:</p>
 
-<pre><code>/wp-admin/admin-ajax.php?action=revslider_show_image&amp;img=../wp-config.php
+<pre><code class="language-bash">/wp-admin/admin-ajax.php?action=revslider_show_image&amp;img=../wp-config.php
 /wp-admin/admin-ajax.php?action=revolution-slider_show_image&amp;img=../wp-config.php
 /wp-content/themes/infocus/lib/scripts/dl-skin.php
 /wp-admin/admin-ajax.php?action=showbiz_show_image&amp;img=../wp-config.php
@@ -160,7 +160,7 @@
 
 <p>Как наиболее очевидное решение - блокировать все URL, которые содержат ключевые слова <code>/wp-config.php</code>. Пойдем чуть дальше и расширим этот список названиями некоторых потенциально уязвимых плагинов, важных системных файлов, ридмишкам и файлам лицензионного соглашения <em>(для предотвращения возможного раскрытия версии)</em>:</p>
 
-<pre><code># Запрещаем доступ ко всем ULR-ам, которые содержат следующие вхождения
+<pre><code class="language-nginx"># Запрещаем доступ ко всем ULR-ам, которые содержат следующие вхождения
 location ~* /((wp-config|plugin_upload|dl-skin|uploadify|xmlrpc).php|readme.(html|txt|md)|license.(html|txt|md)|(.*)/(revslider|showbiz|infocus|awake|echelon|elegance|dejavu|persuasion|wp-filemanager|churchope|uploadify)/(.*))$ {
   return 444;
 }
@@ -172,7 +172,7 @@ location ~* /((wp-config|plugin_upload|dl-skin|uploadify|xmlrpc).php|readme.(htm
 
 <p>Далее - блокируем все URL, в параметрах которых присутствуют ключевые слова <code>wp-config.php</code>, <code>xmlrpc.php</code> и другие ключи, плюс к тому - усложним эксплуатацию наиболее популярных SQL-инъекций:</p>
 
-<pre><code># Запрещаем все URL-ы, в параметрах (..?a=evil) которых есть следующие вхождения
+<pre><code class="language-nginx"># Запрещаем все URL-ы, в параметрах (..?a=evil) которых есть следующие вхождения
 if ($query_string ~* &quot;^(.*)(wp-config.php|dl-skin.php|xmlrpc.php|uploadify.php)(.*)$&quot;) {
   return 444;
 }
@@ -185,7 +185,7 @@ if ($query_string ~* &quot;(concat.*\(|union.*select.*\(|union.*all.*select)&quo
 
 <p>Запрещаем доступ к php файлам, которые были загружены в директорию <code>uploads</code> или <code>files</code>:</p>
 
-<pre><code># Запрет для загруженных скриптов
+<pre><code class="language-nginx"># Запрет для загруженных скриптов
 location ~* /(?:uploads|files)/.*\.php$ {
   return 444;
 }
@@ -193,7 +193,7 @@ location ~* /(?:uploads|files)/.*\.php$ {
 
 <p>Хардкорно закрываем доступ к листингу определенных директорий, которые раскрывают используемую CMS и данные, несколько облегчающие взлом сайта:</p>
 
-<pre><code># Закрываем доступ к корню следующих директорий
+<pre><code class="language-nginx"># Закрываем доступ к корню следующих директорий
 location = /wp-content/ {return 404;}
 location = /wp-includes/ {return 404;}
 location = /wp-content/plugins/ {return 404;}
@@ -205,7 +205,7 @@ location = /wp-content/languages/themes/ {return 404;}
 
 <p>Закрываем доступ к путям ведущим к корневым директориям плагинов, тем самым усложняя их раскрытие путем перебора:</p>
 
-<pre><code># Закрываем прямой доступ у содержимому корневых директорий плагинов (для усложнения их раскрытия)
+<pre><code class="language-nginx"># Закрываем прямой доступ у содержимому корневых директорий плагинов (для усложнения их раскрытия)
 location ~* /wp-content/plugins/([0-9a-z\-_]+)(/|$) {
   return 404;
 }
@@ -213,7 +213,7 @@ location ~* /wp-content/plugins/([0-9a-z\-_]+)(/|$) {
 
 <p>Закрываем доступ к файлам перевода, которые так же раскрывают версию CMS:</p>
 
-<pre><code># Закрываем доступ к файлам перевода (для невозможности раскрыть версию WP)
+<pre><code class="language-nginx"># Закрываем доступ к файлам перевода (для невозможности раскрыть версию WP)
 location ~ /wp-content/languages/(.+)\.(po|mo) {
   return 404;
 }
@@ -221,7 +221,7 @@ location ~ /wp-content/languages/(.+)\.(po|mo) {
 
 <p>И мы пойдем ещё чуть дальше, отсеив значительное количество различных онлайн-сканеров и веб-аналитику:</p>
 
-<pre><code>if ($http_user_agent ~* (nmap|nikto|wikto|sf|sqlmap|bsqlbf|w3af|acunetix|havij|appscan|monoid.nic.ru|Web-Monitoring|semalt|Baiduspider|virusdie|wget|indy|perl)) {
+<pre><code class="language-nginx">if ($http_user_agent ~* (nmap|nikto|wikto|sf|sqlmap|bsqlbf|w3af|acunetix|havij|appscan|monoid.nic.ru|Web-Monitoring|semalt|Baiduspider|virusdie|wget|indy|perl)) {
   return 403;
 }
 </code></pre>
@@ -233,7 +233,7 @@ location ~ /wp-content/languages/(.+)\.(po|mo) {
 <p>После чего перезапускаем nginx, и проверяем <strong>не</strong>доступность как приведенных выше в качестве примера путей, так и корректность работы WP в целом.</p>
 
 <blockquote>
-<p>У данного поста имеется обновленная версия <a href="https://tarampampam.github.io/blog/wp/total-wordpress-secutity/">этой ссылке</a></p>
+<p>У данного поста имеется обновленная версия <a href="https://blog.hook.sh/wp/total-wordpress-secutity/">этой ссылке</a></p>
 </blockquote>
 
     
@@ -243,11 +243,11 @@ location ~ /wp-content/languages/(.+)\.(po|mo) {
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      <li><a href="https://blog.hook.sh/tags/nginx/">nginx</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/security/">security</a></li>
+      <li><a href="https://blog.hook.sh/tags/security/">security</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/wordpress/">wordpress</a></li>
+      <li><a href="https://blog.hook.sh/tags/wordpress/">wordpress</a></li>
       
     </ul>
     
@@ -288,6 +288,10 @@ location ~ /wp-content/languages/(.+)\.(po|mo) {
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

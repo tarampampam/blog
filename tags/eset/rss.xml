@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>eset on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/eset/</link>
+    <link>https://blog.hook.sh/tags/eset/</link>
     <description>Recent content in eset on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Sat, 12 Apr 2014 18:02:00 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/eset/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/eset/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Скрипт создания зеркала обновлений для Eset Nod32 на Linux</title>
-      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</link>
+      <link>https://blog.hook.sh/dev/make-nod32-mirror/</link>
       <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</guid>
+      <guid>https://blog.hook.sh/dev/make-nod32-mirror/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/232163/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://blog.hook.sh/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:&lt;/p&gt;</description>

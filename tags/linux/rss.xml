@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/linux/</link>
+    <link>https://blog.hook.sh/tags/linux/</link>
     <description>Recent content in linux on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Thu, 31 Jan 2019 16:25:44 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/linux/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/linux/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Обновляем SSH на Linux mint</title>
-      <link>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</link>
+      <link>https://blog.hook.sh/nix/update-ssh-linux-mint/</link>
       <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</guid>
+      <guid>https://blog.hook.sh/nix/update-ssh-linux-mint/</guid>
       <description>&lt;p&gt;Так уж получается, что репозитории с пакетами частенько отстают в версиях ПО, которое предоставляют. Частный случай - нужно подключиться к удаленной системе используя не &amp;ldquo;традиционный&amp;rdquo; туннель, а &lt;a href=&#34;https://wiki.gentoo.org/wiki/SSH_jump_host&#34;&gt;ssh jump&lt;/a&gt;. На борту Linux Mint 18.3 стоит &lt;code&gt;openssh&lt;/code&gt;, который ещё не поддерживает эту фичу:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Деплой на Docker Swarm</title>
-      <link>https://tarampampam.github.io/blog/docker/compose-deploy/</link>
+      <link>https://blog.hook.sh/docker/compose-deploy/</link>
       <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/docker/compose-deploy/</guid>
+      <guid>https://blog.hook.sh/docker/compose-deploy/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данный пост является переводом &lt;a href=&#34;https://docs.docker.com/compose/compose-file/#deploy&#34;&gt;части документации&lt;/a&gt;, посвященной секции &lt;code&gt;deploy&lt;/code&gt; в &lt;code&gt;docker-compose&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -56,10 +56,10 @@ services:
     
     <item>
       <title>Docker &#43; Laravel = ❤</title>
-      <link>https://tarampampam.github.io/blog/php/laravel-in-docker/</link>
+      <link>https://blog.hook.sh/php/laravel-in-docker/</link>
       <pubDate>Mon, 01 Oct 2018 08:29:51 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/php/laravel-in-docker/</guid>
+      <guid>https://blog.hook.sh/php/laravel-in-docker/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/425101/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -83,10 +83,10 @@ services:
     
     <item>
       <title>GNU Make - Полная документация</title>
-      <link>https://tarampampam.github.io/blog/nix/makefile-full-doc/</link>
+      <link>https://blog.hook.sh/nix/makefile-full-doc/</link>
       <pubDate>Fri, 28 Sep 2018 15:39:27 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/nix/makefile-full-doc/</guid>
+      <guid>https://blog.hook.sh/nix/makefile-full-doc/</guid>
       <description>&lt;p&gt;На днях появилась необходимость несколько автоматизировать сборку Docker-образов, и решать эту задачу &amp;ldquo;привычними&amp;rdquo; bash-скриптами очень не хотелось. Вспомнил про существование такого зверя как &lt;code&gt;make&lt;/code&gt; и, черт подери - это великая тулза, которая уже считай что почти забыта. В процессе работы был найден перевод документации, и дабы он &amp;ldquo;не потерялся&amp;rdquo; - разместил его здесь.&lt;/p&gt;
 
 &lt;h2 id=&#34;программа-управления-компиляцией&#34;&gt;Программа управления компиляцией&lt;/h2&gt;
@@ -104,19 +104,19 @@ services:
     
     <item>
       <title>Make Nod32 Mirror Updated</title>
-      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</link>
+      <link>https://blog.hook.sh/dev/make-nod32-mirror-updated/</link>
       <pubDate>Mon, 11 Jul 2016 17:49:52 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/</guid>
-      <description>&lt;p&gt;Однажды я &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror/&#34;&gt;уже писал об этом&lt;/a&gt;, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &amp;ldquo;интересные&amp;rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.&lt;/p&gt;</description>
+      <guid>https://blog.hook.sh/dev/make-nod32-mirror-updated/</guid>
+      <description>&lt;p&gt;Однажды я &lt;a href=&#34;https://blog.hook.sh/dev/make-nod32-mirror/&#34;&gt;уже писал об этом&lt;/a&gt;, но с того момента над скриптом было проведено не мало работы. Скажу более - он был переписан чуть менее чем полностью, и как следствие - выяснились некоторые очень &amp;ldquo;интересные&amp;rdquo; моменты. Один из них заключается в том, что старая версия скрипта хоть и работала, но совсем не так, как надо.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Автоматический деплой WordPress темы/плагина с Bitbucket</title>
-      <link>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</link>
+      <link>https://blog.hook.sh/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</link>
       <pubDate>Sat, 02 Jul 2016 07:56:57 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</guid>
+      <guid>https://blog.hook.sh/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/</guid>
       <description>&lt;p&gt;Времена, когда приходилось ручками заливать изменения файлов на prod-сервер - стремительно проходят, и на смену им приходят системы контроля версий и автоматизированный деплой. Ведь это чертовски удобно, когда ты один или с командой можешь работать над проектом, обкатывать изменения на локальном/тестовом сервере, и уже протестированный код отправлять на &amp;ldquo;боевой&amp;rdquo; сервер простым коммитом или слиянием. Ничего более не запуская, Карл!&lt;/p&gt;
 
 &lt;p&gt;Временами так же приходиться работать над проектами, построенными на (&lt;em&gt;пускай и по дизайну очень убогому&lt;/em&gt;) WordPress, у которого очень низкий порог вхождения как у разработчиков, так и у конечных заказчиков (&lt;em&gt;с первого раза правильно прочитал &amp;ldquo;конечных заказчиков&amp;rdquo;?&lt;/em&gt;).&lt;/p&gt;</description>
@@ -124,19 +124,19 @@ services:
     
     <item>
       <title>LEMP &#43; CentOS = ❤</title>
-      <link>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</link>
+      <link>https://blog.hook.sh/adm/install-lemp-stack-on-centos/</link>
       <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</guid>
+      <guid>https://blog.hook.sh/adm/install-lemp-stack-on-centos/</guid>
       <description>&lt;p&gt;Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Собираем и настраиваем msmtp</title>
-      <link>https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/</link>
+      <link>https://blog.hook.sh/adm/compile-and-config-msmtp/</link>
       <pubDate>Tue, 28 Jun 2016 22:24:10 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/</guid>
+      <guid>https://blog.hook.sh/adm/compile-and-config-msmtp/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://msmtp.sourceforge.net/&#34;&gt;msmtp&lt;/a&gt; - это простой консольный клиент для отправки сообщений электронной почты по протоколу SMTP.&lt;/p&gt;
 
 &lt;p&gt;Можно, конечно, пойти сложным путем и поставить полноценный почтовый сервер, но зачем? Нам ведь требуется просто позволить скриптам и демонам отправлять почту, а заморачиваться с DKIM, SPF, заголовками и прочим - крайне лень. Поэтому мы будем отправлять почту с помощью почтового ящика на yandex.ru, и поможет нам в этом приложение под названием &lt;a href=&#34;http://msmtp.sourceforge.net/&#34;&gt;msmtp&lt;/a&gt;.&lt;/p&gt;</description>
@@ -144,19 +144,19 @@ services:
     
     <item>
       <title>Дружим Kali Linux с VMware</title>
-      <link>https://tarampampam.github.io/blog/etc/kali-linux-and-vmware/</link>
+      <link>https://blog.hook.sh/etc/kali-linux-and-vmware/</link>
       <pubDate>Thu, 13 Aug 2015 07:17:03 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/etc/kali-linux-and-vmware/</guid>
+      <guid>https://blog.hook.sh/etc/kali-linux-and-vmware/</guid>
       <description>&lt;p&gt;Для комфортной работы в Kali linux запущенной в VMware Workstation потребуется выполнить несколько простых манипуляций:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Брутим пароли с Гидрой (hydra)</title>
-      <link>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</link>
+      <link>https://blog.hook.sh/hack/hydra-bruteforce-passwd/</link>
       <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hack/hydra-bruteforce-passwd/</guid>
+      <guid>https://blog.hook.sh/hack/hydra-bruteforce-passwd/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Статья носит носит строго познавательный характер, за применение кем либо описанных в статье методик автор ответственности не несет.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -166,21 +166,21 @@ services:
     
     <item>
       <title>Samba 4 — доступ к публичным шарам без логина/пароля</title>
-      <link>https://tarampampam.github.io/blog/adm/samba-4-shares-anonymouse-access/</link>
+      <link>https://blog.hook.sh/adm/samba-4-shares-anonymouse-access/</link>
       <pubDate>Mon, 10 Aug 2015 06:57:07 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/samba-4-shares-anonymouse-access/</guid>
+      <guid>https://blog.hook.sh/adm/samba-4-shares-anonymouse-access/</guid>
       <description>&lt;p&gt;Наткнулся на одну интересную особенность Samba 4, связанную с анонимным доступом к публичным шарам. Делается это для того, чтоб пользователи могли спокойно заходить на файл-сервер и не запариваться с вводом, например, пользователя &lt;code&gt;guest&lt;/code&gt; и пустого пароля (&lt;em&gt;и в то же время существовали шары, доступ к которым возможен только после ввода пары &lt;code&gt;логин:пароль&lt;/code&gt;&lt;/em&gt;).&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MikroTik — режем рекламу (ADBlock) с помощью DNS</title>
-      <link>https://tarampampam.github.io/blog/mikrotik/adblock-with-dns/</link>
+      <link>https://blog.hook.sh/mikrotik/adblock-with-dns/</link>
       <pubDate>Wed, 22 Jul 2015 08:19:59 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/mikrotik/adblock-with-dns/</guid>
+      <guid>https://blog.hook.sh/mikrotik/adblock-with-dns/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;У данного поста имеется продолжение, позволяющее автоматизировать и значительно упростить весь процесс, описанный в этой записи. Располагается оно по &lt;a href=&#34;https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/&#34;&gt;этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;У данного поста имеется продолжение, позволяющее автоматизировать и значительно упростить весь процесс, описанный в этой записи. Располагается оно по &lt;a href=&#34;https://blog.hook.sh/mikrotik/remove-a-lot-of-ad-using-mikrotik/&#34;&gt;этой ссылке&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Прочитав &lt;a href=&#34;https://habr.com/post/263081/&#34;&gt;пост&lt;/a&gt; тов. &lt;a href=&#34;https://habr.com/users/4aba/&#34;&gt;4aba&lt;/a&gt; о том, как с помощью &lt;code&gt;dnsmasq&lt;/code&gt; на прошитом роутере можно вполне успешно резать рекламные баннеры на всех устройствах, которые подключены к нашей точке доступа возник резонный вопрос - а можно ли реализовать аналогичное на маршрутизаторе &lt;strong&gt;Mikrotik hAP lite&lt;/strong&gt;? Железка довольно таки достойная (&lt;em&gt;650MHz @ RAM 32 Mb&lt;/em&gt;), но у нас нет полноценного linux-шелла на ней. Оказывается - можно, и результате было реализовано довольно простое, но эффективное решение.&lt;/p&gt;</description>
@@ -188,10 +188,10 @@ services:
     
     <item>
       <title>SSH Honeypot — просто и со вкусом</title>
-      <link>https://tarampampam.github.io/blog/adm/ssh-honeypot/</link>
+      <link>https://blog.hook.sh/adm/ssh-honeypot/</link>
       <pubDate>Mon, 13 Jul 2015 11:13:57 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/ssh-honeypot/</guid>
+      <guid>https://blog.hook.sh/adm/ssh-honeypot/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Honeypot («Ловушка»)&lt;/strong&gt; (англ. горшочек с мёдом) — ресурс, представляющий собой приманку для злоумышленников. (&lt;a href=&#34;https://ru.wikipedia.org/wiki/Honeypot&#34;&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -201,10 +201,10 @@ services:
     
     <item>
       <title>Как «накрутить лайки» в Instagram, используя уязвимость приложения «GetLikes» для iOS</title>
-      <link>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</link>
+      <link>https://blog.hook.sh/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</link>
       <pubDate>Fri, 26 Jun 2015 11:44:42 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</guid>
+      <guid>https://blog.hook.sh/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данный пост является повторением действий, описанных хабраюзером &lt;a href=&#34;https://habr.com/users/jo1n/&#34;&gt;jo1n&lt;/a&gt; в его &lt;a href=&#34;https://habr.com/post/261153/&#34;&gt;посте&lt;/a&gt; на хабре.&lt;/p&gt;
 
@@ -216,34 +216,34 @@ services:
     
     <item>
       <title>Поднимаем vpn (pptp) сервер</title>
-      <link>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</link>
+      <link>https://blog.hook.sh/adm/install-vpn-pptp-server/</link>
       <pubDate>Sun, 03 May 2015 13:43:56 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/install-vpn-pptp-server/</guid>
+      <guid>https://blog.hook.sh/adm/install-vpn-pptp-server/</guid>
       <description>&lt;p&gt;О том что такое VPN и для чего он используется - рассказано неоднократно. Но если вкратце - то &lt;strong&gt;VPN&lt;/strong&gt; это технология, которая позволяет создавать сетевые соединения поверх уже имеющихся с использованием средств защиты передаваемых данных. Её используют для объединения географически разбросанных сетей в одну целую, для соединения рабочего места (сети) с домашней (клиентской), а так же - для обеспечения безопасности передаваемых данных по общественным сетям.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Поднимаем свой Jabber сервер</title>
-      <link>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</link>
+      <link>https://blog.hook.sh/adm/install-xmpp-server-jabberd/</link>
       <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</guid>
+      <guid>https://blog.hook.sh/adm/install-xmpp-server-jabberd/</guid>
       <description>&lt;p&gt;Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34; target=&#34;_blank&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34; target=&#34;_blank&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34; target=&#34;_blank&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Установка Linux на Chromebook</title>
-      <link>https://tarampampam.github.io/blog/hard/install-linux-on-chromebook/</link>
+      <link>https://blog.hook.sh/hard/install-linux-on-chromebook/</link>
       <pubDate>Mon, 30 Mar 2015 13:27:24 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hard/install-linux-on-chromebook/</guid>
+      <guid>https://blog.hook.sh/hard/install-linux-on-chromebook/</guid>
       <description>Приведу перечень нескольких простых шагов для выполнения данной задачи, на примере Samsung Chromebook XE303C12:
  Осознаем, что всё что пользовательского на хромбуке есть - будет успешно утеряно;
  Переключаемся в режим разработчика, нажимая Ctrl + Refresh + Power;
@@ -254,19 +254,19 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
     
     <item>
       <title>Настройка страниц ошибок для nginx</title>
-      <link>https://tarampampam.github.io/blog/adm/customize-nginx-error-pages/</link>
+      <link>https://blog.hook.sh/adm/customize-nginx-error-pages/</link>
       <pubDate>Tue, 03 Mar 2015 06:41:38 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/customize-nginx-error-pages/</guid>
+      <guid>https://blog.hook.sh/adm/customize-nginx-error-pages/</guid>
       <description>&lt;p&gt;При работе с web-ресурсом возникают ошибки, и причина их может быть совершенно различна - от опечатки в URL, до ошибок самого сервера. И если у нас внешним сервером является nginx - мы можем довольно удобно указать свое содержание, которое будет выводиться при той или иной ситуации. Во-первых это позволяет в какой-то мере замаскировать используемое ПО (т.к. определение по сигнатурам ответа становится невозможным); во-вторых - это визуальная кастомизация, которая положительно говорит о ресурсе в целом.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Собираем nginx из исходников</title>
-      <link>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</link>
+      <link>https://blog.hook.sh/adm/nginx-compile-from-sources/</link>
       <pubDate>Sun, 22 Feb 2015 07:41:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</guid>
+      <guid>https://blog.hook.sh/adm/nginx-compile-from-sources/</guid>
       <description>&lt;p&gt;Постепенно переводя часть ресурсов с Apache на &lt;strong&gt;nginx&lt;/strong&gt; возникла необходимость вывода листинга файлов (&lt;code&gt;autoindex on&lt;/code&gt;, аналог &lt;code&gt;Options +Indexes&lt;/code&gt; у Apache), но с возможностью некоторой его настройки (как минимум, это использование аналогов Apache &lt;code&gt;HeaderName&lt;/code&gt; и &lt;code&gt;ReadmeName&lt;/code&gt;).&lt;/p&gt;
 
 &lt;p&gt;В nginx этим занимается отдельный модуль под именем &lt;code&gt;fancyindex&lt;/code&gt;, для запуска которого необходимо пересобрать весь nginx из исходников, добавив его в момент сборки.&lt;/p&gt;</description>
@@ -274,19 +274,19 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
     
     <item>
       <title>iptables — заблокировать ip</title>
-      <link>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</link>
+      <link>https://blog.hook.sh/adm/iptables-add-remove-rules/</link>
       <pubDate>Thu, 19 Feb 2015 07:32:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/iptables-add-remove-rules/</guid>
+      <guid>https://blog.hook.sh/adm/iptables-add-remove-rules/</guid>
       <description>&lt;p&gt;Рано или поздно встает задача - нужно для определенного ip закрыть доступ к ресурсу. Так же, если этот ip-адрес &lt;em&gt;серый&lt;/em&gt; (динамический), то лучше подвергнуть блокировке весь его сегмент. Сейчас рассмотрим на примере как это сделать при помощи &lt;strong&gt;iptables&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Backup системных настроек linux</title>
-      <link>https://tarampampam.github.io/blog/adm/backup-system-config-linux/</link>
+      <link>https://blog.hook.sh/adm/backup-system-config-linux/</link>
       <pubDate>Sat, 07 Feb 2015 13:40:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/backup-system-config-linux/</guid>
+      <guid>https://blog.hook.sh/adm/backup-system-config-linux/</guid>
       <description>&lt;p&gt;Итак, у нас есть система, которая работает и выполняет свои задачи. Более того - у нас происходит периодическое копирование всех рабочих данных, настроено оповещение и казалось бы - лучше ничего не трогать, так как всё и так работает.&lt;/p&gt;
 
 &lt;p&gt;Но теперь давай рассмотрим ситуацию, что у нас &amp;ldquo;что то пошло не так&amp;rdquo;. И это &amp;ldquo;что то&amp;rdquo; привело систему в негодность, да такую что проще всё уже заново поднять. Копия рабочих данных у нас имеются, но вот настройки системы - момент довольно тонкий и хлопотливый. Да, лучше всего делать образ системы целиком, но не всегда есть такая возможность.&lt;/p&gt;</description>
@@ -294,10 +294,10 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
     
     <item>
       <title>Установка LAMP на CentOS 7</title>
-      <link>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</link>
+      <link>https://blog.hook.sh/adm/change-hosting-to-hetzner-de/</link>
       <pubDate>Mon, 26 Jan 2015 08:43:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/change-hosting-to-hetzner-de/</guid>
+      <guid>https://blog.hook.sh/adm/change-hosting-to-hetzner-de/</guid>
       <description>&lt;p&gt;Так уж получилось, что хостер, где ранее размещались все сайты и некоторые сервисы, оказался жлоб и пидарас. Жлоб, потому как на самом дорогом тарифе выделял лишь сраные 256Mb под всё, а пидарас — потому как и с поддержкой — не очень хорошо, и хосты частенько лежали, и отношение к клиентам — далеко не лучшее. Да, речь о Nic.ru.&lt;/p&gt;
 
 &lt;p&gt;Было решено переезжать. Но куда? В России достойное по соотношению цена/качества — не находилось, а “за бугром”, по рекомендациям хабра — был выбран &lt;a href=&#34;http://www.hetzner.de/&#34;&gt;hetzner.de&lt;/a&gt;.&lt;/p&gt;</description>
@@ -305,10 +305,10 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
     
     <item>
       <title>Web-gui для wget (light)</title>
-      <link>https://tarampampam.github.io/blog/dev/wget-gui-light/</link>
+      <link>https://blog.hook.sh/dev/wget-gui-light/</link>
       <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/wget-gui-light/</guid>
+      <guid>https://blog.hook.sh/dev/wget-gui-light/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/234353/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -318,37 +318,37 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
     
     <item>
       <title>Ошибка NO_PUBKEY</title>
-      <link>https://tarampampam.github.io/blog/my-book-live/apt-get-update-error-fix/</link>
+      <link>https://blog.hook.sh/my-book-live/apt-get-update-error-fix/</link>
       <pubDate>Tue, 19 Aug 2014 08:32:29 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/my-book-live/apt-get-update-error-fix/</guid>
+      <guid>https://blog.hook.sh/my-book-live/apt-get-update-error-fix/</guid>
       <description>&lt;p&gt;По умолчанию дистрибутив Debian на WD My Book Live - очень старый, и более не поддерживается. Исходя из этого - возникают ошибки apt-get. Как их исправить? Описано по &lt;a href=&#34;http://en.kioskea.net/faq/809-debian-apt-get-no-pubkey-gpg-error&#34;&gt;этой ссылке&lt;/a&gt;, а так же дополнительно опишу решение здесь.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Установка mod_geoip на nic.ru, или как ограничить доступ к сайту «по странам»</title>
-      <link>https://tarampampam.github.io/blog/adm/geoip-for-nic-ru/</link>
+      <link>https://blog.hook.sh/adm/geoip-for-nic-ru/</link>
       <pubDate>Sat, 09 Aug 2014 10:51:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/geoip-for-nic-ru/</guid>
+      <guid>https://blog.hook.sh/adm/geoip-for-nic-ru/</guid>
       <description>&lt;p&gt;Есть некоторый ресурс, который хостится на площадке &lt;strong&gt;nic.ru&lt;/strong&gt; с тарифным планом &amp;ldquo;302&amp;rdquo;. Посещаемость у этого ресурса в один прекрасный момент возрасла на столько, что хостинг перестал справляться, и просто умирать. Причиной тому - мизерное количество памяти (&lt;strong&gt;256Мб&lt;/strong&gt;) на самом дорогом тарифе хостинга. Переписка с поддержкой завершилась на их позиции &amp;ldquo;если Вам мало - покупайте что подороже, у нас как рас есть для вас отличное предложение&amp;rdquo; (внимание - ответ перефразирован, из-за повышенной злобы). Но у нас есть временно не решенный вопрос - перегрузки на сайте. Проанализировав логи с помощью &lt;a href=&#34;http://www.apacheviewer.com/&#34;&gt;Apache Logs Viewer&lt;/a&gt; было выяснено - львиная доля запросов поступает из-за границы, а ресурс предназначен изначально только для жителей РФ. Что делать?&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Флаги запуска «PuTTY»</title>
-      <link>https://tarampampam.github.io/blog/tnt/putty-flags/</link>
+      <link>https://blog.hook.sh/tnt/putty-flags/</link>
       <pubDate>Fri, 01 Aug 2014 15:48:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/tnt/putty-flags/</guid>
+      <guid>https://blog.hook.sh/tnt/putty-flags/</guid>
       <description>&lt;p&gt;Наиболее часто используемые флаги запуска &lt;code&gt;putty&lt;/code&gt;:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>WD Green &#43; Linux = отключение парковки головок диска</title>
-      <link>https://tarampampam.github.io/blog/my-book-live/wd-green-disable-head-parking/</link>
+      <link>https://blog.hook.sh/my-book-live/wd-green-disable-head-parking/</link>
       <pubDate>Sat, 19 Jul 2014 18:58:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/my-book-live/wd-green-disable-head-parking/</guid>
+      <guid>https://blog.hook.sh/my-book-live/wd-green-disable-head-parking/</guid>
       <description>&lt;p&gt;На системе Debian GNU/Linux 5.0, а если точнее — WD My Book Live. Зачем это делать — подробно написано &lt;a href=&#34;https://habr.com/post/106273/&#34;&gt;на хабре&lt;/a&gt;. А если в цифрах моей железки, то за пол-года эксплуатации:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ smartctl -a /dev/sda | grep Load_Cycle_Count
@@ -358,32 +358,32 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
     
     <item>
       <title>Как удалить &#34;мусор&#34; от MacOS из файлошары</title>
-      <link>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</link>
+      <link>https://blog.hook.sh/tnt/clear-trash-by-macos-crontab/</link>
       <pubDate>Thu, 17 Jul 2014 15:31:29 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</guid>
+      <guid>https://blog.hook.sh/tnt/clear-trash-by-macos-crontab/</guid>
       <description>&lt;p&gt;Пользователям этой ос должно быть хорошо известно, что во время работы мак-ось оставляет за собой довольно много различного “мусора”, в большей части являющегося просто кэшем изображений и прочего. В том числе весь этот хлам создается, когда владелец этой самой макоси заходит на файлошару, доступную для записи. Если вам необходимо от него избавиться, то вы можете смело создать небольшой скрипт и поставить его в cron. Ниже рассмотрим как это сделать в два простых шага.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Создание бэкапа на nic.ru</title>
-      <link>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</link>
+      <link>https://blog.hook.sh/adm/nic-ru-make-backup/</link>
       <pubDate>Thu, 24 Apr 2014 12:10:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/nic-ru-make-backup/</guid>
+      <guid>https://blog.hook.sh/adm/nic-ru-make-backup/</guid>
       <description>&lt;p&gt;Хреновенький, не очень удобный, но работающий скрипт для создания бэкапа всех сайтов + БД на хостинге, имя которому - nic.ru. Хосинг ущербный, и использовать что-то более и менее адекватное на нем - проблематично. Перейдем к телу:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Скрипт создания зеркала обновлений для Eset Nod32 на Linux</title>
-      <link>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</link>
+      <link>https://blog.hook.sh/dev/make-nod32-mirror/</link>
       <pubDate>Sat, 12 Apr 2014 18:02:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/make-nod32-mirror/</guid>
+      <guid>https://blog.hook.sh/dev/make-nod32-mirror/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/232163/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://tarampampam.github.io/blog/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;У этого поста есть продолжение. Пожалуйста, перейдите &lt;a href=&#34;https://blog.hook.sh/dev/make-nod32-mirror-updated/&#34;&gt;по этой ссылке&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Если вы занимаетесь администрированием, велика вероятность что рано или поздно встанет вопрос — «На клиентских машинах стоит антивирус Nod32, надо бы создать для них единое зеркало обновлений». И тут возможны несколько путей развития сюжета:&lt;/p&gt;</description>
@@ -391,10 +391,10 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.</description>
     
     <item>
       <title>WakeOnLan на MBL</title>
-      <link>https://tarampampam.github.io/blog/my-book-live/wol-for-wdmybooklive/</link>
+      <link>https://blog.hook.sh/my-book-live/wol-for-wdmybooklive/</link>
       <pubDate>Sat, 12 Apr 2014 13:13:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/my-book-live/wol-for-wdmybooklive/</guid>
+      <guid>https://blog.hook.sh/my-book-live/wol-for-wdmybooklive/</guid>
       <description>&lt;p&gt;Иногда может потребоваться удаленно включить домашний компьютер. Например, вы находитесь на работе, и надо забрать кое-какие документы с домашнего компьютера - а домашних, кто мог бы тыкнуть на кнопку включения, как на зло, нет дома.&lt;/p&gt;</description>
     </item>
     

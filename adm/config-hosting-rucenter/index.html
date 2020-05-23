@@ -27,12 +27,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -40,7 +40,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -48,59 +48,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -122,7 +122,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/rucenter-cfg-wide.jpg" itemprop="image" alt="Настройка хостинга на RU-Center (nic.ru)" />
+        <img src="https://blog.hook.sh//images/posts/rucenter-cfg-wide.jpg" itemprop="image" alt="Настройка хостинга на RU-Center (nic.ru)" />
       </div>
     
 
@@ -176,7 +176,7 @@
 
 <p>В <code>wp-config.php</code>, и добавляем отдельную задачу в &ldquo;Панель управления&rdquo; &rarr; &ldquo;Веб-сервер&rdquo; &rarr; &ldquo;Планировщик заданий&rdquo; с именем, например - &ldquo;wp cron&rdquo; и выполняемой командой:</p>
 
-<pre><code class="language-php">/usr/local/bin/wget -O - -q &quot;http://your_domain.ltd/wp-cron.php&quot;
+<pre><code class="language-bash">/usr/local/bin/wget -O - -q &quot;http://your_domain.ltd/wp-cron.php&quot;
 </code></pre>
 
 <p>Теперь пользователи не будут ощущать задержку, а все задачи крона WP будут выполняться &ldquo;в фоне&rdquo; с заданным интервалом (<em>выставь &ldquo;Каждые 5 минут&rdquo;</em>).</p>
@@ -212,7 +212,7 @@
 
 <p>Для <strong>включения gzip-сжатия</strong> статики необходимо в секцию <code>http {...}</code> добавить:</p>
 
-<pre><code>  gzip_static on;
+<pre><code class="language-nginx">  gzip_static on;
   gzip on;
   gzip_buffers 16 8k;
   gzip_comp_level 2;
@@ -227,7 +227,7 @@
 
 <p>Для того чтоб она <strong>лишний раз не загружалась с сервера</strong>, а хранилась на стороне клиента мы немного подправил <code>location</code> который отвечает за отдачу статики, а точнее добавим в него строку <code>expires 30d;</code>, чтоб получилось примерно следующее:</p>
 
-<pre><code>location ~* ^.+\.(jpg|jpeg|gif|swf|png|ico|mp3|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|dat|avi|ppt|txt|tar|mid|midi|wav|bmp|rtf|wmv|mpeg|mpg|mp4|m4a|spx|ogx|ogv|oga|webm|weba|ogg|tbz|js|7z)$ {
+<pre><code class="language-nginx">location ~* ^.+\.(jpg|jpeg|gif|swf|png|ico|mp3|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|dat|avi|ppt|txt|tar|mid|midi|wav|bmp|rtf|wmv|mpeg|mpg|mp4|m4a|spx|ogx|ogv|oga|webm|weba|ogg|tbz|js|7z)$ {
     expires 30d;
     root   /home/domain-tld/your_domain.ltd/docs;
     access_log  /var/log/your_domain.ltd.access_log  combined;
@@ -239,7 +239,7 @@
 
 <p>Так же приведу для сравнения полный листинг получившегося у меня конфига:</p>
 
-<pre><code>worker_processes  2;
+<pre><code class="language-nginx">worker_processes  2;
 error_log  /dev/null;
 pid        /var/run/nginx.pid;
 events {
@@ -343,7 +343,7 @@ http {
 
 <p>Содержимое файла &ldquo;~/etc/nginx/secure_wordpress.inc&rdquo;:</p>
 
-<pre><code>if ($http_user_agent ~* ((perl|php|python|wpscan)|^(|-|_)$)) {return 403;}
+<pre><code class="language-nginx">if ($http_user_agent ~* ((perl|php|python|wpscan)|^(|-|_)$)) {return 403;}
 if ($http_user_agent ~* (nmap|nikto|wikto|sf|sqlmap|bsqlbf|w3af|acunetix|havij|appscan|nic.ru|monitoring|semalt|virusdie|indy)) {return 444;}
 if ($http_referer ~* (semalt.com|virusdie|mskshops.ru|apishops.ru)) {return 444;}
 location ~* /(magmi.(php|ini)|uploadTester.asp|.*server.ca.pem|(x|humans).txt|(flashgallery|thumb_editor|html|phpinfo|xxx|bad).php|filezilla.xml)$ {return 444;}
@@ -548,15 +548,15 @@ echo -e &quot;Complete&quot;;
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/apache/">apache</a></li>
+      <li><a href="https://blog.hook.sh/tags/apache/">apache</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/backup/">backup</a></li>
+      <li><a href="https://blog.hook.sh/tags/backup/">backup</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      <li><a href="https://blog.hook.sh/tags/bash/">bash</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      <li><a href="https://blog.hook.sh/tags/nginx/">nginx</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/nic.ru/">nic.ru</a></li>
+      <li><a href="https://blog.hook.sh/tags/nic.ru/">nic.ru</a></li>
       
     </ul>
     
@@ -597,6 +597,10 @@ echo -e &quot;Complete&quot;;
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

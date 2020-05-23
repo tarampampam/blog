@@ -27,12 +27,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -40,7 +40,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -48,59 +48,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -122,7 +122,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/phing-wide.jpg" itemprop="image" alt="Автоматическая сборка PHP-проектов с помощью PhiNG" />
+        <img src="https://blog.hook.sh//images/posts/phing-wide.jpg" itemprop="image" alt="Автоматическая сборка PHP-проектов с помощью PhiNG" />
       </div>
     
 
@@ -139,7 +139,7 @@
 
 <p>Итак, мы работаем под Windows. Первым делом определимся с тем, как у нас всё располагается. Имеется директория <code>%project_name%</code>, в которой лежит директория <code>sources</code> с исходниками проекта (<em>пролинкована как домашняя директория на тестовом веб-сервере</em>), там же лежит <code>README.md</code> файл, и всё это располагается в Git-е (<em>всё всегда храним в Git-е</em>). Визуально это выглядит так:</p>
 
-<pre><code>[dir] %project_name%
+<pre><code class="language-bash">[dir] %project_name%
   |- [dir] .git
   |- [dir] sources (исходники проекта)
   |- [file] .gitignore
@@ -160,7 +160,7 @@
 
 <p>В файле <code>build.cmd</code> (<em>что уже лежит в корне проекта</em>) необходимо указать где у нас располагается интерпритатор и PhiNG. Для этого редатируем две строки:</p>
 
-<pre><code>...
+<pre><code class="language-bash">...
 set DEFAULT_PHING_HOME=&quot;.\build_tools\phing&quot;
 ...
 set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
@@ -179,9 +179,9 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
   &lt;property name=&quot;build_dir&quot; value=&quot;../build/&quot; override=&quot;false&quot; /&gt;
 
   &lt;tstamp&gt;
-    &lt;format pattern=&quot;%Y_%m_%d__%H-%M-%S&quot; property=&quot;build.time&quot; /&gt;  
+    &lt;format pattern=&quot;%Y_%m_%d__%H-%M-%S&quot; property=&quot;build.time&quot; /&gt;
   &lt;/tstamp&gt;
-  
+
   &lt;target name=&quot;make_copy&quot;&gt;
     &lt;if&gt;
       &lt;available file=&quot;${build_dir}&quot; type=&quot;dir&quot; /&gt;
@@ -197,7 +197,7 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
       &lt;/fileset&gt;
     &lt;/copy&gt;
   &lt;/target&gt;
-  
+
   &lt;target name=&quot;make_clean&quot; depends=&quot;make_copy&quot;&gt;
     &lt;echo&gt;Clear cache&lt;/echo&gt;
     &lt;delete&gt;
@@ -218,7 +218,7 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
       &lt;/fileset&gt;
     &lt;/delete&gt;
   &lt;/target&gt;
-  
+
   &lt;target name=&quot;min_js&quot; depends=&quot;make_copy&quot;&gt;
     &lt;taskdef name=&quot;jsminify&quot; classname=&quot;phing.tasks.JsMinifyTask&quot; /&gt;
     &lt;echo&gt;Minifying JavaScript files&lt;/echo&gt;
@@ -229,7 +229,7 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
       &lt;/fileset&gt;
     &lt;/jsminify&gt;
   &lt;/target&gt;
-  
+
   &lt;target name=&quot;min_css&quot; depends=&quot;make_copy&quot;&gt;
     &lt;taskdef name=&quot;cssminify&quot; classname=&quot;phing.tasks.CssMinifyTask&quot; /&gt;
     &lt;echo&gt;Minifying CSS files&lt;/echo&gt;
@@ -240,7 +240,7 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
       &lt;/fileset&gt;
     &lt;/cssminify&gt;
   &lt;/target&gt;
-  
+
   &lt;target name=&quot;protect_php&quot; depends=&quot;make_copy&quot;&gt;
     &lt;echo&gt;Protect PHP files&lt;/echo&gt;
     &lt;reflexive&gt;
@@ -253,7 +253,7 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
       &lt;/filterchain&gt;
     &lt;/reflexive&gt;
   &lt;/target&gt;
-  
+
   &lt;target name=&quot;pack&quot; depends=&quot;make_copy&quot;&gt;
     &lt;echo&gt;Pack to single archive&lt;/echo&gt;
     &lt;zip destfile=&quot;../build_${build.time}.zip&quot;&gt;
@@ -262,7 +262,7 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
       &lt;/fileset&gt;
     &lt;/zip&gt;
   &lt;/target&gt;
-  
+
   &lt;target name=&quot;remove_copy&quot; depends=&quot;make_copy&quot;&gt;
     &lt;echo&gt;Remove build directory&lt;/echo&gt;
     &lt;delete dir=&quot;${build_dir}&quot; includeemptydirs=&quot;true&quot; verbose=&quot;false&quot; failonerror=&quot;false&quot; /&gt;
@@ -288,7 +288,7 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
 
 <p>И остается самый ответственный момент - запустить сборку. Выполняем файл <code>build.cmd</code>:</p>
 
-<p><img src="https://hsto.org/webt/vl/pl/cf/vlplcfrqqvzp166enxyrmiftk74.png" alt="screen shot" /></p>
+<p><img src="https://hsto.org/webt/vl/pl/cf/vlplcfrqqvzp166enxyrmiftk74.png" alt="screenshot" /></p>
 
 <p>Как видим - сборка прошла без ошибок, и у нас в директории с проектом появился файл <code>build_%timestamp%.zip</code>, в котором все ресурсы нежно упакованы :) Как ты уже догадываешься - возможностей у PhiNG дохрена и больше - можно как делать и автоматическую загрузку итогового архива на удаленный сервер, так и производить массу иных операций. Но сейчас мы просто ознакомились с общим функционалом.</p>
 
@@ -299,13 +299,13 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/build/">build</a></li>
+      <li><a href="https://blog.hook.sh/tags/build/">build</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/phing/">phing</a></li>
+      <li><a href="https://blog.hook.sh/tags/phing/">phing</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      <li><a href="https://blog.hook.sh/tags/php/">php</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/windows/">windows</a></li>
+      <li><a href="https://blog.hook.sh/tags/windows/">windows</a></li>
       
     </ul>
     
@@ -346,6 +346,10 @@ set PHP_COMMAND=&quot;.\build_tools\php-5\php.exe&quot;
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

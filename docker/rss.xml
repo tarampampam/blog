@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/docker/</link>
+    <link>https://blog.hook.sh/docker/</link>
     <description>Recent content in Docker on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Mon, 15 Oct 2018 13:35:50 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/docker/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/docker/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Деплой на Docker Swarm</title>
-      <link>https://tarampampam.github.io/blog/docker/compose-deploy/</link>
+      <link>https://blog.hook.sh/docker/compose-deploy/</link>
       <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/docker/compose-deploy/</guid>
+      <guid>https://blog.hook.sh/docker/compose-deploy/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данный пост является переводом &lt;a href=&#34;https://docs.docker.com/compose/compose-file/#deploy&#34;&gt;части документации&lt;/a&gt;, посвященной секции &lt;code&gt;deploy&lt;/code&gt; в &lt;code&gt;docker-compose&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;

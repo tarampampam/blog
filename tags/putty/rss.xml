@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>putty on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/putty/</link>
+    <link>https://blog.hook.sh/tags/putty/</link>
     <description>Recent content in putty on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Fri, 01 Aug 2014 15:48:00 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/putty/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/putty/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Флаги запуска «PuTTY»</title>
-      <link>https://tarampampam.github.io/blog/tnt/putty-flags/</link>
+      <link>https://blog.hook.sh/tnt/putty-flags/</link>
       <pubDate>Fri, 01 Aug 2014 15:48:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/tnt/putty-flags/</guid>
+      <guid>https://blog.hook.sh/tnt/putty-flags/</guid>
       <description>&lt;p&gt;Наиболее часто используемые флаги запуска &lt;code&gt;putty&lt;/code&gt;:&lt;/p&gt;</description>
     </item>
     

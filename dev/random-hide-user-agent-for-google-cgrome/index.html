@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -41,7 +41,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -49,59 +49,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -123,7 +123,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/rnd-usr-agent-wide.jpg" itemprop="image" alt="Много анонимности не бывает — скрываем User-Agent" />
+        <img src="https://blog.hook.sh//images/posts/rnd-usr-agent-wide.jpg" itemprop="image" alt="Много анонимности не бывает — скрываем User-Agent" />
       </div>
     
 
@@ -138,7 +138,7 @@
 
 <p>Очередной приступ паранойи был вполне обоснован — он наступил после прочтения <a href="https://habr.com/post/203680/">статьи о методах анонимности в сети</a>, где автор на примере браузера FireFox рассказывал о потенциальных утечках идентификационной информации. И стало интересно — а на сколько озвученные решения применимы, скажем, к браузеру <strong>Google Chrome</strong>.</p>
 
-<p>Скрыть реальный IP — используем разные VPN сервера, отключить львиную долю отслеживающих скриптов — <a href="https://chrome.google.com/webstore/detail/adblock-plus/cfhdojbkjhnklbpkdaibdccddilifddb">Adblock Plus</a> и <a href="https://chrome.google.com/webstore/detail/ghostery/mlomiejdfkolichcflejclcbmpeaniij">Ghostery</a>, убрать Referer — <a href="https://chrome.google.com/webstore/detail/referer-control/hnkcfpcejkafcihlgbojoidoihckciin">не вопрос</a>, что то ещё забыли… Ах да — User-Agent — своеобразный &#171;отпечаток&#187;, по которому (в связке, скажем, с IP) легко идентифицировать пользователя. И с этим надо было что-то делать. Найденные решения лишь статично изменяли значение User-Agent, чего было явно недостаточно. Тогда и было решено написать плагин для скрытия реального User-Agent’a, а если быть точнее — подменять его на рандомный. Или почти рандомный.</p>
+<p>Скрыть реальный IP — используем разные VPN сервера, отключить львиную долю отслеживающих скриптов — <a href="https://chrome.google.com/webstore/detail/adblock-plus/cfhdojbkjhnklbpkdaibdccddilifddb">Adblock Plus</a> и <a href="https://chrome.google.com/webstore/detail/ghostery/mlomiejdfkolichcflejclcbmpeaniij">Ghostery</a>, убрать Referer — <a href="https://chrome.google.com/webstore/detail/referer-control/hnkcfpcejkafcihlgbojoidoihckciin">не вопрос</a>, что-то ещё забыли… Ах да — User-Agent — своеобразный &#171;отпечаток&#187;, по которому (в связке, скажем, с IP) легко идентифицировать пользователя. И с этим надо было что-то делать. Найденные решения лишь статично изменяли значение User-Agent, чего было явно недостаточно. Тогда и было решено написать плагин для скрытия реального User-Agent’a, а если быть точнее — подменять его на рандомный. Или почти рандомный.</p>
 
 <p>Для нетерпеливых сразу: <a href="http://github.com/tarampampam/random-user-agent">исходники на GitHub</a> и расширение в <a href="https://chrome.google.com/webstore/detail/random-hide-user-agent/einpaelgookohagofgnnkcfjbkkgepnp">Google Webstore</a>.</p>
 
@@ -150,7 +150,7 @@
 
 <p>Почему именно IP и UA надо скрывать в первую очередь? А давайте посмотрим на лог пустого сайта-заглушки, на котором вообще ничего нет:</p>
 
-<pre><code>[meow@hosting /var/log]$ cat somesite.org.access_log | tail -3
+<pre><code class="language-bash">[meow@hosting /var/log]$ cat somesite.org.access_log | tail -3
 10.12.11.254 - - [25/Jul/2014:15:51:16 +0700] &quot;GET / HTTP/1.0&quot; 200 5768 &quot;-&quot; &quot;Mozilla/5.0 (compatible; MJ12bot/v1.4.5; http://www.majestic12.co.uk/bot.php?+)&quot;
 10.12.11.254 - - [25/Jul/2014:15:57:38 +0700] &quot;GET / HTTP/1.0&quot; 200 5768 &quot;-&quot; &quot;Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)&quot;
 10.12.11.254 - - [25/Jul/2014:19:19:25 +0700] &quot;GET / HTTP/1.0&quot; 200 5768 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0&quot;
@@ -162,7 +162,7 @@
 
 <p>Итак, решено — подставляем фейковый UA. Но как его сформировать? Я пошел по пути собирания с десятка UAкаждого интересующего браузера, и написания регулярки для каждого, которая будет генерировать <strong>максимально правдоподобный</strong> и в то же время а какой-то мере уникальный отпечаток. Хотите пример? Вот вам 10 UA браузера «IE 9», и среди них пять настоящих. Сможете отличить?</p>
 
-<pre><code>Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; chromeframe/12.0.742.112)
+<pre><code class="language-bash">Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; chromeframe/12.0.742.112)
 Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 6.0; Win64; x64; Trident/5.0; .NET CLR 3.8.50799; Media Center PC 6.0; .NET4.0E)
 Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 8.1; Trident/5.0; .NET4.0E; en-AU)
 Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)
@@ -227,15 +227,15 @@ Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/anonymous/">anonymous</a></li>
+      <li><a href="https://blog.hook.sh/tags/anonymous/">anonymous</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/extension/">extension</a></li>
+      <li><a href="https://blog.hook.sh/tags/extension/">extension</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/google-chrome/">google chrome</a></li>
+      <li><a href="https://blog.hook.sh/tags/google-chrome/">google chrome</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/hide/">hide</a></li>
+      <li><a href="https://blog.hook.sh/tags/hide/">hide</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/useragent/">useragent</a></li>
+      <li><a href="https://blog.hook.sh/tags/useragent/">useragent</a></li>
       
     </ul>
     
@@ -276,6 +276,10 @@ Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

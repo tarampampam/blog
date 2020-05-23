@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>make on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/make/</link>
+    <link>https://blog.hook.sh/tags/make/</link>
     <description>Recent content in make on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Fri, 28 Sep 2018 15:39:27 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/make/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/make/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GNU Make - Полная документация</title>
-      <link>https://tarampampam.github.io/blog/nix/makefile-full-doc/</link>
+      <link>https://blog.hook.sh/nix/makefile-full-doc/</link>
       <pubDate>Fri, 28 Sep 2018 15:39:27 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/nix/makefile-full-doc/</guid>
+      <guid>https://blog.hook.sh/nix/makefile-full-doc/</guid>
       <description>&lt;p&gt;На днях появилась необходимость несколько автоматизировать сборку Docker-образов, и решать эту задачу &amp;ldquo;привычними&amp;rdquo; bash-скриптами очень не хотелось. Вспомнил про существование такого зверя как &lt;code&gt;make&lt;/code&gt; и, черт подери - это великая тулза, которая уже считай что почти забыта. В процессе работы был найден перевод документации, и дабы он &amp;ldquo;не потерялся&amp;rdquo; - разместил его здесь.&lt;/p&gt;
 
 &lt;h2 id=&#34;программа-управления-компиляцией&#34;&gt;Программа управления компиляцией&lt;/h2&gt;

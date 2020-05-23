@@ -1,6 +1,6 @@
-Host: https://tarampampam.github.io/blog/
+Host: https://blog.hook.sh/
 
-Sitemap: https://tarampampam.github.io/blog/sitemap.xml
+Sitemap: https://blog.hook.sh/sitemap.xml
 
 User-agent: ia_archiver
 Disallow: /

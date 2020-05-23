@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -41,7 +41,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -49,59 +49,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -123,7 +123,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/nginx-wide.jpg" itemprop="image" alt="Собираем nginx из исходников" />
+        <img src="https://blog.hook.sh//images/posts/nginx-wide.jpg" itemprop="image" alt="Собираем nginx из исходников" />
       </div>
     
 
@@ -233,29 +233,30 @@ $ cd ..
 $ yum install rpm-build gd-devel libxslt-devel perl-ExtUtils-Embed gperftools-devel
 </code></pre>
 
-<blockquote>
 <p>Для Debian систем список пакетов вероятнее всего будет таким:</p>
 
 <pre><code class="language-bash">$ apt-get -y install build-essential zlib1g-dev libpcre3 libpcre3-dev libbz2-dev libssl-dev tar unzip
 </code></pre>
 
+<blockquote>
 <p>Небольшое отступление - в целях безопасности есть смысл скрыть настоящую сигнатуру используемого сервера. При помощи двух следующих шагов мы <a href="http://stackoverflow.com/a/246294">заменим стандартный баннер nginx-а</a>, отсылаемый при каждом запросе, и немного изменим вывод на стандартных страницах ошибок, по которым так же происходит определение используемого ПО на сервере.</p>
+</blockquote>
 
 <p>Изменяем стандартный баннер ответа сервера (поправь строки 48 и 49):</p>
 
 <pre><code class="language-bash">$ nano ./src/http/ngx_http_header_filter_module.c
 </code></pre>
 
-<pre><code>static char ngx_http_server_string[] = &quot;Server: SuperSecretServer&quot; CRLF;
+<pre><code class="language-с">static char ngx_http_server_string[] = &quot;Server: SuperSecretServer&quot; CRLF;
 static char ngx_http_server_full_string[] = &quot;Server: SuperSecretServer&quot; CRLF;
 </code></pre>
 
-<p>И правим вывод вывод на стандартных страницах ошибок (начиная со строки 21 и далее по тексту):</p>
+<p>И правим вывод на стандартных страницах ошибок (начиная со строки 21 и далее по тексту):</p>
 
 <pre><code class="language-bash">$ nano ./src/http/ngx_http_special_response.c
 </code></pre>
 
-<pre><code>static u_char ngx_http_error_full_tail[] =
+<pre><code class="language-c">static u_char ngx_http_error_full_tail[] =
 &quot;&lt;hr&gt;&lt;center&gt;&quot; /*NGINX_VER*/ &quot;&lt;/center&gt;&quot; CRLF
 &quot;&lt;/body&gt;&quot; CRLF
 &quot;&lt;/html&gt;&quot; CRLF
@@ -268,7 +269,6 @@ static u_char ngx_http_error_tail[] =
 ;
 ...
 </code></pre>
-</blockquote>
 
 <p>И наконец таки компилируем, делаем копию конфигов и ставим:</p>
 
@@ -280,7 +280,6 @@ static u_char ngx_http_error_tail[] =
 $ make
 </code></pre>
 
-<blockquote>
 <h5 id="удали-старый-nginx">Удали старый nginx!</h5>
 
 <p>Если nginx у тебя был установлен из репозитория, то именно сейчас настал момент, когда требуется остановить работающий nginx и удалить его. Для этого выполни:</p>
@@ -288,7 +287,8 @@ $ make
 <pre><code class="language-bash">$ service nginx stop
 $ yum erase nginx
 </code></pre>
-</blockquote>
+
+<p>Далее:</p>
 
 <pre><code class="language-bash">$ service nginx stop
 $ make install
@@ -331,19 +331,19 @@ $ /sbin/chkconfig nginx on
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      <li><a href="https://blog.hook.sh/tags/bash/">bash</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      <li><a href="https://blog.hook.sh/tags/centos/">centos</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/gcc/">gcc</a></li>
+      <li><a href="https://blog.hook.sh/tags/gcc/">gcc</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/nginx/">nginx</a></li>
+      <li><a href="https://blog.hook.sh/tags/nginx/">nginx</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/service/">service</a></li>
+      <li><a href="https://blog.hook.sh/tags/service/">service</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/source/">source</a></li>
+      <li><a href="https://blog.hook.sh/tags/source/">source</a></li>
       
     </ul>
     
@@ -384,6 +384,10 @@ $ /sbin/chkconfig nginx on
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

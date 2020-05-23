@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>proxy on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/proxy/</link>
+    <link>https://blog.hook.sh/tags/proxy/</link>
     <description>Recent content in proxy on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Sat, 13 Aug 2016 10:57:36 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/proxy/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/proxy/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Поднимаем свой, приватный прокси-сервер</title>
-      <link>https://tarampampam.github.io/blog/adm/setup-private-proxy-server/</link>
+      <link>https://blog.hook.sh/adm/setup-private-proxy-server/</link>
       <pubDate>Sat, 13 Aug 2016 10:57:36 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/setup-private-proxy-server/</guid>
+      <guid>https://blog.hook.sh/adm/setup-private-proxy-server/</guid>
       <description>&lt;p&gt;Сегодня мы будем поднимать анонимный и действительно шустренький proxy/socks сервер для себя-любимого. Так чтоб настроить его один раз, да и забыть - пускай пыхтит да нам на радость.&lt;/p&gt;
 
 &lt;p&gt;Будем считать что ты уже приобрел себе простенький vps, в качестве ОС выбрал Cent OS 7 и подцепился к нему по SSH, наблюдая девственную чистоту. Первым делом тюним SSH:&lt;/p&gt;</description>
@@ -25,10 +25,10 @@
     
     <item>
       <title>Как «накрутить лайки» в Instagram, используя уязвимость приложения «GetLikes» для iOS</title>
-      <link>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</link>
+      <link>https://blog.hook.sh/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</link>
       <pubDate>Fri, 26 Jun 2015 11:44:42 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</guid>
+      <guid>https://blog.hook.sh/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данный пост является повторением действий, описанных хабраюзером &lt;a href=&#34;https://habr.com/users/jo1n/&#34;&gt;jo1n&lt;/a&gt; в его &lt;a href=&#34;https://habr.com/post/261153/&#34;&gt;посте&lt;/a&gt; на хабре.&lt;/p&gt;
 

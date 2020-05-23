@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>php on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/php/</link>
+    <link>https://blog.hook.sh/tags/php/</link>
     <description>Recent content in php on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Mon, 01 Oct 2018 08:29:51 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/php/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/php/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker &#43; Laravel = ❤</title>
-      <link>https://tarampampam.github.io/blog/php/laravel-in-docker/</link>
+      <link>https://blog.hook.sh/php/laravel-in-docker/</link>
       <pubDate>Mon, 01 Oct 2018 08:29:51 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/php/laravel-in-docker/</guid>
+      <guid>https://blog.hook.sh/php/laravel-in-docker/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/425101/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -41,28 +41,28 @@
     
     <item>
       <title>Переопределяем расположение .env файла для Laravel</title>
-      <link>https://tarampampam.github.io/blog/php/override-laravel-env-file-location/</link>
+      <link>https://blog.hook.sh/php/override-laravel-env-file-location/</link>
       <pubDate>Thu, 23 Aug 2018 16:43:45 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/php/override-laravel-env-file-location/</guid>
+      <guid>https://blog.hook.sh/php/override-laravel-env-file-location/</guid>
       <description>&lt;p&gt;Столкнулся с ситуацией, когда необходимо переопределить расположение &lt;code&gt;.env&lt;/code&gt; файла, который используется, к примеру - для запуска &lt;code&gt;phpunit&lt;/code&gt; тестов. Да, если в корне приложения имеется файл &lt;code&gt;.env.testing&lt;/code&gt; - то он автоматически будет прочитан фреймворком при &lt;code&gt;APP_ENV&lt;/code&gt; равным &lt;code&gt;testing&lt;/code&gt;, но вот что делать, если этот файл необходимо разметить в какой-либо другой директории? Давай расположим его в &lt;code&gt;./env.d/&lt;/code&gt; дабы, например, не &amp;ldquo;мусорить&amp;rdquo; в корне приложения.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>LEMP &#43; CentOS = ❤</title>
-      <link>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</link>
+      <link>https://blog.hook.sh/adm/install-lemp-stack-on-centos/</link>
       <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/install-lemp-stack-on-centos/</guid>
+      <guid>https://blog.hook.sh/adm/install-lemp-stack-on-centos/</guid>
       <description>&lt;p&gt;Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx + php + php-fpm + mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Собираем и настраиваем msmtp</title>
-      <link>https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/</link>
+      <link>https://blog.hook.sh/adm/compile-and-config-msmtp/</link>
       <pubDate>Tue, 28 Jun 2016 22:24:10 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/compile-and-config-msmtp/</guid>
+      <guid>https://blog.hook.sh/adm/compile-and-config-msmtp/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://msmtp.sourceforge.net/&#34;&gt;msmtp&lt;/a&gt; - это простой консольный клиент для отправки сообщений электронной почты по протоколу SMTP.&lt;/p&gt;
 
 &lt;p&gt;Можно, конечно, пойти сложным путем и поставить полноценный почтовый сервер, но зачем? Нам ведь требуется просто позволить скриптам и демонам отправлять почту, а заморачиваться с DKIM, SPF, заголовками и прочим - крайне лень. Поэтому мы будем отправлять почту с помощью почтового ящика на yandex.ru, и поможет нам в этом приложение под названием &lt;a href=&#34;http://msmtp.sourceforge.net/&#34;&gt;msmtp&lt;/a&gt;.&lt;/p&gt;</description>
@@ -70,28 +70,28 @@
     
     <item>
       <title>CentOS — обновляем php до 5.6</title>
-      <link>https://tarampampam.github.io/blog/adm/centos-update-php-upto-56/</link>
+      <link>https://blog.hook.sh/adm/centos-update-php-upto-56/</link>
       <pubDate>Fri, 25 Mar 2016 06:37:53 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/centos-update-php-upto-56/</guid>
+      <guid>https://blog.hook.sh/adm/centos-update-php-upto-56/</guid>
       <description>&lt;p&gt;Задался вопросом - при разработке web-приложений под какую версию &lt;code&gt;php&lt;/code&gt; их &amp;ldquo;затачивать&amp;rdquo;? Ответ оказался проще некуда - достаточно посмотреть на &lt;a href=&#34;http://php.net/supported-versions.php&#34;&gt;календарь релизов&lt;/a&gt; и понять, что на данный момент поддерживаемой является версия &lt;code&gt;5.6.19&lt;/code&gt;:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Автоматическая сборка PHP-проектов с помощью PhiNG</title>
-      <link>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</link>
+      <link>https://blog.hook.sh/etc/build-php-project-with-phing/</link>
       <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/etc/build-php-project-with-phing/</guid>
+      <guid>https://blog.hook.sh/etc/build-php-project-with-phing/</guid>
       <description>&lt;p&gt;Что я подразумеваю под сборкой? Сборка - это процесс действий, которые выполняются над кодом проекта перед его деплоем. Она может включать в себя создание копии проекта, очистка директории с кэшем, минификация CSS и JS файлов, упаковка результата в один zip-архив. Так же возможно ещё и автоматическое развертывание проекта а удаленном сервере, но сегодня речь об этом идти не будет.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Сниппеты для WordPress (ч. 1)</title>
-      <link>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</link>
+      <link>https://blog.hook.sh/wp/wp-snippets-part-1/</link>
       <pubDate>Sat, 23 Jan 2016 05:35:18 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/wp-snippets-part-1/</guid>
+      <guid>https://blog.hook.sh/wp/wp-snippets-part-1/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Кэп, &amp;ldquo;по умолчанию&amp;rdquo; все сниппеты добавляются в &lt;code&gt;./wp-content/%theme%/functions.php&lt;/code&gt; твоей темы&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -103,10 +103,10 @@
     
     <item>
       <title>Чистим интернет от назойливой рекламы (AD Blocker для MikroTik)</title>
-      <link>https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/</link>
+      <link>https://blog.hook.sh/mikrotik/remove-a-lot-of-ad-using-mikrotik/</link>
       <pubDate>Tue, 04 Aug 2015 05:19:04 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/mikrotik/remove-a-lot-of-ad-using-mikrotik/</guid>
+      <guid>https://blog.hook.sh/mikrotik/remove-a-lot-of-ad-using-mikrotik/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/264001/&#34; target=&#34;_blank&#34;&gt;публикации на хабре&lt;/a&gt; (написанной мной же).&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -116,10 +116,10 @@
     
     <item>
       <title>Как «накрутить лайки» в Instagram, используя уязвимость приложения «GetLikes» для iOS</title>
-      <link>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</link>
+      <link>https://blog.hook.sh/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</link>
       <pubDate>Fri, 26 Jun 2015 11:44:42 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</guid>
+      <guid>https://blog.hook.sh/hack/how-get-likes-in-instagram-using-getlikes-vulnerability/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данный пост является повторением действий, описанных хабраюзером &lt;a href=&#34;https://habr.com/users/jo1n/&#34;&gt;jo1n&lt;/a&gt; в его &lt;a href=&#34;https://habr.com/post/261153/&#34;&gt;посте&lt;/a&gt; на хабре.&lt;/p&gt;
 
@@ -131,42 +131,42 @@
     
     <item>
       <title>Скрываем версию WordPress</title>
-      <link>https://tarampampam.github.io/blog/wp/remove-wp-version/</link>
+      <link>https://blog.hook.sh/wp/remove-wp-version/</link>
       <pubDate>Tue, 26 May 2015 07:10:53 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/remove-wp-version/</guid>
+      <guid>https://blog.hook.sh/wp/remove-wp-version/</guid>
       <description>&lt;p&gt;Маленький но довольно полезный плагин для повышения безопасности сайта на WordPress, который всё что делает - это скрывает версию CMS, удаляя:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Во-первых теги &lt;code&gt;&amp;lt;meta generator=&amp;quot;...&amp;quot; /&amp;gt;&lt;/code&gt; (и иже с ними), что генерирует сам Wordoress;&lt;/li&gt;
+&lt;li&gt;Во-первых теги &lt;code&gt;&amp;lt;meta generator=&amp;quot;...&amp;quot; /&amp;gt;&lt;/code&gt; (и иже с ними), что генерирует сам Wordpress;&lt;/li&gt;
 &lt;li&gt;Во-вторых из запросов к css и js файлам подстроку &lt;code&gt;?ver=%версия%&lt;/code&gt;, которая всё беспощадно палит.&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Отключаем RSS в WordPress</title>
-      <link>https://tarampampam.github.io/blog/wp/remove-wp-rss/</link>
+      <link>https://blog.hook.sh/wp/remove-wp-rss/</link>
       <pubDate>Mon, 25 May 2015 16:28:30 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/remove-wp-rss/</guid>
+      <guid>https://blog.hook.sh/wp/remove-wp-rss/</guid>
       <description>&lt;p&gt;В ряде случаев для сайта на WordPress совершенно не требуется RSS лента. Отключив эту возможность мы не только освобождаем дополнительные ресурсы системы (&lt;em&gt;нет необходимости формировать фид, т.к. его не запрашивают только ленивые боты&lt;/em&gt;), но и усложним задачу тем, кто уже сейчас (&lt;em&gt;или собирается&lt;/em&gt;) грабит наш контент.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Рекомендации по повышению безопасности WordPress (ч. 1)</title>
-      <link>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</link>
+      <link>https://blog.hook.sh/wp/make-wp-more-secure-part1/</link>
       <pubDate>Mon, 26 Jan 2015 12:15:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/wp/make-wp-more-secure-part1/</guid>
+      <guid>https://blog.hook.sh/wp/make-wp-more-secure-part1/</guid>
       <description>&lt;p&gt;WordPress, сука, популярный. А как следствие — дырочки в нем ищутся и находятся с завидной периодичностью. Исходя из этого - сам по себе напрашивается список рекомендаций по повышению его безопасности.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Web-gui для wget (light)</title>
-      <link>https://tarampampam.github.io/blog/dev/wget-gui-light/</link>
+      <link>https://blog.hook.sh/dev/wget-gui-light/</link>
       <pubDate>Mon, 25 Aug 2014 16:23:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/wget-gui-light/</guid>
+      <guid>https://blog.hook.sh/dev/wget-gui-light/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/234353/&#34;&gt;публикации на хабре&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;

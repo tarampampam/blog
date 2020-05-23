@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>source on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/source/</link>
+    <link>https://blog.hook.sh/tags/source/</link>
     <description>Recent content in source on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Sun, 22 Feb 2015 07:41:00 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/source/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/source/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Собираем nginx из исходников</title>
-      <link>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</link>
+      <link>https://blog.hook.sh/adm/nginx-compile-from-sources/</link>
       <pubDate>Sun, 22 Feb 2015 07:41:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/nginx-compile-from-sources/</guid>
+      <guid>https://blog.hook.sh/adm/nginx-compile-from-sources/</guid>
       <description>&lt;p&gt;Постепенно переводя часть ресурсов с Apache на &lt;strong&gt;nginx&lt;/strong&gt; возникла необходимость вывода листинга файлов (&lt;code&gt;autoindex on&lt;/code&gt;, аналог &lt;code&gt;Options +Indexes&lt;/code&gt; у Apache), но с возможностью некоторой его настройки (как минимум, это использование аналогов Apache &lt;code&gt;HeaderName&lt;/code&gt; и &lt;code&gt;ReadmeName&lt;/code&gt;).&lt;/p&gt;
 
 &lt;p&gt;В nginx этим занимается отдельный модуль под именем &lt;code&gt;fancyindex&lt;/code&gt;, для запуска которого необходимо пересобрать весь nginx из исходников, добавив его в момент сборки.&lt;/p&gt;</description>

@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -41,7 +41,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -49,59 +49,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -123,7 +123,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/win7-telemetry-wide.jpg" itemprop="image" alt="Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии)" />
+        <img src="https://blog.hook.sh//images/posts/win7-telemetry-wide.jpg" itemprop="image" alt="Windows 7/8/8.1 — препятствуем сбору данных о пользователе (телеметрии)" />
       </div>
     
 
@@ -165,17 +165,17 @@
 <ul>
 <li><p>Чистим файл хостов:</p>
 
-<pre><code>C:\&gt; notepad %windir%\System32\drivers\etc\hosts
+<pre><code class="language-bash">C:\&gt; notepad %windir%\System32\drivers\etc\hosts
 </code></pre></li>
 
 <li><p>Удаляем правило файрвола:</p>
 
-<pre><code>C:\&gt; netsh advfirewall firewall delete rule name=&quot;Block MS Telemetry&quot;
+<pre><code class="language-bash">C:\&gt; netsh advfirewall firewall delete rule name=&quot;Block MS Telemetry&quot;
 </code></pre></li>
 
 <li><p>Восстанавливаем маршруты:</p>
 
-<pre><code>C:\&gt; route -f
+<pre><code class="language-bash">C:\&gt; route -f
 </code></pre></li>
 
 <li><p>После чего отключаем и подключаем обратно сетевое подключение (<code>Панель управления</code> &rarr; <code>Центр управления сетями и общим доступом</code> &rarr; <code>Изменение параметров адаптера</code> &rarr; На нужном подключении <code>Отключить</code> и <code>Подключить</code> обратно)</p></li>
@@ -191,43 +191,43 @@
 
 <p>И ещё раз внимание! Если у вас ранее после запуска скрипта &ldquo;глючил скайп&rdquo;, то вам необходимо ручками подчистить файл хостов перед запуском обновленной версии скрипта (в котором эта проблема вроде как решена). Как это сделать? Жмем <code>Windows + R</code>, вводим <code>notepad %windir%\System32\drivers\etc\hosts</code>, и удаляем всё что ниже строки <code>## Block MS telemetry domain names</code>. Автоматизировать этот процесс меня дико ломает :)</p>
 
-<h1 id="скрипт-мной-более-не-поддерживается-обновлений-ждать-нет-смысла-всем-мур">Скрипт мной более не поддерживается. Обновлений ждать нет смысла. Всем мур.</h1>
+<h2 id="скрипт-мной-более-не-поддерживается-обновлений-ждать-нет-смысла-всем-мур">Скрипт мной более не поддерживается. Обновлений ждать нет смысла. Всем мур</h2>
 
-<h3 id="changelog">Changelog</h3>
+<h2 id="changelog">Changelog</h2>
 
-<h4 id="версия-0-2-14-от-16-02-2016">Версия <code>0.2.14</code> от <code>16.02.2016</code></h4>
+<h3 id="версия-0-2-14-от-16-02-2016">Версия <code>0.2.14</code> от <code>16.02.2016</code></h3>
 
 <ul>
 <li>Добавлены обновления <code>3135445</code>, <code>3123862</code></li>
 <li>Убран из блокировки хосты <code>apps.skype.com</code>, <code>ui.skype.com</code>, <code>m.hotmail.com</code>, <code>s.gateway.messenger.live.com</code> (<em>имеются подозрения что &ldquo;скайп глючит&rdquo; именно из-за них; т.к. сам скайпом не пользуюсь - не имею возможности полноценно проверить это</em>)</li>
 </ul>
 
-<h4 id="версия-0-2-13-от-22-01-2016">Версия <code>0.2.13</code> от <code>22.01.2016</code></h4>
+<h3 id="версия-0-2-13-от-22-01-2016">Версия <code>0.2.13</code> от <code>22.01.2016</code></h3>
 
 <ul>
 <li>Добавлены обновления <code>3112343</code>, <code>3112336</code></li>
 <li>Убран из блокировки хост <code>msftncsi.com</code> (_<a href="https://gist.github.com/tarampampam/a0db45fb0de5976300b1#gistcomment-1641262" target="_blank">почему</a>_)</li>
 </ul>
 
-<h4 id="версия-0-2-12-от-01-11-2015">Версия <code>0.2.12</code> от <code>01.11.2015</code></h4>
+<h3 id="версия-0-2-12-от-01-11-2015">Версия <code>0.2.12</code> от <code>01.11.2015</code></h3>
 
 <ul>
 <li>Добавлены обновления <code>2882822</code>, <code>3083710</code> и <code>3083711</code></li>
 </ul>
 
-<h4 id="версия-0-2-11-от-19-09-2015">Версия <code>0.2.11</code> от <code>19.09.2015</code></h4>
+<h3 id="версия-0-2-11-от-19-09-2015">Версия <code>0.2.11</code> от <code>19.09.2015</code></h3>
 
 <ul>
 <li>Из списка блокировки убраны хосты <code>diagnostics.support.microsoft.akadns.net</code> и <code>diagnostics.support.microsoft.com</code>, т.к. есть мнение что именно их использует утилита от MS FixIt</li>
 </ul>
 
-<h4 id="версия-0-2-10-от-19-09-2015">Версия <code>0.2.10</code> от <code>19.09.2015</code></h4>
+<h3 id="версия-0-2-10-от-19-09-2015">Версия <code>0.2.10</code> от <code>19.09.2015</code></h3>
 
 <ul>
 <li>Наконец-таки нашел способ значительного сокращения времени выполнения скрипта. Как оказалось всё-таки можно передавать список обновлений для сокрытия обновлений, вместо того чтоб обрабатывать каждое по отдельности. Все кто жаловались на данную проблему - в обязательном порядке обновитесь.</li>
 </ul>
 
-<h4 id="версия-0-2-9-от-17-09-2015">Версия <code>0.2.9</code> от <code>17.09.2015</code></h4>
+<h3 id="версия-0-2-9-от-17-09-2015">Версия <code>0.2.9</code> от <code>17.09.2015</code></h3>
 
 <ul>
 <li>Всё таки добавил обновления &ldquo;Windows Update Client&rdquo; под номерами <code>3065988, 3083325, 3083324, 3075853, 3065987, 3050265, 3050267, 3046480</code>. Ниибическую задержку на стадии сокрытия обновлений решить так и не удалось, а подключать для этого <code>vbs</code> - очень не хочется</li>
@@ -235,19 +235,19 @@
 <li>Добавлено снятие атрибута &ldquo;Только для чтения&rdquo; с файла хостов перед добавлением в него записей</li>
 </ul>
 
-<h4 id="версия-0-2-8-от-01-09-2015">Версия <code>0.2.8</code> от <code>01.09.2015</code></h4>
+<h3 id="версия-0-2-8-от-01-09-2015">Версия <code>0.2.8</code> от <code>01.09.2015</code></h3>
 
 <ul>
 <li>Добавлен флаг запуска <code>-d</code> или <code>-disable</code> - который отменяет функционал сокрытия обновлений (<em>применимо как временное решение того, что скрипт на моменте сокрытия обновления очень долго &ldquo;отрабатывает&rdquo;</em>)</li>
 </ul>
 
-<h4 id="версия-0-2-7-от-01-09-2015">Версия <code>0.2.7</code> от <code>01.09.2015</code></h4>
+<h3 id="версия-0-2-7-от-01-09-2015">Версия <code>0.2.7</code> от <code>01.09.2015</code></h3>
 
 <ul>
 <li>Из списка хотфиксов, подлежащих удалению убраны <code>KB3050265 - Windows Update Client for Windows 7: June 2015 // WS 2008 R2 SP1, 7 SP1</code>, <code>KB3075853 - Windows Update Client for Windows 8.1 and Windows Server 2012 R2: August 2015 // WS 2012 R2 / 8.1 / RT 8.1</code> и <code>KB3065987 - Windows Update Client for Windows 7 and Windows Server 2008 R2: July 2015 // WS 2008 R2 SP1 / 7 SP1 / Embedded Standard 7 SP1</code>, так как <em>возможно</em> они являются причиной того, что в исключительных случаях удаление/сокрытие обновлений длятся <em>очень</em> долго. На данный момент такое поведение иногда воспроизводится, причина его до конца не выяснена, а решения <a href="https://social.technet.microsoft.com/Forums/windows/en-US/4a782e40-bbd8-40b7-869d-68e3dfd1a5b4/windows-update-scan-high-memory-usage">предложенные на форме мелкософта</a> - не решают данную проблему.</li>
 </ul>
 
-<h4 id="версия-0-2-6-от-01-09-2015">Версия <code>0.2.6</code> от <code>01.09.2015</code></h4>
+<h3 id="версия-0-2-6-от-01-09-2015">Версия <code>0.2.6</code> от <code>01.09.2015</code></h3>
 
 <ul>
 <li>Исправлена ещё одна небольшая ошибка с некорректным добавлением правила файрвола</li>
@@ -255,7 +255,7 @@
 <li>Некоторые другие незначительные изменения и исправления</li>
 </ul>
 
-<h4 id="версия-0-2-5-от-31-08-2015">Версия <code>0.2.5</code> от <code>31.08.2015</code></h4>
+<h3 id="версия-0-2-5-от-31-08-2015">Версия <code>0.2.5</code> от <code>31.08.2015</code></h3>
 
 <ul>
 <li>Исправлена ошибка с добавлением пустого правила файрвола (<em>из-за этого в исключительных ситуациях после работы скрипта &ldquo;не работал интернет&rdquo;</em>)</li>
@@ -263,13 +263,13 @@
 <li>Некоторые незначительные изменения и исправления</li>
 </ul>
 
-<h4 id="версия-0-2-4-от-30-08-2015">Версия <code>0.2.4</code> от <code>30.08.2015</code></h4>
+<h3 id="версия-0-2-4-от-30-08-2015">Версия <code>0.2.4</code> от <code>30.08.2015</code></h3>
 
 <ul>
 <li>Добавлено отключение отправки отчетов об ошибках в M$</li>
 </ul>
 
-<h4 id="версия-0-2-3-от-30-08-2015">Версия <code>0.2.3</code> от <code>30.08.2015</code></h4>
+<h3 id="версия-0-2-3-от-30-08-2015">Версия <code>0.2.3</code> от <code>30.08.2015</code></h3>
 
 <ul>
 <li>Реализована <strong>автоматическая установка</strong> модуля <code>PSWindowsUpdate</code> для <code>PowerShell</code></li>
@@ -278,7 +278,7 @@
 <li>По рекомендации тов. Pavel из блокировки убран адрес <code>68.232.34.200</code></li>
 </ul>
 
-<h4 id="версия-0-2-1-от-26-08-2015">Версия <code>0.2.1</code> от <code>26.08.2015</code></h4>
+<h3 id="версия-0-2-1-от-26-08-2015">Версия <code>0.2.1</code> от <code>26.08.2015</code></h3>
 
 <ul>
 <li>Ахрененно объемное обновление</li>
@@ -290,65 +290,65 @@
 <li>Поправлены мелкие ошибки (<em>и конечно же порождены новые</em>)</li>
 </ul>
 
-<h4 id="версия-0-1-9-от-26-08-2015">Версия <code>0.1.9</code> от <code>26.08.2015</code></h4>
+<h3 id="версия-0-1-9-от-26-08-2015">Версия <code>0.1.9</code> от <code>26.08.2015</code></h3>
 
 <ul>
 <li>Поправлена ошибка с ошибочным определением отсутствия прав администратора</li>
 </ul>
 
-<h4 id="версия-0-1-9-от-26-08-2015-1">Версия <code>0.1.9</code> от <code>26.08.2015</code></h4>
+<h3 id="версия-0-1-9-от-26-08-2015-1">Версия <code>0.1.9</code> от <code>26.08.2015</code></h3>
 
 <ul>
 <li>Поправлена ошибка с ошибочным определением отсутствия прав администратора</li>
 </ul>
 
-<h4 id="версия-0-1-8-от-25-08-2015">Версия <code>0.1.8</code> от <code>25.08.2015</code></h4>
+<h3 id="версия-0-1-8-от-25-08-2015">Версия <code>0.1.8</code> от <code>25.08.2015</code></h3>
 
 <ul>
 <li>Добавлены некоторые задачи (<code>tasks</code>) подлежащие отключению</li>
 <li>Добавлен ещё один сервис <code>dmwappushservice</code> + дополнительное отключение телеметрии в Windows 10</li>
 </ul>
 
-<h4 id="версия-0-1-6-от-24-08-2015">Версия <code>0.1.6</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-1-6-от-24-08-2015">Версия <code>0.1.6</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Добавлена поддержка альтернативных флагов (<em>более понятных</em>)</li>
 <li>Незначительные поправки в UI (<em>если это вообще можно назвать UI</em>)</li>
 </ul>
 
-<h4 id="версия-0-1-5-от-24-08-2015">Версия <code>0.1.5</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-1-5-от-24-08-2015">Версия <code>0.1.5</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Увеличен таймаут перед выходом до 60 секунд</li>
 </ul>
 
-<h4 id="версия-0-1-4-от-24-08-2015">Версия <code>0.1.4</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-1-4-от-24-08-2015">Версия <code>0.1.4</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Добавлена поддержка остановки&amp;отключения сервисов</li>
 <li>В список сервисов подлежащих отключению внесен <code>Diagtrack</code></li>
 </ul>
 
-<h4 id="версия-0-1-1-от-24-08-2015">Версия <code>0.1.1</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-1-1-от-24-08-2015">Версия <code>0.1.1</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Добавлена поддержка флагов запуска</li>
 </ul>
 
-<h4 id="версия-0-0-9-от-24-08-2015">Версия <code>0.0.9</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-0-9-от-24-08-2015">Версия <code>0.0.9</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Добавлена функция отключения автоматического обновления</li>
 </ul>
 
-<h4 id="версия-0-0-7-от-24-08-2015">Версия <code>0.0.7</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-0-7-от-24-08-2015">Версия <code>0.0.7</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Добавлена хренова куча новых доменных имен для блокировки</li>
 <li>Увеличен таймаут перед выходом до 15 секунд</li>
 </ul>
 
-<h4 id="версия-0-0-4-от-24-08-2015">Версия <code>0.0.4</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-0-4-от-24-08-2015">Версия <code>0.0.4</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Обновлен список хреновых обновлений</li>
@@ -359,7 +359,7 @@
 <li>Незначительно наведена красота в коде</li>
 </ul>
 
-<h4 id="версия-0-0-2-от-24-08-2015">Версия <code>0.0.2</code> от <code>24.08.2015</code></h4>
+<h3 id="версия-0-0-2-от-24-08-2015">Версия <code>0.0.2</code> от <code>24.08.2015</code></h3>
 
 <ul>
 <li>Первый релиз</li>
@@ -374,17 +374,17 @@
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/cmd/">cmd</a></li>
+      <li><a href="https://blog.hook.sh/tags/cmd/">cmd</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/evil/">evil</a></li>
+      <li><a href="https://blog.hook.sh/tags/evil/">evil</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/hosts/">hosts</a></li>
+      <li><a href="https://blog.hook.sh/tags/hosts/">hosts</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/script/">script</a></li>
+      <li><a href="https://blog.hook.sh/tags/script/">script</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/telemetry/">telemetry</a></li>
+      <li><a href="https://blog.hook.sh/tags/telemetry/">telemetry</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/windows/">windows</a></li>
+      <li><a href="https://blog.hook.sh/tags/windows/">windows</a></li>
       
     </ul>
     
@@ -425,6 +425,10 @@
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

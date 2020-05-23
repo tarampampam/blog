@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jabber on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/jabber/</link>
+    <link>https://blog.hook.sh/tags/jabber/</link>
     <description>Recent content in jabber on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Tue, 28 Apr 2015 15:15:04 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/jabber/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/jabber/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JavaScript — получаем статус Skype, VK и Jabber аккаунтов</title>
-      <link>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</link>
+      <link>https://blog.hook.sh/dev/check-online-status-via-javascript/</link>
       <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</guid>
+      <guid>https://blog.hook.sh/dev/check-online-status-via-javascript/</guid>
       <description>&lt;p&gt;Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Поднимаем свой Jabber сервер</title>
-      <link>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</link>
+      <link>https://blog.hook.sh/adm/install-xmpp-server-jabberd/</link>
       <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</guid>
+      <guid>https://blog.hook.sh/adm/install-xmpp-server-jabberd/</guid>
       <description>&lt;p&gt;Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34; target=&#34;_blank&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34; target=&#34;_blank&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34; target=&#34;_blank&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

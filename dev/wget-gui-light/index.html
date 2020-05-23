@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -41,7 +41,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -49,59 +49,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -123,7 +123,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/wget-webgui-wide.jpg" itemprop="image" alt="Web-gui для wget (light)" />
+        <img src="https://blog.hook.sh//images/posts/wget-webgui-wide.jpg" itemprop="image" alt="Web-gui для wget (light)" />
       </div>
     
 
@@ -138,7 +138,7 @@
 
 <p>Ранее здесь находилось описание возможных ситуаций, когда данное решение могло бы вам понадобиться, но давайте его опустим. Возможность удобного создания удаленных закачек, которые выполняются привычным wget-ом (можно спокойно увидеть их список при помощи <strong>ps</strong>), с отображением прогресса — идея не новая. И даже есть <a href="http://exir.ru/wget4web/screen.htm">некоторые</a> <a href="http://sourceforge.net/projects/download-webgui/files/?source=navbar">решения</a>, но не актуальные, так как более 5 лет никем не поддерживаются.</p>
 
-<p>Для торрентов всё просто и тривиально — ставим Transmission или любой аналогичный клиент с веб-мордой. Но для ссылок на простые файлы/страницы нужно что то своё. Вот короткий список задач, которые меня подтолкнули к написанию оного:</p>
+<p>Для торрентов всё просто и тривиально — ставим Transmission или любой аналогичный клиент с веб-мордой. Но для ссылок на простые файлы/страницы нужно что-то своё. Вот короткий список задач, которые меня подтолкнули к написанию оного:</p>
 
 <ul>
 <li>Смотрю фильм онлайн при помощи планшета, но появляются дела и надо бы его сохранить, чтоб досмотреть позже;</li>
@@ -181,29 +181,29 @@
 
 <p>Путь для временных лог-файлов устанавливается в строке</p>
 
-<pre><code>define(&quot;tmp_path&quot;, &quot;/tmp&quot;);
+<pre><code class="language-php">define(&quot;tmp_path&quot;, &quot;/tmp&quot;);
 </code></pre>
 
 <p>Путь до директории, в которую будет происходить сохранение всех загружаемых файлов устанавливается в строке</p>
 
-<pre><code>define(&quot;download_path&quot;, BASEPATH.&quot;/downloads&quot;);
+<pre><code class="language-php">define(&quot;download_path&quot;, BASEPATH.&quot;/downloads&quot;);
 </code></pre>
 
 <p>Доступно удобное указание путей до <code>ps</code>, <code>wget</code> и <code>kill</code>. Для этого достаточно убрать комментарий вначале строки и указать свой путь, например:</p>
 
-<pre><code>define(&quot;wget&quot;, &quot;/usr/bin/wget&quot;);
+<pre><code class="language-php">define(&quot;wget&quot;, &quot;/usr/bin/wget&quot;);
 </code></pre>
 
 <p>Возможна установка ограничения на скорость закачки из секции настроек. За это отвечает строка</p>
 
-<pre><code>define(&quot;wget_download_limit&quot;, &quot;1024&quot;);
+<pre><code class="language-php">define(&quot;wget_download_limit&quot;, &quot;1024&quot;);
 </code></pre>
 
 <p>Если оставить её закомментированной — никакого ограничения не будет.</p>
 
 <p>Для определения в списке задачи запущенной через GUI от любой другой используется определенный флаг, уникальный для GUI. Он установлен в строке:</p>
 
-<pre><code>define(&quot;wget_secret_flag&quot;, &quot;--max-redirect=4321&quot;);
+<pre><code class="language-php">define(&quot;wget_secret_flag&quot;, &quot;--max-redirect=4321&quot;);
 </code></pre>
 
 <p>И его менять без необходимости не надо. Кстати, если хотите чтоб другие ваши задачи, запущенные из терминала отображались в веб-интерфейсе — достаточно как раз этот параметр к ним и добавить. Но не забывайте, что есть ещё и некоторые другие параметры, не менее обязательные (в зависимости от настроек).</p>
@@ -214,7 +214,7 @@
 
 <h5 id="пример-post-запроса-и-json-ответа">Пример POST-запроса и Json ответа:</h5>
 
-<pre><code>Request:
+<pre><code class="language-bash">Request:
 192.168.1.2/wget/rpc.php?action=add_task&amp;url=http://mirror.yandex.ru/linuxmint/stable/17/linuxmint-17-cinnamon-dvd-64bit.iso
 Answer:
 {
@@ -284,21 +284,21 @@ Answer:
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/ajax/">ajax</a></li>
+      <li><a href="https://blog.hook.sh/tags/ajax/">ajax</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      <li><a href="https://blog.hook.sh/tags/bash/">bash</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/css/">css</a></li>
+      <li><a href="https://blog.hook.sh/tags/css/">css</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/gui/">gui</a></li>
+      <li><a href="https://blog.hook.sh/tags/gui/">gui</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/habr/">habr</a></li>
+      <li><a href="https://blog.hook.sh/tags/habr/">habr</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      <li><a href="https://blog.hook.sh/tags/php/">php</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/wget/">wget</a></li>
+      <li><a href="https://blog.hook.sh/tags/wget/">wget</a></li>
       
     </ul>
     
@@ -339,6 +339,10 @@ Answer:
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

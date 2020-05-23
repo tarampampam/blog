@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>json on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/json/</link>
+    <link>https://blog.hook.sh/tags/json/</link>
     <description>Recent content in json on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Tue, 28 Apr 2015 15:15:04 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/json/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/json/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JavaScript — получаем статус Skype, VK и Jabber аккаунтов</title>
-      <link>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</link>
+      <link>https://blog.hook.sh/dev/check-online-status-via-javascript/</link>
       <pubDate>Tue, 28 Apr 2015 15:15:04 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/check-online-status-via-javascript/</guid>
+      <guid>https://blog.hook.sh/dev/check-online-status-via-javascript/</guid>
       <description>&lt;p&gt;Вывод статуса аккаунта - довольно удобная хреновина которая позволяет, например, на странице контактов сразу указать - аккаунт в данный момент в сети, или же нет. Сейчас мы рассмотрим функции на Javascript (с использованием jQuery) для получения статуса аккаунта из трех наиболее популярных сервисов - Skype, VK.com и Jabber. Комментарии имеются лишь у первой по причине некоторой их однотипности - разобрав как работает одна - ты поймешь как работают и остальные. Демка так же имеется в конце этого поста.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Псевдо-случайное изображение (на примере страницы 404-й ошибки)</title>
-      <link>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</link>
+      <link>https://blog.hook.sh/dev/pseudo-radndom-image-javascript/</link>
       <pubDate>Fri, 11 Jul 2014 14:17:03 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/pseudo-radndom-image-javascript/</guid>
+      <guid>https://blog.hook.sh/dev/pseudo-radndom-image-javascript/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/229449/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;

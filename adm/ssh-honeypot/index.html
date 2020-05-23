@@ -28,12 +28,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -41,7 +41,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -49,59 +49,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -123,7 +123,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/ssh-honeypot-wide.jpg" itemprop="image" alt="SSH Honeypot — просто и со вкусом" />
+        <img src="https://blog.hook.sh//images/posts/ssh-honeypot-wide.jpg" itemprop="image" alt="SSH Honeypot — просто и со вкусом" />
       </div>
     
 
@@ -183,7 +183,7 @@ $ nano ./sshd_config_honeypot
 
 <p>Пишем в него следующее (<em>самые интересные моменты пометил желтым цветом</em>):</p>
 
-<pre><code>Port 22
+<pre><code class="language-ini">Port 22
 AddressFamily inet
 SyslogFacility AUTH
 LogLevel VERBOSE
@@ -279,44 +279,58 @@ logpath  = /var/log/messages
 <blockquote>
 <p>Настоятельно рекомендую добавить свой IP адрес в <code>ignoreip</code> (<em>секции <code>[DEFAULT]</code></em>), так как есть риск забанить себя на трое суток :) Формат записи следующий (использую <code>1.1.1.0/8</code> т.к. IP серый):</p>
 
-<pre><code>[DEFAULT]
-ignoreip = 127.0.0.1/8 2.2.2.2 1.1.1.0/8
+<pre><code class="language-ini">&gt; [DEFAULT]
+&gt; ignoreip = 127.0.0.1/8 2.2.2.2 1.1.1.0/8
+&gt; ```
+&gt;
+&gt; Или как минимум выставить `bantime` равным, например, `30` (секундам) - достаточно для того, чтобы проверить и при этом не получить массу неудобств.
+
+Перезапускаем fail2ban, проверяем лог:
+
 </code></pre>
 
-<p>Или как минимум выставить <code>bantime</code> равным, например, <code>30</code> (секундам) - достаточно для того, чтобы проверить и при этом не получить массу неудобств.</p>
-</blockquote>
+<p>bash
+$ service fail2ban restart
+$ cat /var/log/fail2ban.log | grep &lsquo; ERROR &lsquo;</p>
 
-<p>Перезапускаем fail2ban, проверяем лог:</p>
+<pre><code>
+Если лог у нас не содержит никаких критичных ошибок, то остается дело за малым - проверить, будет ли срабатывать правило. Cнова пытаемся приконнектиться к серверу с нашей машины:
 
-<pre><code class="language-bash">$ service fail2ban restart
-$ cat /var/log/fail2ban.log | grep ' ERROR '
 </code></pre>
 
-<p>Если лог у нас не содержит никаких критичных ошибок, то остается дело за малым - проверить, будет ли срабатывать правило. Cнова пытаемся приконнектиться к серверу с нашей машины:</p>
+<p>bash
+$ ssh -p 22 -l nobody 2.2.2.2</p>
 
-<pre><code class="language-bash">$ ssh -p 22 -l nobody 2.2.2.2
+<pre><code>
+Смотрим на появление строки похожей на следующую в логе fail2ban:
+
 </code></pre>
 
-<p>Смотрим на появление строки похожей на следующую в логе fail2ban:</p>
+<p>bash
+$ cat /var/log/fail2ban.log | grep ssh-honeypot
+2050-01-11 01:00:00,000 fail2ban.filter [15038]: INFO [ssh-honeypot] Ignore 1.1.1.1 by ip</p>
 
-<pre><code class="language-bash">$ cat /var/log/fail2ban.log | grep ssh-honeypot
-2050-01-11 01:00:00,000 fail2ban.filter [15038]: INFO [ssh-honeypot] Ignore 1.1.1.1 by ip
+<pre><code>
+Если так оно и есть - значит всё отлично работает - наш IP не был забанен только потому, что он находится в списке игнорируемых :)
+
+## Автозапуск
+
+В автозапуске нуждается лишь наш дополнительный демон `sshd`, т.к. fail2ban у тебя и так наверняка уже стартует вместе с системой.
+
+Добавим в файл `/etc/rc.local` следующую запись:
+
 </code></pre>
 
-<p>Если так оно и есть - значит всё отлично работает - наш IP не был забанен только потому, что он находится в списке игнорируемых :)</p>
+<p>bash</p>
 
-<h2 id="автозапуск">Автозапуск</h2>
+<h2 id="sshd-honeypot-autostart">sshd honeypot autostart</h2>
 
-<p>В автозапуске нуждается лишь наш дополнительный демон <code>sshd</code>, т.к. fail2ban у тебя и так наверняка уже стартует вместе с системой.</p>
-
-<p>Добавим в файл <code>/etc/rc.local</code> следующую запись:</p>
-
-<pre><code class="language-bash">## sshd honeypot autostart
-ssh_honeypot_config='/etc/ssh/sshd_config_honeypot';
+<p>ssh_honeypot_config=&lsquo;/etc/ssh/sshd_config_honeypot&rsquo;;
 if [ -f $ssh_honeypot_config ] &amp;&amp; [ -x /usr/sbin/sshd ]; then
   /usr/sbin/sshd -f $ssh_honeypot_config;
 fi;
-</code></pre>
+```</p>
+</blockquote>
 
 <p>Которая будет проверять наличие бинарника <code>sshd</code> и наличия нужного конфига. Если два этих условия выполняются, запускаем демона уже знакомым нам методом. Для верности можешь ребутнуть сервер и убедиться, что всё работает.</p>
 
@@ -329,23 +343,23 @@ fi;
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/ban/">ban</a></li>
+      <li><a href="https://blog.hook.sh/tags/ban/">ban</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/bash/">bash</a></li>
+      <li><a href="https://blog.hook.sh/tags/bash/">bash</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/centos/">centos</a></li>
+      <li><a href="https://blog.hook.sh/tags/centos/">centos</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/fail2ban/">fail2ban</a></li>
+      <li><a href="https://blog.hook.sh/tags/fail2ban/">fail2ban</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/iptables/">iptables</a></li>
+      <li><a href="https://blog.hook.sh/tags/iptables/">iptables</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/linux/">linux</a></li>
+      <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/security/">security</a></li>
+      <li><a href="https://blog.hook.sh/tags/security/">security</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/shell/">shell</a></li>
+      <li><a href="https://blog.hook.sh/tags/shell/">shell</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/ssh/">ssh</a></li>
+      <li><a href="https://blog.hook.sh/tags/ssh/">ssh</a></li>
       
     </ul>
     
@@ -386,6 +400,10 @@ fi;
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

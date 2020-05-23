@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>etc on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/etc/</link>
+    <link>https://blog.hook.sh/tags/etc/</link>
     <description>Recent content in etc on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Thu, 31 Jan 2019 16:25:44 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/etc/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/etc/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Обновляем SSH на Linux mint</title>
-      <link>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</link>
+      <link>https://blog.hook.sh/nix/update-ssh-linux-mint/</link>
       <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/nix/update-ssh-linux-mint/</guid>
+      <guid>https://blog.hook.sh/nix/update-ssh-linux-mint/</guid>
       <description>&lt;p&gt;Так уж получается, что репозитории с пакетами частенько отстают в версиях ПО, которое предоставляют. Частный случай - нужно подключиться к удаленной системе используя не &amp;ldquo;традиционный&amp;rdquo; туннель, а &lt;a href=&#34;https://wiki.gentoo.org/wiki/SSH_jump_host&#34;&gt;ssh jump&lt;/a&gt;. На борту Linux Mint 18.3 стоит &lt;code&gt;openssh&lt;/code&gt;, который ещё не поддерживает эту фичу:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Пули свищут, народ мрет — красота!</title>
-      <link>https://tarampampam.github.io/blog/text/adrian-karton-di-viart/</link>
+      <link>https://blog.hook.sh/text/adrian-karton-di-viart/</link>
       <pubDate>Sun, 20 Jan 2019 07:52:56 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/text/adrian-karton-di-viart/</guid>
+      <guid>https://blog.hook.sh/text/adrian-karton-di-viart/</guid>
       <description>&lt;p&gt;Хочу рассказать про мужика-медоеда. Этот отморозок вызывает во мне искреннее восхищение.&lt;/p&gt;
 
 &lt;p&gt;Жил-был Адриан Картон ди Виарт. Родился он в 1880 году в Бельгии, в аристократической семье. Чуть ли не с самого рождения он проявил хуевый характер: был вспыльчивым до бешенства, несдержанным, и все споры предпочитал разрешать, уебав противника без предупреждения.&lt;/p&gt;

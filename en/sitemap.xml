@@ -3,160 +3,160 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/docker/compose-deploy/</loc>
+    <loc>https://blog.hook.sh/en/docker/compose-deploy/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/docker/compose-deploy/"
+                href="https://blog.hook.sh/docker/compose-deploy/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/docker/compose-deploy/"
+                href="https://blog.hook.sh/en/docker/compose-deploy/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/docker/</loc>
-    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="https://tarampampam.github.io/blog/docker/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tarampampam.github.io/blog/en/docker/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://tarampampam.github.io/blog/en/tags/</loc>
+    <loc>https://blog.hook.sh/en/docker/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/tags/"
+                href="https://blog.hook.sh/docker/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/tags/"
+                href="https://blog.hook.sh/en/docker/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/</loc>
+    <loc>https://blog.hook.sh/en/tags/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/"
+                href="https://blog.hook.sh/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/"
+                href="https://blog.hook.sh/en/tags/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/tags/deploy/</loc>
+    <loc>https://blog.hook.sh/en/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/tags/deploy/"
+                href="https://blog.hook.sh/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/tags/deploy/"
+                href="https://blog.hook.sh/en/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/tags/devops/</loc>
+    <loc>https://blog.hook.sh/en/tags/deploy/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/tags/devops/"
+                href="https://blog.hook.sh/tags/deploy/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/tags/devops/"
+                href="https://blog.hook.sh/en/tags/deploy/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/tags/docker/</loc>
+    <loc>https://blog.hook.sh/en/tags/devops/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/tags/docker/"
+                href="https://blog.hook.sh/tags/devops/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/tags/docker/"
+                href="https://blog.hook.sh/en/tags/devops/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/tags/docker-compose/</loc>
+    <loc>https://blog.hook.sh/en/tags/docker/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/tags/docker-compose/"
+                href="https://blog.hook.sh/tags/docker/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/tags/docker-compose/"
+                href="https://blog.hook.sh/en/tags/docker/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/tags/linux/</loc>
+    <loc>https://blog.hook.sh/en/tags/docker-compose/</loc>
     <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/tags/linux/"
+                href="https://blog.hook.sh/tags/docker-compose/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/tags/linux/"
+                href="https://blog.hook.sh/en/tags/docker-compose/"
                 />
   </url>
   
   <url>
-    <loc>https://tarampampam.github.io/blog/en/categories/</loc>
+    <loc>https://blog.hook.sh/en/tags/linux/</loc>
+    <lastmod>2018-10-15T13:35:50+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://tarampampam.github.io/blog/categories/"
+                href="https://blog.hook.sh/tags/linux/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tarampampam.github.io/blog/en/categories/"
+                href="https://blog.hook.sh/en/tags/linux/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog.hook.sh/en/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://blog.hook.sh/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.hook.sh/en/categories/"
                 />
   </url>
   

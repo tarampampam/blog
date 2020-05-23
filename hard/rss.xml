@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hard on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/hard/</link>
+    <link>https://blog.hook.sh/hard/</link>
     <description>Recent content in Hard on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Sat, 18 Jul 2015 10:10:13 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/hard/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/hard/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Прошивка роутера Asus RT-G32 ver. C1</title>
-      <link>https://tarampampam.github.io/blog/hard/firmware-rt-g32/</link>
+      <link>https://blog.hook.sh/hard/firmware-rt-g32/</link>
       <pubDate>Sat, 18 Jul 2015 10:10:13 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hard/firmware-rt-g32/</guid>
+      <guid>https://blog.hook.sh/hard/firmware-rt-g32/</guid>
       <description>&lt;p&gt;При прошивки данной железки возникают некоторые вопросы, ответы на которые найти порой не так просто. Сейчас постараюсь ответить на основные:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -29,10 +29,10 @@
     
     <item>
       <title>Прошивка принтера Samsung ML-1860</title>
-      <link>https://tarampampam.github.io/blog/hard/hack-printer-samsung-ml-1860/</link>
+      <link>https://blog.hook.sh/hard/hack-printer-samsung-ml-1860/</link>
       <pubDate>Mon, 18 May 2015 15:20:41 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hard/hack-printer-samsung-ml-1860/</guid>
+      <guid>https://blog.hook.sh/hard/hack-printer-samsung-ml-1860/</guid>
       <description>&lt;p&gt;В самом аппарате есть программное обеспечение (ПО), которое отвечает за все действия. При помощи этого ПО производится отсчет распечатанных страниц с чипа картриджа. Когда допустимое количество листов будет отпечатано, устройство блокируется. И заправкой картриджа, как вы понимаете здесь не обойтись.&lt;/p&gt;
 
 &lt;p&gt;Решением сложившейся ситуации служит прошивка новым программным обеспечением ваш принтер. В обновленном ПО отсутствует счетчик страниц и уровень тонера всегда 100%.&lt;/p&gt;</description>
@@ -40,10 +40,10 @@
     
     <item>
       <title>Установка Linux на Chromebook</title>
-      <link>https://tarampampam.github.io/blog/hard/install-linux-on-chromebook/</link>
+      <link>https://blog.hook.sh/hard/install-linux-on-chromebook/</link>
       <pubDate>Mon, 30 Mar 2015 13:27:24 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/hard/install-linux-on-chromebook/</guid>
+      <guid>https://blog.hook.sh/hard/install-linux-on-chromebook/</guid>
       <description>Приведу перечень нескольких простых шагов для выполнения данной задачи, на примере Samsung Chromebook XE303C12:
  Осознаем, что всё что пользовательского на хромбуке есть - будет успешно утеряно;
  Переключаемся в режим разработчика, нажимая Ctrl + Refresh + Power;

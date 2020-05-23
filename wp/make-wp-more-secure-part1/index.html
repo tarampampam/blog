@@ -27,12 +27,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://tarampampam.github.io/blog/css/style.css?v=1590235742" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1590247523" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://tarampampam.github.io/blog/apple-touch-icon.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://tarampampam.github.io/blog/favicon-32x32.png?v=1590235742">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://tarampampam.github.io/blog/favicon-16x16.png?v=1590235742">
-  <link rel="manifest" href="https://tarampampam.github.io/blog/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590247523">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590247523">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
   
@@ -40,7 +40,7 @@
 <body class="single">
   <header class="header">
     
-    <p class="title"><a href="https://tarampampam.github.io/blog/">blog [dot] hook</a></p>
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
     
     <button class="menu-toggle" type="button"></button>
     <nav class="menu">
@@ -48,59 +48,59 @@
         
         
         <li class="">
-          <a href="/blog/adm/">Adm</a>
+          <a href="/adm/">Adm</a>
         </li>
         
         <li class="">
-          <a href="/blog/dev/">Dev</a>
+          <a href="/dev/">Dev</a>
         </li>
         
         <li class="">
-          <a href="/blog/docker/">Docker</a>
+          <a href="/docker/">Docker</a>
         </li>
         
         <li class="">
-          <a href="/blog/etc/">Etc</a>
+          <a href="/etc/">Etc</a>
         </li>
         
         <li class="">
-          <a href="/blog/hack/">Hack</a>
+          <a href="/hack/">Hack</a>
         </li>
         
         <li class="">
-          <a href="/blog/hard/">Hard</a>
+          <a href="/hard/">Hard</a>
         </li>
         
         <li class="">
-          <a href="/blog/mikrotik/">Mikrotik</a>
+          <a href="/mikrotik/">Mikrotik</a>
         </li>
         
         <li class="">
-          <a href="/blog/my-book-live/">My-book-live</a>
+          <a href="/my-book-live/">My-book-live</a>
         </li>
         
         <li class="">
-          <a href="/blog/nix/">Nix</a>
+          <a href="/nix/">Nix</a>
         </li>
         
         <li class="">
-          <a href="/blog/php/">Php</a>
+          <a href="/php/">Php</a>
         </li>
         
         <li class="">
-          <a href="/blog/software/">Software</a>
+          <a href="/software/">Software</a>
         </li>
         
         <li class="">
-          <a href="/blog/text/">Text</a>
+          <a href="/text/">Text</a>
         </li>
         
         <li class="">
-          <a href="/blog/tnt/">Tnt</a>
+          <a href="/tnt/">Tnt</a>
         </li>
         
         <li class="">
-          <a href="/blog/wp/">Wp</a>
+          <a href="/wp/">Wp</a>
         </li>
         
       </ul>
@@ -122,7 +122,7 @@
   <div class="post-content" itemprop="articleBody">
     
       <div class="post-featured-image">
-        <img src="https://tarampampam.github.io/blog//images/posts/wp-secure-wide.jpg" itemprop="image" alt="Рекомендации по повышению безопасности WordPress (ч. 1)" />
+        <img src="https://blog.hook.sh//images/posts/wp-secure-wide.jpg" itemprop="image" alt="Рекомендации по повышению безопасности WordPress (ч. 1)" />
       </div>
     
 
@@ -171,7 +171,7 @@
 
 <li><p>Не лишним будет повысить секьюрность, добавив в <strong>корневой .htaccess</strong> код, который <strong>закрывает доступ к wp-config.php</strong> (хотя в нем и так только константы и ничего не выводится — нехер) и закрывает доступ к <strong>xmlrpc.php</strong>, который крайнее время активно используется для DDoS:</p>
 
-<pre><code>Options -Indexes
+<pre><code class="language-apache">Options -Indexes
 &lt;files ~ &quot;(wp-config|xmlrpc).php$&quot;&gt;
 order allow,deny
 deny from all
@@ -180,7 +180,7 @@ deny from all
 
 <li><p>Более того, не лишним будет в <strong>/wp-admin/</strong> создать <strong>.htaccess</strong> со следующим кодом (файл .htpasswd можно сделать и при помощи <a href="http://www.htaccesstools.com/htpasswd-generator/">этого онлайн-сервиса</a>. Просто пропиши в нем полученную пару логин:хэш_пароля и путь к нему укажи в примере что выше. Используй разные пароли для WP и BasicAuth):</p>
 
-<pre><code>AuthUserFile /path/to/.htpasswd
+<pre><code class="language-apache">AuthUserFile /path/to/.htpasswd
 AuthType Basic
 AuthName &quot;restricted&quot;
 Order Deny,Allow
@@ -193,7 +193,7 @@ Satisfy any
 
 <li><p>В <strong>/wp-includes/</strong> создаем <strong>.htaccess</strong> вот с таким содержимым (тем самым <strong>закрывая извне доступ</strong> ко всему, <strong>кроме</strong> перечисленных выше типов файлов):</p>
 
-<pre><code>order deny,allow
+<pre><code class="language-apache">order deny,allow
 deny from all
 &lt;files ~ &quot;(.(xml|css|jp?g|png|gif|js)|wp-tinymce.php)$&quot;&gt;
 allow from all
@@ -228,15 +228,15 @@ allow from all
     
     <ul class="post-tags">
       
-      <li><a href="https://tarampampam.github.io/blog/tags/apache/">apache</a></li>
+      <li><a href="https://blog.hook.sh/tags/apache/">apache</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/htaccess/">htaccess</a></li>
+      <li><a href="https://blog.hook.sh/tags/htaccess/">htaccess</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/php/">php</a></li>
+      <li><a href="https://blog.hook.sh/tags/php/">php</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/security/">security</a></li>
+      <li><a href="https://blog.hook.sh/tags/security/">security</a></li>
       
-      <li><a href="https://tarampampam.github.io/blog/tags/wordpress/">wordpress</a></li>
+      <li><a href="https://blog.hook.sh/tags/wordpress/">wordpress</a></li>
       
     </ul>
     
@@ -277,6 +277,10 @@ allow from all
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
         integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
         crossorigin="anonymous"
         data-no-instant></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"

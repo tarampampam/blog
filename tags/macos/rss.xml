@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>macos on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/macos/</link>
+    <link>https://blog.hook.sh/tags/macos/</link>
     <description>Recent content in macos on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Thu, 17 Jul 2014 15:31:29 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/macos/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/macos/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Как удалить &#34;мусор&#34; от MacOS из файлошары</title>
-      <link>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</link>
+      <link>https://blog.hook.sh/tnt/clear-trash-by-macos-crontab/</link>
       <pubDate>Thu, 17 Jul 2014 15:31:29 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/tnt/clear-trash-by-macos-crontab/</guid>
+      <guid>https://blog.hook.sh/tnt/clear-trash-by-macos-crontab/</guid>
       <description>&lt;p&gt;Пользователям этой ос должно быть хорошо известно, что во время работы мак-ось оставляет за собой довольно много различного “мусора”, в большей части являющегося просто кэшем изображений и прочего. В том числе весь этот хлам создается, когда владелец этой самой макоси заходит на файлошару, доступную для записи. Если вам необходимо от него избавиться, то вы можете смело создать небольшой скрипт и поставить его в cron. Ниже рассмотрим как это сделать в два простых шага.&lt;/p&gt;</description>
     </item>
     

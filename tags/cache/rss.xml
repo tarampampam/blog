@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cache on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/cache/</link>
+    <link>https://blog.hook.sh/tags/cache/</link>
     <description>Recent content in cache on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Wed, 06 Aug 2014 07:05:00 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/cache/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/cache/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Переносим кэш Google Chrome</title>
-      <link>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</link>
+      <link>https://blog.hook.sh/tnt/move-google-chrome-cache/</link>
       <pubDate>Wed, 06 Aug 2014 07:05:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/tnt/move-google-chrome-cache/</guid>
+      <guid>https://blog.hook.sh/tnt/move-google-chrome-cache/</guid>
       <description>&lt;p&gt;Обладателям SSD + HDD винтов читать в первую очередь. Всем давно известно, что SSD винты чертовски шустрые, но, имеют ограниченный ресурс чтения/записи. В Сети есть херова куча советов, статей и программ по оптимизации работы ОС + ПО с ними, но мало кто пишет про небольшой нюанс касательно кэша хрома.&lt;/p&gt;</description>
     </item>
     

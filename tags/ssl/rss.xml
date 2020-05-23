@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssl on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/ssl/</link>
+    <link>https://blog.hook.sh/tags/ssl/</link>
     <description>Recent content in ssl on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Wed, 01 Apr 2015 17:40:21 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/ssl/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/ssl/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Поднимаем свой Jabber сервер</title>
-      <link>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</link>
+      <link>https://blog.hook.sh/adm/install-xmpp-server-jabberd/</link>
       <pubDate>Wed, 01 Apr 2015 17:40:21 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/install-xmpp-server-jabberd/</guid>
+      <guid>https://blog.hook.sh/adm/install-xmpp-server-jabberd/</guid>
       <description>&lt;p&gt;Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34; target=&#34;_blank&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34; target=&#34;_blank&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34; target=&#34;_blank&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Openfire&#34;&gt;OpenFire&lt;/a&gt; (Apache License 2.0) - написан на &lt;code&gt;Java&lt;/code&gt; и большинство функций на нём делаются в бесплатной версии;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Ejabberd&#34;&gt;EJabberd&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;Erlang&lt;/code&gt;, модульный, есть веб-морда в комплекте, поддерживает кластеризацию;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/Jabberd2&#34;&gt;jabberd2&lt;/a&gt; (GNU GPL) - написан на &lt;code&gt;C&lt;/code&gt;, тоже модульный, более компактный;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Включаем поддержку HTTPS на сайте</title>
-      <link>https://tarampampam.github.io/blog/adm/how-enable-https-on-website/</link>
+      <link>https://blog.hook.sh/adm/how-enable-https-on-website/</link>
       <pubDate>Tue, 10 Mar 2015 11:31:19 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/adm/how-enable-https-on-website/</guid>
+      <guid>https://blog.hook.sh/adm/how-enable-https-on-website/</guid>
       <description>&lt;p&gt;Крайнее время, в связи с различными факторами - всё чаще встает вопрос безопасности передачи данных между клиентом и сервером. Разные жулики &lt;del&gt;и спец. службы&lt;/del&gt; перехватывают трафик, вытаскивают из него различные данные (включая пароли), некоторые &lt;del&gt;провайдеры&lt;/del&gt; публичные точки доступа в сеть даже встраивают в него рекламные баннеры. Для решения этой задачи уже имеются необходимые механизмы под именем &lt;strong&gt;SSL&lt;/strong&gt;, с которыми мы сейчас довольно плотно и поработаем. Данная технология позволяет дать почти 100% гарантии, что трафик не будет прослушан и видоизменен. Подробнее об этом есть смысл &lt;a href=&#34;https://ru.wikipedia.org/wiki/SSL&#34;&gt;спросить у Вики&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

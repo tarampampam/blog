@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hide on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/tags/hide/</link>
+    <link>https://blog.hook.sh/tags/hide/</link>
     <description>Recent content in hide on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     <lastBuildDate>Tue, 05 Aug 2014 03:03:00 +0000</lastBuildDate>
     
-	<atom:link href="https://tarampampam.github.io/blog/tags/hide/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/tags/hide/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Много анонимности не бывает — скрываем User-Agent</title>
-      <link>https://tarampampam.github.io/blog/dev/random-hide-user-agent-for-google-cgrome/</link>
+      <link>https://blog.hook.sh/dev/random-hide-user-agent-for-google-cgrome/</link>
       <pubDate>Tue, 05 Aug 2014 03:03:00 +0000</pubDate>
       
-      <guid>https://tarampampam.github.io/blog/dev/random-hide-user-agent-for-google-cgrome/</guid>
+      <guid>https://blog.hook.sh/dev/random-hide-user-agent-for-google-cgrome/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Данная статья является копией &lt;a href=&#34;https://habr.com/post/231107/&#34;&gt;публикации на хабре&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;

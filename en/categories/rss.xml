@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on blog [dot] hook</title>
-    <link>https://tarampampam.github.io/blog/en/categories/</link>
+    <link>https://blog.hook.sh/en/categories/</link>
     <description>Recent content in Categories on blog [dot] hook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
     
-	<atom:link href="https://tarampampam.github.io/blog/en/categories/rss.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hook.sh/en/categories/rss.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
