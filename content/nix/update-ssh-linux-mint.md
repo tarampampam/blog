@@ -1,7 +1,7 @@
 ---
 title: "Обновляем SSH на Linux mint"
 slug: update-ssh-linux-mint
-date: 2019-01-31T16:25:44Z
+date: 2019-01-31T16:25:45Z
 featured_image: /images/posts/ssh-wide.png
 tags:
 - etc
