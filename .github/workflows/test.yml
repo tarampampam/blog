@@ -16,11 +16,14 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         with:
           fetch-depth: 1
 
-      - name: Execute Spellchecker
+      - name: Execute misspell
         uses: reviewdog/action-misspell@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          locale: "US"
+          locale: 'US'
+          pattern: '*.md'
+          level: warning
+          exclude: '.git/*'
 
   build:
     name: Build
