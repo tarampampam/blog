@@ -23,5 +23,15 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Build
         run: docker run --rm -v "$(pwd):/src:rw" tarampampam/hugo:0.56.0 --baseURL "$BASE_URL" --noChmod --noTimes
 
-      - name: Show files
-        run: ls -la ./public
+      - name: Store assets
+        uses: actions/upload-artifact@v2
+        with:
+          name: content
+          path: public/
+
+      - name: Check out to github pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
+      - run: ls -la
