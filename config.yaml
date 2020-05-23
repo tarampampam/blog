@@ -1,6 +1,5 @@
 # Configuration docs: <https://gohugo.io/getting-started/configuration/>
 
-baseURL: https://blog.hook.sh/
 languageCode: ru
 defaultContentLanguage: ru
 enableRobotsTXT: true
