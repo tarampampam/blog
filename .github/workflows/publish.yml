@@ -58,4 +58,4 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         run: git commit -m "Deploying ${GITHUB_SHA} to Github Pages"
 
       - name: Push changes
-        run: git push github
+        run: git push github --force
