@@ -46,7 +46,10 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           name: content
 
       - name: Setup git
-        run: git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@users.noreply.github.com'
+          git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 
       - name: Stage changes
         run: git add .
