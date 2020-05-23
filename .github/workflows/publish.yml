@@ -4,8 +4,8 @@ on:
   push:
     branches: [master]
     tags-ignore: ['**']
-  pull_request: # @todo: comment this rule
-    branches: [master]
+  # @todo: comment this rule
+  pull_request:
 
 env:
   BASE_URL: 'https://tarampampam.github.io/blog/'
