@@ -3,7 +3,7 @@
 [![Test][badge_test]][link_actions]
 [![Publish][badge_publish]][link_actions]
 ![Last commit][badge_last_commit]
-[![Comments][badge_comments]][link_issues]
+[![Discussions][badge_discussions]][link_issues]
 
 Static blog, generated using [hugo][hugo].
 
@@ -40,9 +40,9 @@ Any changes, pushed into `master` branch will be automatically deployed _(be car
 
 PRs is strongly recommended for any changes.
 
-[badge_comments]:https://img.shields.io/github/issues-raw/tarampampam/blog.svg?label=comments&maxAge=60
-[badge_test]:https://img.shields.io/github/workflow/status/tarampampam/blog/test?label=test&maxAge=60
-[badge_publish]:https://img.shields.io/github/workflow/status/tarampampam/blog/publish?label=publish&maxAge=60
+[badge_test]:https://img.shields.io/github/workflow/status/tarampampam/blog/test/master?label=test&maxAge=60
+[badge_publish]:https://img.shields.io/github/workflow/status/tarampampam/blog/publish/master?label=publish&maxAge=60
+[badge_discussions]:https://img.shields.io/github/issues-raw/tarampampam/blog.svg?label=discussions&maxAge=60
 [badge_last_commit]:https://img.shields.io/github/last-commit/tarampampam/blog/master?label=last%20update&maxAge=60
 [link_issues]:https://github.com/tarampampam/blog/issues
 [link_actions]:https://github.com/tarampampam/blog/actions

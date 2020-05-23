@@ -3,10 +3,10 @@ default: true # includes/excludes all rules by default
 
 ## Line length <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md013>
 #MD013: false
-#
-## Dollar signs used before commands without showing output <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md014>
-#MD014: false
-#
+
+# Dollar signs used before commands without showing output <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md014>
+MD014: false
+
 ## Headings should be surrounded by blank lines <https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022>
 #MD022: false
 #

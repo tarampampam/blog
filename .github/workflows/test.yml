@@ -53,4 +53,4 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
       - name: Execute linter
         uses: docker://avtodev/markdown-lint:v1
         with:
-          args: '**.md'
+          args: '**/*.md'
