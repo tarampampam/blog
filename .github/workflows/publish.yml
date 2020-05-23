@@ -2,17 +2,16 @@ name: publish
 
 on:
   push:
-    branches:
-      - master
-    tags-ignore:
-      - '**'
+    branches: [master]
+    tags-ignore: ['**']
   pull_request: # @todo: comment this rule
+    branches: [master]
 
 env:
   BASE_URL: 'https://tarampampam.github.io/blog/'
 
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
-  publish:
+  build:
     name: Build and publish
     runs-on: ubuntu-latest
     steps:
