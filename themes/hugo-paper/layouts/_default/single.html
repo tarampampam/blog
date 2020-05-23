@@ -47,6 +47,10 @@
       {{ end }}
     </ul>
     {{ end }}
+
+    <a href="{{ $.Site.Params.edit_files_base_uri }}content/{{ .File.Path }}" class="edit-post">
+      <i class="fa fa-pencil" aria-hidden="true"></i> {{ i18n "edit-post" }}
+    </a>
   </footer>
   <!-- Comments system area start -->
 

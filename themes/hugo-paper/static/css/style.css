@@ -617,7 +617,7 @@ img.content-gallery-image {
 }
 
 .post-view .post-tags {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 .post-tags li {
@@ -638,7 +638,7 @@ img.content-gallery-image {
 }
 
 .post-tags a:hover {
-  background: #3f4346;
+  background: #2b4d1a;
 }
 
 @media (max-width: 967px) {
@@ -646,6 +646,12 @@ img.content-gallery-image {
     margin: 0 0 0 -30px;
     padding: 0 0 0 27px;
   }
+}
+
+.post-footer .edit-post {
+  font-size: 0.6em;
+  text-align: center;
+  color: rgba(255, 255, 255, .4);
 }
 
 /* List footer
