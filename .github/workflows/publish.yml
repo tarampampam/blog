@@ -11,7 +11,7 @@ env:
   BASE_URL: 'https://tarampampam.github.io/blog/'
 
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
-  build:
+  publish:
     name: Build and publish
     runs-on: ubuntu-latest
     steps:
