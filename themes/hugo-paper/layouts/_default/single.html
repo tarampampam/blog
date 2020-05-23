@@ -15,7 +15,7 @@
   <div class="post-content" itemprop="articleBody">
     {{ if isset .Params "featured_image" }}
       <div class="post-featured-image">
-        <img src="{{ .Param "featured_image" | absURL }}" itemprop="image" alt="{{ .Title }}" />
+        <img src="{{ $.Site.BaseURL }}{{ .Param "featured_image" }}" itemprop="image" alt="{{ .Title }}" />
       </div>
     {{ end }}
 
