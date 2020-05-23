@@ -19,9 +19,9 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
-
-      - name: Build
-        run: docker run --rm -v "$(pwd):/src:rw" tarampampam/hugo:0.56.0 --baseURL "$BASE_URL" --noChmod --noTimes
-
-      - name: Show files
-        run: ls -la ./public
+#
+#      - name: Build
+#        run: docker run --rm -v "$(pwd):/src:rw" tarampampam/hugo:0.56.0 --baseURL "$BASE_URL" --noChmod --noTimes
+#
+#      - name: Show files
+#        run: ls -la ./public
