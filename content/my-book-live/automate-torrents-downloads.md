@@ -99,7 +99,7 @@ evntlog = open(evnt, 'a+b')
 now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 # -----------------------------------------------------------------------------
 
-evntlog.write(now + " : Script runing\r\n")
+evntlog.write(now + " : Script running\r\n")
 
 print "[i] Connect to the transmission RPC server.."
 

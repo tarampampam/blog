@@ -23,10 +23,11 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
           locale: 'US'
           pattern: '*.md'
           level: warning
+          ignore: routeros
           exclude: '.git/*'
 
   build:
-    name: Build
+    name: Try to build
     runs-on: ubuntu-latest
     steps:
       - name: Check out sources

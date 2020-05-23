@@ -6,7 +6,7 @@ aliases:
 featured_image: /images/posts/rt-g32-wide.jpg
 tags:
   - asus
-  - frimware
+  - firmware
 ---
 
 При прошивки данной железки возникают некоторые вопросы, ответы на которые найти порой не так просто. Сейчас постараюсь ответить на основные:
@@ -39,5 +39,5 @@ tags:
 
   * [Openwrt wiki касательно этой железки](http://wiki.openwrt.org/toh/asus/rt-g32)
   * [Прошивка роутера Asus RT-G32 C1 на Wive-NG-RTNL](https://habr.com/sandbox/71440/)
-  
+
 [archive]:https://yadi.sk/d/XiJyS_B_3aLzCb
