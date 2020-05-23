@@ -45,6 +45,11 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
         with:
           name: content
 
-      - run: ls -la
-      - run: pwd
-      - run: git status
+      - name: Stage changes
+        run: git add .
+
+      - name: Commit changes
+        run: git commit -m "Deploying ${GITHUB_SHA} to Github Pages"
+
+      - name: Push changes
+        run: git push
