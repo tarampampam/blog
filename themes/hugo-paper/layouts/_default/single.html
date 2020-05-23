@@ -62,6 +62,7 @@
             s.setAttribute('repo', '{{ $.Site.Params.utteranc_repo_name }}');
             s.setAttribute('issue-term', '{{ $.Site.Params.utteranc_issue_term | default "pathname" }}');
             s.setAttribute('crossorigin', 'anonymous');
+            s.setAttribute('theme', 'photon-dark');
             s.async = true;
             s.defer = true;
             d.getElementById('utteranc-comments').appendChild(s);
