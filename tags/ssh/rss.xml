@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
-    <lastBuildDate>Thu, 31 Jan 2019 16:25:44 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Jan 2019 16:25:45 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.hook.sh/tags/ssh/rss.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Обновляем SSH на Linux mint</title>
       <link>https://blog.hook.sh/nix/update-ssh-linux-mint/</link>
-      <pubDate>Thu, 31 Jan 2019 16:25:44 +0000</pubDate>
+      <pubDate>Thu, 31 Jan 2019 16:25:45 +0000</pubDate>
       
       <guid>https://blog.hook.sh/nix/update-ssh-linux-mint/</guid>
       <description>&lt;p&gt;Так уж получается, что репозитории с пакетами частенько отстают в версиях ПО, которое предоставляют. Частный случай - нужно подключиться к удаленной системе используя не &amp;ldquo;традиционный&amp;rdquo; туннель, а &lt;a href=&#34;https://wiki.gentoo.org/wiki/SSH_jump_host&#34;&gt;ssh jump&lt;/a&gt;. На борту Linux Mint 18.3 стоит &lt;code&gt;openssh&lt;/code&gt;, который ещё не поддерживает эту фичу:&lt;/p&gt;</description>
