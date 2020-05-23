@@ -1,0 +1,32 @@
+name: test
+
+on:
+  push:
+    branches: ['!master']
+    tags-ignore: ['**']
+  pull_request:
+
+jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
+  spellcheck:
+    name: Spell Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Execute Spellchecker
+        uses: rojopolis/spellcheck-github-actions@0.2.0
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Build
+        run: docker run --rm -v "$(pwd):/src:rw" tarampampam/hugo:0.56.0 --baseURL "$BASE_URL" --noChmod --noTimes
