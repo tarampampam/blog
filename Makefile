@@ -5,7 +5,7 @@
 SHELL = /bin/bash
 
 # Image page: <https://hub.docker.com/r/tarampampam/hugo>
-HUGO_IMAGE := tarampampam/hugo:0.56.0
+HUGO_IMAGE := tarampampam/hugo:0.71.0
 RUN_ARGS = --rm -v "$(shell pwd):/src:rw" --user "$(shell id -u):$(shell id -g)"
 
 .PHONY : help pull start new-post test clean

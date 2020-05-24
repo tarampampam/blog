@@ -11,7 +11,7 @@ enableEmoji: true
 disableHugoGeneratorInject: true
 title: 'blog [dot] hook'
 copyright: Make love, not war
-theme: hugo-paper # https://github.com/nanxiaobei/hugo-paper/
+theme: paper # https://github.com/nanxiaobei/hugo-paper/
 sectionPagesMenu: "main"
 
 params:
