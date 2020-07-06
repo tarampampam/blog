@@ -28,11 +28,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://blog.hook.sh/css/style.css?v=1594054475" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1594056635" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1594054475">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1594054475">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1594054475">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1594056635">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1594056635">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1594056635">
   <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
@@ -117,7 +117,7 @@
       </span> · 
       <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2020-07-06"
         itemprop="datePublished">2020.7.6</time>
-      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
     </p>
   </header>
   <div class="post-content" itemprop="articleBody">
@@ -202,11 +202,15 @@ $ cd /etc/iptables
 -A DOCKER ...
 -A DOCKER-ISOLATION-STAGE-1 ...
 -A DOCKER-ISOLATION-STAGE-2 ...
+-A DOCKER-USER -i eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A DOCKER-USER -i eth0 -j DROP
--A DOCKER-USER -j RETURN
 COMMIT
 # ...
 </code></pre>
+
+<blockquote>
+<p>Для IPv6 пример взят <a href="https://community.hetzner.com/tutorials/debian-10-docker-install-dual%20stack-ipv6nat-firewall#step-33---create-basic-firewall-rules">отсюда</a></p>
+</blockquote>
 
 <pre><code class="language-bash">$ cat ./rules.v6
 
@@ -253,9 +257,68 @@ $ ip6tables-restore ./rules.v6
 
 <p>Аналогично с <code>worker</code>-ами ставим <code>iptables-persistent</code> и приводим к виду:</p>
 
-<blockquote>
-<p>WIP</p>
-</blockquote>
+<pre><code class="language-bash">$ cat ./rules.v4
+
+# ...
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:CHECKS - [0:0] # added
+# ...
+-A INPUT -i eth0 -j CHECKS
+-A FORWARD ...
+-A CHECKS -p tcp -m tcp --dport 22 -m comment --comment SSH -j ACCEPT
+-A CHECKS -p tcp -m tcp --dport 80 -m comment --comment HTTP -j ACCEPT
+-A CHECKS -p tcp -m tcp --dport 443 -m comment --comment HTTPS -j ACCEPT
+-A CHECKS -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 3 -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 11 -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 8 -m limit --limit 8/sec -j ACCEPT
+-A CHECKS -j DROP
+-A DOCKER ...
+-A DOCKER-ISOLATION-STAGE-1 ...
+-A DOCKER-ISOLATION-STAGE-2 ...
+-A DOCKER-USER -i eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A DOCKER-USER -i eth0 -j DROP
+COMMIT
+# ...
+</code></pre>
+
+<p>Для IPv6 настройки оставил аналогичными с <code>worker</code>-нодами. Теперь так выполняем:</p>
+
+<pre><code class="language-bash">$ iptables-restore ./rules.v4
+$ ip6tables-restore ./rules.v6
+</code></pre>
+
+<p>И проверяем <strong>извне</strong> на предмет &ldquo;осталось ли что-нибудь лишнее&rdquo;:</p>
+
+<pre><code class="language-bash">$ nmap -v -A -p1-65535 -Pn 11.22.22.11
+</code></pre>
+
+<p>Где <code>11.22.22.11</code> наш белый IP сервера (производим такие манипуляции с каждым сервером) - должны остаться открытые только нужные нам порты. Проверяем и корректность работы приложений, запущенных в кластере (те, что ходят в глобальную сеть - должны успешно в неё ходить). Так же проверяем и с самих севреров (как <code>master</code>, так и <code>worker</code>):</p>
+
+<pre><code class="language-bash">$ ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=57 time=20.2 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=57 time=20.3 ms
+
+$ ping6 2606:4700:4700::1111
+PING 2606:4700:4700::1111(2606:4700:4700::1111) 56 data bytes
+64 bytes from 2606:4700:4700::1111: icmp_seq=1 ttl=56 time=21.1 ms
+64 bytes from 2606:4700:4700::1111: icmp_seq=2 ttl=56 time=21.3 ms
+
+$ docker run --rm alpine:latest ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1): 56 data bytes
+64 bytes from 1.1.1.1: seq=0 ttl=56 time=20.531 ms
+64 bytes from 1.1.1.1: seq=1 ttl=56 time=20.386 ms
+
+$ docker run --rm curlimages/curl -s ipinfo.io/ip
+11.22.22.11
+
+$ curl -s ipinfo.io/ip
+11.22.22.11
+</code></pre>
 
 <h3 id="ссылки-по-теме">Ссылки по теме</h3>
 
