@@ -13,7 +13,7 @@ tags:
 
 Однажды я решил поднять свой крохотный кластер для приложений, запускаемых в docker-контейнерах. Выбор был между [nomad](https://www.nomadproject.io/) _(уже не один комрад его настоятельно рекомендовал - обязательно попробую, но позже)_, [K8S](https://kubernetes.io/) _(слишком сложно и дорого по ресурсам для pet-проекта)_ и [Docker Swarm](https://docs.docker.com/engine/swarm/) _(никакого дополнительного софта не потребуется, поставляется вместе с самим докером)_. Как ты понимаешь - выбор пал именно на последний.
 
-По тому как его поднять и базово настроить - материалов полно, но когда дело дошло до настройки огненной стены - вот тут начались некоторые трудности. Известно, что `docker` активно эксплуатирует сетевые интерфейсы и `iptables` для управления трафиком между сетями и контейнерами. Как настроить ограничения доступа к master и worker-нодам класстерам ниже мы и поговорим. 
+По тому как его поднять и базово настроить - материалов полно, но когда дело дошло до настройки огненной стены - вот тут начались некоторые трудности. Известно, что `docker` активно эксплуатирует сетевые интерфейсы и `iptables` для управления трафиком между сетями и контейнерами. Как настроить ограничения доступа к master и worker-нодам класстерам ниже мы и поговорим.
 
 Итак, мы имеем:
 
@@ -79,11 +79,13 @@ $ cat ./rules.v4
 -A DOCKER ...
 -A DOCKER-ISOLATION-STAGE-1 ...
 -A DOCKER-ISOLATION-STAGE-2 ...
+-A DOCKER-USER -i eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A DOCKER-USER -i eth0 -j DROP
--A DOCKER-USER -j RETURN
 COMMIT
 # ...
 ```
+
+> Для IPv6 пример взят [отсюда](https://community.hetzner.com/tutorials/debian-10-docker-install-dual%20stack-ipv6nat-firewall#step-33---create-basic-firewall-rules)
 
 ```bash
 $ cat ./rules.v6
@@ -132,7 +134,72 @@ $ ip6tables-restore ./rules.v6
 
 Аналогично с `worker`-ами ставим `iptables-persistent` и приводим к виду:
 
-> WIP
+```bash
+$ cat ./rules.v4
+
+# ...
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:CHECKS - [0:0] # added
+# ...
+-A INPUT -i eth0 -j CHECKS
+-A FORWARD ...
+-A CHECKS -p tcp -m tcp --dport 22 -m comment --comment SSH -j ACCEPT
+-A CHECKS -p tcp -m tcp --dport 80 -m comment --comment HTTP -j ACCEPT
+-A CHECKS -p tcp -m tcp --dport 443 -m comment --comment HTTPS -j ACCEPT
+-A CHECKS -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 3 -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 11 -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 8 -m limit --limit 8/sec -j ACCEPT
+-A CHECKS -j DROP
+-A DOCKER ...
+-A DOCKER-ISOLATION-STAGE-1 ...
+-A DOCKER-ISOLATION-STAGE-2 ...
+-A DOCKER-USER -i eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A DOCKER-USER -i eth0 -j DROP
+COMMIT
+# ...
+```
+
+Для IPv6 настройки оставил аналогичными с `worker`-нодами. Теперь так выполняем:
+
+```bash
+$ iptables-restore ./rules.v4
+$ ip6tables-restore ./rules.v6
+```
+
+И проверяем **извне** на предмет "осталось ли что-нибудь лишнее":
+
+```bash
+$ nmap -v -A -p1-65535 -Pn 11.22.22.11
+```
+
+Где `11.22.22.11` наш белый IP сервера (производим такие манипуляции с каждым сервером) - должны остаться открытые только нужные нам порты. Проверяем и корректность работы приложений, запущенных в кластере (те, что ходят в глобальную сеть - должны успешно в неё ходить). Так же проверяем и с самих севреров (как `master`, так и `worker`):
+
+```bash
+$ ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=57 time=20.2 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=57 time=20.3 ms
+
+$ ping6 2606:4700:4700::1111
+PING 2606:4700:4700::1111(2606:4700:4700::1111) 56 data bytes
+64 bytes from 2606:4700:4700::1111: icmp_seq=1 ttl=56 time=21.1 ms
+64 bytes from 2606:4700:4700::1111: icmp_seq=2 ttl=56 time=21.3 ms
+
+$ docker run --rm alpine:latest ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1): 56 data bytes
+64 bytes from 1.1.1.1: seq=0 ttl=56 time=20.531 ms
+64 bytes from 1.1.1.1: seq=1 ttl=56 time=20.386 ms
+
+$ docker run --rm curlimages/curl -s ipinfo.io/ip
+11.22.22.11
+
+$ curl -s ipinfo.io/ip
+11.22.22.11
+```
 
 ### Ссылки по теме
 
