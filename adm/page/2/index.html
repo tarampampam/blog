@@ -27,11 +27,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://blog.hook.sh/css/style.css?v=1590250453" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1594054475" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590250453">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590250453">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590250453">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1594054475">
   <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
@@ -121,6 +121,51 @@
   
   
   
+  
+  
+  
+  
+
+  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      
+      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/adm/automate-movies-download/" itemprop="url">RSS → Bash → Transmission</a></h2>
+      <div class="post-meta">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-01-22" itemprop="datePublished">2016.1.22</time>
+        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
+        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
+        <ul class="meta-post-tags">
+          
+          <li><a href="https://blog.hook.sh/tags/automate/">automate</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/bash/">bash</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/centos/">centos</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/cron/">cron</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/mbl/">mbl</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/rss/">rss</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/torrent/">torrent</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/transmission/">transmission</a></li>
+          
+        </ul>
+      </div>
+    </header>
+    <p class="post-summary" itemprop="description">
+      Нахрен долгое вступление. Если на вопрос “Нравится автоматизировать и любишь посмотреть кино?” ты неосознанно ответишь положительно, то прочитанное здесь - тебе понравится. Итак, наверняка у тебя есть своя железяка, которая стоит дома/офисе где-то в уголочке и выполняет роль файлошары/торрентокачалки и Джа знает ещё чего.
+
+    </p>
+    <footer class="post-footer">
+      
+      <a href="/adm/automate-movies-download/" class="more-link">Подробнее под катом &rarr;</a>
+      
+    </footer>
+  </article>
+
   
   
   
@@ -367,45 +412,6 @@ $ iptables -A INPUT -p tcp --dport %номер_порта% -j DROP  А как м
     <footer class="post-footer">
       
       <a href="/adm/install-xmpp-server-jabberd/" class="more-link">Подробнее под катом &rarr;</a>
-      
-    </footer>
-  </article>
-
-  
-  
-  
-  
-
-  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-      
-      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/adm/how-enable-https-on-website/" itemprop="url">Включаем поддержку HTTPS на сайте</a></h2>
-      <div class="post-meta">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-03-10" itemprop="datePublished">2015.3.10</time>
-        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
-        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
-        <ul class="meta-post-tags">
-          
-          <li><a href="https://blog.hook.sh/tags/http/">http</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/https/">https</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/nginx/">nginx</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/shell/">shell</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/ssl/">ssl</a></li>
-          
-        </ul>
-      </div>
-    </header>
-    <p class="post-summary" itemprop="description">
-      Крайнее время, в связи с различными факторами - всё чаще встает вопрос безопасности передачи данных между клиентом и сервером. Разные жулики и спец. службы перехватывают трафик, вытаскивают из него различные данные (включая пароли), некоторые провайдеры публичные точки доступа в сеть даже встраивают в него рекламные баннеры. Для решения этой задачи уже имеются необходимые механизмы под именем SSL, с которыми мы сейчас довольно плотно и поработаем. Данная технология позволяет дать почти 100% гарантии, что трафик не будет прослушан и видоизменен. Подробнее об этом есть смысл спросить у Вики.
-
-    </p>
-    <footer class="post-footer">
-      
-      <a href="/adm/how-enable-https-on-website/" class="more-link">Подробнее под катом &rarr;</a>
       
     </footer>
   </article>

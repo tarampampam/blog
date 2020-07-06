@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Настройка iptables для swarm кластера - blog [dot] hook</title>
+  
+  <meta name="description" content="Однажды я решил поднять свой крохотный кластер для приложений, запускаемых в docker-контейнерах. Выбор был между nomad (уже не один комрад его настоятельно рекомендовал - обязательно попробую, но позже), K8S (слишком сложно и дорого по ресурсам для pet-проекта) и Docker Swarm (никакого дополнительного софта не потребуется, поставляется вместе с самим докером). Как ты понимаешь - выбор пал именно на последний.
+По тому как его поднять и базово настроить - материалов полно, но когда дело дошло до настройки огненной стены - вот тут начались некоторые трудности.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://blog.hook.sh/css/style.css?v=1594054475" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1594054475">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Настройка iptables для swarm кластера</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2020-07-06"
+        itemprop="datePublished">2020.7.6</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+      <div class="post-featured-image">
+        <img src="https://blog.hook.sh//images/posts/iptables-tips-wide.jpg" itemprop="image" alt="Настройка iptables для swarm кластера" />
+      </div>
+    
+
+    <div class="outdated-post" data-posted-at="2020-07-06">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    
+
+<p>Однажды я решил поднять свой крохотный кластер для приложений, запускаемых в docker-контейнерах. Выбор был между <a href="https://www.nomadproject.io/">nomad</a> <em>(уже не один комрад его настоятельно рекомендовал - обязательно попробую, но позже)</em>, <a href="https://kubernetes.io/">K8S</a> <em>(слишком сложно и дорого по ресурсам для pet-проекта)</em> и <a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a> <em>(никакого дополнительного софта не потребуется, поставляется вместе с самим докером)</em>. Как ты понимаешь - выбор пал именно на последний.</p>
+
+<p>По тому как его поднять и базово настроить - материалов полно, но когда дело дошло до настройки огненной стены - вот тут начались некоторые трудности. Известно, что <code>docker</code> активно эксплуатирует сетевые интерфейсы и <code>iptables</code> для управления трафиком между сетями и контейнерами. Как настроить ограничения доступа к master и worker-нодам класстерам ниже мы и поговорим.</p>
+
+<p>Итак, мы имеем:</p>
+
+<ul>
+<li><code>internal</code>-сеть <code>10.10.10.0/24</code>, к которой подключены все наши серверы - она используется как внутренняя (без ограничений) для общения сервером между собой (при создании swarm был указан сетевой интерфейс, &ldquo;смотрящий&rdquo; в этй сеть <code>docker swarm init --advertise-addr ens11</code>)</li>
+<li>Каждый сервер имеет белый &ldquo;внешний&rdquo; IP адрес (на сетевом интерфейсе <code>eth0</code>)</li>
+<li>Один сервер в роли <code>master</code>-ноды swarm-а - он же выполняет роль точки входа <em>(ingress)</em> в ресурсы кластера, т.е. весь трафик (http(s), tcp, udp) приходит на него и дальше уже перенаправляется в нужные контейнеры балансируя нагрузку (на этом сервере открываются <strong>все необходимые</strong> порты, что должы &ldquo;светиться&rdquo; наружу, естественно, и ssh для административного доступа). Сами контейнеры, что будут обрабатывать трафик находятся на <code>worker</code>-нодах</li>
+<li>Два сервера в роли <code>worker</code>-ов - на них то и запускаются приложения в контейнерах, что обрабатывают наши запросы (tcp/udp пакеты)</li>
+</ul>
+
+<p>Нам нужно:</p>
+
+<ul>
+<li>Не ограничивать <strong>исходящий</strong> трафик на серверах на <code>eth0</code> интерфейсе - любой процесс должен без ограничений ходить в глобальную сеть</li>
+<li>Закрыть входящие на всех портах <code>eth0</code>, кроме явно разрешенных (в нашем случае это будет только ssh на <code>worker</code>-нодах и <code>http\https\ssh</code> на <code>master</code>)</li>
+<li>Для <code>internal</code>-сети на интерфейсе <code>ens11</code> не вводить никаких ограничений</li>
+<li>При запуске docker-контейнера, даже с публикацией порта в хост (<code>network: host</code>) - не открывать этот порт &ldquo;наружу&rdquo; (для этого нужно будет явно добавить правило исключения и только на <code>master</code>-ноде)</li>
+</ul>
+
+<h2 id="worker"><code>worker</code></h2>
+
+<p>Аналогична для всех <code>worker</code>-нод в кластере. Перед выполнением каких-либо манипуляций c <code>iptables</code> настоятельно рекомендую (читай - обязательно) вывести ноду из работы, для чего на <code>master</code> выполни (подставляя имя или ID нужной ноды):</p>
+
+<pre><code class="language-bash">$ docker node ls
+ID                            HOSTNAME    STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+m0au96xa2pfiwxhdhweux5b92 *   ingress-1   Ready     Active         Leader           19.03.12
+sweebuhuzfnr2bygrwg4jxddn     node-1      Ready     Active                          19.03.12
+5ikrj3ugkdiublkfe70j9upad     node-2      Ready     Active                          19.03.12
+
+$ docker node update node-1 --availability drain
+</code></pre>
+
+<p>А по <strong>завершению</strong> работ обратно вводи ноду в строй:</p>
+
+<pre><code class="language-bash">$ docker node update node-1 --availability active
+</code></pre>
+
+<p>Итак, ставим <code>iptables-persistent</code> (все, что ниже выполняется уже на самой <code>worker</code>-ноде):</p>
+
+<pre><code class="language-bash">$ apt install iptables-persistent
+$ cd /etc/iptables
+</code></pre>
+
+<p>И приводим файлы <code>rules.v4</code> и <code>rules.v6</code> к следующему состоянию (правим только <code>filter</code>, оставил только нужные изменения):</p>
+
+<pre><code class="language-bash">$ cat ./rules.v4
+
+# ...
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:CHECKS - [0:0] # added
+# ...
+-A INPUT -i eth0 -j CHECKS
+-A FORWARD ...
+-A CHECKS -p tcp -m tcp --dport 22 -m comment --comment SSH -j ACCEPT
+-A CHECKS -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 3 -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 11 -j ACCEPT
+-A CHECKS -p icmp -m icmp --icmp-type 8 -m limit --limit 8/sec -j ACCEPT
+-A CHECKS -j DROP
+-A DOCKER ...
+-A DOCKER-ISOLATION-STAGE-1 ...
+-A DOCKER-ISOLATION-STAGE-2 ...
+-A DOCKER-USER -i eth0 -j DROP
+-A DOCKER-USER -j RETURN
+COMMIT
+# ...
+</code></pre>
+
+<pre><code class="language-bash">$ cat ./rules.v6
+
+#...
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+:WCFW-ICMP - [0:0]
+:WCFW-Local - [0:0]
+:WCFW-Services - [0:0]
+:WCFW-State - [0:0]
+-A INPUT -j WCFW-Local
+-A INPUT -j WCFW-State
+-A INPUT -p ipv6-icmp -j WCFW-ICMP
+-A INPUT -j WCFW-Services
+-A OUTPUT -j WCFW-Local
+-A OUTPUT -j WCFW-State
+-A OUTPUT -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 1 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 2 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 3 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 4 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 133 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 134 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 135 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 136 -j ACCEPT
+-A WCFW-ICMP -p ipv6-icmp -m icmp6 --icmpv6-type 128 -m limit --limit 8/sec -j ACCEPT
+-A WCFW-Local -i lo -j ACCEPT
+-A WCFW-Services -i eth0 -p tcp -m tcp --dport 22 -m comment --comment SSH -j ACCEPT
+-A WCFW-State -m conntrack --ctstate INVALID -j DROP
+-A WCFW-State -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+COMMIT
+# ...
+</code></pre>
+
+<p>После чего заставляем <code>iptables</code> использовать наши правила:</p>
+
+<pre><code class="language-bash">$ iptables-restore ./rules.v4
+$ ip6tables-restore ./rules.v6
+</code></pre>
+
+<h2 id="master"><code>master</code></h2>
+
+<p>Аналогично с <code>worker</code>-ами ставим <code>iptables-persistent</code> и приводим к виду:</p>
+
+<blockquote>
+<p>WIP</p>
+</blockquote>
+
+<h3 id="ссылки-по-теме">Ссылки по теме</h3>
+
+<ul>
+<li><a href="https://docs.docker.com/network/iptables/#add-iptables-policies-before-dockers-rules">Docker and iptables</a></li>
+<li><a href="https://habr.com/ru/post/333874/">Сети Docker изнутри: как Docker использует iptables и интерфейсы Linux</a></li>
+<li><a href="https://habr.com/ru/post/473222/">Пользовательские правила iptables для docker на примере zabbix</a></li>
+<li><a href="https://community.hetzner.com/tutorials/debian-10-docker-install-dual%20stack-ipv6nat-firewall">Install Docker CE on Debian 10 with Dual stack IPv6-NAT and Firewall Support</a></li>
+</ul>
+
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
+      
+      <li><a href="https://blog.hook.sh/tags/iptables/">iptables</a></li>
+      
+      <li><a href="https://blog.hook.sh/tags/swarm/">swarm</a></li>
+      
+      <li><a href="https://blog.hook.sh/tags/docker/">docker</a></li>
+      
+      <li><a href="https://blog.hook.sh/tags/security/">security</a></li>
+      
+    </ul>
+    
+
+    <a href="https://github.com/tarampampam/blog/edit/master/content/adm/docker-swarm-iptables.md" class="edit-post">
+      <i class="fa fa-pencil" aria-hidden="true"></i> Редактировать
+    </a>
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.setAttribute('theme', 'photon-dark');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2020 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

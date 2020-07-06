@@ -27,11 +27,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://blog.hook.sh/css/style.css?v=1590250453" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1594054475" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590250453">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590250453">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590250453">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1594054475">
   <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
@@ -115,6 +115,51 @@
   
   
   
+  
+  
+  
+  
+
+  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      
+      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/adm/install-xmpp-server-jabberd/" itemprop="url">Поднимаем свой Jabber сервер</a></h2>
+      <div class="post-meta">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-04-01" itemprop="datePublished">2015.4.1</time>
+        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 12 min
+        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
+        <ul class="meta-post-tags">
+          
+          <li><a href="https://blog.hook.sh/tags/bash/">bash</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/centos/">centos</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/jabber/">jabber</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/mysql/">mysql</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/openssl/">openssl</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/ssl/">ssl</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/xmpp/">xmpp</a></li>
+          
+        </ul>
+      </div>
+    </header>
+    <p class="post-summary" itemprop="description">
+      Да с игрищами и блудницами, да. Но перед тем как это делать - давай определимся - какой сервер мы будем ставить. Выбор предо мной, собственно, был не велик:
+ OpenFire (Apache License 2.0) - написан на Java и большинство функций на нём делаются в бесплатной версии; EJabberd (GNU GPL) - написан на Erlang, модульный, есть веб-морда в комплекте, поддерживает кластеризацию; jabberd2 (GNU GPL) - написан на C, тоже модульный, более компактный; 
+    </p>
+    <footer class="post-footer">
+      
+      <a href="/adm/install-xmpp-server-jabberd/" class="more-link">Подробнее под катом &rarr;</a>
+      
+    </footer>
+  </article>
+
   
   
   
@@ -350,46 +395,6 @@ $ sudo chromeos-firmwareupdate --mode=todev $ wget http://goo.
     <footer class="post-footer">
       
       <a href="/tnt/disable-skype-ad/" class="more-link">Подробнее под катом &rarr;</a>
-      
-    </footer>
-  </article>
-
-  
-  
-  
-  
-
-  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-      
-      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/adm/backup-system-config-linux/" itemprop="url">Backup системных настроек linux</a></h2>
-      <div class="post-meta">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2015-02-07" itemprop="datePublished">2015.2.7</time>
-        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 2 min
-        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
-        <ul class="meta-post-tags">
-          
-          <li><a href="https://blog.hook.sh/tags/backup/">backup</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/script/">script</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/system/">system</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/tar/">tar</a></li>
-          
-        </ul>
-      </div>
-    </header>
-    <p class="post-summary" itemprop="description">
-      Итак, у нас есть система, которая работает и выполняет свои задачи. Более того - у нас происходит периодическое копирование всех рабочих данных, настроено оповещение и казалось бы - лучше ничего не трогать, так как всё и так работает.
-Но теперь давай рассмотрим ситуацию, что у нас “что то пошло не так”. И это “что то” привело систему в негодность, да такую что проще всё уже заново поднять. Копия рабочих данных у нас имеются, но вот настройки системы - момент довольно тонкий и хлопотливый. Да, лучше всего делать образ системы целиком, но не всегда есть такая возможность.
-
-    </p>
-    <footer class="post-footer">
-      
-      <a href="/adm/backup-system-config-linux/" class="more-link">Подробнее под катом &rarr;</a>
       
     </footer>
   </article>

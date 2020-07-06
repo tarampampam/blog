@@ -27,11 +27,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://blog.hook.sh/css/style.css?v=1590250453" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1594054475" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1590250453">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1590250453">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1590250453">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1594054475">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1594054475">
   <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
@@ -122,6 +122,45 @@
   
   
   
+  
+  
+  
+  
+
+  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      
+      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/adm/iptables-for-docker-swarm/" itemprop="url">Настройка iptables для swarm кластера</a></h2>
+      <div class="post-meta">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2020-07-06" itemprop="datePublished">2020.7.6</time>
+        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 4 min
+        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
+        <ul class="meta-post-tags">
+          
+          <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/iptables/">iptables</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/swarm/">swarm</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/docker/">docker</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/security/">security</a></li>
+          
+        </ul>
+      </div>
+    </header>
+    <p class="post-summary" itemprop="description">
+      Однажды я решил поднять свой крохотный кластер для приложений, запускаемых в docker-контейнерах. Выбор был между nomad (уже не один комрад его настоятельно рекомендовал - обязательно попробую, но позже), K8S (слишком сложно и дорого по ресурсам для pet-проекта) и Docker Swarm (никакого дополнительного софта не потребуется, поставляется вместе с самим докером). Как ты понимаешь - выбор пал именно на последний.
+По тому как его поднять и базово настроить - материалов полно, но когда дело дошло до настройки огненной стены - вот тут начались некоторые трудности.
+    </p>
+    <footer class="post-footer">
+      
+      <a href="/adm/iptables-for-docker-swarm/" class="more-link">Подробнее под катом &rarr;</a>
+      
+    </footer>
+  </article>
+
   
   
   
@@ -359,53 +398,6 @@ Richard M. Stallman и Roland McGrath, перевод © Владимир Игн
     <footer class="post-footer">
       
       <a href="/adm/automatic-wordpress-theme-or-plugin-deploy-from-bitbucket/" class="more-link">Подробнее под катом &rarr;</a>
-      
-    </footer>
-  </article>
-
-  
-  
-  
-  
-
-  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-      
-      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/adm/install-lemp-stack-on-centos/" itemprop="url">LEMP &#43; CentOS = ❤</a></h2>
-      <div class="post-meta">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2016-06-29" itemprop="datePublished">2016.6.29</time>
-        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 12 min
-        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
-        <ul class="meta-post-tags">
-          
-          <li><a href="https://blog.hook.sh/tags/bash/">bash</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/centos/">centos</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/cron/">cron</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/iptables/">iptables</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/linux/">linux</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/nginx/">nginx</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/php/">php</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/shell/">shell</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/ssh/">ssh</a></li>
-          
-        </ul>
-      </div>
-    </header>
-    <p class="post-summary" itemprop="description">
-      Данный пост скорее заметка для самого себя, дабы не забыть чего при новой итерации. Нового в ней ничего нет, ставим пакеты да настраиваем. У нас имеется новый и девственно чистый сервер под управлением CentOS 7.2 (minimal). Задача - поставить на него nginx &#43; php &#43; php-fpm &#43; mysql и чтоб всё это шустро работало, да обновлялось самостоятельно из репозиториев (при возможности). Так же необходим тот же phpMyAdmin и настроенная отправка почты с сервера. В общем - минимальный web-stack, на котором хоть разработкой занимайся, хоть что-то вордпресо-подобное разворачивай. Сервер, к слову, располагается на hetzner.de.
-
-    </p>
-    <footer class="post-footer">
-      
-      <a href="/adm/install-lemp-stack-on-centos/" class="more-link">Подробнее под катом &rarr;</a>
       
     </footer>
   </article>

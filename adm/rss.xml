@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
-    <lastBuildDate>Sat, 13 Aug 2016 10:57:36 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2020 15:11:47 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.hook.sh/adm/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Настройка iptables для swarm кластера</title>
+      <link>https://blog.hook.sh/adm/iptables-for-docker-swarm/</link>
+      <pubDate>Mon, 06 Jul 2020 15:11:47 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/adm/iptables-for-docker-swarm/</guid>
+      <description>Однажды я решил поднять свой крохотный кластер для приложений, запускаемых в docker-контейнерах. Выбор был между nomad (уже не один комрад его настоятельно рекомендовал - обязательно попробую, но позже), K8S (слишком сложно и дорого по ресурсам для pet-проекта) и Docker Swarm (никакого дополнительного софта не потребуется, поставляется вместе с самим докером). Как ты понимаешь - выбор пал именно на последний.
+По тому как его поднять и базово настроить - материалов полно, но когда дело дошло до настройки огненной стены - вот тут начались некоторые трудности.</description>
+    </item>
     
     <item>
       <title>Поднимаем свой, приватный прокси-сервер</title>

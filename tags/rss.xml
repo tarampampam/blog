@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
-    <lastBuildDate>Thu, 31 Jan 2019 16:25:45 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2020 15:11:47 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.hook.sh/tags/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>https://blog.hook.sh/tags/docker/</link>
+      <pubDate>Mon, 06 Jul 2020 15:11:47 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iptables</title>
+      <link>https://blog.hook.sh/tags/iptables/</link>
+      <pubDate>Mon, 06 Jul 2020 15:11:47 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/iptables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://blog.hook.sh/tags/linux/</link>
+      <pubDate>Mon, 06 Jul 2020 15:11:47 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://blog.hook.sh/tags/security/</link>
+      <pubDate>Mon, 06 Jul 2020 15:11:47 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swarm</title>
+      <link>https://blog.hook.sh/tags/swarm/</link>
+      <pubDate>Mon, 06 Jul 2020 15:11:47 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/swarm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>etc</title>
@@ -18,15 +63,6 @@
       <pubDate>Thu, 31 Jan 2019 16:25:45 +0000</pubDate>
       
       <guid>https://blog.hook.sh/tags/etc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://blog.hook.sh/tags/linux/</link>
-      <pubDate>Thu, 31 Jan 2019 16:25:45 +0000</pubDate>
-      
-      <guid>https://blog.hook.sh/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -72,15 +108,6 @@
       <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
       
       <guid>https://blog.hook.sh/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://blog.hook.sh/tags/docker/</link>
-      <pubDate>Mon, 15 Oct 2018 13:35:50 +0000</pubDate>
-      
-      <guid>https://blog.hook.sh/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -328,15 +355,6 @@
     </item>
     
     <item>
-      <title>iptables</title>
-      <link>https://blog.hook.sh/tags/iptables/</link>
-      <pubDate>Wed, 29 Jun 2016 12:03:09 +0000</pubDate>
-      
-      <guid>https://blog.hook.sh/tags/iptables/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>build</title>
       <link>https://blog.hook.sh/tags/build/</link>
       <pubDate>Tue, 16 Feb 2016 15:36:49 +0000</pubDate>
@@ -576,15 +594,6 @@
       <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
       
       <guid>https://blog.hook.sh/tags/hack/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://blog.hook.sh/tags/security/</link>
-      <pubDate>Wed, 12 Aug 2015 10:05:15 +0000</pubDate>
-      
-      <guid>https://blog.hook.sh/tags/security/</guid>
       <description></description>
     </item>
     
