@@ -157,6 +157,8 @@ $ cat ./rules.v4
 -A DOCKER ...
 -A DOCKER-ISOLATION-STAGE-1 ...
 -A DOCKER-ISOLATION-STAGE-2 ...
+-A DOCKER-USER -i eth0 -p tcp -m tcp -m conntrack --ctorigdstport 80 -m comment --comment HTTP -j ACCEPT
+-A DOCKER-USER -i eth0 -p tcp -m tcp -m conntrack --ctorigdstport 443 -m comment --comment HTTPS -j ACCEPT
 -A DOCKER-USER -i eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A DOCKER-USER -i eth0 -j DROP
 COMMIT
@@ -203,6 +205,7 @@ $ curl -s ipinfo.io/ip
 
 ### Ссылки по теме
 
+- [Limiting outside connections to docker container with iptables](https://serverfault.com/a/933803)
 - [Docker and iptables](https://docs.docker.com/network/iptables/#add-iptables-policies-before-dockers-rules)
 - [Сети Docker изнутри: как Docker использует iptables и интерфейсы Linux](https://habr.com/ru/post/333874/)
 - [Пользовательские правила iptables для docker на примере zabbix](https://habr.com/ru/post/473222/)
