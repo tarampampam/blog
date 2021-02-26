@@ -12,7 +12,7 @@ env:
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
   spellcheck:
     name: Spell Check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Check out sources
         uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
 
   build:
     name: Try to build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Check out sources
         uses: actions/checkout@v2
@@ -43,7 +43,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
 
   lint-markdown:
     name: Lint markdown files
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Check out code
         uses: actions/checkout@v2
