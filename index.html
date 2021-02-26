@@ -27,11 +27,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
         crossorigin="anonymous" />
-  <link href="https://blog.hook.sh/css/style.css?v=1594114935" rel="stylesheet">
+  <link href="https://blog.hook.sh/css/style.css?v=1614349001" rel="stylesheet">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1594114935">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1594114935">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1594114935">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1614349001">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1614349001">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1614349001">
   <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
   <meta name="msapplication-TileColor" content="#282b2f">
   <meta name="theme-color" content="#282b2f">
@@ -122,6 +122,42 @@
   
 
   <article class="post first-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      
+      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/hard/mi-m365-pro-led-backlight/" itemprop="url">Led-подсветка для Xiaomi Mi M365 Pro своими руками</a></h2>
+      <div class="post-meta">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2021-02-26" itemprop="datePublished">2021.2.26</time>
+        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
+        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
+        <ul class="meta-post-tags">
+          
+          <li><a href="https://blog.hook.sh/tags/scooter/">scooter</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/m365/">m365</a></li>
+          
+          <li><a href="https://blog.hook.sh/tags/soldering-iron/">soldering-iron</a></li>
+          
+        </ul>
+      </div>
+    </header>
+    <p class="post-summary" itemprop="description">
+      Как пользователь электро-самоката M365 версии Pro со стажем — могу смело заявить, что быть заметным как для участников дорожного движения, так и пешеходного — очень важно. Если передвигаясь днем по обочине дорог или тротуару можно считать что твоя заметность достаточна для других участников движения (недостаток с лихвой компенсируется светоотражающим жилетом), то вот в темное время суток картина несколько меняется. И меняется особенно резко при движении по тротуару со включенной фарой - особенность устройства и расположения фары на самокате таковы, что идущих на встречу ты просто слепишь, и сзади тебя не видно от слова совсем.
+Задавшись вопросом “как это можно исправить” было принято решение интегрировать пару led-лент в днище самоката так, чтоб они освещали землю под ним (тем самым обозначая местоположение самоката для других) и при этом надежность решения не вызывала сомнения. Ниже будем в меру подробное описание того, какие комплектующие для этого были выбраны, их цены и с какими сложностями столкнулся.
+
+    </p>
+    <footer class="post-footer">
+      
+      <a href="/hard/mi-m365-pro-led-backlight/" class="more-link">Подробнее под катом &rarr;</a>
+      
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
       
       <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/adm/iptables-for-docker-swarm/" itemprop="url">Настройка iptables для swarm кластера</a></h2>
@@ -353,41 +389,6 @@ Richard M. Stallman и Roland McGrath, перевод © Владимир Игн
 
   
   
-  
-  
-
-  <article class="post post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-    <header class="post-header">
-      
-      <h2 class="post-title" itemprop="name"><a href="https://blog.hook.sh/php/override-laravel-env-file-location/" itemprop="url">Переопределяем расположение .env файла для Laravel</a></h2>
-      <div class="post-meta">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2018-08-23" itemprop="datePublished">2018.8.23</time>
-        &middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 2 min
-        &middot; <i class="fa fa-tags" aria-hidden="true"></i>
-        <ul class="meta-post-tags">
-          
-          <li><a href="https://blog.hook.sh/tags/php/">php</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/laravel/">laravel</a></li>
-          
-          <li><a href="https://blog.hook.sh/tags/phpunit/">phpunit</a></li>
-          
-        </ul>
-      </div>
-    </header>
-    <p class="post-summary" itemprop="description">
-      Столкнулся с ситуацией, когда необходимо переопределить расположение .env файла, который используется, к примеру - для запуска phpunit тестов. Да, если в корне приложения имеется файл .env.testing - то он автоматически будет прочитан фреймворком при APP_ENV равным testing, но вот что делать, если этот файл необходимо разметить в какой-либо другой директории? Давай расположим его в ./env.d/ дабы, например, не “мусорить” в корне приложения.
-
-    </p>
-    <footer class="post-footer">
-      
-      <a href="/php/override-laravel-env-file-location/" class="more-link">Подробнее под катом &rarr;</a>
-      
-    </footer>
-  </article>
-
-  
-  
 
   
   <footer class="list-footer">
@@ -404,7 +405,7 @@ Richard M. Stallman и Roland McGrath, перевод © Владимир Игн
 
 </main>
 <footer class="footer">
-  <span>2020 &copy; Make love, not war</span>
+  <span>2021 &copy; Make love, not war</span>
   
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Led-подсветка для Xiaomi Mi M365 Pro своими руками - blog [dot] hook</title>
+  
+  <meta name="description" content="Как пользователь электро-самоката M365 версии Pro со стажем — могу смело заявить, что быть заметным как для участников дорожного движения, так и пешеходного — очень важно. Если передвигаясь днем по обочине дорог или тротуару можно считать что твоя заметность достаточна для других участников движения (недостаток с лихвой компенсируется светоотражающим жилетом), то вот в темное время суток картина несколько меняется. И меняется особенно резко при движении по тротуару со включенной фарой - особенность устройства и расположения фары на самокате таковы, что идущих на встречу ты просто слепишь, и сзади тебя не видно от слова совсем.
+Задавшись вопросом &amp;ldquo;как это можно исправить&amp;rdquo; было принято решение интегрировать пару led-лент в днище самоката так, чтоб они освещали землю под ним (тем самым обозначая местоположение самоката для других) и при этом надежность решения не вызывала сомнения. Ниже будем в меру подробное описание того, какие комплектующие для этого были выбраны, их цены и с какими сложностями столкнулся.">
+  <meta name="author" content="Paramtamtam">
+  
+  <style>
+    .pace {pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+    .pace-inactive {display:none}
+    .pace .pace-progress {background:#2299dd;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:1px}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+          integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM="
+          crossorigin="anonymous"></script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/obsidian.min.css"
+        integrity="sha256-DSLpkHOyIkdP+qB1tVfhDqoTis6ZnkH6fJIYxRoMUZY="
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+        crossorigin="anonymous" />
+  <link href="https://blog.hook.sh/css/style.css?v=1614349001" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.hook.sh/apple-touch-icon.png?v=1614349001">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.hook.sh/favicon-32x32.png?v=1614349001">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.hook.sh/favicon-16x16.png?v=1614349001">
+  <link rel="manifest" href="https://blog.hook.sh/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#282b2f">
+  <meta name="theme-color" content="#282b2f">
+  
+  </head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://blog.hook.sh/">blog [dot] hook</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/adm/">Adm</a>
+        </li>
+        
+        <li class="">
+          <a href="/dev/">Dev</a>
+        </li>
+        
+        <li class="">
+          <a href="/docker/">Docker</a>
+        </li>
+        
+        <li class="">
+          <a href="/etc/">Etc</a>
+        </li>
+        
+        <li class="">
+          <a href="/hack/">Hack</a>
+        </li>
+        
+        <li class="">
+          <a href="/hard/">Hard</a>
+        </li>
+        
+        <li class="">
+          <a href="/mikrotik/">Mikrotik</a>
+        </li>
+        
+        <li class="">
+          <a href="/my-book-live/">My-book-live</a>
+        </li>
+        
+        <li class="">
+          <a href="/nix/">Nix</a>
+        </li>
+        
+        <li class="">
+          <a href="/php/">Php</a>
+        </li>
+        
+        <li class="">
+          <a href="/software/">Software</a>
+        </li>
+        
+        <li class="">
+          <a href="/text/">Text</a>
+        </li>
+        
+        <li class="">
+          <a href="/tnt/">Tnt</a>
+        </li>
+        
+        <li class="">
+          <a href="/wp/">Wp</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">Led-подсветка для Xiaomi Mi M365 Pro своими руками</h1>
+    <p class="post-meta"><i class="fa fa-user-secret" aria-hidden="true"></i> <span itemprop="author">
+        Paramtamtam
+      </span> · 
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;<time datetime="2021-02-26"
+        itemprop="datePublished">2021.2.26</time>
+      &nbsp;&middot; <i class="fa fa-clock-o" aria-hidden="true"></i> 6 min
+    </p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    
+
+    <div class="outdated-post" data-posted-at="2021-02-26">
+      <strong>Внимание!</strong> Данный пост был опубликован более года назад и, возможно, уже утратил свою былую
+      актуальность. Но это не точно.
+    </div>
+
+    <p>Как пользователь электро-самоката M365 версии Pro со стажем — могу смело заявить, что быть заметным как для участников дорожного движения, так и пешеходного — очень важно. Если передвигаясь днем по обочине дорог или тротуару можно считать что твоя заметность достаточна для других участников движения (недостаток с лихвой компенсируется светоотражающим жилетом), то вот в темное время суток картина несколько меняется. И меняется особенно резко при движении по тротуару со включенной фарой - особенность устройства и расположения фары на самокате таковы, что идущих на встречу ты просто слепишь, и сзади тебя не видно от слова совсем.</p>
+
+<p>Задавшись вопросом &ldquo;как это можно исправить&rdquo; было принято решение интегрировать пару led-лент в днище самоката так, чтоб они освещали землю под ним (тем самым обозначая местоположение самоката для других) и при этом надежность решения не вызывала сомнения. Ниже будем в меру подробное описание того, какие комплектующие для этого были выбраны, их цены и с какими сложностями столкнулся.</p>
+
+<h2 id="схема">Схема</h2>
+
+<p>Как решение любой задачи в программировании начинается с проработки алгоритма, тут всё началось с принципиальной схемы:</p>
+
+<p><img src="/images/posts/m365-backlight/circuit-diagram.jpg" alt="circuit-diagram" /></p>
+
+<p>Если словами - то мы:</p>
+
+<ul>
+<li>Берем 2 светодиодные ленты на 12V, питаем их через понижающий блок</li>
+<li>Понижающий блок в свою очередь запитываем прямо от батареи самоката <em>(через предохранитель на 1A)</em></li>
+<li>Для включения понижающего блока используем твердотельное реле, которое &ldquo;включает&rdquo; в работу нашу схему в тот момент, когда мы включаем фару</li>
+</ul>
+
+<p>Таким образом нам не придется выводить какие-либо дополнительные кнопки для включения подсветки (интуитивность на максимуме), пока не включена фара у нас цепь разомкнута <em>(утечки тока минимальны, только через реле совсем чуть-чуть)</em>, да и в целом всё довольно просто.</p>
+
+<blockquote>
+<p>Делать RGB подсветку с управлением, например - силами Arduino по BT не стал осознанно.</p>
+</blockquote>
+
+<h2 id="комплектующие">Комплектующие</h2>
+
+<p>Что делать - понятно, теперь разбираемся с элементной базой. Взял следующие штуки:</p>
+
+<table>
+<thead>
+<tr>
+<th>Наименование</th>
+<th>Цена</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://aliexpress.ru/item/4001022366326.html">LED ленты цвета &ldquo;Cold White&rdquo; 12V (IP67) в защитной тубе по 0.5м, 2 шт.</a></td>
+<td>879,70 ₽</td>
+</tr>
+
+<tr>
+<td><a href="https://aliexpress.ru/item/32886316508.html">Понижающий преобразователь с 20..72V (DC) до 12V (DC) 5A 60W</a></td>
+<td>1 012,17 ₽</td>
+</tr>
+
+<tr>
+<td><a href="https://aliexpress.ru/item/32664722075.html">Твердотельное реле SSR-DD2205HK на 5A</a></td>
+<td>296,53 ₽</td>
+</tr>
+
+<tr>
+<td><a href="https://aliexpress.ru/item/4001295332182.html">Малый предохранитель 1A на проводе 16 AWG</a></td>
+<td>54,40 ₽</td>
+</tr>
+
+<tr>
+<td><a href="https://aliexpress.ru/item/4000009001537.html">Провод 16AWG (черный и красный), по метру каждого цвета</a></td>
+<td>179,51 ₽</td>
+</tr>
+
+<tr>
+<td><a href="https://aliexpress.ru/item/4000567154018.html">Провод 28AWG двужильный, 5 метров</a></td>
+<td>348,15 ₽</td>
+</tr>
+
+<tr>
+<td><a href="https://aliexpress.ru/item/4000508049106.html">Разъемы XT30 с проводом 16AWG, 3 шт.</a></td>
+<td>378,46 ₽</td>
+</tr>
+
+<tr>
+<td><a href="https://aliexpress.ru/item/33023814410.html">Разъемы двух-контактные на проводе 22AWG</a></td>
+<td>122,09 ₽</td>
+</tr>
+</tbody>
+</table>
+
+<p>Итого вышло на ~3 300 ₽, и самое дорогое - это понижающий блок. Взял его осознанно &ldquo;подороже&rdquo;, так как и его форм-фактор в виде залитого эпоксидной смолой блока подкупил, и положительные отзывы.</p>
+
+<h2 id="железо">Железо</h2>
+
+<p>Первое, что было сделано - это &ldquo;закладные&rdquo; для лент на днище деки (по её бокам) самоката. Их цель - защитить ленты от каких-либо механических воздействий (неудачных &ldquo;соскоков&rdquo; с бордюров) и скрыть сам факт присутствия какой-либо кастомизации от любопытных глаз. Для этого в Leroy Merlin приобрел <a href="https://leroymerlin.ru/product/ugolok-alyuminievyy-15h10h2-mm-13014866/">уголок алюминиевый 15х10х2 мм</a> и <a href="https://leroymerlin.ru/product/vint-potaynoy-m3h10-mm-13622511/">болты потайные M3x10 мм.</a> (лучше было бы 5 мм.). Далее дело было за малым:</p>
+
+<ul>
+<li>Примерить (у меня длинна каждого составила 32.5 см.), отрезать, обработать края алюминиевого уголка</li>
+<li>Просверлить по 4 отверстия и за-зенковать их</li>
+<li>Нарезать резьбу под M3 в отверстиях деки</li>
+<li>Загрунтовать и покрасить заготовки</li>
+<li>На фиксатор резьбы (анаэробный клей) вкрутить винты (прикрутить уголки к деке)</li>
+</ul>
+
+<p><img src="/images/posts/m365-backlight/protection-corners.jpg" alt="protection-corners" />
+<img src="/images/posts/m365-backlight/protection-corners-2.jpg" alt="protection-corners-2" /></p>
+
+<h2 id="ленты">Ленты</h2>
+
+<p>Ленты были безжалостно распотрошены и укорочены под длину получившихся закладных. Кроме того провод был заменен на более мощный с толстой изоляцией, так как он будет находиться во внешней среде, и тут я решил заложиться с некоторым запасом. После всех манипуляций с заменой провода края защитной &ldquo;тубы&rdquo; залил бесцветным герметиком <a href="https://leroymerlin.ru/product/kley-germetik-fix-all-crystal-bescvetnyy-290-ml-81967174/">Fix All Crystal</a> (к слову - именно буду использовать и дальше для герметизации стыков и заполнения пустот). Кроме того - края лент были упакованы в термо-усадку, и получилась такая красота:</p>
+
+<p><img src="/images/posts/m365-backlight/led-strip.jpg" alt="led-strip" /></p>
+
+<p>Далее монтируем ленты в закладные, попутно сверля необходимые отверстия (по 2 штуки на каждую сторону) и выводим их провода через &ldquo;родное&rdquo; уплотнительное кольцо стоп-сигнала внутрь деки самоката:</p>
+
+<p><img src="/images/posts/m365-backlight/led-strip-installation.jpg" alt="led-strip-installation" />
+<img src="/images/posts/m365-backlight/led-strip-installation-2.jpg" alt="led-strip-installation-2" /></p>
+
+<p>Далее приклеиваем ленты на двухсторонний скотч к закладным, а свободные пространства между защитным кожухом ленты и корпусом деки/закладных заполняем всё тем же прозрачным герметиком (не дадим грязи повода скапливаться в образовывавшихся щелях). Если надо будет ленту заменить - просто срежем всё это добро ножом и зачистим растворителем.</p>
+
+<h2 id="электроника">Электроника</h2>
+
+<p>Вооружившись паяльником и поглядывая на нашу схему собираем все части схемы воедино:</p>
+
+<p><img src="/images/posts/m365-backlight/electronic-part.jpg" alt="electronic-part" /></p>
+
+<p>Длину проводов подгоняем &ldquo;по месту&rdquo;, а на концы LED-лент припаиваем двойные разъемы так, чтоб всё это добро соединялось без натяжки, но и без сильных излишков.</p>
+
+<blockquote>
+<p>Небольшое отступление не по теме сабжа - во время этого этапа ещё и дорожки мосфетов на контроллере усилил, и клеммы подключения мотор-колеса к контроллеру пропаял. Последние, к слову - уже начали отгарать, и их обслуживание пришлось как раз вовремя - через несколько месяцев &ldquo;покатушек&rdquo; они наверняка бы отгорели окончательно.</p>
+</blockquote>
+
+<p>Теперь дело за подключением фары самоката к твердотельному реле (чтоб когда мы включили фару - у нас загорелись LED-ленты). Для этого разбираем &ldquo;голову&rdquo; самоката, и разрезав провод питания фары (желто/белый) припаиваем к нему дополнительный разъем (к которому в дальнейшем подключим провод, что потянется до деки). И тут я должен рассказать одну тонкость. Для начала, на фару подается следующее напряжение:</p>
+
+<table>
+<thead>
+<tr>
+<th>Самокат включен?</th>
+<th>Фара включена?</th>
+<th>Фара подключена?</th>
+<th>Напряжение</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Нет</td>
+<td>Нет</td>
+<td>Да</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td>Да</td>
+<td>Нет</td>
+<td>Не важно</td>
+<td>3.7V (&ldquo;дежурное&rdquo; напряжение)</td>
+</tr>
+
+<tr>
+<td>Да</td>
+<td>Да</td>
+<td>Да</td>
+<td>4.1V</td>
+</tr>
+
+<tr>
+<td>Да</td>
+<td>Да</td>
+<td>Нет</td>
+<td>36.3V</td>
+</tr>
+</tbody>
+</table>
+
+<p>Простыми словами - разница между состояниями &ldquo;фара включена&rdquo; и &ldquo;фара выключена&rdquo; (когда фара исправно светится) в напряжении составляет всего 0.4V, а наше твердотельное реле открывается при напряжении от 3V на управляющем вводе. То есть нам нужно понизить значение &ldquo;дежурного&rdquo; напряжения ниже 3V но так, чтоб при включении фары оно было выше этих самых 3V. Сделал это при помощи потециометра (<code>BAOTER 3296 - W 103</code>), что был безжалостно выпаян из какого-то другого регулятора напряжения, что попался под руку. Итоговое сопротивление замерить забыл, каюсь, так что подобрать его придется самостоятельно.</p>
+
+<blockquote>
+<p>Ещё одно важное замечание - верхний предел напряжения на управляющем вводе нашего твердотельного реле составляет 32V, и в случае если фара выйдет из строя (не будет потребителя на выводе контроллера, к которому подключена фара) на него будет подаваться 36.6V, что не есть хорошо. Да, у нас стоит сопротивление для понижения напряжения, но долго ли проработает в этом случае реле - предсказать сложно. Надо просто это помнить и в случае выхода фары из строя - заменить её, либо повысить сопротивление.</p>
+</blockquote>
+
+<p>Проверив работоспособность схемы собираем всё &ldquo;как было&rdquo;, выводя с фары дополнительный коннектор рядом с родным (потенциометр я &ldquo;посадил&rdquo; прямо на новый вывод в термо-усадке, чтоб была возможность при необходимости подстроить его с минимальными усилиями):</p>
+
+<p><img src="/images/posts/m365-backlight/wheel.jpg" alt="wheel" /></p>
+
+<p>Теперь финишная прямая - аккуратно укладываем все новые компоненты в деке (прокладывая их чем-либо мягким чтоб сидели плотно):</p>
+
+<p><img src="/images/posts/m365-backlight/deck.jpg" alt="deck" />
+<img src="/images/posts/m365-backlight/deck-2.jpg" alt="deck-2" /></p>
+
+<p>И через &ldquo;гуся&rdquo; и рулевую стойку протягиваем провод, соединяющий вывод фары (после потенциометра) и выводы управления твердотельного реле. Герметизируем деку, закручиваем всё, герметизируем резиновые уплотнители на &ldquo;гусе&rdquo; и рулевой стойке (чтоб там пролез дополнительный провод - их придется немного подрезать) герметиком и наслаждаемся результатом!</p>
+
+<p>Потребляемая мощность в моем конфиге составляет 1.1 Вт при выключенном свете, и <strong>12.3 Вт</strong> когда включена фара + подсветка из LED-лент. За 1 час работы аккумулятор самоката разряжается примерно на 100 мА/ч (из 12800 в стоке), что составляет менее процента от общего объема (замерял при помощи родного приложения, вкладка информации о батарее).</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/LbkgpPrhgZs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+    
+    </blockquote>
+  </div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="https://blog.hook.sh/tags/scooter/">scooter</a></li>
+      
+      <li><a href="https://blog.hook.sh/tags/m365/">m365</a></li>
+      
+      <li><a href="https://blog.hook.sh/tags/soldering-iron/">soldering-iron</a></li>
+      
+    </ul>
+    
+
+    <a href="https://github.com/tarampampam/blog/edit/master/content/hard/mi-m365-pro-led-backlight.md" class="edit-post">
+      <i class="fa fa-pencil" aria-hidden="true"></i> Редактировать
+    </a>
+  </footer>
+  
+
+  
+    <div class="comments-area">
+      
+      <div id="utteranc-comments"></div>
+      <script>
+        (function () {
+          window.setTimeout(function () {
+            let d = document, s = d.createElement('script');
+            s.src = 'https://utteranc.es/client.js';
+            s.setAttribute('repo', 'tarampampam\/blog');
+            s.setAttribute('issue-term', 'pathname');
+            s.setAttribute('crossorigin', 'anonymous');
+            s.setAttribute('theme', 'photon-dark');
+            s.async = true;
+            s.defer = true;
+            d.getElementById('utteranc-comments').appendChild(s);
+          }, 100);
+        })();
+      </script>
+      
+
+      
+
+    
+  </div>
+  
+</article>
+</main>
+<footer class="footer">
+  <span>2021 &copy; Make love, not war</span>
+  
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+        integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/routeros.min.js"
+        integrity="sha256-OKUUrep5sRJC/VrDnr9rTdY7XR5M/KJ+VfoWqf8Hsic="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"
+        integrity="sha256-tvm0lHsuUZcOfj/0C9xJTU4OQx5KpUgxUcAXLX5kvwA="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"
+        integrity="sha256-2axosoqkcFJ3cXezszojJ8/PdK8VCYVPOwNq7ersKfk="
+        crossorigin="anonymous"
+        data-no-instant></script>
+<script data-no-instant>
+  (function () {
+
+    if (typeof hljs === 'object') {
+      hljs.initHighlightingOnLoad();
+    }
+
+    let
+      $toggle = document.querySelector('.menu-toggle'),
+      $body = document.querySelector('body'),
+      $outdated = document.querySelectorAll('.outdated-post');
+
+    $toggle.addEventListener('click', function () {
+      $body.classList.toggle('noscroll');
+    }, false);
+
+    for (var i = 0, len = $outdated.length; i < len; i++) {
+      let
+        $el = $outdated[i],
+        now = new Date(),
+        posted_at = new Date($el.getAttribute('data-posted-at')),
+        diff = Math.abs(now.getTime() - posted_at.getTime()),
+        days = Math.ceil(diff / (1000 * 3600 * 24));
+
+      if (days >= 547  ) {
+        $el.style.display = 'block';
+        $el.style.visibility = 'visible'
+      }
+    }
+
+  })();
+</script>
+</body>
+</html>
+

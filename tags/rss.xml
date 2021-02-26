@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ru</language>
     <copyright>Make love, not war</copyright>
-    <lastBuildDate>Mon, 06 Jul 2020 15:11:47 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Feb 2021 10:01:21 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.hook.sh/tags/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>m365</title>
+      <link>https://blog.hook.sh/tags/m365/</link>
+      <pubDate>Fri, 26 Feb 2021 10:01:21 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/m365/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scooter</title>
+      <link>https://blog.hook.sh/tags/scooter/</link>
+      <pubDate>Fri, 26 Feb 2021 10:01:21 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/scooter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>soldering-iron</title>
+      <link>https://blog.hook.sh/tags/soldering-iron/</link>
+      <pubDate>Fri, 26 Feb 2021 10:01:21 +0000</pubDate>
+      
+      <guid>https://blog.hook.sh/tags/soldering-iron/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
