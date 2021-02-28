@@ -12,7 +12,7 @@ env:
 jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-actions>
   build:
     name: Build content
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Check out sources
         uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs: # Docs: <https://help.github.com/en/articles/workflow-syntax-for-github-ac
 
   publish:
     name: Publish content
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [build]
     steps:
       - name: Check out sources
